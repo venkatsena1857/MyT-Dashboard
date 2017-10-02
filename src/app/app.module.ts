@@ -15,6 +15,9 @@ import { AdminLayoutComponent } from './layouts/admin/admin-layout.component';
 import { AuthLayoutComponent } from './layouts/auth/auth-layout.component';
 
 import { AppRoutes } from './app.routing';
+//import { SkillsComponent } from './skills/skills.component';
+//import { ToolsComponent } from './tools/tools.component';
+//import { DeedsComponent } from './deeds/deeds.component';
 //import { WorkexComponent } from './workex/workex.component';
 //import { EducationComponent } from './education/education.component';
 
@@ -33,6 +36,9 @@ import { AppRoutes } from './app.routing';
         AppComponent,
         AdminLayoutComponent,
         AuthLayoutComponent,
+       // SkillsComponent,
+       // ToolsComponent,
+       // DeedsComponent,
        // WorkexComponent,
        // EducationComponent
     ],
