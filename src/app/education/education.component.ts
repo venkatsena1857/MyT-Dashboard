@@ -6,9 +6,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EducationComponent implements OnInit {
 
-  constructor() { }
+
+  public tableData1: {};
 
   ngOnInit() {
+  	this.tableData1 = {
+            headerRow: [ 'School Name', 'Major', 'Program type', 'Status', 'Honors' ,'Start year', 'End year' ],
+            dataRows: [
+                ['San Jose State University', 'SE', 'Masters', 'Completed', 'Science', '2015','2017'],
+                ['Osmania University', 'CSE', 'Bachelors', 'Completed', 'Science', '2011','2015']
+            ]
+         };
   }
 
 }

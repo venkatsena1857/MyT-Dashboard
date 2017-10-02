@@ -1,5 +1,42 @@
 <div class="main-content">
     <div class="container-fluid">
+        <!-- table to display education-->
+        <div class="row" *ngIf="tableData1.dataRows.length  >  0">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header card-header-icon" data-background-color="rose">
+                        <i class="material-icons">done_all</i>
+                    </div>
+                    <div class="card-content">
+                        <h4 class="card-title">Added Education</h4>
+                        <!--table Here-->
+                        <div class="content table-responsive">
+                          <table class="table">
+                                  <thead class="text-primary">
+                                      <tr>
+                                        <th *ngFor="let cell of tableData1.headerRow">{{ cell }}</th>
+                                      </tr>
+                                  </thead>
+                                <tbody>
+                                    <tr *ngFor="let row of tableData1.dataRows">
+                                        <td>{{row[0]}}</td>
+                                        <td>{{row[1]}}</td>
+                                        <td>{{row[2]}}</td>
+                                        <td>{{row[3]}}</td>
+                                        <td>{{row[4]}}</td>
+                                        <td>{{row[5]}}</td>
+                                        <td>{{row[6]}}</td>
+
+                                    </tr>
+                                </tbody>
+                          </table>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Field to add education-->
         <div class="row">
             <div class="col-md-12">
                 <div class="card">
@@ -69,7 +106,7 @@
                                     </md-datepicker>
                                 </div>
                                 <div class="form-group">
-                                    <button type="submit" class="btn btn-fill btn-rose">Submit</button>
+                                    <button type="submit" class="btn btn-fill btn-rose" >Submit</button>
                                 </div>
                             </div>
                         </form>
