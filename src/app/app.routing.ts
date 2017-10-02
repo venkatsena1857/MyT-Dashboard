@@ -26,8 +26,8 @@ export const AppRoutes: Routes = [
         path: 'education',
         loadChildren: './education/education.module#EducationModule'
     },{
-        path: 'components',
-        loadChildren: './components/components.module#ComponentsModule'
+        path: 'workex',
+        loadChildren: './workex/workex.module#WorkexModule'
     }, {
         path: 'forms',
         loadChildren: './forms/forms.module#Forms'

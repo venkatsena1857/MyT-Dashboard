@@ -30,6 +30,12 @@ export const ROUTES: RouteInfo[] = [{
         title: 'Education',
         type: 'link',
         icontype: 'school'
+    },
+    {
+        path: '/workex',
+        title: 'Work Experience',
+        type: 'link',
+        icontype: 'work'
     }
 ];
 @Component({
