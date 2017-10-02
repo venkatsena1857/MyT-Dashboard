@@ -30,6 +30,31 @@ export const ROUTES: RouteInfo[] = [{
         title: 'Education',
         type: 'link',
         icontype: 'school'
+    },
+    {
+        path: '/workex',
+        title: 'Work Experience',
+        type: 'link',
+        icontype: 'work'
+    },
+    {
+        path: '/deeds',
+        title: 'Deeds',
+        type: 'link',
+        icontype: 'important_devices'
+    },
+    {
+        path: '/tools',
+        title: 'Tools',
+        type: 'link',
+        icontype: 'build'
+    }
+    ,
+    {
+        path: '/skills',
+        title: 'Skills',
+        type: 'link',
+        icontype: 'rowing'
     }
 ];
 @Component({

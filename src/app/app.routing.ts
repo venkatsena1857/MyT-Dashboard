@@ -26,17 +26,17 @@ export const AppRoutes: Routes = [
         path: 'education',
         loadChildren: './education/education.module#EducationModule'
     },{
-        path: 'components',
-        loadChildren: './components/components.module#ComponentsModule'
+        path: 'workex',
+        loadChildren: './workex/workex.module#WorkexModule'
     }, {
-        path: 'forms',
-        loadChildren: './forms/forms.module#Forms'
+        path: 'deeds',
+        loadChildren: './deeds/deeds.module#DeedsModule'
     }, {
-        path: 'tables',
-        loadChildren: './tables/tables.module#TablesModule'
+        path: 'tools',
+        loadChildren: './tools/tools.module#ToolsModule'
     }, {
-        path: 'maps',
-        loadChildren: './maps/maps.module#MapsModule'
+        path: 'skills',
+        loadChildren: './skills/skills.module#SkillsModule'
     }, {
         path: 'widgets',
         loadChildren: './widgets/widgets.module#WidgetsModule'
