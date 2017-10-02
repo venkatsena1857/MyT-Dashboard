@@ -6,14 +6,19 @@ import { MdModule } from '../md/md.module';
 
 import { EducationComponent } from './education.component';
 import { EducationRoutes } from './education.routing'
-
+import {  MaterialModule, MdDatepickerModule, MdNativeDateModule, MdInputModule, MdSelectModule } from '@angular/material';
 
 @NgModule({
     imports: [
         CommonModule,
         RouterModule.forChild(EducationRoutes),
         FormsModule,
-        MdModule
+        MdModule,
+        MaterialModule,
+        MdDatepickerModule,
+        MdNativeDateModule,
+        MdInputModule,
+        MdSelectModule
     ],
     declarations: [EducationComponent]
 })
