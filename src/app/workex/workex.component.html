@@ -7,23 +7,126 @@
                         <i class="material-icons">work</i>
                     </div>
                     <div class="card-content">
-                        <h4 class="card-title">Work ex sample Form</h4>
+                        <h4 class="card-title">Work Experience</h4>
                         <form method="#" action="#">
-                            <div class="form-group label-floating">
-                                <label class="control-label">Email address</label>
-                                <input type="email" class="form-control">
+                            <div class="col-md-6  right-pane">
+                                <!--#################################################-->
+                                <h5>Record any work/volunteer experience and roles within clubs/organization</h5>
+                                <!--employers sector of focus-->
+                                <div class="row">
+                                     <div class="col-md-12">                               
+                                        <md-select  placeholder="choose employer's sector of focus" name="city" ngClass="btn btn-rose simple">
+                                            <md-option *ngFor="let Emp_focus of Emp_focuses" [value]="Emp_focus">
+                                            {{ Emp_focus }}
+                                            </md-option>
+                                        </md-select>
+                                    </div>
+                                </div>
+                                <!-- Employee/ Organization name -->
+                                <div class="row">
+                                    <div class="col-sm-10">
+                                        <div class="form-group label-floating is-empty">
+                                             <label class="control-label"></label>
+                                            <input type="text" class="form-control" placeholder="Employee/ Organization name">
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Location /Region -->
+                                <div class="row">
+                                     <div class="col-md-12">                               
+                                        <md-select  placeholder="choose your location" name="city" ngClass="btn btn-rose simple">
+                                            <md-option *ngFor="let location of locations" [value]="location">
+                                            {{ location }}
+                                            </md-option>
+                                        </md-select>
+                                    </div>
+                                </div>
+                                <!--start date and end dates-->
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <label>Start</label>
+                                        <md-datepicker-toggle mdSuffix [for]="datepickerYear">
+                                        </md-datepicker-toggle>
+                                        <md-input-container>
+                                            <input mdInput [mdDatepicker]="datepickerYear"
+                                                placeholder="Pick a date">
+                                        </md-input-container>
+                                        <md-datepicker
+                                            #datepickerYear
+                                            [startView]="'year'">
+                                        </md-datepicker>
+                                    </div>
+
+                                    <!-- <div class="col-md-6">
+                                        <label>Start</label>
+                                        <md-datepicker-toggle mdSuffix [for]="datepickerYear">
+                                        </md-datepicker-toggle>
+                                        <md-input-container>
+                                            <input mdInput [mdDatepicker]="datepickerYear"
+                                                placeholder="Pick a date">
+                                        </md-input-container>
+                                        <md-datepicker
+                                            #datepickerYear
+                                            [startView]="'year'">
+                                        </md-datepicker>
+                                    </div> -->
+                                </div>
+                                <!--Position or Activity Description-->
+                                <div class="row">
+                                    <div class="col-sm-10">
+                                        <div class="form-group label-floating is-empty">
+                                             <label class="control-label"></label>
+                                                <input type="text" class="form-control" placeholder="Enter the Position or Activity Description">
+                                        </div>
+                                    </div>   
+                                </div>
+                                <!--choose your primary function-->
+                                <div class="row">
+                                     <div class="col-md-12">                               
+                                        <md-select  placeholder="choose your primary function" name="city" ngClass="btn btn-rose simple">
+                                            <md-option *ngFor="let location of locations" [value]="location">
+                                            {{ location }}
+                                            </md-option>
+                                        </md-select>
+                                    </div>
+                                </div>
+                                <!--Team size-->
+                                <br>
+                                <div class="row">    
+                                    <div class="col-md-4">
+                                        <label>Choose team size (choose 10, if team size is more than 9)  </label>
+                                    </div>
+                                    <div class="col-md-8">
+                                            <nouislider [connect]="false" [min]="0" [max]="10" [step]="1" [(ngModel)]="teamsize" name="Tsize" [tooltips]="true" class="slider"></nouislider>
+                                    </div>
+                                </div>
+                                
+                                <br>
+                                <hr>
+
+
+
+                                <!--########################################33-->
                             </div>
-                            <div class="form-group label-floating">
-                                <label class="control-label">Password</label>
-                                <input type="password" class="form-control">
+                            <div class="col-md-6">
+                                <div class="form-group label-floating">
+                                    <label class="control-label">Email address</label>
+                                    <input type="email" class="form-control">
+                                </div>
+                                <div class="form-group label-floating">
+                                    <label class="control-label">Password</label>
+                                    <input type="password" class="form-control">
+                                </div>
+                                <div class="checkbox">
+                                    <label>
+                                        <input type="checkbox" name="optionsCheckboxes"> Subscribe to newsletter
+                                    </label>
+                                </div>
+                                <button type="submit" class="btn btn-fill btn-rose">Submit</button>
+
                             </div>
-                            <div class="checkbox">
-                                <label>
-                                    <input type="checkbox" name="optionsCheckboxes"> Subscribe to newsletter
-                                </label>
-                            </div>
-                            <button type="submit" class="btn btn-fill btn-rose">Submit</button>
                         </form>
+                        <br>
                     </div>
                 </div>
             </div>

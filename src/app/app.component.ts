@@ -9,6 +9,10 @@ declare var $: any;
 })
 
 export class AppComponent implements OnInit {
+
+    Emp_focuses = [
+    'Angriculture'];
+
     constructor(private elRef: ElementRef) {}
     ngOnInit() {
         $.material.options.autofill = true;
