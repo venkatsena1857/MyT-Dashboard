@@ -93,14 +93,134 @@
                                 <!--Team size-->
                                 <br>
                                 <div class="row">    
-                                    <div class="col-md-4">
-                                        <label>Choose team size (choose 10, if team size is more than 9)  </label>
+                                    <div class="col-md-4 strong-font">
+                                        Choose team size (choose 10, if team size is more than 9) 
                                     </div>
-                                    <div class="col-md-8">
-                                            <nouislider [connect]="false" [min]="0" [max]="10" [step]="1" [(ngModel)]="teamsize" name="Tsize" [tooltips]="true" class="slider"></nouislider>
+                                    <div class="col-md-7 align-self-center">
+                                            <nouislider [connect]="[true , flase]" [min]="0" [max]="10" [step]="1" [(ngModel)]="teamsize" name="Tsize" [tooltips]="true" class="slider"></nouislider>
                                     </div>
                                 </div>
-                                
+                                <br>
+                                <!--Select team's Multi-disciplinary Makeup uselss-->
+                                <hr>
+                                <div class="row">    
+                                    <div class="col-md-12 strong-font">
+                                        Choose team size (choose 10, if team size is more than 9)
+                                    </div>
+                                </div>
+                                <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="row align-items-center">
+                                                    <div class="col-md-1"></div>
+                                                    <div class="col-md-8">
+                                                        <nouislider [connect]="[true , flase]" [min]="1" [max]="5" [step]="1" 
+                                                         [(ngModel)]="Mul_dec" name="Tsize" [tooltips]="true" class="slider"></nouislider>
+                                                    </div>
+                                                    <div class="col-md-1"></div>
+                                                </div> 
+                                                <div class="row">
+                                                    <div class="col-md-2 sub-font">
+                                                        Very low 0-15%
+                                                    </div>
+                                                    <div class="col-md-2 sub-font">
+                                                        Low 16-35%
+                                                    </div>
+                                                    <div class="col-md-2 sub-font">
+                                                        Moderate 36-50% 
+                                                    </div>
+                                                    <div class="col-md-2 sub-font">
+                                                       High 51-75%
+                                                    </div>
+                                                    <div class="col-md-3 no-margin">
+                                                        Very high >76% 
+                                                    </div>
+                                                </div>        
+                                            </div>    
+                                </div>
+                                 <!--Select team's Multi-disciplinary Makeup-->
+                                <hr>
+                                <div class="row">
+                                    <div class="col-md-6 vertical-center strong-font">
+                                        <br>
+                                        <br>
+                                         Choose team size (choose 10, if team size is more than 9)
+                                    </div>
+                                    <div class="col-md-6 ">
+                                         <div class="radio">
+                                                <label class="strong-font">
+                                                    <input type="radio" name="Multi-disciplinary-Radio" checked="true"> Very low 0-15%
+                                                </label>
+                                        </div>
+                                        <div class="radio">
+                                                <label class="strong-font">
+                                                    <input type="radio" name="Multi-disciplinary-Radio" checked="true"> Low 16-35%
+                                                </label>
+                                        </div><div class="radio">
+                                                <label class="strong-font">
+                                                    <input type="radio" name="Multi-disciplinary-Radio" checked="true"> Moderate 36-50%
+                                                </label>
+                                        </div><div class="radio">
+                                                <label class="strong-font">
+                                                    <input type="radio" name="Multi-disciplinary-Radio" checked="true"> High 51-75% 
+                                                </label>
+                                        </div><div class="radio">
+                                                <label class="strong-font">
+                                                    <input type="radio" name="Multi-disciplinary-Radio" checked="true"> Very high >76%
+                                                </label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--Select team's Multi-Cultural Makeup-->
+                                <hr>
+                                <div class="row">
+                                    <div class="col-md-6 vertical-center strong-font">
+                                        <br>
+                                        <br>
+                                        Select team's Multi-Cultural Makeup
+                                    </div>
+                                    <div class="col-md-6">
+                                         <div class="radio">
+                                                <label class="strong-font">
+                                                    <input type="radio" name="Multi-Cultural-Radio" checked="true"> Very low 0-15%
+                                                </label>
+                                        </div>
+                                        <div class="radio">
+                                                <label class="strong-font">
+                                                    <input type="radio" name="Multi-Cultural-Radio" checked="true"> Low 16-35%
+                                                </label>
+                                        </div><div class="radio">
+                                                <label class="strong-font">
+                                                    <input type="radio" name="Multi-Cultural-Radio" checked="true"> Moderate 36-50%
+                                                </label>
+                                        </div><div class="radio">
+                                                <label class="strong-font">
+                                                    <input type="radio" name="Multi-Cultural-Radio" checked="true"> High 51-75% 
+                                                </label>
+                                        </div><div class="radio">
+                                                <label class="strong-font">
+                                                    <input type="radio" name="Multi-Cultural-Radio" checked="true"> Very high >76%
+                                                </label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <hr>
+                                <!--Profit and paid-->
+                                <div class="row">
+                                    <div class="col-md-10">
+                                        <div class="togglebutton">
+                                            <label class="strong-font">
+                                                <input type="checkbox" checked> Paid for job (Any more description)
+                                            </label>
+                                        </div>
+                                        <div class="togglebutton">
+                                            <label class="strong-font">
+                                                <input type="checkbox"> Worked for profit (Any more description)
+                                            </label>
+                                        </div>
+                                    </div> 
+                                </div>
+                                <br>
+                                <br>
                                 <br>
                                 <hr>
 
@@ -108,22 +228,112 @@
 
                                 <!--########################################33-->
                             </div>
-                            <div class="col-md-6">
-                                <div class="form-group label-floating">
-                                    <label class="control-label">Email address</label>
-                                    <input type="email" class="form-control">
+                            <div class="col-md-6 right-pane">
+                                <h5>Select answers to prompt below regarding Operations Responsibilities, Critical Thinking and Operations Innovation</h5>
+                                <div class="row">
+                                    <h6  class="col-md-12 strong-font" >Operation Responsibilities</h6>
                                 </div>
-                                <div class="form-group label-floating">
-                                    <label class="control-label">Password</label>
-                                    <input type="password" class="form-control">
+                                <div *ngFor="let op_resp of op_resps">
+                                    <div class="row">
+                                        <div class="col-md-12 ">
+                                            <label class="strong-font">{{op_resp.title}}</label>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class=" col-md-12 radio-aign">
+                                            <div class="row">   
+                                                <div class="col-md-2 radio">
+                                                    <label class="strong-font">
+                                                        <input type="radio" [name]  = "op_resp.radio_name">Yes
+                                                    </label>
+                                                </div>
+                                                <div class="col-md-1"></div>
+                                                <div class="col-md-2 radio" >
+                                                    <label class="strong-font">
+                                                        <input type="radio" [name] = "op_resp.radio_name">No
+                                                    </label>
+                                                </div> 
+                                                <div class="col-md-1"></div>
+                                                <div class="col-md-2 radio" >
+                                                    <label class="strong-font">
+                                                        <input type="radio" [name] = "op_resp.radio_name">Some
+                                                    </label>
+                                                </div> 
+                                            </div>    
+                                        </div>    
+                                    </div>
                                 </div>
-                                <div class="checkbox">
-                                    <label>
-                                        <input type="checkbox" name="optionsCheckboxes"> Subscribe to newsletter
-                                    </label>
+                                <hr>
+                                <div class="row">
+                                    <h6  class="col-md-12 strong-font" >Critical Thinking</h6>
                                 </div>
-                                <button type="submit" class="btn btn-fill btn-rose">Submit</button>
-
+                                <div *ngFor="let critical_thing of critical_things">
+                                    <div class="row">
+                                        <div class="col-md-12 ">
+                                            <label class="strong-font">{{critical_thing.title}}</label>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class=" col-md-12 radio-aign">
+                                            <div class="row">   
+                                                <div class="col-md-2 radio">
+                                                    <label class="strong-font">
+                                                        <input type="radio" [name]="critical_thing.radio_name">Yes
+                                                    </label>
+                                                </div>
+                                                <div class="col-md-1"></div>
+                                                <div class="col-md-2 radio" >
+                                                    <label class="strong-font">
+                                                        <input type="radio" [name]="critical_thing.radio_name">No
+                                                    </label>
+                                                </div> 
+                                                <div class="col-md-1"></div>
+                                                <div class="col-md-2 radio" >
+                                                    <label class="strong-font">
+                                                        <input type="radio" [name]="critical_thing.radio_name">Some
+                                                    </label>
+                                                </div> 
+                                            </div>    
+                                        </div>    
+                                    </div>
+                                </div>
+                                <!-->System and Operation Innovation</!-->
+                                <hr>
+                                <div class="row">
+                                    <h6  class="col-md-12 strong-font" >System and Operation Innovation</h6>
+                                </div>
+                                <div *ngFor="let innovation of innovation_arr">
+                                    <div class="row">
+                                        <div class="col-md-12 ">
+                                            <label class="strong-font">{{innovation.title}}</label>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class=" col-md-12 radio-aign">
+                                            <div class="row">   
+                                                <div class="col-md-2 radio">
+                                                    <label class="strong-font">
+                                                        <input type="radio" [name]="innovation.radio_name">Yes
+                                                    </label>
+                                                </div>
+                                                <div class="col-md-1"></div>
+                                                <div class="col-md-2 radio" >
+                                                    <label class="strong-font">
+                                                        <input type="radio" [name]="innovation.radio_name">No
+                                                    </label>
+                                                </div> 
+                                                <div class="col-md-1"></div>
+                                                <div class="col-md-2 radio" >
+                                                    <label class="strong-font">
+                                                        <input type="radio" [name]="innovation.radio_name">Some
+                                                    </label>
+                                                </div> 
+                                            </div>    
+                                        </div>    
+                                    </div>
+                                </div>
+                                <!---->
+                                <hr>
                             </div>
                         </form>
                         <br>
