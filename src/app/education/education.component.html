@@ -76,17 +76,21 @@
                                     </button>
                                 </div>
                             </div>
-                            <!--
                             <div class="row">
                                     <div class="form-group col-md-6">
-                                        <label class="control-label">Start Year</label>
-                                        
-                                        
+                                        <label >Start Year</label>
+                                        <!--<md-datepicker-toggle md-mode="month"
+                                        md-open-on-focus="true">
+
+                                        </md-datepicker-toggle>-->
+                                            <input mdInput [mdDatepicker]="picker" placeholder="Choose a date">
+                                            <md-datepicker-toggle mdSuffix [for]="picker"></md-datepicker-toggle>
+                                            <md-datepicker #picker md-mode = "month"></md-datepicker>
                                     </div>
                                     <div class="form-group col-md-6">
-                                        <label class="control-label">End Year</label>
+                                        <label >End Year</label>
                                     </div>
-                            </div>-->
+                            </div>
                             <div class="form-group row">
                                     <button type="submit" class="btn btn-fill btn-rose">Submit</button>
                             </div>

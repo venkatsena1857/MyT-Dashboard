@@ -6,7 +6,7 @@ declare interface DeedsDataTable {
   dataRows: string[][];
 }
 
-//declare const $: any;
+declare const $: any;
 
 @Component({
     selector: 'app-deeds',
@@ -28,7 +28,7 @@ export class DeedsComponent implements OnInit, AfterViewInit {
     }
 
     ngAfterViewInit() {
-      /*
+        alert("I ran ");
         $('#deedDataTable').DataTable({
             'pagingType': 'full_numbers',
             'lengthMenu': [[10, 25, 50, -1], [10, 25, 50, 'All']],
@@ -64,7 +64,6 @@ export class DeedsComponent implements OnInit, AfterViewInit {
 
         //  Activate the tooltips
         $('[rel="tooltip"]').tooltip();
-        */
     }
 }
 
