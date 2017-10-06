@@ -14,11 +14,11 @@
                           <table class="table">
                                   <thead class="text-primary">
                                       <tr>
-                                        <th *ngFor="let cell of tableData1.headerRow">{{ cell }}</th>
+                                        <th *ngFor="let cell of educationData.header">{{ cell }}</th>
                                       </tr>
                                   </thead>
                                 <tbody>
-                                    <tr *ngFor="let row of tableData1.dataRows">
+                                    <tr *ngFor="let row of educationData.dataRows">
                                         <td>{{row[0]}}</td>
                                         <td>{{row[1]}}</td>
                                         <td>{{row[2]}}</td>

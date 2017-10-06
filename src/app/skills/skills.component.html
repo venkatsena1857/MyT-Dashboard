@@ -1,6 +1,7 @@
 <div class="main-content">
         <div class="container-fluid">
-                <div class="row">
+                <!--Start of Table-->
+                <div class="row" *ngIf = "skillsDataTable.dataRows.length>0">
                         <div class="col-md-12">
                             <div class="card">
                                 <div class="card-header card-header-icon" data-background-color="purple">
@@ -27,20 +28,6 @@
                                                   <th class="disabled-sorting text-right">{{ skillsDataTable.headerRow[9] }}</th>
                                                 </tr>
                                             </thead>
-                                            <tfoot>
-                                                <tr>
-                                                  <th>{{ skillsDataTable.footerRow[0] }}</th>
-                                                  <th>{{ skillsDataTable.footerRow[1] }}</th>
-                                                  <th>{{ skillsDataTable.footerRow[2] }}</th>
-                                                  <th>{{ skillsDataTable.footerRow[3] }}</th>
-                                                  <th>{{ skillsDataTable.footerRow[4] }}</th>
-                                                  <th>{{ skillsDataTable.footerRow[5] }}</th>
-                                                  <th>{{ skillsDataTable.footerRow[6] }}</th>
-                                                  <th>{{ skillsDataTable.footerRow[7] }}</th>
-                                                  <th>{{ skillsDataTable.footerRow[8] }}</th>
-                                                  <th class="text-right">{{ skillsDataTable.footerRow[9] }}</th>
-                                                </tr>
-                                            </tfoot>
                                             <tbody>
                                                 <tr *ngFor="let row of skillsDataTable.dataRows">
                                                     <td>{{row[0]}}</td>

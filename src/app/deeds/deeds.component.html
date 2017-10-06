@@ -1,7 +1,7 @@
 <div class="main-content">
     <div class="container-fluid">
         <!--Table Section Starts-->
-            <div class="row">
+            <div class="row" *ngIf="deedDataTable.dataRows.length>0">
                 <div class="col-md-12">
                     <div class="card">
                         <div class="card-header card-header-icon" data-background-color="purple">
@@ -13,7 +13,7 @@
                                 <!--        Here you can write extra buttons/actions for the toolbar              -->
                             </div>
                             <div class="material-datatables table-responsive">
-                                <table id="deedDataTable" class="table table-striped table-no-bordered table-hover" cellspacing="0" width="100%" style="width:100%">
+                                <table  id="deedDataTable" class="table table-striped table-no-bordered table-hover" cellspacing="0" width="100%" style="width:100%">
                                     <thead>
                                         <tr>
                                           <th>{{ deedDataTable.headerRow[0] }}</th>
@@ -25,17 +25,6 @@
                                           <th class="disabled-sorting text-right">{{ deedDataTable.headerRow[6] }}</th>
                                         </tr>
                                     </thead>
-                                    <tfoot>
-                                        <tr>
-                                          <th>{{ deedDataTable.footerRow[0] }}</th>
-                                          <th>{{ deedDataTable.footerRow[1] }}</th>
-                                          <th>{{ deedDataTable.footerRow[2] }}</th>
-                                          <th>{{ deedDataTable.footerRow[3] }}</th>
-                                          <th>{{ deedDataTable.footerRow[4] }}</th>
-                                          <th>{{ deedDataTable.footerRow[5] }}</th>
-                                          <th class="text-right">{{ deedDataTable.footerRow[6] }}</th>
-                                        </tr>
-                                    </tfoot>
                                     <tbody>
                                         <tr *ngFor="let row of deedDataTable.dataRows">
                                             <td>{{row[0]}}</td>
@@ -64,6 +53,60 @@
                 <!-- end col-md-12 -->
             </div>
             <!-- end row and Table -->
+            <!-- Panel for Forms Section -->
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header card-header-icon" data-background-color="rose">
+                        <i class="material-icons">important_devices</i>
+                    </div>
+                    <div class="card-content">
+                        <h4 class="card-title">Deeds</h4>
+                        <div class="row">
+                            <div class="col-md-4" id="">
+                                <ul class="nav nav-pills nav-pills-rose nav-stacked">
+                                    <li class="active">
+                                        <a href="" data-toggle="tab">Certificates</a>
+                                    </li>
+                                    <li>
+                                        <a href="" data-toggle="tab">Taking Classes</a>
+                                    </li>
+                                    <li>
+                                        <a href="" data-toggle="tab">Conducting Classes</a>
+                                    </li>
+                                    <li>
+                                        <a href="" data-toggle="tab">Mentoring</a>
+                                    </li>
+                                    <li>
+                                        <a href="" data-toggle="tab">Writing</a>
+                                    </li>
+                                    <li>
+                                        <a href="" data-toggle="tab">Confrences</a>
+                                    </li>
+                                    <li>
+                                        <a href="" data-toggle="tab">Awards</a>
+                                    </li>
+                                    <li>
+                                        <a href="" data-toggle="tab">Recognized Expertise</a>
+                                    </li>
+                                    <li>
+                                        <a href="" data-toggle="tab">Patents</a>
+                                    </li>
+                                    <li>
+                                        <a href="" data-toggle="tab">Leisure</a>
+                                    </li>
+                                    <li>
+                                        <a href="" data-toggle="tab">Languages</a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="col-md-8 ">
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
     </div>
 </div>
     

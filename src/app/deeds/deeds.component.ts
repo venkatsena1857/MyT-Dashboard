@@ -2,7 +2,6 @@ import { Component, OnInit, AfterViewInit } from '@angular/core';
 
 declare interface DeedsDataTable {
   headerRow: string[];
-  footerRow: string[];
   dataRows: string[][];
 }
 
@@ -19,16 +18,12 @@ export class DeedsComponent implements OnInit, AfterViewInit {
     ngOnInit() {
         this.deedDataTable = {
             headerRow: [ 'Sl. No', 'Start Year', 'Start Month', 'Deed Category', 'Activity', 'Description', 'Actions' ],
-            footerRow: [ 'Sl. No', 'Start Year', 'Start Month', 'Deed Category', 'Activity', 'Description', 'Actions' ],
-
             dataRows: []
-                
          };
 
     }
 
     ngAfterViewInit() {
-        alert("I ran ");
         $('#deedDataTable').DataTable({
             'pagingType': 'full_numbers',
             'lengthMenu': [[10, 25, 50, -1], [10, 25, 50, 'All']],
@@ -56,11 +51,6 @@ export class DeedsComponent implements OnInit, AfterViewInit {
             table.row($tr).remove().draw();
             e.preventDefault();
         } );
-
-        // Like record
-        table.on( 'click', '.like', function () {
-            alert('You clicked on Like button');
-        });
 
         //  Activate the tooltips
         $('[rel="tooltip"]').tooltip();
