@@ -5,7 +5,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MdModule } from '../md/md.module';
 
 import { DeedsComponent } from './deeds.component';
-import { DeedsRoutes } from './deeds.routing'
+import { DeedsRoutes } from './deeds.routing';
 
 
 @NgModule({

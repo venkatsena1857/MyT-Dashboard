@@ -16,6 +16,8 @@ declare const $: any;
 export class DeedsComponent implements OnInit, AfterViewInit {
     public deedDataTable: DeedsDataTable;
 
+    
+
     ngOnInit() {
         this.deedDataTable = {
             headerRow: [ 'Sl. No', 'Start Year', 'Start Month', 'Deed Category', 'Activity', 'Description', 'Actions' ],
@@ -28,7 +30,7 @@ export class DeedsComponent implements OnInit, AfterViewInit {
     }
 
     ngAfterViewInit() {
-        alert("I ran ");
+       // alert("I ran ");
         $('#deedDataTable').DataTable({
             'pagingType': 'full_numbers',
             'lengthMenu': [[10, 25, 50, -1], [10, 25, 50, 'All']],

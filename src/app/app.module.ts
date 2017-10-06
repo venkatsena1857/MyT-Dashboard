@@ -15,6 +15,7 @@ import { AdminLayoutComponent } from './layouts/admin/admin-layout.component';
 import { AuthLayoutComponent } from './layouts/auth/auth-layout.component';
 
 import { AppRoutes } from './app.routing';
+import { LoginComponent } from './login/login.component';
 //import { SkillsComponent } from './skills/skills.component';
 //import { ToolsComponent } from './tools/tools.component';
 //import { DeedsComponent } from './deeds/deeds.component';
@@ -36,6 +37,7 @@ import { AppRoutes } from './app.routing';
         AppComponent,
         AdminLayoutComponent,
         AuthLayoutComponent,
+        LoginComponent,
        // SkillsComponent,
        // ToolsComponent,
        // DeedsComponent,
