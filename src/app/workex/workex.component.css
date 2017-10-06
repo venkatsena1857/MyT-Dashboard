@@ -10,3 +10,32 @@
     position: relative;
 
 }
+
+.strong-font{
+	font-weight: 100;
+	font-size: 14px;
+	color:black;
+}
+
+.sub-font{
+	font-weight: 100;
+	font-size: 12px;
+	border-right: 1px;	
+	border-right-style: solid;
+}
+
+.no-margin{
+	font-weight: 100;
+	font-size: 12px;
+}
+
+.vertical-center{
+	height: 100px;
+	vertical-align: middle;
+	text-align: left;
+}
+.radio-align{
+	align-content: center;
+	border-style: solid;
+	float: left
+}
