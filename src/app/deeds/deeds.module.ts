@@ -6,6 +6,20 @@ import { MdModule } from '../md/md.module';
 
 import { DeedsComponent } from './deeds.component';
 import { DeedsRoutes } from './deeds.routing';
+<<<<<<< HEAD
+=======
+import { CertificatesComponent } from './certificates/certificates.component';
+import { TakingClassesComponent } from './taking-classes/taking-classes.component';
+import { ConductingClassesComponent } from './conducting-classes/conducting-classes.component';
+import { MentoringComponent } from './mentoring/mentoring.component';
+import { WritingComponent } from './writing/writing.component';
+import { ConfrencesComponent } from './confrences/confrences.component';
+import { AwardsComponent } from './awards/awards.component';
+import { RecognizedExpertieseComponent } from './recognized-expertiese/recognized-expertiese.component';
+import { PatentsComponent } from './patents/patents.component';
+import { LeisureComponent } from './leisure/leisure.component';
+import { LanguagesComponent } from './languages/languages.component';
+>>>>>>> 162027d57a5d0ebee96405969a34ad75cef2f0b7
 
 
 @NgModule({
@@ -15,7 +29,7 @@ import { DeedsRoutes } from './deeds.routing';
         FormsModule,
         MdModule
     ],
-    declarations: [DeedsComponent]
+    declarations: [DeedsComponent, CertificatesComponent, TakingClassesComponent, ConductingClassesComponent, MentoringComponent, WritingComponent, ConfrencesComponent, AwardsComponent, RecognizedExpertieseComponent, PatentsComponent, LeisureComponent, LanguagesComponent]
 })
 
 export class DeedsModule {}
