@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-certificates',
+  selector: 'app-deeds-certificates',
   templateUrl: './certificates.component.html',
   styleUrls: ['./certificates.component.css']
 })

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-conducting-classes',
+  selector: 'app-deeds-conducting-classes',
   templateUrl: './conducting-classes.component.html',
   styleUrls: ['./conducting-classes.component.css']
 })

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-writing',
+  selector: 'app-deeds-writing',
   templateUrl: './writing.component.html',
   styleUrls: ['./writing.component.css']
 })

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-recognized-expertiese',
+  selector: 'app-deeds-recognized-expertiese',
   templateUrl: './recognized-expertiese.component.html',
   styleUrls: ['./recognized-expertiese.component.css']
 })
