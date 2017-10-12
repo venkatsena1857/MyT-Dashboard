@@ -7,11 +7,14 @@ declare interface SkillsDataTable {
 }
 @Component({
   selector: 'app-skills',
-  templateUrl: './skills.component.html'
+  templateUrl: './skills.component.html',
+  styleUrls : ['./skills.component.css'] 
 })
 export class SkillsComponent implements OnInit {
   public skillsDataTable: SkillsDataTable
   
+  public checkFormalProperty = false;
+  public checkUsageProperty = false;
   constructor() { }
 
   ngOnInit() {
@@ -21,5 +24,27 @@ export class SkillsComponent implements OnInit {
       dataRows: []
     }
   }
+
+  checkFormalChange(){
+    if(this.checkFormalProperty == true){
+      this.checkFormalProperty = false;
+    }
+    else{
+      this.checkFormalProperty = true;
+    }
+    console.log(this.checkFormalProperty);
+  }
+
+  checkUsageChange(){
+    if(this.checkUsageProperty == true){
+      this.checkUsageProperty = false;
+    }
+    else{
+      this.checkUsageProperty = true;
+    }
+    console.log(this.checkUsageProperty);
+
+  }
+
 
 }

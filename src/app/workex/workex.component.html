@@ -49,7 +49,7 @@
                     <div class="card-content">
                         <h4 class="card-title">Work Experience</h4>
                         <form method="#" action="#">
-                            <div class="col-md-6  right-pane">
+                            <div class="col-md-5 right-pane">
                                 <!--#################################################-->
                                 <h5>Record any work/volunteer experience and roles within clubs/organization</h5>
                                 <!--employers sector of focus-->
@@ -143,40 +143,7 @@
                                 <br>
                                 <!--Select team's Multi-disciplinary Makeup uselss-->
                                 <hr>
-                                <div class="row">    
-                                    <div class="col-md-12 strong-font">
-                                        Select team's Multi-disciplinary Makeup
-                                    </div>
-                                </div>
-                                <div class="row">
-                                            <div class="col-md-12">
-                                                <div class="row align-items-center">
-                                                    <div class="col-md-1"></div>
-                                                    <div class="col-md-8">
-                                                        <nouislider [connect]="[true , flase]" [min]="1" [max]="5" [step]="1" 
-                                                         [(ngModel)]="Mul_dec" name="Tsize" [tooltips]="true" class="slider"></nouislider>
-                                                    </div>
-                                                    <div class="col-md-1"></div>
-                                                </div> 
-                                                <div class="row">
-                                                    <div class="col-md-2 sub-font">
-                                                        Very low 0-15%
-                                                    </div>
-                                                    <div class="col-md-2 sub-font">
-                                                        Low 16-35%
-                                                    </div>
-                                                    <div class="col-md-2 sub-font">
-                                                        Moderate 36-50% 
-                                                    </div>
-                                                    <div class="col-md-2 sub-font">
-                                                       High 51-75%
-                                                    </div>
-                                                    <div class="col-md-3 no-margin">
-                                                        Very high >76% 
-                                                    </div>
-                                                </div>        
-                                            </div>    
-                                </div>
+                                
                                  <!--Select team's Multi-disciplinary Makeup-->
                                 <hr>
                                 <div class="row">
@@ -188,12 +155,12 @@
                                     <div class="col-md-6 ">
                                          <div class="radio">
                                                 <label class="strong-font">
-                                                    <input type="radio" name="Multi-disciplinary-Radio"checked="true"> Very low 0-15%
+                                                    <input type="radio" name="Multi-disciplinary-Radio"checked="true">  Very high >76%
                                                 </label>
                                         </div>
                                         <div class="radio">
                                                 <label class="strong-font">
-                                                    <input type="radio" name="Multi-disciplinary-Radio"> Low 16-35%
+                                                    <input type="radio" name="Multi-disciplinary-Radio">High 51-75% 
                                                 </label>
                                         </div><div class="radio">
                                                 <label class="strong-font">
@@ -201,11 +168,11 @@
                                                 </label>
                                         </div><div class="radio">
                                                 <label class="strong-font">
-                                                    <input type="radio" name="Multi-disciplinary-Radio" > High 51-75% 
+                                                    <input type="radio" name="Multi-disciplinary-Radio" > Low 16-35% 
                                                 </label>
                                         </div><div class="radio">
                                                 <label class="strong-font">
-                                                    <input type="radio" name="Multi-disciplinary-Radio" > Very high >76%
+                                                    <input type="radio" name="Multi-disciplinary-Radio" >Very low 0-15%
                                                 </label>
                                         </div>
                                     </div>
@@ -221,12 +188,12 @@
                                     <div class="col-md-6">
                                          <div class="radio">
                                                 <label class="strong-font">
-                                                    <input type="radio" name="Multi-Cultural-Radio" checked="true"> Very low 0-15%
+                                                    <input type="radio" name="Multi-Cultural-Radio" checked="true">Very high >76%
                                                 </label>
                                         </div>
                                         <div class="radio">
                                                 <label class="strong-font">
-                                                    <input type="radio" name="Multi-Cultural-Radio" > Low 16-35%
+                                                    <input type="radio" name="Multi-Cultural-Radio" >High 51-75% 
                                                 </label>
                                         </div><div class="radio">
                                                 <label class="strong-font">
@@ -234,30 +201,51 @@
                                                 </label>
                                         </div><div class="radio">
                                                 <label class="strong-font">
-                                                    <input type="radio" name="Multi-Cultural-Radio"> High 51-75% 
+                                                    <input type="radio" name="Multi-Cultural-Radio"> Low 16-35%
                                                 </label>
                                         </div><div class="radio">
                                                 <label class="strong-font">
-                                                    <input type="radio" name="Multi-Cultural-Radio"> Very high >76%
+                                                    <input type="radio" name="Multi-Cultural-Radio"> Very low 0-15%
                                                 </label>
                                         </div>
                                     </div>
                                 </div>
                                 <hr>
                                 <!--Profit and paid-->
+
                                 <div class="row">
-                                    <div class="col-md-10">
-                                        <div class="togglebutton">
-                                            <label class="strong-font">
-                                                <input type="checkbox" checked> Paid for job (Any more description)
-                                            </label>
+                                    <div class="col-md-6 strong-font">
+                                        Type of organization worked for                                        
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="radio">
+                                        <label class="strong-font">
+                                                        <input type="radio" name = "profit"  checked="true">Profit
+                                        </label>
                                         </div>
-                                        <div class="togglebutton">
-                                            <label class="strong-font">
-                                                <input type="checkbox"> Worked for profit (Any more description)
-                                            </label>
+                                        <div class="radio">
+                                        <label class="strong-font">
+                                                        <input type="radio" name = "profit">Non-Profit
+                                        </label>
                                         </div>
-                                    </div> 
+                                    </div>    
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6 strong-font">
+                                        Type of position worked for                                        
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="radio">
+                                        <label class="strong-font">
+                                                        <input type="radio" name = "paid"  checked="true">Paid
+                                        </label>
+                                        </div>
+                                        <div class="radio">
+                                        <label class="strong-font">
+                                                        <input type="radio" name = "paid">Unpaid(Volunteer)
+                                        </label>
+                                        </div>
+                                    </div>    
                                 </div>
                                 <br>
                                 <br>
@@ -266,40 +254,41 @@
                                 <br>
                                 <!--########################################33-->
                             </div>
-                            <div class="col-md-6 right-pane">
+                            <div class="col-md-7 right-pane">
                                 <h5>Select answers to prompt below regarding Operations Responsibilities, Critical Thinking and Operations Innovation</h5>
                                 <div class="row">
                                     <h6  class="col-md-12 strong-font" >Operation Responsibilities</h6>
                                 </div>
                                 <div *ngFor="let op_resp of op_resps">
                                     <div class="row">
-                                        <div class="col-md-12 ">
+                                        <div class="col-md-6">
                                             <label class="strong-font">{{op_resp.title}}</label>
                                         </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class=" col-md-12 radio-aign">
-                                            <div class="row">   
-                                                <div class="col-md-2 radio">
-                                                    <label class="strong-font">
-                                                        <input type="radio" [name]  = "op_resp.radio_name">Yes
-                                                    </label>
-                                                </div>
-                                                <div class="col-md-1"></div>
+                                       <div class=" col-md-6">
+                                            <div class="row">
                                                 <div class="col-md-2 radio" >
                                                     <label class="strong-font">
                                                         <input type="radio" [name] = "op_resp.radio_name"  checked="true">No
                                                     </label>
-                                                </div> 
+                                                </div>
                                                 <div class="col-md-1"></div>
                                                 <div class="col-md-2 radio" >
                                                     <label class="strong-font">
                                                         <input type="radio" [name] = "op_resp.radio_name">Some
                                                     </label>
                                                 </div> 
-                                            </div>    
-                                        </div>    
+                                                <div class="col-md-1"></div>
+                                                <div class="col-md-2 radio">
+                                                    <label class="strong-font">
+                                                        <input type="radio" [name]  = "op_resp.radio_name">Yes
+                                                    </label>
+                                                </div>
+                                                <div class="col-md-1"></div>
+                                               
+                                           </div>    
+                                        </div>   
                                     </div>
+                                    <br>
                                 </div>
                                 <hr>
                                 <div class="row">
@@ -307,33 +296,33 @@
                                 </div>
                                 <div *ngFor="let critical_thing of critical_things">
                                     <div class="row">
-                                        <div class="col-md-12 ">
+                                        <div class="col-md-6 ">
                                             <label class="strong-font">{{critical_thing.title}}</label>
                                         </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class=" col-md-12 radio-aign">
+                                        <div class=" col-md-6">
                                             <div class="row">   
                                                 <div class="col-md-2 radio">
                                                     <label class="strong-font">
-                                                        <input type="radio" [name]="critical_thing.radio_name">Yes
+                                                        <input type="radio" [name]="critical_thing.radio_name" checked="true">No
                                                     </label>
                                                 </div>
                                                 <div class="col-md-1"></div>
                                                 <div class="col-md-2 radio" >
                                                     <label class="strong-font">
-                                                        <input type="radio" [name]="critical_thing.radio_name"  checked="true">No
+                                                        <input type="radio" [name]="critical_thing.radio_name"  >Some
                                                     </label>
                                                 </div> 
                                                 <div class="col-md-1"></div>
                                                 <div class="col-md-2 radio" >
                                                     <label class="strong-font">
-                                                        <input type="radio" [name]="critical_thing.radio_name">Some
+                                                        <input type="radio" [name]="critical_thing.radio_name">Yes
                                                     </label>
-                                                </div> 
+                                                </div>
+                                                <div class="col-md-1"></div> 
                                             </div>    
                                         </div>    
                                     </div>
+                                    <br>
                                 </div>
                                 <!-->System and Operation Innovation</!-->
                                 <hr>
@@ -342,28 +331,26 @@
                                 </div>
                                 <div *ngFor="let innovation of innovation_arr">
                                     <div class="row">
-                                        <div class="col-md-12 ">
+                                        <div class="col-md-6 ">
                                             <label class="strong-font">{{innovation.title}}</label>
                                         </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class=" col-md-12 radio-aign">
+                                        <div class=" col-md-6">
                                             <div class="row">   
                                                 <div class="col-md-2 radio">
                                                     <label class="strong-font">
-                                                        <input type="radio" [name]="innovation.radio_name">Yes
+                                                        <input type="radio" [name]="innovation.radio_name" checked="true">No
                                                     </label>
                                                 </div>
                                                 <div class="col-md-1"></div>
                                                 <div class="col-md-2 radio" >
                                                     <label class="strong-font"> 
-                                                        <input type="radio" [name]="innovation.radio_name"  checked="true">No
+                                                        <input type="radio" [name]="innovation.radio_name"  >Some
                                                     </label>
                                                 </div> 
                                                 <div class="col-md-1"></div>
                                                 <div class="col-md-2 radio" >
                                                     <label class="strong-font">
-                                                        <input type="radio" [name]="innovation.radio_name">Some
+                                                        <input type="radio" [name]="innovation.radio_name">Yes
                                                     </label>
                                                 </div> 
                                             </div>    

@@ -61,7 +61,7 @@
                     <!-- end row and Table -->
             <!--Form Section Starts-->
             <div class="row">
-                <div class="col-md-12">
+                <div class="col-md-6">
                     <div class="card">
                         <div class="card-header card-header-icon" data-background-color="rose">
                             <i class="material-icons">build</i>
@@ -75,11 +75,11 @@
                                 </div>
                                 <div class="form-group label-floating">
                                     <label class="control-label">Vendor/Distributor</label>
-                                    <input type="text" class="form-control" required>
+                                    <input type="text" class="form-control">
                                 </div>
                                 <div class="form-group label-floating">
                                     <label class="control-label">LinkedIn Endorsments</label>
-                                    <input type="number" number="true" class="form-control" required>
+                                    <input type="number" number="true" class="form-control">
                                 </div>
                                 <div class="form-group label-floating">
                                     <label class="control-label">Proficiency</label>
@@ -94,20 +94,32 @@
                                 </div>
                                 <div class="row">
                                         <div class="col-md-12">
-                                                <legend class="col-md-6">Formal Certifcation</legend>
+                                                <label class="col-md-5 strong-font">Formal Certifcation</label>
                                                 <div class="togglebutton">
-                                                    <label class="col-md-6">
-                                                        <input type="checkbox" checked> Toggle is on
+                                                    <label class="col-md-7" >
+                                                        <input type="checkbox" [(ngModel)]="checkboxFormal" (ngModelChange)="checkFormalChange()" name="checkboxFormal"> 
+                                                        <label class="strong-font" *ngIf="checkFormalProperty == false">
+                                                            Not a formal certification
+                                                        </label>
+                                                        <label class="strong-font" *ngIf="checkFormalProperty == true">
+                                                            It is a formal certification
+                                                        </label>
                                                     </label>
                                                 </div>
                                         </div>
                                 </div>
                                 <div class="row">
                                         <div class="col-md-12">
-                                                <legend class="col-md-6">Usage in Last 3 Years</legend>
+                                                <label class="col-md-5 strong-font">Usage in Last 3 Years</label>
                                                 <div class="togglebutton">
-                                                    <label class="col-md-6">
-                                                        <input type="checkbox" checked> Toggle is on
+                                                    <label class="col-md-7">
+                                                        <input type="checkbox" [(ngModel)]="checkbox" (ngModelChange)="checkUsageChange()" name="checkbox"> 
+                                                        <label class="strong-font" *ngIf="checkUsageProperty == false">
+                                                            Did not use in last 3 years
+                                                        </label>
+                                                        <label class="strong-font" *ngIf="checkUsageProperty == true">
+                                                            Used in last 3 years
+                                                        </label>
                                                     </label>
                                                 </div>
                                         </div>
@@ -115,9 +127,6 @@
                                 <div class="form-group row">
                                         <button type="submit" class="btn btn-fill btn-rose">Submit</button>
                                 </div>
-                                
-    
-    
                             </form>
                         </div>
                     </div>
