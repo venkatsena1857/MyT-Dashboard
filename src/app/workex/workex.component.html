@@ -82,20 +82,37 @@
                                     </div>
                                 </div>
                                 <!--start date and end dates-->
+                                <!--DATE-Month picker HTML-->
                                 <div class="row">
                                     <div class="col-md-6">
-                                        <label>Start</label>
-                                        <md-datepicker-toggle mdSuffix [for]="datepickerYear">
-                                        </md-datepicker-toggle>
-                                        <md-input-container>
-                                            <input mdInput [mdDatepicker]="datepickerYear"
-                                                placeholder="Pick a date">
+                                        <i class="material-icons">date_range</i>
+                                        <label class="strong-font">Start</label>
+                                        <md-input-container >
+                                            <input mdInput [mdDatepicker]="datepickerStart"
+                                                placeholder="Pick a start date"  type="month" >
                                         </md-input-container>
                                         <md-datepicker
                                             #datepickerYear
-                                            [startView]="'year'">
+                                            [startView]="'year'"
+                                            >
                                         </md-datepicker>
-                                    </div>
+                                      </div>
+
+                                      <div class="col-md-6">
+                                        <i class="material-icons">date_range</i>
+                                        <label class="strong-font">End</label>
+                                        <md-input-container >
+                                            <input mdInput [mdDatepicker]="datepickerEnd"
+                                                placeholder="Pick an end date"  type="month" >
+                                        </md-input-container>
+                                        <md-datepicker
+                                            #datepickerYear
+                                            [startView]="'year'"
+                                            >
+                                        </md-datepicker>
+                                      </div>
+
+                                    
 
                                     <!-- <div class="col-md-6">
                                         <label>Start</label>
@@ -215,24 +232,24 @@
 
                                 <div class="row">
                                     <div class="col-md-6 strong-font">
-                                        Type of organization worked for                                        
+                                        Type of organization                                        
                                     </div>
                                     <div class="col-md-6">
                                         <div class="radio">
                                         <label class="strong-font">
-                                                        <input type="radio" name = "profit"  checked="true">Profit
+                                                        <input type="radio" name = "profit"  checked="true">For Profit
                                         </label>
                                         </div>
                                         <div class="radio">
                                         <label class="strong-font">
-                                                        <input type="radio" name = "profit">Non-Profit
+                                                        <input type="radio" name = "profit">Not For Profit
                                         </label>
                                         </div>
                                     </div>    
                                 </div>
                                 <div class="row">
                                     <div class="col-md-6 strong-font">
-                                        Type of position worked for                                        
+                                        Type of position                                        
                                     </div>
                                     <div class="col-md-6">
                                         <div class="radio">
@@ -242,7 +259,7 @@
                                         </div>
                                         <div class="radio">
                                         <label class="strong-font">
-                                                        <input type="radio" name = "paid">Unpaid(Volunteer)
+                                                        <input type="radio" name = "paid">Unpaid
                                         </label>
                                         </div>
                                     </div>    

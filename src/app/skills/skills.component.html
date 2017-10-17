@@ -78,9 +78,14 @@
                                     <input type="text" class="form-control" >
                                 </div>
                                 <div class="form-group label-floating">
+<<<<<<< HEAD
                                     <label class="control-label">Number of LinkedIn Endorsments</label>
                                     <input type="number" number="true" class="form-control" default = "0" >
 
+=======
+                                    <label class="control-label">Total Number of LinkedIn Endorsments</label>
+                                    <input type="number" number="true" class="form-control">
+>>>>>>> 78bf701edc8f5d392b581272decca6f5b588e929
                                 </div>
                                 <div class="form-group label-floating">
                                     <label class="control-label">Proficiency</label>
@@ -101,10 +106,10 @@
                                                     <label class="col-md-7" >
                                                         <input type="checkbox" [(ngModel)]="checkboxFormal" (ngModelChange)="checkFormalChange()" name="checkboxFormal"> 
                                                         <label class="strong-font" *ngIf="checkFormalProperty == false">
-                                                            Not a formal certification
+                                                            No formal certification
                                                         </label>
                                                         <label class="strong-font" *ngIf="checkFormalProperty == true">
-                                                            It is a formal certification
+                                                            Yes, I have a formal certification
                                                         </label>
                                                     </label>
                                                 </div>
@@ -112,7 +117,7 @@
                                 </div>
                                 <div class="row">
                                         <div class="col-md-12">
-                                                <label class="col-md-5 strong-font">Usage in Last 3 Years</label>
+                                                <label class="col-md-5 strong-font">Used in Last 3 Years?</label>
                                                 <div class="togglebutton">
                                                     <label class="col-md-7">
                                                         <input type="checkbox" [(ngModel)]="checkbox" (ngModelChange)="checkUsageChange()" name="checkbox"> 
