@@ -1,3 +1,4 @@
+// tslint:disable-next-line:indent
 import { Component, OnInit } from '@angular/core';
 import { DateAdapter } from '@angular/material';
 
@@ -5,14 +6,14 @@ import { DateAdapter } from '@angular/material';
 //Declaring Models for the WorkExperience Page
 declare interface workExperienceTableObject {
 	customId: string;
-	organization: string;
-	startDate: Date;
-	endDate: Date;
-	positionActiivity: string;
-	role: string;
-	teamsize: number;
-	paidUnpaid: string;
-	questions: string;
+ organization: string;
+ startDate: Date;
+ endDate: Date;
+ positionActiivity: string;
+ role: string;
+ teamsize: number;
+ paidUnpaid: string;
+ questions: string;
 };
 
 declare interface workExperienceTableObject {
@@ -20,8 +21,8 @@ declare interface workExperienceTableObject {
 }
 
 declare interface WorkExperienceDataTable {
-	header: string[];
-	dataRows: workExperienceTableObject[];
+ header: string[];
+ dataRows: workExperienceTableObject[];
 }
 
 @Component({
@@ -30,19 +31,20 @@ declare interface WorkExperienceDataTable {
   styleUrls : ['./workex.component.css']
 })
 export class WorkexComponent implements OnInit {
-	public workExperienceDataTable: WorkExperienceDataTable;
+ public workExperienceDataTable: WorkExperienceDataTable;
 
-	Emp_focuses = ['Angriculture',
-					'Building and Construction',
-					'Education','Entertainment',
-					'Energy and Electric',
-					'financial and Business consulting',
-					'fitness and well being',
-					'Government',
-					'Healthcare Delivery',
-					'Hospitality',
-					'Information and Communication technology',
-					'Manufacturing'];
+ Emp_focuses = ['Angriculture',
+				'Building and Construction',
+				'Education',
+				'Entertainment',
+				'Energy and Electric',
+				'financial and Business consulting',
+				'fitness and well being',
+				'Government',
+				'Healthcare Delivery',
+				'Hospitality',
+				'Information and Communication technology',
+				'Manufacturing'];
 
 	locations = ['North America',
 				 'Carrabian',

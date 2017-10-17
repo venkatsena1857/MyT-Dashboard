@@ -5,7 +5,7 @@ declare interface ToolsDataTable {
   dataRows: string[][];
 }
 
-//declare const $: any;
+declare const $: any;
 
 @Component({
   selector: 'app-tools',
@@ -19,7 +19,16 @@ export class ToolsComponent implements OnInit {
 
   ngOnInit() {
     this.toolsDataTable = {
-      headerRow: [ 'Sl. No', 'Category', 'Method/Skill Name', 'Vendor/Distributor', 'Endorsments', 'Proficiency Type', 'Proficiency Year', 'Formal Certification','Usage in Last 3 Years', 'Actions' ],
+      headerRow: ['Sl. No',
+                  'Category',
+                  'Method/Skill Name',
+                  'Vendor/Distributor',
+                  'Endorsments',
+                  'Proficiency Type',
+                  'Proficiency Year',
+                  'Formal Certification',
+                  'Usage in Last 3 Years',
+                  'Actions'],
       dataRows: []
     }
   }
