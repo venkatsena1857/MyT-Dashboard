@@ -1,5 +1,6 @@
 import { Component, OnInit, AfterViewInit } from '@angular/core';
 
+
 declare interface DeedsDataTable {
   headerRow: string[];
   dataRows: string[][];
