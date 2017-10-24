@@ -3759,6 +3759,12 @@ be a descendant of the grid when it is being dragged.
 .wizard-card[data-color="rose"] .radio input[type=radio]:checked ~ .circle {
   border-color: #e91e63;
 }
+.card[data-color="rose"] .radio input[type=radio]:checked ~ .check {
+  background-color: #e91e63;
+}
+.wizard-card[data-color="rose"] .radio input[type=radio]:checked ~ .circle {
+  border-color: #e91e63;
+}
 .wizard-card .picture input[type="file"] {
   cursor: pointer;
   display: block;

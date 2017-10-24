@@ -3,6 +3,7 @@ import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MdModule } from '../md/md.module';
+import {  MaterialModule, MdDatepickerModule, MdNativeDateModule, MdInputModule, MdSelectModule } from '@angular/material';
 
 import { DeedsComponent } from './deeds.component';
 import { DeedsRoutes } from './deeds.routing';
@@ -25,7 +26,12 @@ import { LanguagesComponent } from './languages/languages.component';
         CommonModule,
         RouterModule.forChild(DeedsRoutes),
         FormsModule,
-        MdModule
+        MdModule,
+        MaterialModule,
+        MdDatepickerModule,
+        MdNativeDateModule,
+        MdInputModule,
+        MdSelectModule
     ],
     declarations: [DeedsComponent, CertificatesComponent, TakingClassesComponent, ConductingClassesComponent, MentoringComponent, WritingComponent, ConfrencesComponent, AwardsComponent, RecognizedExpertieseComponent, PatentsComponent, LeisureComponent, LanguagesComponent]
 })

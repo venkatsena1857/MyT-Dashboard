@@ -1,7 +1,7 @@
 <div class="col-md-12">
   <div class="card">
       <form method="get" action="/" class="form-horizontal">
-          <div class="card-header card-header-text" data-background-color="rose">
+          <div class="card-header card-header-text" data-background-color="orange">
               <h4 class="card-title">Taking Classes</h4>
           </div>
           <div class="card-content">
@@ -45,7 +45,25 @@
                       </div>
                   </div>
               </div>
-              <button type="submit" class="btn btn-fill btn-rose">Submit</button>        
+              <!--Date-->
+              <div class="row">
+                <div class="col-sm-2 label-on-left">
+                  <label class="strong-font">Start</label>
+                </div>
+                <div class="col-sm-10">
+                  <br>
+                  <md-input-container >
+                      <input mdInput [mdDatepicker]="datepickerStart"
+                          placeholder="Pick a start date"  type="month" >
+                  </md-input-container>
+                  <md-datepicker
+                      #datepickerYear
+                      [startView]="'year'"
+                      >
+                  </md-datepicker>
+              </div>
+            </div>
+              <button type="submit" class="btn btn-fill btn-orange">Submit</button>        
           </div>
       </form>
   </div>

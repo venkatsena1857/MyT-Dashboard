@@ -4,7 +4,7 @@
                 <div class="row" *ngIf = "skillsDataTable.dataRows.length>0">
                         <div class="col-md-12">
                             <div class="card">
-                                <div class="card-header card-header-icon" data-background-color="purple">
+                                <div class="card-header card-header-icon" data-background-color="orange">
                                     <i class="material-icons">assignment</i>
                                 </div>
                                 <div class="card-content">
@@ -63,8 +63,8 @@
             <div class="row">
                 <div class="col-md-6">
                     <div class="card">
-                        <div class="card-header card-header-icon" data-background-color="rose">
-                            <i class="material-icons">build</i>
+                        <div class="card-header card-header-icon" data-background-color="orange">
+                            <i class="material-icons">rowing</i>
                         </div>
                         <div class="card-content">
                             <h4 class="card-title">Add New Skills Record</h4>
@@ -88,7 +88,7 @@
                                 </div>
                                 <div class="form-group">
                                     <div class="dropdown">
-                                            <button href="#pablo" class="dropdown-toggle btn btn-primary btn-round btn-block" data-toggle="dropdown">Category
+                                            <button href="#pablo" class="dropdown-toggle btn btn-warning btn-round btn-block" data-toggle="dropdown">Category
                                                     <b class="caret"></b>
                                                 </button>
                                     </div>
@@ -96,9 +96,9 @@
                                 <div class="row">
                                         <div class="col-md-12">
 
-                                                <label class="col-md-5 strong-font">Formal Certifcation</label>
+                                                <label class="col-md-4 strong-font">Formal Certifcation</label>
                                                 <div class="togglebutton">
-                                                    <label class="col-md-7" >
+                                                    <label class="col-md-8" >
                                                         <input type="checkbox" [(ngModel)]="checkboxFormal" (ngModelChange)="checkFormalChange()" name="checkboxFormal"> 
                                                         <label class="strong-font" *ngIf="checkFormalProperty == false">
                                                             No formal certification
@@ -110,11 +110,12 @@
                                                 </div>
                                         </div>
                                 </div>
+                                <hr>
                                 <div class="row">
                                         <div class="col-md-12">
-                                                <label class="col-md-5 strong-font">Used in Last 3 Years?</label>
+                                                <label class="col-md-4 strong-font">Used in Last 3 Years?</label>
                                                 <div class="togglebutton">
-                                                    <label class="col-md-7">
+                                                    <label class="col-md-8">
                                                         <input type="checkbox" [(ngModel)]="checkbox" (ngModelChange)="checkUsageChange()" name="checkbox"> 
                                                         <label class="strong-font" *ngIf="checkUsageProperty == false">
                                                             Did not use in last 3 years
@@ -127,7 +128,7 @@
                                         </div>
                                 </div>
                                 <div class="form-group row">
-                                        <button type="submit" class="btn btn-fill btn-rose">Submit</button>
+                                        <button type="submit" class="btn btn-fill btn-warning">Submit</button>
                                 </div>
                             </form>
                         </div>
