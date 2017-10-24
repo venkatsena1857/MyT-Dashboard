@@ -7,6 +7,8 @@ import { MdModule } from '../md/md.module';
 import { EducationComponent } from './education.component';
 import { EducationRoutes } from './education.routing'
 import {  MaterialModule, MdDatepickerModule, MdNativeDateModule, MdInputModule, MdSelectModule } from '@angular/material';
+import { MyTMandatoryDirective } from '../directives/mandatory.directive';
+import { MyTEmailDirective } from '../directives/email.directive';
 
 @NgModule({
     imports: [
@@ -20,7 +22,7 @@ import {  MaterialModule, MdDatepickerModule, MdNativeDateModule, MdInputModule,
         MdInputModule,
         MdSelectModule
     ],
-    declarations: [EducationComponent]
+    declarations: [EducationComponent, MyTMandatoryDirective, MyTEmailDirective]
 })
 
 export class EducationModule {}

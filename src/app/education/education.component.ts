@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
+
 declare interface EducationData{
   header:string [];
   dataRows: string[][];
