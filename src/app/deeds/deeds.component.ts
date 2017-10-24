@@ -10,7 +10,8 @@ declare const $: any;
 
 @Component({
     selector: 'app-deeds',
-    templateUrl: 'deeds.component.html'
+    templateUrl: 'deeds.component.html',
+    styleUrls : ['deeds.component.css']
 })
 
 export class DeedsComponent implements OnInit, AfterViewInit {

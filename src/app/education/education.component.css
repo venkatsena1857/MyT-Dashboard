@@ -1,0 +1,31 @@
+.card-header-icon{
+	background-color:#FFC107;
+	color : brown;
+}
+
+.text-primary{
+	color:brown;
+}
+
+.btn{
+	background-color:#EF6C00;
+	color : white; 
+
+}
+
+.btn:hover {
+	background-color:orange;
+}
+
+.open{
+	background-color: black;
+}
+
+.btn-submit{
+	background-color: #FF5722;
+}
+
+.btn-submit:hover{
+	background-color: #BF360C;
+}
+

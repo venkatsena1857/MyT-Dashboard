@@ -39,4 +39,53 @@
 	border-style: solid;
 }
 
+.card-header-icon{
+	background-color:#FFC107;
+	color : brown;
+}
+
+.text-primary{
+	color:brown;
+}
+
+.btn{
+	background-color:#EF6C00;
+	color : white; 
+
+}
+
+.btn:hover {
+	background-color:orange;
+}
+
+.open:hover{
+	background-color: brown;
+}
+
+.open:active{
+	background-color: brown;
+}
+
+.btn-submit{
+	background-color: #FF5722;
+}
+
+.btn-submit:hover{
+	background-color: #BF360C;
+}
+
+
+
+.radio label .check {
+    height: 15px;
+    width: 15px;
+    border-radius: 100%;
+    background-color: red;
+    -webkit-transform: scale3d(0, 0, 0);
+    transform: scale3d(0, 0, 0);
+}
+
+input[type=radio]:checked ~ .check {
+    background-color: #ff8039;;
+}
 

@@ -7,7 +7,8 @@ declare interface EducationData{
 
 @Component({
   selector: 'app-education',
-  templateUrl: './education.component.html'
+  templateUrl: './education.component.html',
+  styleUrls : ['./education.component.css']
 })
 export class EducationComponent implements OnInit {
   public educationData: EducationData;

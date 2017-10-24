@@ -4,3 +4,7 @@ thead.text-primary {
 th.text-primary {
     color: #9c27b0;
 }
+.card-header-icon{
+	background-color:#FFC107;
+	color : brown;
+}
