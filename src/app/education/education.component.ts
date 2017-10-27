@@ -14,7 +14,23 @@ declare interface EducationData{
 export class EducationComponent implements OnInit {
   public educationData: EducationData;
 
-
+  type_of_degree_program: string[] = ['High Schoool Diploma',
+                            'Certificate',
+                            'BS',
+                            'BA',
+                            'MS',
+                            'MA',
+                            'PhD',
+                            'MBA',
+                            'MD',
+                            'LLD'];
+  degree_program_status: string []  = ['In Progress',
+                                       'Degree awarded',
+                                       'Degree - add\'l field of study'];
+  honors: string[] = ['Valedictorian',
+                      'Cum Laude',
+                      'Magna Cum Laude',
+                      'Summa Cum Laude'];
   public tableData1: {};
 
   ngOnInit() {

@@ -1,61 +1,61 @@
 <div class="col-md-12">
-  <div class="card">
-      <form method="get" action="/" class="form-horizontal">
-          <div class="card-header card-header-text" data-background-color="orange">
-              <h4 class="card-title">Mentoring</h4>
-          </div>
-          <div class="card-content">
-              <div class="row">
-                  <label class="col-sm-2 label-on-left">Choose Specific Activity</label>
-                  <div class="col-sm-10 checkbox-radios">
-                      <div class="radio">
-                        <label>
-                            <input type="radio" name="optionsRadios" checked="true"> Employee/student/colleague
-                        </label>
+        <div class="card">
+            <form method="get" action="/" class="form-horizontal">
+                <div class="card-header card-header-text" data-background-color="orange">
+                    <h4 class="card-title">Mentoring</h4>
+                </div>
+                <div class="card-content">
+                    <div class="row">
+                        <label class="col-sm-2 label-on-left">Choose Specific Activity</label>
+                        <div class="col-sm-10 checkbox-radios">
+                            <div class="radio">
+                              <label>
+                                  <input type="radio" name="optionsRadios" checked="true"> Employee/student/colleague
+                              </label>
+                            </div>
+                            <div class="radio">
+                              <label>
+                                  <input type="radio" name="optionsRadios"> Sponsor student or employee project 
+                              </label>
+                            </div>
+                            <div class="radio">
+                              <label>
+                                  <input type="radio" name="optionsRadios"> Group leader
+                                  
+                              </label>
+                          </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <label class="col-sm-2 label-on-left">Deed Description</label>
+                        <div class="col-sm-10">
+                            <div class="form-group label-floating is-empty has-success">
+                                <label class="control-label"></label>
+                                <input type="text" class="form-control" value="Success">
+                                <span class="material-icons form-control-feedback">done</span>
+                            </div>
+                        </div>
+                    </div>
+                    <!--Date-->
+                    <div class="row">
+                      <div class="col-sm-2 label-on-left">
+                        <label class="strong-font">Start</label>
                       </div>
-                      <div class="radio">
-                        <label>
-                            <input type="radio" name="optionsRadios"> Sponsor student or employee project 
-                        </label>
-                      </div>
-                      <div class="radio">
-                        <label>
-                            <input type="radio" name="optionsRadios"> Group leader
-                            
-                        </label>
+                      <div class="col-sm-10">
+                        <br>
+                        <md-input-container >
+                            <input mdInput [mdDatepicker]="datepickerStart"
+                                placeholder="Pick a start date"  type="month" >
+                        </md-input-container>
+                        <md-datepicker
+                            #datepickerYear
+                            [startView]="'year'"
+                            >
+                        </md-datepicker>
                     </div>
                   </div>
-              </div>
-              <div class="row">
-                  <label class="col-sm-2 label-on-left">Deed Description</label>
-                  <div class="col-sm-10">
-                      <div class="form-group label-floating is-empty has-success">
-                          <label class="control-label"></label>
-                          <input type="text" class="form-control" value="Success">
-                          <span class="material-icons form-control-feedback">done</span>
-                      </div>
-                  </div>
-              </div>
-              <!--Date-->
-              <div class="row">
-                <div class="col-sm-2 label-on-left">
-                  <label class="strong-font">Start</label>
+                    <button type="submit" class="btn btn-fill btn-warning">Submit</button>        
                 </div>
-                <div class="col-sm-10">
-                  <br>
-                  <md-input-container >
-                      <input mdInput [mdDatepicker]="datepickerStart"
-                          placeholder="Pick a start date"  type="month" >
-                  </md-input-container>
-                  <md-datepicker
-                      #datepickerYear
-                      [startView]="'year'"
-                      >
-                  </md-datepicker>
-              </div>
-            </div>
-              <button type="submit" class="btn btn-fill btn-warning">Submit</button>        
-          </div>
-      </form>
-  </div>
-</div>
+            </form>
+        </div>
+      </div>

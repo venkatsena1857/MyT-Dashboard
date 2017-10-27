@@ -7,9 +7,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MentoringComponent implements OnInit {
 
-  constructor() { }
+  constructor() { 
+    console.log("I called")
+  }
 
   ngOnInit() {
+    console.log("Initiated");
   }
 
 }
