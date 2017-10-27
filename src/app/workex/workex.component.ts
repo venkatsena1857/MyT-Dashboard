@@ -1,5 +1,5 @@
 // tslint:disable-next-line:indent
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, DoCheck,ViewChild } from '@angular/core';
 import { DateAdapter } from '@angular/material';
 
 
@@ -30,8 +30,21 @@ declare interface WorkExperienceDataTable {
   templateUrl: './workex.component.html',
   styleUrls : ['./workex.component.css']
 })
-export class WorkexComponent implements OnInit {
+export class WorkexComponent implements OnInit, DoCheck {
  public workExperienceDataTable: WorkExperienceDataTable;
+
+ @ViewChild('workExForm') work_ex_form : any;
+
+ initiated :boolean = false;
+
+ ngDoCheck() {
+
+    // console.log(this.username.nativeElemen);
+    if(this.initiated){
+    console.log(this.work_ex_form)
+     }
+    // this.username.
+   }
 
  Emp_focuses = ['Angriculture',
 				'Building and Construction',
@@ -87,6 +100,7 @@ export class WorkexComponent implements OnInit {
 		  header:["Sl. No","Organization", "Start Date","End Date"," Position/Activity", "Role", "Team Size","Paid/Unpaid","Questions","Actions"],
 		  dataRows:[]
 	  }
+	  this.initiated = true;
   }
 
 }
