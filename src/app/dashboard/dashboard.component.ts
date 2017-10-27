@@ -1,4 +1,4 @@
-import { Component, OnInit, AfterViewInit } from '@angular/core';
+  import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { TableData } from '../md/md-table/md-table.component';
 import { LegendItem, ChartType } from '../md/md-chart/md-chart.component';
 
@@ -13,6 +13,8 @@ declare const $: any;
 export class DashboardComponent implements OnInit, AfterViewInit {
   // constructor(private navbarTitleService: NavbarTitleService, private notificationService: NotificationService) { }
   public tableData: TableData;
+  LabelArr : any = ['J', 'F', 'M', 'A', 'M', 'J', 'J', 'A', 'S', 'O', 'N', 'D'];
+  SerisArr : any = [542, 443, 320, 780, 553, 453, 326, 434, 568, 610, 756, 895];
   startAnimationForLineChart(chart: any) {
       let seq: any, delays: any, durations: any;
       seq = 0;
@@ -126,15 +128,31 @@ export class DashboardComponent implements OnInit, AfterViewInit {
 
      this.startAnimationForLineChart(completedTasksChart);
 
+
+
       /* ----------==========     Emails Subscription Chart initialization    ==========---------- */
 
+      /****************||***********************
+      *****************||***********************
+      *****************||***********************
+      *****************||**********************
+      *****************||**********************
+      *****************||***********************
+      *****************||***********************
+      *****************||***********************/ 
       const dataWebsiteViewsChart = {
-        labels: ['J', 'F', 'M', 'A', 'M', 'J', 'J', 'A', 'S', 'O', 'N', 'D'],
-        series: [
-          [542, 443, 320, 780, 553, 453, 326, 434, 568, 610, 756, 895]
-
-        ]
+        labels: this.LabelArr,
+        series: [this.SerisArr]
       };
+
+      /****************||***********************
+      *****************||***********************
+      *****************||***********************
+      *****************||**********************
+      *****************||**********************
+      *****************||***********************
+      *****************||***********************
+      *****************||***********************/ 
       const optionsWebsiteViewsChart = {
           axisX: {
               showGrid: false

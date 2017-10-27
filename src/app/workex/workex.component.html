@@ -12,7 +12,7 @@
                         <div class="toolbar">
                             <!-- Extra Buttons for ToolBar -->
                         </div>
-                        <div class="material-datatables table-responsive">
+                       <!--  <div class="material-datatables table-responsive">
                             <table id="WorkDataTables" class="table table-striped table-no-bordered table-hover" cellspacing="0" width="100%" style="width:100%">
                                 <thead>
                                     <tr>
@@ -20,7 +20,7 @@
                                     </tr>
                                 </thead> 
                                 <tbody>
-                                    <tr *ngFor = "let eachWorkTableObject of workExperienceDataTable.dataRows; let i=index">
+                                    <tr *ngFor = "let eachWorkTableObject of workExperienceDataTable.dataRows let i="index">
                                         <td>{{i+1}}</td>
                                         <td>{{eachWorkTableObject.organization}}</td>
                                         <td>{{eachWorkTableObject.startDate}}</td>
@@ -34,56 +34,78 @@
                                     </tr>
                                 </tbody>     
                             </table>
-                        </div>
+                        </div> -->
                     </div>
                 </div>
             </div>
-        </div>
+        </div>-->
         <!--Form Starts-->
-        <div class="row">
-            <div class="col-md-12">
-                <div class="card">
-                    <div class="card-header card-header-icon" data-background-color="yellow">
-                        <i class="material-icons">work</i>
-                    </div>
-                    <div class="card-content">
-                        <h4 class="card-title">Add New Work/Volunteer Segment</h4>
-                        <form method="#" action="#">
-                            <div class="col-md-5 right-pane">
-                                <!--#################################################-->
-                                <h5>Record any work/volunteer experience and roles within clubs/organization</h5>
-                                <!--employers sector of focus-->
-                                <div class="row">
-                                     <div class="col-md-12">                               
-                                        <md-select  placeholder="choose employer's sector of focus" name="city" ngClass="btn btn-rose simple">
-                                            <md-option *ngFor="let Emp_focus of Emp_focuses" [value]="Emp_focus">
-                                            {{ Emp_focus }}
-                                            </md-option>
-                                        </md-select>
-                                    </div>
-                                </div>
-                                <!-- Employee/ Organization name -->
-                                <div class="row">
-                                    <div class="col-sm-5">
-                                        <br>
-                                         <label class="strong-font">Employee/ Organization name</label>
-                                    </div>
-                                    <div class="col-sm-7">
-                                        <div class="form-group has-success">
-                                            <input type="text" class="form-control" placeholder="">
-                                            <span class="material-icons form-control-feedback">done</span>
+        <form #workExForm="ngForm">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="card-header card-header-icon" data-background-color="yellow">
+                            <i class="material-icons">work</i>
+                        </div>
+                        <div class="card-content">
+                            <h4 class="card-title">Add New Work/Volunteer Segment</h4>
+                            <form method="#" action="#">
+                                <div class="col-md-5 right-pane">
+                                    <!--#################################################-->
+                                    <h5>Record any work/volunteer experience and roles within clubs/organization</h5>
+                                    <!--employers sector of focus-->
+                                    <div class="row">
+                                         <div class="col-md-12">                               
+                                            <md-select  placeholder="choose employer's sector of focus" name="city" ngClass="btn btn-rose simple">
+                                                <md-option *ngFor="let Emp_focus of Emp_focuses" [value]="Emp_focus">
+                                                {{ Emp_focus }}
+                                                </md-option>
+                                            </md-select>
                                         </div>
                                     </div>
-                                </div>
-                                <!-- Location /Region -->
-                                <div class="row">
-                                     <div class="col-md-12">                               
-                                        <md-select  placeholder="choose your location" name="city" ngClass="btn simple">
-                                            <md-option class="open" *ngFor="let location of locations" [value]="location">
-                                            {{ location }}
-                                            </md-option>
-                                        </md-select>
+                                    <!-- Employee/ Organization name -->
+                                    <div class="row">
+                                        <div class="col-sm-5">
+                                            <br>
+                                             <label class="strong-font">Employee/ Organization name</label>
+                                        </div>
+                                        <div class="col-sm-7">
+                                            <div class="form-group">
+                                                <input type="text" class="form-control" placeholder=""
+                                                ngModel name="employee" id="employee">
+                                                <span class="material-icons form-control-feedback" 
+                                                >done</span>
+                                            </div>
+                                        </div>
                                     </div>
+                                    <!-- Location /Region -->
+                                    <div class="row">
+                                         <div class="col-md-12">                               
+                                            <md-select  placeholder="choose your location" name="city" ngClass="btn simple">
+                                                <md-option class="open" *ngFor="let location of locations" [value]="location">
+                                                {{ location }}
+                                                </md-option>
+                                            </md-select>
+                                        </div>
+                                    </div>
+<<<<<<< HEAD
+                                    <!--start date and end dates-->
+                                    <!--DATE-Month picker HTML-->
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <i class="material-icons">date_range</i>
+                                            <label class="strong-font">Start</label>
+                                            <md-input-container >
+                                                <input mdInput [mdDatepicker]="datepickerStart"
+                                                    placeholder="Pick a start date"  type="month" >
+                                            </md-input-container>
+                                            <md-datepicker
+                                                #datepickerYear
+                                                [startView]="'year'"
+                                                >
+                                            </md-datepicker>
+                                          </div>
+=======
                                 </div>
                                 <!--start date and end dates-->
                                 <!--DATE-Month picker HTML-->
@@ -101,292 +123,294 @@
                                             >
                                         </md-datepicker>
                                       </div>
+>>>>>>> e7965f826b6bfc5865ecfef3dfc81d3ba46d8dd9
 
-                                      <div class="col-md-6">
-                                        <i class="material-icons">date_range</i>
-                                        <label class="strong-font">End</label>
-                                        <md-input-container >
-                                            <input mdInput [mdDatepicker]="datepickerEnd"
-                                                placeholder="Pick an end date"  type="month" >
-                                        </md-input-container>
-                                        <md-datepicker
-                                            #datepickerYear
-                                            [startView]="'year'"
-                                            >
-                                        </md-datepicker>
-                                      </div>x
+                                          <div class="col-md-6">
+                                            <i class="material-icons">date_range</i>
+                                            <label class="strong-font">End</label>
+                                            <md-input-container >
+                                                <input mdInput [mdDatepicker]="datepickerEnd"
+                                                    placeholder="Pick an end date"  type="month" >
+                                            </md-input-container>
+                                            <md-datepicker
+                                                #datepickerYear
+                                                [startView]="'year'"
+                                                >
+                                            </md-datepicker>
+                                          </div>x
 
-                                    
+                                        
 
-                                    <!-- <div class="col-md-6">
-                                        <label>Start</label>
-                                        <md-datepicker-toggle mdSuffix [for]="datepickerYear">
-                                        </md-datepicker-toggle>
-                                        <md-input-container>
-                                            <input mdInput [mdDatepicker]="datepickerYear"
-                                                placeholder="Pick a date">
-                                        </md-input-container>
-                                        <md-datepicker
-                                            #datepickerYear
-                                            [startView]="'year'">
-                                        </md-datepicker>
-                                    </div> -->
-                                </div>
-                                <!--Position or Activity Description-->
-                                <div class="row">
-                                    <div class="col-sm-5"></div>
-                                    <div class="col-sm-7">
-                                        <div class="form-group label-floating is-empty">
-                                             <label class="control-label"></label>
-                                                <input type="text" class="form-control" placeholder="Enter the Position or Activity Description">
-                                        </div>
-                                    </div>   
-                                </div>
-                                <!--choose your primary function-->
-                                <div class="row">
-                                     <div class="col-md-12">                               
-                                        <md-select  placeholder="choose your primary function" name="city" ngClass="btn simple">
-                                            <md-option class="open" *ngFor="let location of locations" [value]="location">
-                                            {{ location }}
-                                            </md-option>
-                                        </md-select>
+                                        <!-- <div class="col-md-6">
+                                            <label>Start</label>
+                                            <md-datepicker-toggle mdSuffix [for]="datepickerYear">
+                                            </md-datepicker-toggle>
+                                            <md-input-container>
+                                                <input mdInput [mdDatepicker]="datepickerYear"
+                                                    placeholder="Pick a date">
+                                            </md-input-container>
+                                            <md-datepicker
+                                                #datepickerYear
+                                                [startView]="'year'">
+                                            </md-datepicker>
+                                        </div> -->
                                     </div>
-                                </div>
-                                <!--Team size-->
-                                <br>
-                                <div class="row">    
-                                    <div class="col-md-4 strong-font">
-                                        Choose team size (choose 10, if team size is more than 9) 
-                                    </div>
-                                    <div class="col-md-7 align-self-center">
-                                            <nouislider [connect]="[true , flase]" [min]="0" [max]="10" [step]="1" [(ngModel)]="teamsize" name="Tsize" [tooltips]="true" class="slider"></nouislider>
-                                    </div>
-                                </div>
-                                <br>
-                                <!--Select team's Multi-disciplinary Makeup uselss-->
-                                <hr>
-                                
-                                 <!--Select team's Multi-disciplinary Makeup-->
-                                <hr>
-                                <div class="row">
-                                    <div class="col-md-6 vertical-center strong-font">
-                                        <br>
-                                        <br>
-                                         Select team's Multi-disciplinary Makeup
-                                    </div>
-                                    <div class="col-md-6 ">
-                                         <div class="radio">
-                                                <label class="strong-font">
-                                                    <input type="radio" name="Multi-disciplinary-Radio"checked="true">  Very high >76%
-                                                </label>
-                                        </div>
-                                        <div class="radio">
-                                                <label class="strong-font">
-                                                    <input type="radio" name="Multi-disciplinary-Radio">High 51-75% 
-                                                </label>
-                                        </div><div class="radio">
-                                                <label class="strong-font">
-                                                    <input type="radio" name="Multi-disciplinary-Radio" > Moderate 36-50%
-                                                </label>
-                                        </div><div class="radio">
-                                                <label class="strong-font">
-                                                    <input type="radio" name="Multi-disciplinary-Radio" > Low 16-35% 
-                                                </label>
-                                        </div><div class="radio">
-                                                <label class="strong-font">
-                                                    <input type="radio" name="Multi-disciplinary-Radio" >Very low 0-15%
-                                                </label>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!--Select team's Multi-Cultural Makeup-->
-                                <hr>
-                                <div class="row">
-                                    <div class="col-md-6 vertical-center strong-font">
-                                        <br>
-                                        <br>
-                                        Select team's Multi-Cultural Makeup
-                                    </div>
-                                    <div class="col-md-6">
-                                         <div class="radio" data-color="rose">
-                                                <label class="strong-font">
-                                                    <input data-color="rose" type="radio" class="radio-in" name="Multi-Cultural-Radio" checked="true">Very high >76%
-                                                </label>
-                                        </div>
-                                        <div class="radio">
-                                                <label class="strong-font">
-                                                    <input type="radio" name="Multi-Cultural-Radio" >High 51-75% 
-                                                </label>
-                                        </div><div class="radio">
-                                                <label class="strong-font">
-                                                    <input type="radio" name="Multi-Cultural-Radio"> Moderate 36-50%
-                                                </label>
-                                        </div><div class="radio">
-                                                <label class="strong-font">
-                                                    <input type="radio" name="Multi-Cultural-Radio"> Low 16-35%
-                                                </label>
-                                        </div><div class="radio">
-                                                <label class="strong-font">
-                                                    <input type="radio" name="Multi-Cultural-Radio"> Very low 0-15%
-                                                </label>
-                                        </div>
-                                    </div>
-                                </div>
-                                <hr>
-                                <!--Profit and paid-->
-
-                                <div class="row">
-                                    <div class="col-md-6 strong-font">
-                                        Type of organization                                        
-                                    </div>
-                                    <div class="col-md-6">
-                                        <div class="radio">
-                                        <label class="strong-font">
-                                                        <input type="radio" name = "profit"  checked="true">For Profit
-                                        </label>
-                                        </div>
-                                        <div class="radio">
-                                        <label class="strong-font">
-                                                        <input type="radio" name = "profit">Not For Profit
-                                        </label>
-                                        </div>
-                                    </div>    
-                                </div>
-                                <div class="row">
-                                    <div class="col-md-6 strong-font">
-                                        Type of position                                        
-                                    </div>
-                                    <div class="col-md-6">
-                                        <div class="radio">
-                                        <label class="strong-font">
-                                                        <input type="radio" name = "paid"  checked="true">Paid
-                                        </label>
-                                        </div>
-                                        <div class="radio">
-                                        <label class="strong-font">
-                                                        <input type="radio" name = "paid">Unpaid
-                                        </label>
-                                        </div>
-                                    </div>    
-                                </div>
-                                <br>
-                                <br>
-                                <br>
-                                <hr>
-                                <br>
-                                <!--########################################33-->
-                            </div>
-                            <div class="col-md-7 right-pane">
-                                <h5>Select answers to prompt below regarding Operations Responsibilities, Critical Thinking and Operations Innovation</h5>
-                                <div class="row">
-                                    <h6  class="col-md-12 strong-font" >Operation Responsibilities</h6>
-                                </div>
-                                <div *ngFor="let op_resp of op_resps">
+                                    <!--Position or Activity Description-->
                                     <div class="row">
-                                        <div class="col-md-6">
-                                            <label class="strong-font">{{op_resp.title}}</label>
-                                        </div>
-                                       <div class=" col-md-6">
-                                            <div class="row">
-                                                <div class="col-md-2 radio" >
-                                                    <label class="strong-font">
-                                                        <input type="radio" [name] = "op_resp.radio_name"  checked="true">No
-                                                    </label>
-                                                </div>
-                                                <div class="col-md-1"></div>
-                                                <div class="col-md-2 radio" >
-                                                    <label class="strong-font">
-                                                        <input type="radio" [name] = "op_resp.radio_name">Some
-                                                    </label>
-                                                </div> 
-                                                <div class="col-md-1"></div>
-                                                <div class="col-md-2 radio">
-                                                    <label class="strong-font">
-                                                        <input type="radio" [name]  = "op_resp.radio_name">Yes
-                                                    </label>
-                                                </div>
-                                                <div class="col-md-1"></div>
-                                               
-                                           </div>    
+                                        <div class="col-sm-5"></div>
+                                        <div class="col-sm-7">
+                                            <div class="form-group label-floating is-empty">
+                                                 <label class="control-label"></label>
+                                                    <input type="text" class="form-control" placeholder="Enter the Position or Activity Description">
+                                            </div>
                                         </div>   
                                     </div>
-                                    <br>
-                                </div>
-                                <hr>
-                                <div class="row">
-                                    <h6  class="col-md-12 strong-font" >Critical Thinking</h6>
-                                </div>
-                                <div *ngFor="let critical_thing of critical_things">
+                                    <!--choose your primary function-->
                                     <div class="row">
-                                        <div class="col-md-6 ">
-                                            <label class="strong-font">{{critical_thing.title}}</label>
+                                         <div class="col-md-12">                               
+                                            <md-select  placeholder="choose your primary function" name="city" ngClass="btn simple">
+                                                <md-option class="open" *ngFor="let location of locations" [value]="location">
+                                                {{ location }}
+                                                </md-option>
+                                            </md-select>
                                         </div>
-                                        <div class=" col-md-6">
-                                            <div class="row">   
-                                                <div class="col-md-2 radio">
+                                    </div>
+                                    <!--Team size-->
+                                    <br>
+                                    <div class="row">    
+                                        <div class="col-md-4 strong-font">
+                                            Choose team size (choose 10, if team size is more than 9) 
+                                        </div>
+                                        <div class="col-md-7 align-self-center">
+                                                <nouislider [connect]="[true , flase]" [min]="0" [max]="10" [step]="1" [(ngModel)]="teamsize" name="Tsize" [tooltips]="true" class="slider"></nouislider>
+                                        </div>
+                                    </div>
+                                    <br>
+                                    <!--Select team's Multi-disciplinary Makeup uselss-->
+                                    <hr>
+                                    
+                                     <!--Select team's Multi-disciplinary Makeup-->
+                                    <hr>
+                                    <div class="row">
+                                        <div class="col-md-6 vertical-center strong-font">
+                                            <br>
+                                            <br>
+                                             Select team's Multi-disciplinary Makeup
+                                        </div>
+                                        <div class="col-md-6 ">
+                                             <div class="radio">
                                                     <label class="strong-font">
-                                                        <input type="radio" [name]="critical_thing.radio_name" checked="true">No
+                                                        <input type="radio" name="Multi-disciplinary-Radio"checked="true">  Very high >76%
                                                     </label>
-                                                </div>
-                                                <div class="col-md-1"></div>
-                                                <div class="col-md-2 radio" >
+                                            </div>
+                                            <div class="radio">
                                                     <label class="strong-font">
-                                                        <input type="radio" [name]="critical_thing.radio_name"  >Some
+                                                        <input type="radio" name="Multi-disciplinary-Radio">High 51-75% 
                                                     </label>
-                                                </div> 
-                                                <div class="col-md-1"></div>
-                                                <div class="col-md-2 radio" >
+                                            </div><div class="radio">
                                                     <label class="strong-font">
-                                                        <input type="radio" [name]="critical_thing.radio_name">Yes
+                                                        <input type="radio" name="Multi-disciplinary-Radio" > Moderate 36-50%
                                                     </label>
-                                                </div>
-                                                <div class="col-md-1"></div> 
-                                            </div>    
+                                            </div><div class="radio">
+                                                    <label class="strong-font">
+                                                        <input type="radio" name="Multi-disciplinary-Radio" > Low 16-35% 
+                                                    </label>
+                                            </div><div class="radio">
+                                                    <label class="strong-font">
+                                                        <input type="radio" name="Multi-disciplinary-Radio" >Very low 0-15%
+                                                    </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!--Select team's Multi-Cultural Makeup-->
+                                    <hr>
+                                    <div class="row">
+                                        <div class="col-md-6 vertical-center strong-font">
+                                            <br>
+                                            <br>
+                                            Select team's Multi-Cultural Makeup
+                                        </div>
+                                        <div class="col-md-6">
+                                             <div class="radio" data-color="rose">
+                                                    <label class="strong-font">
+                                                        <input data-color="rose" type="radio" class="radio-in" name="Multi-Cultural-Radio" checked="true">Very high >76%
+                                                    </label>
+                                            </div>
+                                            <div class="radio">
+                                                    <label class="strong-font">
+                                                        <input type="radio" name="Multi-Cultural-Radio" >High 51-75% 
+                                                    </label>
+                                            </div><div class="radio">
+                                                    <label class="strong-font">
+                                                        <input type="radio" name="Multi-Cultural-Radio"> Moderate 36-50%
+                                                    </label>
+                                            </div><div class="radio">
+                                                    <label class="strong-font">
+                                                        <input type="radio" name="Multi-Cultural-Radio"> Low 16-35%
+                                                    </label>
+                                            </div><div class="radio">
+                                                    <label class="strong-font">
+                                                        <input type="radio" name="Multi-Cultural-Radio"> Very low 0-15%
+                                                    </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <hr>
+                                    <!--Profit and paid-->
+
+                                    <div class="row">
+                                        <div class="col-md-6 strong-font">
+                                            Type of organization                                        
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="radio">
+                                            <label class="strong-font">
+                                                            <input type="radio" name = "profit"  checked="true">For Profit
+                                            </label>
+                                            </div>
+                                            <div class="radio">
+                                            <label class="strong-font">
+                                                            <input type="radio" name = "profit">Not For Profit
+                                            </label>
+                                            </div>
+                                        </div>    
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6 strong-font">
+                                            Type of position                                        
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="radio">
+                                            <label class="strong-font">
+                                                            <input type="radio" name = "paid"  checked="true">Paid
+                                            </label>
+                                            </div>
+                                            <div class="radio">
+                                            <label class="strong-font">
+                                                            <input type="radio" name = "paid">Unpaid
+                                            </label>
+                                            </div>
                                         </div>    
                                     </div>
                                     <br>
+                                    <br>
+                                    <br>
+                                    <hr>
+                                    <br>
+                                    <!--########################################33-->
                                 </div>
-                                <!-->System and Operation Innovation</!-->
-                                <hr>
-                                <div class="row">
-                                    <h6  class="col-md-12 strong-font" >System and Operation Innovation</h6>
-                                </div>
-                                <div *ngFor="let innovation of innovation_arr">
+                                <div class="col-md-7 right-pane">
+                                    <h5>Select answers to prompt below regarding Operations Responsibilities, Critical Thinking and Operations Innovation</h5>
                                     <div class="row">
-                                        <div class="col-md-6 ">
-                                            <label class="strong-font">{{innovation.title}}</label>
-                                        </div>
-                                        <div class=" col-md-6">
-                                            <div class="row">   
-                                                <div class="col-md-2 radio">
-                                                    <label class="strong-font">
-                                                        <input type="radio" [name]="innovation.radio_name" checked="true">No
-                                                    </label>
-                                                </div>
-                                                <div class="col-md-1"></div>
-                                                <div class="col-md-2 radio" >
-                                                    <label class="strong-font"> 
-                                                        <input type="radio" [name]="innovation.radio_name"  >Some
-                                                    </label>
-                                                </div> 
-                                                <div class="col-md-1"></div>
-                                                <div class="col-md-2 radio" >
-                                                    <label class="strong-font">
-                                                        <input type="radio" [name]="innovation.radio_name">Yes
-                                                    </label>
-                                                </div> 
-                                            </div>    
-                                        </div>    
+                                        <h6  class="col-md-12 strong-font" >Operation Responsibilities</h6>
                                     </div>
+                                    <div *ngFor="let op_resp of op_resps">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <label class="strong-font">{{op_resp.title}}</label>
+                                            </div>
+                                           <div class=" col-md-6">
+                                                <div class="row">
+                                                    <div class="col-md-2 radio" >
+                                                        <label class="strong-font">
+                                                            <input type="radio" [name] = "op_resp.radio_name"  checked="true">No
+                                                        </label>
+                                                    </div>
+                                                    <div class="col-md-1"></div>
+                                                    <div class="col-md-2 radio" >
+                                                        <label class="strong-font">
+                                                            <input type="radio" [name] = "op_resp.radio_name">Some
+                                                        </label>
+                                                    </div> 
+                                                    <div class="col-md-1"></div>
+                                                    <div class="col-md-2 radio">
+                                                        <label class="strong-font">
+                                                            <input type="radio" [name]  = "op_resp.radio_name">Yes
+                                                        </label>
+                                                    </div>
+                                                    <div class="col-md-1"></div>
+                                                   
+                                               </div>    
+                                            </div>   
+                                        </div>
+                                        <br>
+                                    </div>
+                                    <hr>
+                                    <div class="row">
+                                        <h6  class="col-md-12 strong-font" >Critical Thinking</h6>
+                                    </div>
+                                    <div *ngFor="let critical_thing of critical_things">
+                                        <div class="row">
+                                            <div class="col-md-6 ">
+                                                <label class="strong-font">{{critical_thing.title}}</label>
+                                            </div>
+                                            <div class=" col-md-6">
+                                                <div class="row">   
+                                                    <div class="col-md-2 radio">
+                                                        <label class="strong-font">
+                                                            <input type="radio" [name]="critical_thing.radio_name" checked="true">No
+                                                        </label>
+                                                    </div>
+                                                    <div class="col-md-1"></div>
+                                                    <div class="col-md-2 radio" >
+                                                        <label class="strong-font">
+                                                            <input type="radio" [name]="critical_thing.radio_name"  >Some
+                                                        </label>
+                                                    </div> 
+                                                    <div class="col-md-1"></div>
+                                                    <div class="col-md-2 radio" >
+                                                        <label class="strong-font">
+                                                            <input type="radio" [name]="critical_thing.radio_name">Yes
+                                                        </label>
+                                                    </div>
+                                                    <div class="col-md-1"></div> 
+                                                </div>    
+                                            </div>    
+                                        </div>
+                                        <br>
+                                    </div>
+                                    <!-->System and Operation Innovation</!-->
+                                    <hr>
+                                    <div class="row">
+                                        <h6  class="col-md-12 strong-font" >System and Operation Innovation</h6>
+                                    </div>
+                                    <div *ngFor="let innovation of innovation_arr">
+                                        <div class="row">
+                                            <div class="col-md-6 ">
+                                                <label class="strong-font">{{innovation.title}}</label>
+                                            </div>
+                                            <div class=" col-md-6">
+                                                <div class="row">   
+                                                    <div class="col-md-2 radio">
+                                                        <label class="strong-font">
+                                                            <input type="radio" [name]="innovation.radio_name" checked="true">No
+                                                        </label>
+                                                    </div>
+                                                    <div class="col-md-1"></div>
+                                                    <div class="col-md-2 radio" >
+                                                        <label class="strong-font"> 
+                                                            <input type="radio" [name]="innovation.radio_name"  >Some
+                                                        </label>
+                                                    </div> 
+                                                    <div class="col-md-1"></div>
+                                                    <div class="col-md-2 radio" >
+                                                        <label class="strong-font">
+                                                            <input type="radio" [name]="innovation.radio_name">Yes
+                                                        </label>
+                                                    </div> 
+                                                </div>    
+                                            </div>    
+                                        </div>
+                                    </div>
+                                    <!---->
+                                    <hr>
                                 </div>
-                                <!---->
-                                <hr>
-                            </div>
-                        </form>
-                        <br>
+                            </form>
+                            <br>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
+        </form>
     </div>
 </div>
