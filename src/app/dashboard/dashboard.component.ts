@@ -8,13 +8,16 @@ declare const $: any;
 
 @Component({
   selector: 'app-dashboard',
-  templateUrl: './dashboard.component.html'
+  templateUrl: './dashboard.component.html',
+  styleUrls :  ['./dashboard.component.css']
 })
 export class DashboardComponent implements OnInit, AfterViewInit {
   // constructor(private navbarTitleService: NavbarTitleService, private notificationService: NotificationService) { }
   public tableData: TableData;
-  LabelArr : any = ['J', 'F', 'M', 'A', 'M', 'J', 'J', 'A', 'S', 'O', 'N', 'D'];
-  SerisArr : any = [542, 443, 320, 780, 553, 453, 326, 434, 568, 610, 756, 895];
+  LabelArr : any = ['Project Management', 'Organizational Design', 'Communi- cations', 'Critical Thinking', 'Teamwork',
+   'Networking', 'Empathy', 'Perspective', 'Global Understanding'];
+  SerisArr : any = [[1,1,1,1,1,1,1,1,1,1]];
+  finalTScore = 0;
   startAnimationForLineChart(chart: any) {
       let seq: any, delays: any, durations: any;
       seq = 0;
@@ -142,7 +145,13 @@ export class DashboardComponent implements OnInit, AfterViewInit {
       *****************||***********************/ 
       const dataWebsiteViewsChart = {
         labels: this.LabelArr,
-        series: [this.SerisArr]
+        series: this.SerisArr
+      };
+
+
+      const dataWebsiteViewsChart2 = {
+        labels: this.LabelArr,
+        series: this.SerisArr
       };
 
       /****************||***********************
@@ -155,15 +164,15 @@ export class DashboardComponent implements OnInit, AfterViewInit {
       *****************||***********************/ 
       const optionsWebsiteViewsChart = {
           axisX: {
-              showGrid: false
+              showGrid: true
           },
           low: 0,
           high: 1000,
-          chartPadding: { top: 0, right: 5, bottom: 0, left: 0}
+          chartPadding: { top: 0, right: 10, bottom: 10, left: 10}
       };
       const responsiveOptions: any = [
         ['screen and (max-width: 640px)', {
-          seriesBarDistance: 5,
+          seriesBarDistance: 10,
           axisX: {
             labelInterpolationFnc: function (value) {
               return value[0];
@@ -172,8 +181,10 @@ export class DashboardComponent implements OnInit, AfterViewInit {
         }]
       ];
       const websiteViewsChart = new Chartist.Bar('#websiteViewsChart', dataWebsiteViewsChart, optionsWebsiteViewsChart, responsiveOptions);
+      const websiteViewsChart2 = new Chartist.Bar('#websiteViewsChart2', dataWebsiteViewsChart2, optionsWebsiteViewsChart, responsiveOptions);
 
       this.startAnimationForBarChart(websiteViewsChart);
+      this.startAnimationForBarChart(websiteViewsChart2)
 
       const mapData = {
            'AU': 760,

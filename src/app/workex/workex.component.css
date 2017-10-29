@@ -89,3 +89,40 @@ input[type=radio]:checked ~ .check {
     background-color: #ff8039;;
 }
 
+.form-group.marked .form-control {
+  box-shadow: none;
+}
+.form-group.marked.is-focused .form-control {
+  background-image: linear-gradient(#BF360C, #BF360C), linear-gradient(#D2D2D2, #D2D2D2);
+}
+.form-group.marked label.control-label,
+.form-group.marked .help-block {
+  color: #BF360C;
+} 
+
+.marked .form-control-feedback-right {
+  color: #4caf50;
+  opacity: 1;
+}
+
+.form-control+ .form-control-feedback-right {
+    margin-top: -30px;
+    float: right;
+  }
+
+.marked .form-control-feedback-wrong {
+  color: #ff0000;
+  opacity: 1;
+}
+
+.form-control+ .form-control-feedback-wrong {
+    margin-top: -30px;
+    float: right;
+  }
+
+.warning{
+	color:red;
+	font-size: 16px;
+	font-style: bold;
+}
+

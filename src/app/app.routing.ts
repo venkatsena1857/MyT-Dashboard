@@ -7,19 +7,16 @@ import { LoginComponent } from './login/login.component';
 
 export const AppRoutes: Routes = [
     {
-      path: 'login',
+      path: '',
       component : LoginComponent
     },
+
     {
-      path: '',
+      path: 'user',
       component: AdminLayoutComponent,
       children: [
-      // {
-      // path: 'education',
-      // component : EducationComponent,
-      // },
       {
-        path: '',
+        path: 'dashboard',
         loadChildren: './dashboard/dashboard.module#DashboardModule'
     },{
         path: 'education',
@@ -36,21 +33,6 @@ export const AppRoutes: Routes = [
     }, {
         path: 'skills',
         loadChildren: './skills/skills.module#SkillsModule'
-    }, {
-        path: 'widgets',
-        loadChildren: './widgets/widgets.module#WidgetsModule'
-    }, {
-        path: 'charts',
-        loadChildren: './charts/charts.module#ChartsModule'
-    }, {
-        path: 'calendar',
-        loadChildren: './calendar/calendar.module#CalendarModule'
-    }, {
-        path: '',
-        loadChildren: './userpage/user.module#UserModule'
-    }, {
-        path: '',
-        loadChildren: './timeline/timeline.module#TimelineModule'
     }
   ]
     },

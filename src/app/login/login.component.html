@@ -1,78 +1,20 @@
 <div class="wrapper wrapper-full-page">
-    <nav class="navbar navbar-primary navbar-transparent navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#menu-example">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-            </div>
-            <div class="collapse navbar-collapse" id="menu-example">
-                <ul class="nav navbar-nav navbar-right">
-                    <li>
-                        <a href="/dashboard">
-                            <i class="material-icons">dashboard</i> Dashboard
-                        </a>
-                    </li>
-                    <li class="">
-                        <a href="/pages/register">
-                            <i class="material-icons">person_add</i> Register
-                        </a>
-                    </li>
-                    <li class=" active ">
-                        <a href="/pages/login">
-                            <i class="material-icons">fingerprint</i> Login
-                        </a>
-                    </li>
-                    <li class="">
-                        <a href="/pages/lock">
-                            <i class="material-icons">lock_open</i> Lock
-                        </a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
     <div class="full-page login-page" filter-color="black">
         <!--  you can change the color of the filter page using: data-color="blue | purple | green | orange | red | rose " -->
         <div class="content">
             <div class="container">
                 <div class="row">
-                    <div class="col-md-4 col-sm-6 col-md-offset-4 col-sm-offset-3">
+                     <!--Login panel---------------------------------------------------------------------------->
+                   
+                    <div class="col-md-4" *ngIf="isRegistered">
                         <form method="#" action="#">
-                            <div class="card card-login card-hidden">
+                            <div class="card card-trans card-login card-hidden">
                                 <div class="card-header card-header-icon" data-background-color="rose">
                                 	<i class="material-icons">lock_open</i>
-                                    
-                                    <!-- <div class="social-line">
-                                        <a href="#btn" class="btn btn-just-icon btn-simple">
-                                            <i class="fa fa-facebook-square"></i>
-                                        </a>
-                                        <a href="#pablo" class="btn btn-just-icon btn-simple">
-                                            <i class="fa fa-twitter"></i>
-                                        </a>
-                                        <a href="#eugen" class="btn btn-just-icon btn-simple">
-                                            <i class="fa fa-google-plus"></i>
-                                        </a>
-                                    </div> -->
                                 </div>
-                                <!-- <p class="category text-center">
-                                    Or Be Classical
-                                </p> -->
                                 <br>
                                 <div class="card-content">
                                 	<h4 class="card-title">Login</h4>
-                                    <div class="input-group">
-                                        <span class="input-group-addon">
-                                            <i class="material-icons">face</i>
-                                        </span>
-                                        <div class="form-group label-floating">
-                                            <label class="control-label">First Name</label>
-                                            <input #First_Name type="text" class="form-control" value = "" >
-                                        </div>
-                                    </div>
                                     <div class="input-group">
                                         <span class="input-group-addon">
                                             <i class="material-icons">email</i>
@@ -92,46 +34,150 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="footer text-center">
-                                    <button (click)="gotoDash(First_Name.value, E_mail.value, Password.value)" class="btn btn-rose btn-simple btn-wd btn-lg">Let's go</button>
+                                <div class="row">
+                                    <div class=" col-md-4 footer text-left">
+                                        <button (click)="gotoDash(E_mail.value, Password.value)" class="btn btn-rose btn-simple btn-wd btn-lg">Let's go</button>
+                                    </div>
+                                    <div class=" col-md-8  footer text-right">
+                                        <button (click)="goToRegister()" class="btn btn-rose btn-simple btn-wd btn-lg">
+                                            <i class="material-icons">person_add</i> Get registered first</button>
+                                    </div>
                                 </div>
                             </div>
                         </form>
+                    </div>
+
+                    <!--Registration panel-------------------------------------------------------------------------------->
+                    <div class="col-md-8 col-md-offset-2" *ngIf="!isRegistered">
+                        <form method="#" action="#">
+                            <div class="card card-trans card-hidden card-login">
+                                <div class="card-header card-header-icon" data-background-color="rose">
+                                    <i class="material-icons">person_add</i>
+                                </div>
+                                <br>
+                                <div class="card-content">
+                                    <h4 class="card-title">User Registeration</h4>
+                                    <div class="col-md-6">
+                                        <div class="input-group">
+                                            <span class="input-group-addon"></span>
+                                            <div class="form-group label-floating">
+                                                <label class="control-label">User Name</label>
+                                                <input #U_Name type="text" class="form-control" value = "">
+                                            </div>
+                                        </div>
+                                        <div class="input-group">
+                                            <span class="input-group-addon"></span>
+                                            <div class="form-group label-floating">
+                                                <label class="control-label">Last Name</label>
+                                                <input #L_Name type="text" class="form-control" value = "">
+                                            </div>
+                                        </div>
+                                        <div class="input-group">
+                                            <span class="input-group-addon"></span>
+                                            <div class="form-group label-floating">
+                                                <label class="control-label">First Name</label>
+                                                <input #F_Name type="text" class="form-control" value = "">
+                                            </div>
+                                        </div>
+                                        <div class="input-group">
+                                            <span class="input-group-addon"></span>
+                                            <div class="form-group label-floating">
+                                                <label class="control-label">Middle Name</label>
+                                                <input #M_Name type="text" class="form-control" value = "">
+                                            </div>
+                                        </div>
+                                        <div class="input-group">
+                                            <span class="input-group-addon"></span>
+                                            <div class="form-group label-floating">
+                                                <label class="control-label">Date of Birth</label>
+                                                <input #DOB type="text" class="form-control" value = "">
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-6">
+                                        <div class="input-group">
+                                            <span class="input-group-addon"></span>
+                                            <div class="form-group label-floating">
+                                                <label class="control-label">Email address</label>
+                                                <input #E_Mail type="text" class="form-control" value = "">
+                                            </div>
+                                        </div>
+                                        <div class="input-group">
+                                            <span class="input-group-addon"></span>
+                                            <div class="form-group label-floating">
+                                                <label class="control-label">First Name</label>
+                                                <input #F_Name type="text" class="form-control" value = "">
+                                            </div>
+                                        </div>
+                                        <div class="input-group">
+                                            <span class="input-group-addon"></span>
+                                            <div class="form-group label-floating">
+                                                <label class="control-label">Password</label>
+                                                <input #P_Word type="password" class="form-control" value = "">
+                                            </div>
+                                        </div>
+                                        <div class="input-group">
+                                            <span class="input-group-addon"></span>
+                                            <div class="form-group label-floating">
+                                                <label class="control-label">Confirm Password</label>
+                                                <input #P_Word type="password" class="form-control" value = "">
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                        <div class="footer text-center">
+                                            <button (click)="doRegister()" class="btn btn-rose btn-simple btn-wd btn-lg">
+                                                <i class="material-icons">person_add</i> Register me</button>
+                                        </div>
+                                    </div>   
+                                </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+
+
+
+                    <!--Registration panel ends-------------------------------------------------------------------------->
+                    <div class="col-md-1"></div>
+                    <div class="col-md-7" *ngIf="isRegistered">
+                        <div class="card  card-trans-blk card-login card-hidden">
+                            <div class="card-content  ">
+                                <h2>My T Score</h2>
+                                <h5> This is the description of the T Score company
+                                which is the super descripton , it may also be the nice description, but the description
+                                    This is not just a description but description.This is the description of the T Score company. which is the super descripton.but description.This is the description of the T Score company which is the super descripton
+                                </h5>
+                                <br>
+                                <br>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
         <footer class="footer">
+            <!-- <hr> -->
             <div class="container">
                 <nav class="pull-left">
                     <ul>
                         <li>
                             <a href="#">
-                                Home
+                                About
                             </a>
                         </li>
                         <li>
                             <a href="#">
-                                Company
+                                Team
                             </a>
                         </li>
                         <li>
                             <a href="#">
-                                Portfolio
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                Blog
+                                Contact
                             </a>
                         </li>
                     </ul>
                 </nav>
-                <p class="copyright pull-right">
-                    &copy;
-                    {{test | date: 'yyyy'}}
-                    <a href="https://www.creative-tim.com">Creative Tim</a>, made with love for a better web
-                </p>
             </div>
         </footer>
         <div class="full-page-background" style="background-image: url(../../../assets/img/login2.jpeg) "></div>

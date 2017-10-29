@@ -1,4 +1,4 @@
-import { Component, OnInit,ElementRef } from '@angular/core';
+import { Component, OnInit,ElementRef,DoCheck } from '@angular/core';
 import {Router} from '@angular/router';
 
 declare var $: any;
@@ -8,12 +8,12 @@ declare var $: any;
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
-export class LoginComponent implements OnInit {
+export class LoginComponent implements OnInit,DoCheck {
     test: Date = new Date();
     private toggleButton: any;
     private sidebarVisible: boolean;
     private nativeElement: Node;
-   
+    isRegistered = true;
     //router: Router;
 
     constructor(private element: ElementRef,private router:Router ) {
@@ -26,10 +26,14 @@ export class LoginComponent implements OnInit {
         var navbar : HTMLElement = this.element.nativeElement;
         this.toggleButton = navbar.getElementsByClassName('navbar-toggle')[0];
 
+          
+    }
+
+    ngDoCheck(){
         setTimeout(function() {
             // after 1000 ms we add the class animated to the login/register card
             $('.card').removeClass('card-hidden');
-        }, 700);
+        }, 1000);  
     }
     sidebarToggle() {
         var toggleButton = this.toggleButton;
@@ -47,13 +51,22 @@ export class LoginComponent implements OnInit {
             body.classList.remove('nav-open');
         }
     }
-    gotoDash(fname: string, email : string, password :string){
-    	if(fname == 'Revanth' && email == 'revanth@gmail.com' && password == 'Tscore'){
-    		this.router.navigateByUrl('/dashboard');
+    gotoDash(email : string, password :string){
+    	if(email == 'revanth@gmail.com' && password == 'Tscore'){
+    		this.router.navigateByUrl('/user/dashboard');
     	}
     	else{
     		alert('You have entered Wrong values');
     	}
     }
 
+    goToRegister(){
+
+        this.isRegistered = false;
+        
+    }
+
+    doRegister(){
+        this.isRegistered = true;
+    }
 }

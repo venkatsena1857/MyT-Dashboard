@@ -26,32 +26,32 @@ export const ROUTES: RouteInfo[] = [{
         type: 'link',
         icontype: 'dashboard'
     },{
-        path: '/education',
+        path: '/user/education',
         title: 'Education',
         type: 'link',
         icontype: 'school'
     },
     {
-        path: '/workex',
+        path: '/user/workex',
         title: 'Work Experience',
         type: 'link',
         icontype: 'work'
     },
     {
-        path: '/deeds',
+        path: '/user/deeds',
         title: 'Deeds',
         type: 'link',
         icontype: 'important_devices'
     },
     {
-        path: '/tools',
+        path: '/user/tools',
         title: 'Tools',
         type: 'link',
         icontype: 'build'
     }
     ,
     {
-        path: '/skills',
+        path: '/user/skills',
         title: 'Skills',
         type: 'link',
         icontype: 'rowing'

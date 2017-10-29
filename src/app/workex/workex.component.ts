@@ -5,7 +5,7 @@ import { DateAdapter } from '@angular/material';
 
 //Declaring Models for the WorkExperience Page
 declare interface workExperienceTableObject {
-	customId: string;
+ customId: string;
  organization: string;
  startDate: Date;
  endDate: Date;
@@ -34,16 +34,42 @@ export class WorkexComponent implements OnInit, DoCheck {
  public workExperienceDataTable: WorkExperienceDataTable;
 
  @ViewChild('workExForm') work_ex_form : any;
+ @ViewChild('workExForm2') work_ex_form2 : any;
+
+ isEmp_Valid = false;
+ isEmp_touched = false;
+ isPos_Valid = false;
+ isPos_touched = false;
+ fullValidator = true;
+
+ regexp = new RegExp('^[A-Za-z0-9.]+$');
 
  initiated :boolean = false;
-
+ counter = 0;
  ngDoCheck() {
 
-    // console.log(this.username.nativeElemen);
-    if(this.initiated){
-    console.log(this.work_ex_form)
+    // Employ;
+    if(this.work_ex_form2.controls.employee != null){
+    	this.isEmp_touched = this.work_ex_form2.controls.employee.touched;
+    	if(this.regexp.test(this.work_ex_form2.controls.employee.value)){
+   			 this.isEmp_Valid = true;
+   		}
+   		if(!(this.regexp.test(this.work_ex_form2.controls.employee.value)) && this.isEmp_touched){
+   			 this.isEmp_Valid = false;
+   		}
      }
-    // this.username.
+
+     //position
+     if(this.work_ex_form2.controls.position != null){
+    	this.isPos_touched = this.work_ex_form2.controls.position.touched;
+    	if(this.regexp.test(this.work_ex_form2.controls.position.value)){
+   			 this.isPos_Valid = true;
+   		}
+   		if(!(this.regexp.test(this.work_ex_form2.controls.position.value)) && this.isPos_touched){
+   			 this.isPos_Valid = false;
+   		}
+     }
+
    }
 
  Emp_focuses = ['Angriculture',
@@ -101,6 +127,23 @@ export class WorkexComponent implements OnInit, DoCheck {
 		  dataRows:[]
 	  }
 	  this.initiated = true;
+  }
+
+  addEntry(){
+ 	if(this.work_ex_form2.controls.Location.value == ""
+ 		||this.work_ex_form2.controls.EmployeSector.value == ""
+ 		||this.work_ex_form2.controls.EndDate.value == ""
+ 		||this.work_ex_form2.controls.PrimaryFunction.value == ""
+ 		||this.work_ex_form2.controls.StartDate.value == ""
+ 		||this.work_ex_form2.controls.employee.value == ""
+ 		||this.work_ex_form2.controls.position.value == ""){
+ 		alert("please fill all the fields");
+ 		this.fullValidator = false;
+
+ 	}
+ 	else{
+ 		document.getElementById('previousData').scrollIntoView();
+  	}
   }
 
 }

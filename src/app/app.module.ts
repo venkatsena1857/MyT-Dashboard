@@ -37,7 +37,7 @@ import { LoginComponent } from './login/login.component';
         AppComponent,
         AdminLayoutComponent,
         AuthLayoutComponent,
-        LoginComponent,
+       LoginComponent,
        // SkillsComponent,
        // ToolsComponent,
        // DeedsComponent,
