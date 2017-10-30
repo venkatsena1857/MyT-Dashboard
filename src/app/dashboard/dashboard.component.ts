@@ -1,6 +1,7 @@
   import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { TableData } from '../md/md-table/md-table.component';
 import { LegendItem, ChartType } from '../md/md-chart/md-chart.component';
+import {HttpClient} from '@angular/common/http';
 
 import * as Chartist from 'chartist';
 
@@ -13,11 +14,13 @@ declare const $: any;
 })
 export class DashboardComponent implements OnInit, AfterViewInit {
   // constructor(private navbarTitleService: NavbarTitleService, private notificationService: NotificationService) { }
+  constructor(private http: HttpClient){};
   public tableData: TableData;
   LabelArr : any = ['Project Management', 'Organizational Design', 'Communi- cations', 'Critical Thinking', 'Teamwork',
    'Networking', 'Empathy', 'Perspective', 'Global Understanding'];
   SerisArr : any = [[1,1,1,1,1,1,1,1,1,1]];
   finalTScore = 0;
+  results: string[];
   startAnimationForLineChart(chart: any) {
       let seq: any, delays: any, durations: any;
       seq = 0;
@@ -75,7 +78,17 @@ export class DashboardComponent implements OnInit, AfterViewInit {
   }
   // constructor(private navbarTitleService: NavbarTitleService) { }
   public ngOnInit() {
-      this.tableData = {
+
+      //for get request
+      this.http.get('http://mytzone.herokuapp.com/test').subscribe(data => {
+      // Read the result field from the JSON response.
+      //data is variable that holds JSON
+       console.log(data)
+    });
+     
+
+      //present before
+       this.tableData = {
           headerRow: ['ID', 'Name', 'Salary', 'Country', 'City'],
           dataRows: [
               ['US', 'USA', '2.920	', '53.23%'],
