@@ -9,7 +9,7 @@
                     <div class="col-md-4" *ngIf="isRegistered">
                         <form method="#" action="#">
                             <div class="card card-trans card-login card-hidden">
-                                <div class="card-header card-header-icon" data-background-color="rose">
+                                <div class="card-header card-header-icon" data-background-color="orange">
                                 	<i class="material-icons">lock_open</i>
                                 </div>
                                 <br>
@@ -36,10 +36,10 @@
                                 </div>
                                 <div class="row">
                                     <div class=" col-md-4 footer text-left">
-                                        <button (click)="gotoDash(E_mail.value, Password.value)" class="btn btn-rose btn-simple btn-wd btn-lg">Let's go</button>
+                                        <button (click)="gotoDash(E_mail.value, Password.value)" class="btn btn-warning btn-simple btn-wd btn-lg">Let's go</button>
                                     </div>
                                     <div class=" col-md-8  footer text-right">
-                                        <button (click)="goToRegister()" class="btn btn-rose btn-simple btn-wd btn-lg">
+                                        <button (click)="goToRegister()" class="btn btn-warning btn-simple btn-wd btn-lg">
                                             <i class="material-icons">person_add</i> Get registered first</button>
                                     </div>
                                 </div>
@@ -49,9 +49,9 @@
 
                     <!--Registration panel-------------------------------------------------------------------------------->
                     <div class="col-md-8 col-md-offset-2" *ngIf="!isRegistered">
-                        <form method="#" action="#">
+                        <form method="#" action="#" #RegForm="ngForm">
                             <div class="card card-trans card-hidden card-login">
-                                <div class="card-header card-header-icon" data-background-color="rose">
+                                <div class="card-header card-header-icon" data-background-color="orange">
                                     <i class="material-icons">person_add</i>
                                 </div>
                                 <br>
@@ -60,73 +60,103 @@
                                     <div class="col-md-6">
                                         <div class="input-group">
                                             <span class="input-group-addon"></span>
-                                            <div class="form-group label-floating">
+                                            <div class="form-group marked label-floating">
                                                 <label class="control-label">User Name</label>
-                                                <input #U_Name type="text" class="form-control" value = "">
+                                                <input #U_Name type="text" class="form-control" value = ""
+                                                ngModel name="u_name">
+                                                <span class="material-icons form-control-feedback-wrong" 
+                                                *ngIf="!U_Name_valid && U_Name_touched">clear</span>
+                                                <span class="material-icons form-control-feedback-right" 
+                                                *ngIf="U_Name_valid">done</span>
+                                                <p *ngIf="!U_Name_valid && U_Name_touched" class="warning"> Please input a valid user name</p>
                                             </div>
                                         </div>
                                         <div class="input-group">
                                             <span class="input-group-addon"></span>
-                                            <div class="form-group label-floating">
+                                            <div class="form-group marked label-floating">
                                                 <label class="control-label">Last Name</label>
-                                                <input #L_Name type="text" class="form-control" value = "">
+                                                <input #L_Name type="text" class="form-control" value = ""
+                                                ngModel name="l_name">
+                                                <span class="material-icons form-control-feedback-wrong" 
+                                                *ngIf="!L_Name_valid && L_Name_touched">clear</span>
+                                                <span class="material-icons form-control-feedback-right" 
+                                                *ngIf="L_Name_valid">done</span>
+                                                <p *ngIf="!L_Name_valid && L_Name_touched" class="warning"> Please input a valid last name</p>
                                             </div>
                                         </div>
                                         <div class="input-group">
                                             <span class="input-group-addon"></span>
-                                            <div class="form-group label-floating">
+                                            <div class="form-group marked label-floating">
                                                 <label class="control-label">First Name</label>
-                                                <input #F_Name type="text" class="form-control" value = "">
+                                                <input #F_Name type="text" class="form-control" value = ""
+                                                ngModel name="f_name">
+                                                <span class="material-icons form-control-feedback-wrong" 
+                                                *ngIf="!F_Name_valid && F_Name_touched">clear</span>
+                                                <span class="material-icons form-control-feedback-right" 
+                                                *ngIf="F_Name_valid">done</span>
+                                                <p *ngIf="!F_Name_valid && F_Name_touched" class="warning"> Please input a valid first name</p>
                                             </div>
                                         </div>
                                         <div class="input-group">
                                             <span class="input-group-addon"></span>
-                                            <div class="form-group label-floating">
-                                                <label class="control-label">Middle Name</label>
+                                            <div class="form-group marked label-floating">
+                                                <label class="control-label">Middle Name(Optional)</label>
                                                 <input #M_Name type="text" class="form-control" value = "">
                                             </div>
                                         </div>
                                         <div class="input-group">
                                             <span class="input-group-addon"></span>
-                                            <div class="form-group label-floating">
-                                                <label class="control-label">Date of Birth</label>
-                                                <input #DOB type="text" class="form-control" value = "">
-                                            </div>
+                                            <i class="material-icons">date_range</i>
+                                            <label class="control-label">Date of birth</label>
+                                                <input type="date" ngModel name="StartDate" value="null">
                                         </div>
                                     </div>
 
                                     <div class="col-md-6">
                                         <div class="input-group">
                                             <span class="input-group-addon"></span>
-                                            <div class="form-group label-floating">
-                                                <label class="control-label">Email address</label>
-                                                <input #E_Mail type="text" class="form-control" value = "">
-                                            </div>
-                                        </div>
-                                        <div class="input-group">
-                                            <span class="input-group-addon"></span>
-                                            <div class="form-group label-floating">
-                                                <label class="control-label">First Name</label>
+                                            <div class="form-group marked label-floating">
+                                                <label class="control-label">First Year - myTE Scoring Information Entry</label>
                                                 <input #F_Name type="text" class="form-control" value = "">
                                             </div>
                                         </div>
                                         <div class="input-group">
                                             <span class="input-group-addon"></span>
-                                            <div class="form-group label-floating">
-                                                <label class="control-label">Password</label>
-                                                <input #P_Word type="password" class="form-control" value = "">
+                                            <div class="form-group marked label-floating">
+                                                <label class="control-label">Email address</label>
+                                                <input #E_Mail type="email" class="form-control" value = ""
+                                                ngModel name="e_mail" email>
+                                                <span class="material-icons form-control-feedback-wrong"
+                                                 *ngIf="!E_Mail_valid && E_Mail_touched">clear</span>
+                                                <span class="material-icons form-control-feedback-right" 
+                                                *ngIf="E_Mail_valid">done</span>
+                                                <p *ngIf="!E_Mail_valid && E_Mail_touched" class="warning"> Please input a valid email id</p>
                                             </div>
                                         </div>
                                         <div class="input-group">
                                             <span class="input-group-addon"></span>
-                                            <div class="form-group label-floating">
+                                            <div class="form-group marked label-floating">
+                                                <label class="control-label">Password</label>
+                                                <input #P_Word type="password" class="form-control" value = ""
+                                                 ngModel name="pwd">
+                                            </div>
+                                        </div>
+                                        <div class="input-group">
+                                            <span class="input-group-addon"></span>
+                                            <div class="form-group marked label-floating">
                                                 <label class="control-label">Confirm Password</label>
-                                                <input #P_Word type="password" class="form-control" value = "">
+                                                <input #P_Word type="password" class="form-control" value = ""
+                                                ngModel name="conf_pwd">
+                                                <span class="material-icons form-control-feedback-wrong"
+                                                 *ngIf="!Pwd_valid && Pwd_touched">clear</span>
+                                                <span class="material-icons form-control-feedback-right" 
+                                                *ngIf="Pwd_valid">done</span>
+                                                <p *ngIf="!Pwd_valid && Pwd_touched" class="warning">Passwords still doesnt match</p>
                                             </div>
                                         </div>
                                         <div class="row">
                                         <div class="footer text-center">
-                                            <button (click)="doRegister()" class="btn btn-rose btn-simple btn-wd btn-lg">
+                                            <button (click)="doRegister()" class="btn btn-warning btn-simple btn-wd btn-lg">
                                                 <i class="material-icons">person_add</i> Register me</button>
                                         </div>
                                     </div>   
