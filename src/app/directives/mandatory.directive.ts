@@ -4,15 +4,26 @@ import { ControlValueAccessor } from '@angular/forms';
 import { } from '@angular/forms';
 
 @Directive({
-    selector: '[appDirectiveMandatory]'
+    selector: '[appDirectiveMandatory]',
+    host: {
+        '(focus)': 'registerOnChange()',
+        '(blur)': 'registerOnTouched()',    
+    }
 })
 
+/*
+({selector: '', host: {
+    '(focus)': 'setInputFocus(true)',
+    '(blur)': 'setInputFocus(false)',
+  }})
+*/
 export class MyTMandatoryDirective implements ControlValueAccessor {
     myElement: Node;
     myValidatorService: ValidatorService;
 
 
     constructor(private eleRef: ElementRef, private renderer: Renderer2){
+        console.log("Constructor Loaded");
         this.myValidatorService = new ValidatorService();
         this.myElement = eleRef.nativeElement;
         this.myValidatorService.isTest();
