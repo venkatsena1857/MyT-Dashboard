@@ -88,14 +88,8 @@
                             <button type="button" class="btn btn-warning btn-simple fix-broken-card">
                                 <i class="material-icons">build</i> Fix Header!
                             </button>
-                            <!-- <button type="button" class="btn btn-info btn-simple" rel="tooltip" data-placement="bottom" title="Refresh">
-                                <i class="material-icons">refresh</i>
-                            </button>
-                            <button type="button" class="btn btn-default btn-simple" rel="tooltip" data-placement="bottom" title="Change Date">
-                                <i class="material-icons">edit</i>
-                            </button> -->
                         </div>
-                        <h4 class="card-title">My T- Top</h4>
+                        <h4 class="card-title">My T- Top- {{Total_T_Top}}</h4>
                         <p class="category">The following is your calculated T top graph</p>
                     </div>
                 </div>
@@ -103,44 +97,57 @@
             </div>
             <!--Second graph-->
             <div class="row">
-            <div class="col-md-10">
-                <div class="card card-chart">
-                    <div class="card-header" data-background-color="red" data-header-animation="true">
-                        <div class="ct-chart" id="websiteViewsChart2"></div>
-                    </div>
-                    <div class="card-content">
-                        <div class="card-actions">
-                            <button type="button" class="btn btn-warning btn-simple fix-broken-card">
-                                <i class="material-icons">build</i> Fix Header!
-                            </button>
-                            <!-- <button type="button" class="btn btn-info btn-simple" rel="tooltip" data-placement="bottom" title="Refresh">
-                                <i class="material-icons">refresh</i>
-                            </button>
-                            <button type="button" class="btn btn-default btn-simple" rel="tooltip" data-placement="bottom" title="Change Date">
-                                <i class="material-icons">edit</i>
-                            </button> -->
+                <div class="col-md-10">
+                    <div class="card card-chart">
+                        <div class="card-header" data-background-color="red" data-header-animation="true">
+                            <div class="ct-chart" id="websiteViewsChart2"></div>
                         </div>
-                        <h4 class="card-title">My T- Stem</h4>
-                        <p class="category">The following is your calculated T stem graph</p>
+                        <div class="card-content">
+                            <div class="card-actions">
+                                <button type="button" class="btn btn-warning btn-simple fix-broken-card">
+                                    <i class="material-icons">build</i> Fix Header!
+                                </button>
+                            </div>
+                            <h4 class="card-title">My T- Stem - {{Total_T_Stem}}</h4>
+                            <p class="category">The following is your calculated T stem graph</p>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="row">
-            <div class="col-md-6">
-                <div class="card">
-                    <div class="card-header card-header-icon" data-background-color="orange">
-                        <i class="material-icons">assignment</i>
-                    </div>
-                    <div class="card-content">
-                        <h4 class="card-title">The Computed T Score is {{finalTScore}}</h4>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="card">
+                        <div class="card-header card-header-icon" data-background-color="orange">
+                            <i class="material-icons">assignment</i>
+                        </div>
+                        <div class="card-content">
+                            <h4 class="card-title">The Computed T Score is {{finalTScore}}</h4>
+                        </div>
                     </div>
                 </div>
             </div>
+            
+
+            <!-- <div class="row">
+                <div class="col-md-10">
+                    <div class="card card-chart">
+                        <div class="card-header" data-background-color="red" data-header-animation="true">
+                            <div class="ct-chart"><chart [options]="options"></chart></div>
+                        </div>
+                        <div class="card-content">
+                            <div class="card-actions">
+                                <button type="button" class="btn btn-warning btn-simple fix-broken-card">
+                                    <i class="material-icons">build</i> Fix Header!
+                                </button>
+                            </div>
+                            <h4 class="card-title">My T- Stem</h4>
+                            <p class="category">The following is your calculated T stem graph</p>
+                        </div>
+                    </div>
+                </div>
+            </div> -->
+            
+            <!-- <chart class="chart-bg" [options]="options"></chart> -->
+
         </div>
-
-
-
-
-    </div>
 </div>

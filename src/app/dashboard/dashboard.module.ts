@@ -8,17 +8,34 @@ import { MdModule } from '../md/md.module';
 import { DashboardComponent } from './dashboard.component';
 import { DashboardRoutes } from './dashboard.routing';
 import {HttpClientModule} from '@angular/common/http';
+import { ChartModule }   from 'angular2-highcharts'; 
+import { HighchartsStatic } from 'angular2-highcharts/dist/HighchartsService';
+//import {TestParetoComponent} from './testpareto'
+
+declare var require: any;
+export function highchartsFactory() {
+  return require('highcharts');
+}
 
 @NgModule({
     imports: [
         CommonModule,
         RouterModule.forChild(DashboardRoutes),
+       // ChartModule.forRoot(require('highcharts')),
         FormsModule,
         MdModule,
-        HttpClientModule,
+        ChartModule,
+        HttpClientModule
+  //      TestParetoComponent
   //      BrowserModule
     ],
-    declarations: [DashboardComponent]
+    declarations: [DashboardComponent],
+    providers: [
+    {
+      provide: HighchartsStatic,
+      useFactory: highchartsFactory
+    },
+  ],
 })
 
 export class DashboardModule {}

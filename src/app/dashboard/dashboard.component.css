@@ -16,3 +16,30 @@
 filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
 
 }
+
+.chart-bg{
+	background-color: #000000;
+}
+
+.rect.highcharts-background{
+	background-color: #000000;
+}
+
+.svg.highcharts-root{
+	background-color: red;
+}
+.rect{
+  //  fill: rgb(0, 0, 0);
+    x: 0;
+    y: 0;
+    width: 600;
+    height: 400;
+    background-color: red;
+    rx: 0;
+    ry: 0;
+}
+
+.chart {
+        display: block;
+        background-color: red;
+}
