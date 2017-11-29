@@ -31,7 +31,7 @@ import { LoginComponent } from './login/login.component';
         HttpModule,
         SidebarModule,
         NavbarModule,
-        FooterModule    
+        FooterModule
     ],
     declarations: [
         AppComponent,
