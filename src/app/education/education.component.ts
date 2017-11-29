@@ -1,6 +1,7 @@
 import { Component, OnInit,ViewChild } from '@angular/core';
 import {EducationInterface} from '../interfaces/education.interface'
 import {PostService} from '../services/postservice.service'
+import { error } from 'util';
 
 
 declare interface EducationData{
@@ -11,12 +12,14 @@ declare interface EducationData{
 @Component({
   selector: 'app-education',
   templateUrl: './education.component.html',
-  styleUrls : ['./education.component.css']
+  styleUrls : ['./education.component.css'],
+  providers: [PostService]
 })
+
 export class EducationComponent implements OnInit {
   public educationData: EducationData;
   educationToPost : EducationInterface;
-  postservice = new PostService();
+  
 
   type_of_degree_program: string[] = ["High School diploma",
                         "Certificate",
@@ -39,7 +42,9 @@ export class EducationComponent implements OnInit {
   enddateArr : string[] = ['2017'];
 
   public tableData1: {};
+  constructor(private post: PostService){
 
+  }
   ngOnInit() {
     this.educationData = {
       header:[ 'School Name', 'Major', 'Program type', 'Status', 'Honors' ,'Start year', 'End year', '' ],
@@ -76,12 +81,16 @@ export class EducationComponent implements OnInit {
       start_year : this.Educationform.controls.start_year.value,
       end_year : this.Educationform.controls.end_year.value
     }
-    this.educationData.dataRows.push([this.educationToPost.School_Name, this.educationToPost.Major,
-                                      this.educationToPost.degree_type, this.educationToPost.degree_status,
-                                      this.educationToPost.horors, this.educationToPost.start_year,
-                                      this.educationToPost.end_year]);
+    
     console.log(this.Educationform)
     //this.postservice.postToServer(this.educationToPost);
+    let postObs = this.post.postService('education',JSON.stringify(this.educationToPost));
+    console.log(postObs.subscribe(data=>{
+      this.educationData.dataRows.push([this.educationToPost.School_Name, this.educationToPost.Major,
+        this.educationToPost.degree_type, this.educationToPost.degree_status,
+        this.educationToPost.horors, this.educationToPost.start_year,
+        this.educationToPost.end_year]);
+    },error => console.log("am error")));
   }
 
 }
