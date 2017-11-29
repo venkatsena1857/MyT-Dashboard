@@ -2,6 +2,8 @@
 import { TableData } from '../md/md-table/md-table.component';
 import { LegendItem, ChartType } from '../md/md-chart/md-chart.component';
 import {HttpClient} from '@angular/common/http';
+import {GetService} from '../services/getservice.service'
+
 //import {TestParetoComponent} from './testpareto'
 //for pareto 
 
@@ -13,11 +15,12 @@ declare const $: any;
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
-  styleUrls :  ['./dashboard.component.css']
+  styleUrls :  ['./dashboard.component.css'],
+  providers: [GetService]
 })
 export class DashboardComponent implements OnInit, AfterViewInit,DoCheck {
   // constructor(private navbarTitleService: NavbarTitleService, private notificationService: NotificationService) { }
-  constructor(private http: HttpClient){
+  constructor(private http: HttpClient, private getservice : GetService){
     this.options = {
             chart:{
               backgroundColor : '#000000'
@@ -89,12 +92,17 @@ export class DashboardComponent implements OnInit, AfterViewInit,DoCheck {
   }
   // constructor(private navbarTitleService: NavbarTitleService) { }
   public ngOnInit() {
-
-      //for get request
+ 
+      this.getservice.getUser().subscribe(data =>{
+        console.log("this is from new")
+        console.log(data);
+      });
+ 
+      //console.log(this.getservice.getUser());
       this.http.get('http://mytzone.herokuapp.com/scores').subscribe(data => {
       // Read the result field from the JSON response.
       //data is variable that holds JSON
-       console.log(data);
+       //console.log(data);
        this.MyTStem = data['My_T_Stem'];
        this.MyTTop =  data['My_T_Top'];
       // console.log(this.MyTStem['Education, Briefings, and Teaching']);

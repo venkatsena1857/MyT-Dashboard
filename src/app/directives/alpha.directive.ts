@@ -13,7 +13,7 @@ export class MyTAlphaDirective {
     private myElement: any;
     private myValidatorService: ValidatorService;
     regex = new RegExp('^[A-Za-z.]+$');
-
+    
     constructor(private eleRef: ElementRef) {
         this.myElement = eleRef.nativeElement;
         console.log("const caled");
