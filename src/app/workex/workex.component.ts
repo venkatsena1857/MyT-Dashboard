@@ -42,7 +42,7 @@ export class WorkexComponent implements OnInit, DoCheck {
  isPos_touched = false;
  fullValidator = true;
 
- regexp = new RegExp('^[A-Za-z0-9.]+$');
+ regexp = new RegExp('^[A-Za-z0-9.]+@[A-Za-z]+.com$');
 
  initiated :boolean = false;
  counter = 0;

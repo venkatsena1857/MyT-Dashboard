@@ -80,7 +80,7 @@ export class EducationComponent implements OnInit {
                                       this.educationToPost.degree_type, this.educationToPost.degree_status,
                                       this.educationToPost.horors, this.educationToPost.start_year,
                                       this.educationToPost.end_year]);
-    console.log(this.educationToPost)
+    console.log(this.Educationform)
     //this.postservice.postToServer(this.educationToPost);
   }
 

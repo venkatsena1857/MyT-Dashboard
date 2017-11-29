@@ -29,17 +29,20 @@ export class MyTMandatoryDirective implements ControlValueAccessor {
         this.myValidatorService.isTest();
     }
     writeValue(obj: any): void {
-        console.log('Don\'t know when this runs');
+        //console.log('Don\'t know when this runs');
     }
     registerOnChange(fn: (_: any) => void): void {
         //this._onChange = fn;
-        console.log('Change occured');
+        //console.log('Change occured');
        // console.log('fn')
     }
     registerOnTouched(fn: any): void {
         //this._onTouched = fn;
 
-        console.log(this.eleRef.nativeElement.value);
+        //console.log(this.eleRef.nativeElement.value);
+        if(this.eleRef.nativeElement.value){
+            console.log(this.eleRef.nativeElement);
+        }
       //  console.log(fn);
     }
 }
