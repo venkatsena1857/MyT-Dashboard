@@ -73,10 +73,10 @@ export class EducationComponent implements OnInit {
   submit_Education_Details(){
     
     this.educationToPost = {
-      School_Name : this.Educationform.controls.SchoolName.value,
-      Major : this.Educationform.controls.Major.value,
-      degree_type : this.Educationform.controls.degree_program_type.value,
-      degree_status : this.Educationform.controls.degree_program_status.value,
+      schoolUniversityName : this.Educationform.controls.SchoolName.value,
+      majorFiedOfStudy : this.Educationform.controls.Major.value,
+      typeOfDegree : this.Educationform.controls.degree_program_type.value,
+      status : this.Educationform.controls.degree_program_status.value,
       horors : this.Educationform.controls.honors.value,
       start_year : this.Educationform.controls.start_year.value,
       end_year : this.Educationform.controls.end_year.value
@@ -86,8 +86,8 @@ export class EducationComponent implements OnInit {
     //this.postservice.postToServer(this.educationToPost);
     let postObs = this.post.postService('education',JSON.stringify(this.educationToPost));
     console.log(postObs.subscribe(data=>{
-      this.educationData.dataRows.push([this.educationToPost.School_Name, this.educationToPost.Major,
-        this.educationToPost.degree_type, this.educationToPost.degree_status,
+      this.educationData.dataRows.push([this.educationToPost.schoolUniversityName, this.educationToPost.majorFiedOfStudy,
+        this.educationToPost.typeOfDegree, this.educationToPost.status,
         this.educationToPost.horors, this.educationToPost.start_year,
         this.educationToPost.end_year]);
     },error => console.log("am error")));
