@@ -2,14 +2,32 @@ import {Directive, ElementRef, Renderer2} from '@angular/core';
 import { ValidatorService } from '../services/validator.service';
 
 @Directive({
-    selector: '[appDirectiveAlphabets]'
+    selector: '[appDirectiveAlphabets]',
+    host: {
+        '(blur)': 'validate()',
+        '(keypress)': 'validate()'
+    } 
 })
 
 export class MyTAlphaDirective {
-    private myElement: Node;
+    private myElement: any;
     private myValidatorService: ValidatorService;
-    constructor(private eleRef: ElementRef, private renderer: Renderer2) {
+    regex = new RegExp('^[A-Za-z.]+$');
+
+    constructor(private eleRef: ElementRef) {
         this.myElement = eleRef.nativeElement;
-        this.myValidatorService = new ValidatorService();
+        console.log("const caled");
+    }
+
+    
+    validate(){
+        var inputValue = this.myElement.value;
+        console.log("called")
+        if(this.regex.test(inputValue)){
+            console.log("is aplha");
+        }
+        else{
+            console.log("is not alpha");
+        }
     }
 }
