@@ -6,43 +6,20 @@ import { } from '@angular/forms';
 @Directive({
     selector: '[appDirectiveMandatory]',
     host: {
-        '(focus)': 'registerOnChange()',
-        '(blur)': 'registerOnTouched()',    
-    }
+        '(blur)': 'validate()',
+    } 
 })
 
-/*
-({selector: '', host: {
-    '(focus)': 'setInputFocus(true)',
-    '(blur)': 'setInputFocus(false)',
-  }})
-*/
-export class MyTMandatoryDirective implements ControlValueAccessor {
-    myElement: Node;
-    myValidatorService: ValidatorService;
-
-
+export class MyTMandatoryDirective{
+    private myElement: any;
+    private render: Renderer2;
     constructor(private eleRef: ElementRef, private renderer: Renderer2){
-        console.log("Constructor Loaded");
-        this.myValidatorService = new ValidatorService();
-        //this.myElement = eleRef.nativeElement;
-        this.myValidatorService.isTest();
+        this.myElement = eleRef.nativeElement;
     }
-    writeValue(obj: any): void {
-        //console.log('Don\'t know when this runs');
-    }
-    registerOnChange(fn: (_: any) => void): void {
-        //this._onChange = fn;
-        //console.log('Change occured');
-       // console.log('fn')
-    }
-    registerOnTouched(fn: any): void {
-        //this._onTouched = fn;
-
-        //console.log(this.eleRef.nativeElement.value);
-        if(this.eleRef.nativeElement.value){
-            console.log(this.eleRef.nativeElement);
+    validate() {
+        var inputValue = this.myElement.value;
+        if(inputValue == "" ){
+            console.log("Empty");
         }
-      //  console.log(fn);
     }
 }
