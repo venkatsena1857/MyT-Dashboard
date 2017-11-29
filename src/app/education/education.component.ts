@@ -18,23 +18,23 @@ export class EducationComponent implements OnInit {
   educationToPost : EducationInterface;
   postservice = new PostService();
 
-  type_of_degree_program: string[] = ['High Schoool Diploma',
-                            'Certificate',
-                            'BS',
-                            'BA',
-                            'MS',
-                            'MA',
-                            'PhD',
-                            'MBA',
-                            'MD',
-                            'LLD'];
-  degree_program_status: string []  = ['In Progress',
-                                       'Degree awarded',
-                                       'Degree - add\'l field of study'];
-  honors: string[] = ['Valedictorian',
-                      'Cum Laude',
-                      'Magna Cum Laude',
-                      'Summa Cum Laude'];
+  type_of_degree_program: string[] = ["High School diploma",
+                        "Certificate",
+                        "BS",
+                        "BA",
+                        "MS",
+                        "MA",
+                        "ph.D",
+                        "MBA",
+                        "MD",
+                        "LLD"];
+  degree_program_status: string []  = ["In progress",
+                        "Degree Awarded",
+                        "Degree - Add'l field of Study"];
+  honors: string[] = ["Valedictorian",
+                        "Cum Laude",
+                        "Magna Cum Laude",
+                        "Summa Cum Laude"];
   StartdateArr : string[] = ['2017'];
   enddateArr : string[] = ['2017'];
 

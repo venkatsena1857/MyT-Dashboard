@@ -7,7 +7,6 @@ import {GetService} from '../services/getservice.service'
 //import {TestParetoComponent} from './testpareto'
 //for pareto 
 
-
 import * as Chartist from 'chartist';
 
 declare const $: any;
@@ -101,8 +100,8 @@ export class DashboardComponent implements OnInit, AfterViewInit,DoCheck {
       //console.log(this.getservice.getUser());
       this.http.get('http://mytzone.herokuapp.com/scores').subscribe(data => {
       // Read the result field from the JSON response.
-      //data is variable that holds JSON
-       //console.log(data);
+      // data is variable that holds JSON
+      // console.log(data);
        this.MyTStem = data['My_T_Stem'];
        this.MyTTop =  data['My_T_Top'];
       // console.log(this.MyTStem['Education, Briefings, and Teaching']);
