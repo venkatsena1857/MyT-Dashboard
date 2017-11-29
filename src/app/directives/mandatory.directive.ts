@@ -25,7 +25,7 @@ export class MyTMandatoryDirective implements ControlValueAccessor {
     constructor(private eleRef: ElementRef, private renderer: Renderer2){
         console.log("Constructor Loaded");
         this.myValidatorService = new ValidatorService();
-        this.myElement = eleRef.nativeElement;
+        //this.myElement = eleRef.nativeElement;
         this.myValidatorService.isTest();
     }
     writeValue(obj: any): void {
@@ -34,11 +34,12 @@ export class MyTMandatoryDirective implements ControlValueAccessor {
     registerOnChange(fn: (_: any) => void): void {
         //this._onChange = fn;
         console.log('Change occured');
-        console.log('fn')
+       // console.log('fn')
     }
     registerOnTouched(fn: any): void {
         //this._onTouched = fn;
-        console.log('Touching Happend');
-        console.log(fn);
+
+        console.log(this.eleRef.nativeElement.value);
+      //  console.log(fn);
     }
 }
