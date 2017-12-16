@@ -13,8 +13,11 @@ import { } from '@angular/forms';
 export class MyTMandatoryDirective{
     private myElement: any;
     private render: Renderer2;
+
+
     constructor(private eleRef: ElementRef, private renderer: Renderer2){
         this.myElement = eleRef.nativeElement;
+         console.log("mandate called");
     }
     validate() {
         var inputValue = this.myElement.value;

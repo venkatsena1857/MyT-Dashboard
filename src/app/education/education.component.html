@@ -26,7 +26,14 @@
                                         <td>{{row[4]}}</td>
                                         <td>{{row[5]}}</td>
                                         <td>{{row[6]}}</td>
-
+                                        <td class="td-actions text-right">
+                                              <button type="button " rel="tooltip" class="btn btn-edit">
+                                                  <i class="material-icons">edit</i>
+                                              </button>
+                                              <button type="button" rel="tooltip" class="btn btn-delete">
+                                                  <i class="material-icons">close</i>
+                                              </button>
+                                          </td>
                                     </tr>
                                 </tbody>
                           </table>
@@ -64,7 +71,7 @@
                                 <div class="col-sm-8">
                                     <div class="form-group label-floating is-empty">
                                         <label class="control-label"></label>
-                                        <input type="text" class="form-control" appDirectiveMandatory
+                                        <input type="text" class="form-control" appDirectiveAlphabets
                                         ngModel id="Major" name="Major">
                                         <span class="material-icons form-control-feedback">done</span>
                                     </div>

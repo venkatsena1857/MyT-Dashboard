@@ -12216,3 +12216,16 @@ footer .btn {
     top: 80px;
   }
 }
+
+.btn{
+  background-color:#EF6C00;
+  color : white; 
+}
+
+.btn-delete{
+  background-color: red;
+}
+
+.btn-edit{
+  background-color: green;
+}

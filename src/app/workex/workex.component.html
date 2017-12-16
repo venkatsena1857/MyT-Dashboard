@@ -20,9 +20,8 @@
                                     </tr>
                                 </thead> 
                                 <tbody>
-                                    <tr>
-                                    <!--  *ngFor = "let eachWorkTableObject of workExperienceDataTable.dataRows let i="index"> -->
-                                       <!--  <td>{{i+1}}</td>
+                                    <tr *ngFor = "let eachWorkTableObject of workExperienceDataTable.dataRows">
+                                        <td>{{eachWorkTableObject.customId}}</td>
                                         <td>{{eachWorkTableObject.organization}}</td>
                                         <td>{{eachWorkTableObject.startDate}}</td>
                                         <td>{{eachWorkTableObject.endDate}}</td>
@@ -31,7 +30,14 @@
                                         <td>{{eachWorkTableObject.teamsize}}</td>
                                         <td>{{eachWorkTableObject.paidUnpaid}}</td>
                                         <td>{{eachWorkTableObject.questions}}</td>
-                                        <td>{{eachWorkTableObject}}</td> -->
+                                        <td class="td-actions text-right">
+                                            <button type="button " rel="tooltip" class="btn btn-edit">
+                                                      <i class="material-icons">edit</i>
+                                            </button>
+                                            <button type="button" rel="tooltip" class="btn btn-delete">
+                                                      <i class="material-icons">close</i>
+                                            </button>
+                                        </td>
                                     </tr>
                                 </tbody>     
                             </table>

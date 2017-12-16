@@ -17,6 +17,13 @@
 	background-color:orange;
 }
 
+.btn-delete{
+	background-color: red;
+}
+
+.btn-edit{
+	background-color: green;
+}
 .open{
 	background-color: black;
 }

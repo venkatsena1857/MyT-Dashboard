@@ -29,7 +29,16 @@ export class ToolsComponent implements OnInit {
                   'Formal Certification',
                   'Usage in Last 3 Years',
                   'Actions'],
-      dataRows: []
+      dataRows: [['Sl. No',
+                  'Category',
+                  'Method/Skill Name',
+                  'Vendor/Distributor',
+                  'Endorsments',
+                  'Proficiency Type',
+                  'Proficiency Year',
+                  'Formal Certification',
+                  'Usage in Last 3 Years',
+                  'Actions']]
     }
   }
 

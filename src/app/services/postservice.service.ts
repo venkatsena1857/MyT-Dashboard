@@ -10,9 +10,11 @@ export class PostService {
   constructor(private http: Http) {
     this.myTHTTP = http;
   }
-  postService(id: string,data: any){
-      let url = "http://localhost:8080/api/v2/";
-      return this.myTHTTP.post(url+id, JSON.stringify(data))
+  postService(id: string, data: any, formData: any){
+      let url = "http://mytzone.herokuapp.com/test";
+      console.log("trying to post")
+      console.log(url+id)
+      return this.myTHTTP.post(url, JSON.stringify(data))
       .map((res:Response) => res.json())
       .catch(this.errorHandler);
   }

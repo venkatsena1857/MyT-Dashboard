@@ -7,8 +7,8 @@ import { DateAdapter } from '@angular/material';
 declare interface workExperienceTableObject {
  customId: string;
  organization: string;
- startDate: Date;
- endDate: Date;
+ startDate: string;
+ endDate: string;
  positionActiivity: string;
  role: string;
  teamsize: number;
@@ -124,8 +124,16 @@ export class WorkexComponent implements OnInit, DoCheck {
   ngOnInit() {
 	  this.workExperienceDataTable = {
 		  header:["Sl. No","Organization", "Start Date","End Date"," Position/Activity", "Role", "Team Size","Paid/Unpaid","Questions","Actions"],
-		  dataRows:[]
-	  }
+		  dataRows:[{customId: "1",
+					organization: "My-T Me",
+					startDate: "2011-12-23",
+					endDate: "2017-12-23",
+					positionActiivity: "Developer",
+					role: "Engineer",
+					teamsize: 10,
+					paidUnpaid: "paid",
+					questions: "no"}]
+	  				}
 	  this.initiated = true;
   }
 

@@ -84,7 +84,7 @@ export class EducationComponent implements OnInit {
     
     console.log(this.Educationform)
     //this.postservice.postToServer(this.educationToPost);
-    let postObs = this.post.postService('education',JSON.stringify(this.educationToPost));
+    let postObs = this.post.postService('education',JSON.stringify(this.educationToPost),this.Educationform);
     console.log(postObs.subscribe(data=>{
       this.educationData.dataRows.push([this.educationToPost.schoolUniversityName, this.educationToPost.majorFiedOfStudy,
         this.educationToPost.typeOfDegree, this.educationToPost.status,

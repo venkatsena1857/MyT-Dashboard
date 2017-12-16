@@ -21,7 +21,7 @@ export class SkillsComponent implements OnInit {
     this.skillsDataTable = {
       headerRow: ['Sl. No','Category','Software/Device Name','Vendor/Distributor','Endorsements','Proficiency Type','Proficiency Year','Formal Certification', 'Usage in Last 3 Years','Actions'],
       footerRow: ['Sl. No','Category','Software/Device Name','Vendor/Distributor','Endorsements','Proficiency Type','Proficiency Year','Formal Certification', 'Usage in Last 3 Years','Actions'],
-      dataRows: []
+      dataRows: [['Sl. No','Category','Software/Device Name','Vendor/Distributor','Endorsements','Proficiency Type','Proficiency Year','Formal Certification', 'Usage in Last 3 Years','Actions']]
     }
   }
 

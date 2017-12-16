@@ -8,3 +8,15 @@ th.text-primary {
 	background-color:#FFC107;
 	color : brown;
 }
+
+.btn{
+	background-color:#EF6C00;
+	color : white; 
+}
+.btn-delete{
+	background-color: red;
+}
+
+.btn-edit{
+	background-color: green;
+}

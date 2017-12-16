@@ -9,6 +9,8 @@ import { EducationRoutes } from './education.routing'
 import {  MaterialModule, MdDatepickerModule, MdNativeDateModule, MdInputModule, MdSelectModule } from '@angular/material';
 import { MyTMandatoryDirective } from '../directives/mandatory.directive';
 import { MyTEmailDirective } from '../directives/email.directive';
+import { myTNumberDirective } from '../directives/number.directive'
+import { MyTAlphaDirective } from '../directives/alpha.directive'
 
 @NgModule({
     imports: [
@@ -22,7 +24,7 @@ import { MyTEmailDirective } from '../directives/email.directive';
         MdInputModule,
         MdSelectModule
     ],
-    declarations: [EducationComponent, MyTMandatoryDirective, MyTEmailDirective]
+    declarations: [EducationComponent, MyTMandatoryDirective, MyTEmailDirective, myTNumberDirective, MyTAlphaDirective]
 })
 
 export class EducationModule {}

@@ -1,6 +1,7 @@
 import { Directive, ElementRef, Renderer2 } from '@angular/core';
 import { ValidatorService } from '../services/validator.service';
-
+import { ControlValueAccessor } from '@angular/forms';
+import { } from '@angular/forms';
 
 @Directive({
     selector: '[appDirectiveNumber]',
@@ -11,12 +12,12 @@ import { ValidatorService } from '../services/validator.service';
 
 export class myTNumberDirective {
     private myElement: any;
-    private myValidatorService: ValidatorService;
+    private render: Renderer2;
     regex = new RegExp('^[A-Za-z.]+$');
     
     constructor(private eleRef: ElementRef, private renderer: Renderer2){
         this.myElement = eleRef.nativeElement;
-        this.myValidatorService = new ValidatorService();
+        console.log("is number const");
     }
 
     
