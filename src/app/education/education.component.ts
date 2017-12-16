@@ -1,6 +1,6 @@
 import { Component, OnInit,ViewChild } from '@angular/core';
-import {EducationInterface} from '../interfaces/education.interface'
-import {PostService} from '../services/postservice.service'
+import {EducationInterface} from '../interfaces/education.interface';
+import { ServerCommunicationService } from '../services/servercommunication.service';
 import { error } from 'util';
 
 
@@ -13,7 +13,7 @@ declare interface EducationData{
   selector: 'app-education',
   templateUrl: './education.component.html',
   styleUrls : ['./education.component.css'],
-  providers: [PostService]
+  providers: [ ServerCommunicationService ]
 })
 
 export class EducationComponent implements OnInit {
@@ -42,7 +42,7 @@ export class EducationComponent implements OnInit {
   enddateArr : string[] = ['2017'];
 
   public tableData1: {};
-  constructor(private post: PostService){
+  constructor(private comm: ServerCommunicationService){
 
   }
   ngOnInit() {
@@ -71,7 +71,7 @@ export class EducationComponent implements OnInit {
   @ViewChild('EducationForm') Educationform : any;
 
   submit_Education_Details(){
-    
+    /*
     this.educationToPost = {
       schoolUniversityName : this.Educationform.controls.SchoolName.value,
       majorFiedOfStudy : this.Educationform.controls.Major.value,
@@ -91,6 +91,11 @@ export class EducationComponent implements OnInit {
         this.educationToPost.horors, this.educationToPost.start_year,
         this.educationToPost.end_year]);
     },error => console.log("am error")));
+    */
+    this.comm.postService('education',this.Educationform,'default').subscribe(data => {
+      console.log(data);
+    },error => {console.log(error)});
+    
   }
 
 }
