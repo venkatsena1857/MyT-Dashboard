@@ -21,6 +21,20 @@ var schemas = {
             'endYear',
             'degreeProgramStatus'
         ])
+    },
+
+     tools: {
+        properties: {
+            category: "Category",
+            softwareDeviceName:"tool_name" ,
+            vendorDistributor: "vendor_distributor",
+            numberOfLinkedEndorsments: "linkedIn_endorsments",
+            proficiencyType: "proficiency_type",
+            proficiencyYear: "proficiency_year",
+            formalCertification: "formal_certification",
+            usagein3Years: "usage_in_3years",
+        },
+        "required": new Set(["category", "softwareDeviceName", "vendorDistributor", "numberOfLinkedEndorsments", "proficiencyType", "proficiencyYear", "formalCertification", "usagein3Years"]),
     }
 } 
 
@@ -57,11 +71,10 @@ export class ServerCommunicationService {
 
 
     postService(id: string, data: any, errorHandler: any){
-        id = 'test'
-        var id1 = 'education'
-        var jsonData = this.jsonBuilder(id1,data);
+        var id1 = 'test'
+        var jsonData = this.jsonBuilder(id,data);
         console.log(jsonData);
-        return this.myHTTP.post(ServerCommunicationService.localUrl+id,jsonData);
+        return this.myHTTP.post(ServerCommunicationService.localUrl+id1,jsonData);
     }
 }
 
