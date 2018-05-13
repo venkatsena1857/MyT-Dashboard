@@ -46,5 +46,8 @@ export class SkillsComponent implements OnInit {
 
   }
 
+addSkillsRecord(){
+    document.getElementById('addSkillsRecord').style.display = "block";
+  }
 
 }

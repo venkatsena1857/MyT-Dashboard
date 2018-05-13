@@ -18,16 +18,14 @@ declare interface EducationData{
 
 export class EducationComponent implements OnInit {
   public educationData: EducationData;
-  educationToPost : EducationInterface;
-  
+  educationToPost : EducationInterface;  
 
   type_of_degree_program: string[] = ["High School diploma",
-                        "Certificate",
                         "BS",
                         "BA",
                         "MS",
                         "MA",
-                        "ph.D",
+                        "Ph.D",
                         "MBA",
                         "MD",
                         "LLD"];
@@ -37,20 +35,22 @@ export class EducationComponent implements OnInit {
   honors: string[] = ["Valedictorian",
                         "Cum Laude",
                         "Magna Cum Laude",
-                        "Summa Cum Laude"];
+                        "Summa Cum Laude",
+                        "None"];
   StartdateArr : string[] = ['2017'];
   enddateArr : string[] = ['2017'];
 
+  
   public tableData1: {};
   constructor(private comm: ServerCommunicationService){
 
   }
   ngOnInit() {
     this.educationData = {
-      header:[ 'School Name', 'Major', 'Program type', 'Status', 'Honors' ,'Start year', 'End year', '' ],
+      header:[ 'School Name', 'Major', 'Program type', 'Status', 'Honors', 'Yr Completed/Expected', '' ],
       dataRows: [
-        ['San Jose State University', 'SE', 'Masters', 'Completed', 'Science', '2015','2017'],
-        ['Osmania University', 'CSE', 'Bachelors', 'Completed', 'Science', '2011','2015']
+        ['San Jose State University', 'SE', 'MS', 'Completed', 'Cum Laude', '2017'],
+        ['Osmania University', 'CSE', 'BS', 'Completed', 'Cum Laude', '2015']
     ]
     }
     this.tableData1 = {
@@ -60,6 +60,7 @@ export class EducationComponent implements OnInit {
                 ['Osmania University', 'CSE', 'Bachelors', 'Completed', 'Science', '2011','2015']
             ]
          };
+
     for(let i = 2016 ; i > 1949 ; i--){
         this.StartdateArr.push(i.toString());
     }
@@ -96,6 +97,10 @@ export class EducationComponent implements OnInit {
       console.log(data);
     },error => {console.log(error)});
     
+  }
+  
+   addEducationRecord(){
+    document.getElementById('addEduRecord').style.display = "block";
   }
 
 }

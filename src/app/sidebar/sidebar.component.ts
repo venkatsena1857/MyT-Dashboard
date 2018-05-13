@@ -22,7 +22,7 @@ export interface ChildrenItems {
 //Menu Items
 export const ROUTES: RouteInfo[] = [{
         path: '/user/dashboard',
-        title: 'Dashboard',
+        title: 'MyT-Me Dashboard',
         type: 'link',
         icontype: 'dashboard'
     },{
@@ -33,7 +33,7 @@ export const ROUTES: RouteInfo[] = [{
     },
     {
         path: '/user/workex',
-        title: 'Work Experience',
+        title: 'Work/Volunteer ',
         type: 'link',
         icontype: 'work'
     },
@@ -45,14 +45,14 @@ export const ROUTES: RouteInfo[] = [{
     },
     {
         path: '/user/tools',
-        title: 'Tools',
+        title: 'Software/Devices',
         type: 'link',
         icontype: 'build'
     }
     ,
     {
         path: '/user/skills',
-        title: 'Skills',
+        title: 'Methods/Skills',
         type: 'link',
         icontype: 'rowing'
     }

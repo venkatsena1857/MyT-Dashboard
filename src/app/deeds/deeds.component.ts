@@ -59,6 +59,10 @@ export class DeedsComponent implements OnInit, AfterViewInit {
         //  Activate the tooltips
         $('[rel="tooltip"]').tooltip();
     }
+
+    addDeedsRecord(){
+    document.getElementById('addDeedsRecord').style.display = "block";
+  }
 }
 
 

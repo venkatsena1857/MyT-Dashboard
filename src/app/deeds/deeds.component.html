@@ -9,7 +9,7 @@
                             <i class="material-icons">assignment</i>
                         </div>
                         <div class="card-content">
-                            <h4 class="card-title">Deeds Hostory To Date</h4>
+                            <h4 class="card-title">Deeds History To Date</h4>
                             <div class="toolbar">
                                 <!--        Here you can write extra buttons/actions for the toolbar              -->
                             </div>
@@ -56,7 +56,8 @@
             <!-- end row and Table -->
             <!-- Panel for Forms Section -->
             <div class="col-md-12">
-                <div class="card">
+                <button type="button" class="btn btn-fill btn-rose" (click)="addDeedsRecord()">Add New Deeds Record</button>
+                <div class="card" id="addDeedsRecord" style="display:none;">
                     <div class="card-header card-header-icon" data-background-color="orange">
                         <i class="material-icons">important_devices</i>
                     </div>
@@ -66,37 +67,38 @@
                             <div class="col-md-4" id="">
                                 <ul class="nav nav-pills nav-pills-warning nav-stacked">
                                     <li class="active">
-                                        <a href="#certificates" data-toggle="tab">Certificates</a>
+                                        <a href="#certificates" style="text-transform: none;"
+                                        data-toggle="tab">Certificates/Licenses</a>
                                     </li>
                                     <li>
-                                        <a href="#taking_classes" data-toggle="tab">Taking Classes</a>
+                                        <a href="#taking_classes" style="text-transform: none;" data-toggle="tab">Taking Classes/Workshops</a>
                                     </li>
                                     <li>
-                                        <a href="#conducting_classes" data-toggle="tab">Conducting Classes</a>
+                                        <a href="#conducting_classes" style="text-transform: none;" data-toggle="tab">Conducting Classes</a>
                                     </li>
                                     <li>
-                                        <a href="#mentoring" data-toggle="tab">Mentoring</a>
+                                        <a href="#mentoring" style="text-transform: none;" data-toggle="tab">Mentoring</a>
                                     </li>
                                     <li>
-                                        <a href="#writing" data-toggle="tab">Writing</a>
+                                        <a href="#writing" style="text-transform: none;" data-toggle="tab">Writing</a>
                                     </li>
                                     <li>
-                                        <a href="#awards" data-toggle = "tab">Awards</a>
+                                        <a href="#awards" style="text-transform: none;" data-toggle = "tab">Awards</a>
                                     </li>
                                     <li>
-                                        <a href="#confrences" data-toggle="tab">Confrences</a>
+                                        <a href="#confrences" style="text-transform: none;" data-toggle="tab">Conferences</a>
                                     </li>
                                     <li>
-                                        <a href="#recognized_expertiese" data-toggle="tab">Recognized Expertise</a>
+                                        <a href="#recognized_expertiese" style="text-transform: none;" data-toggle="tab">Recognized Expertise</a>
                                     </li>
                                     <li>
-                                        <a href="#patents" data-toggle="tab">Patents</a>
+                                        <a href="#patents" style="text-transform: none;" data-toggle="tab">Patents</a>
                                     </li>
                                     <li>
-                                        <a href="#leisure" data-toggle="tab">Leisure</a>
+                                        <a href="#leisure" style="text-transform: none;" data-toggle="tab">Leisure Travel</a>
                                     </li>
                                     <li>
-                                        <a href="#languages" data-toggle="tab">Languages</a>
+                                        <a href="#languages" style="text-transform: none;" data-toggle="tab">Multi-Lingual</a>
                                     </li>
                                 </ul>
                             </div>
