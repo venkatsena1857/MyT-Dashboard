@@ -17,11 +17,12 @@ declare const $: any;
 })
 export class ToolsComponent implements OnInit {
   public toolsDataTable: ToolsDataTable;
+  public checkFormalProperty = false;
 
   constructor(private comm: ServerCommunicationService) { }
 
   category_for_dropdown: string []  = ["Software - USER", "Software - Programming", "Device Operation"];
-  proficiency_types: string []=["basic", "inter", "advanced", "expert"]
+  proficiency_types: string []=["Basic", "Inter", "Advanced", "Expert"]
 
   ngOnInit() {
     this.toolsDataTable = {
@@ -55,4 +56,20 @@ export class ToolsComponent implements OnInit {
       console.log(data);
     },error => {console.log(error)});
   }
-}
+
+  checkFormalChange(){
+    if(this.checkFormalProperty == true){
+      this.checkFormalProperty = false;
+    }
+    else{
+      this.checkFormalProperty = true;
+    }
+    console.log(this.checkFormalProperty);
+  }
+
+
+  addToolsRecord(){
+    document.getElementById('addToolsRecord').style.display = "block";
+  }
+
+  }

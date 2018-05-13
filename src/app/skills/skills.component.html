@@ -8,7 +8,7 @@
                                     <i class="material-icons">assignment</i>
                                 </div>
                                 <div class="card-content">
-                                    <h4 class="card-title">Skills Hostory To Date</h4>
+                                    <h4 class="card-title">Skills History To Date</h4>
                                     <div class="toolbar">
                                         <!--        Here you can write extra buttons/actions for the toolbar              -->
                                     </div>
@@ -61,91 +61,12 @@
                     <!-- end row and Table -->
 
             <!-- Testing Second forms -->
-            <div class="col-md-6">
-                <div class="card">
-                    <form method="get" action="/" class="form-horizontal">
-                        <div class="card-header card-header-icon" data-background-color="rose">
-                            <i class="material-icons">build</i>
-                        </div>
-                        <div class="card-content">
-                            <h4 class="card-title">Add New Skills Record</h4> 
-                            <!-- Method/Skill Name -->
-                            <div class="row">
-                                <label class="col-sm-2 label-on-left">Method/Skill Name</label>
-                                <div class="col-sm-8">
-                                    <div class="form-group label-floating is-empty">
-                                        <label class="control-label"></label>
-                                        <input type="text" class="form-control">
-                                        <span class="material-icons form-control-feedback">done</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- Vendor Distributor Name -->
-                            <div class="row">
-                                <label class="col-sm-2 label-on-left">Vendor/Distributor Name</label>
-                                <div class="col-sm-8">
-                                    <div class="form-group label-floating is-empty">
-                                        <label class="control-label"></label>
-                                        <input type="text" class="form-control">
-                                        <span class="material-icons form-control-feedback">done</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- Number of LinkedIn Endorsments -->
-                            <div class="row">
-                                <label class="col-sm-2 label-on-left">LinkedIn Endorsments</label>
-                                <div class="col-sm-8">
-                                    <div class="form-group label-floating is-empty">
-                                        <label class="control-label"></label>
-                                        <input type="number" class="form-control">
-                                        <span class="material-icons form-control-feedback">done</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- Category -->
-                            <br>
-                            <div class="row">
-                                <div class="col-sm-12">
-                                    <div class="dropdown">
-                                        <button href="#pablo" class="dropdown-toggle btn  btn-primary btn-block" data-toggle="dropdown">Category
-                                            <b class="caret"></b>
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- Formal Certification  -->
-                            <br>
-                            <div class="row">
-                                <div class="col-md-12">
-                                        <label class="col-md-6">Formal Certifcation</label>
-                                        <div class="togglebutton">
-                                            <label class="col-md-6">
-                                                <input type="checkbox" checked> Toggle is on
-                                            </label>
-                                        </div>
-                                </div>
-                        </div>
-                        <!-- Usage in Last 3 Years -->
-                        <br>
-                        <div class="row">
-                                <div class="col-md-12">
-                                        <label class="col-md-6">Usage in Last 3 Years</label>
-                                        <div class="togglebutton">
-                                            <label class="col-md-6">
-                                                <input type="checkbox" checked> Toggle is on
-                                            </label>
-                                        </div>
-                                </div>
-                        </div>
-                            <button type="submit" class="btn btn-fill btn-rose">Submit</button>        
-                        </div>
-                    </form>
-                </div>
-              </div>
+            
             <!--Form Section Starts-->
             <div class="row">
                 <div class="col-md-6">
-                    <div class="card">
+                    <button class="btn btn-fill btn-rose" (click)="addSkillsRecord()" ng-show="showBtns">Add New Skills Record</button>
+                    <div class="card" id="addSkillsRecord" style="display:none;">
                         <div class="card-header card-header-icon" data-background-color="orange">
                             <i class="material-icons">rowing</i>
                         </div>
@@ -153,29 +74,52 @@
                             <h4 class="card-title">Add New Skills Record</h4>
                             <form method="#" action="#">
                                 <div class="form-group label-floating">
-                                    <label class="control-label">Software/Device Name</label>
+                                    <label class="control-label">Method/Skills Name</label>
                                     <input type="text" class="form-control" required>
                                 </div>
                                 <div class="form-group label-floating">
-                                    <label class="control-label">Vendor/Distributor (If Known)</label>
-                                    <input type="text" class="form-control" >
+                                    <label class="control-label">Vendor/Distributor Name</label>
+                                    <input type="text" class="form-control" required>
                                 </div>
                                 <div class="form-group label-floating">
                                     <label class="control-label">Number of LinkedIn Endorsments</label>
-                                    <input type="number" number="true" class="form-control" default = "0" >
-
+                                    <input type="number" number="true" class="form-control" default = "0" required>
                                 </div>
+                                <br>
                                 <div class="form-group label-floating">
                                     <label class="control-label">Proficiency</label>
-                                    <!--<nouislider [connect] = "false" min = "1" max= "4" step = "1" class="slider"></nouislider>-->
+                                    <!-- <nouislider [connect] = "false" min = "1" max= "4" step = "1" class="slider"></nouislider> -->
                                 </div>
-                                <div class="form-group">
+                                <div class="col-md-12 form-group label-floating">
+                                <label class="control-label">Category</label>                         
+                                <!--     <md-select  placeholder="Category" name="city" ngClass="btn simple"  ngModel id="degree_program_status" name="Category">
+                                   <md-option *ngFor="let category of category_for_dropdown" [value]="category">
+                                   {{ category }}
+                                   </md-option>
+                                </md-select> -->
+                                <div class="radio">
+                                    <label>
+                                    <input type="radio" name="Category">Software-User 
+                                    </label>
+            
+                                    <label>
+                                    <input type="radio" name="Category">Software-Programming            
+                                    </label>
+
+                                    <label>
+                                    <input type="radio" name="Category">Device Operation                                              
+                                    </label>
+                                </div>
+                            </div>
+                            <hr>
+                                <!-- <div class="form-group">
                                     <div class="dropdown">
-                                            <button href="#pablo" class="dropdown-toggle btn btn-warning btn-round btn-block" data-toggle="dropdown">Category
-                                                    <b class="caret"></b>
-                                                </button>
+                                        <button href="#pablo" class="dropdown-toggle btn  btn-warning btn-block" data-toggle="dropdown">Category
+                                            <b class="caret"></b>
+                                        </button>
                                     </div>
                                 </div>
+                                <hr> -->
                                 <div class="row">
                                         <div class="col-md-12">
 
@@ -195,9 +139,9 @@
                                 </div>
                                 <hr>
                                 <div class="row">
-                                        <div class="col-md-12">
-                                                <label class="col-md-4 strong-font">Used in Last 3 Years?</label>
-                                                <div class="togglebutton">
+                                        <!-- <div class="col-md-12"> -->
+                                                <label class="col-md-4 strong-font">Used in last 3 Years?</label>
+                                               <!--  <div class="togglebutton">
                                                     <label class="col-md-8">
                                                         <input type="checkbox" [(ngModel)]="checkbox" (ngModelChange)="checkUsageChange()" name="checkbox"> 
                                                         <label class="strong-font" *ngIf="checkUsageProperty == false">
@@ -207,9 +151,33 @@
                                                             Used in last 3 years
                                                         </label>
                                                     </label>
+                                                </div> -->
+                                            <div class="col-sm-10 checkbox-radios">
+                                                <div class="radio">
+                                                    <label>
+                                                    <input type="radio" name="optionsUsageRadios">Often 
+                                                    </label>
+                            
+                                                    <label>
+                                                    <input type="radio" name="optionsUsageRadios">
+                                                    Sometimes                             
+                                                    </label>
+
+                                                    <label>
+                                                    <input type="radio" name="optionsUsageRadios">
+                                                    Rarely                             
+                                                    </label>
+                                                
+                                                    <label>
+                                                    <input type="radio" name="optionsUsageRadios" checked="true">
+                                                    No                            
+                                                    </label>
                                                 </div>
-                                        </div>
-                                </div>
+
+                                            </div>
+                                        <!-- </div> -->
+                                    </div>
+
                                 <div class="form-group row">
                                         <button type="submit" class="btn btn-fill btn-warning">Submit</button>
                                 </div>

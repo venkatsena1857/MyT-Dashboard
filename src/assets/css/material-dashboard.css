@@ -5381,7 +5381,7 @@ h2.title {
   bottom: 0;
   left: 0;
   z-index: 1030;
-  width: 260px;
+  width: 295px;
   background: #FFFFFF;
   box-shadow: 0 10px 30px -12px rgba(0, 0, 0, 0.42), 0 4px 25px 0px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(0, 0, 0, 0.2);
 }
@@ -5519,7 +5519,7 @@ h2.title {
 .sidebar .nav p {
   margin: 0;
   line-height: 30px;
-  font-size: 14px;
+  font-size: 10spx;
   white-space: nowrap;
   opacity: 1;
   display: block;
@@ -5538,7 +5538,7 @@ h2.title {
 .sidebar .nav i {
   font-size: 24px;
   float: left;
-  margin-right: 15px;
+  margin-right: 3px;
   line-height: 30px;
   width: 30px;
   text-align: center;
@@ -9459,7 +9459,6 @@ tag[_ngcontent-c4]:not(:focus):not(.tag--editing):not(:active):not(.readonly):ho
 }
 .nav-pills > li > a {
   line-height: 24px;
-  text-transform: uppercase;
   font-size: 12px;
   font-weight: 500;
   min-width: 100px;
