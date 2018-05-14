@@ -1,25 +1,25 @@
-  import { Component, OnInit, AfterViewInit,DoCheck } from '@angular/core';
+import { Component, OnInit, AfterViewInit,DoCheck } from '@angular/core';
 import { TableData } from '../md/md-table/md-table.component';
 import { LegendItem, ChartType } from '../md/md-chart/md-chart.component';
 import {HttpClient} from '@angular/common/http';
-import {GetService} from '../services/getservice.service'
+import { APIServices } from '../services/apiService.service';
 
 //import {TestParetoComponent} from './testpareto'
 //for pareto 
 
 import * as Chartist from 'chartist';
+import { ApiStrings } from '../common/apiStrings';
 
 declare const $: any;
 
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
-  styleUrls :  ['./dashboard.component.css'],
-  providers: [GetService]
+  styleUrls :  ['./dashboard.component.css']
 })
-export class DashboardComponent implements OnInit, AfterViewInit,DoCheck {
+export class DashboardComponent implements OnInit {
   // constructor(private navbarTitleService: NavbarTitleService, private notificationService: NotificationService) { }
-  constructor(private http: HttpClient, private getservice : GetService){
+  constructor(private http: HttpClient, private api: APIServices){
     this.options = {
             chart:{
               backgroundColor : '#000000'
@@ -63,8 +63,6 @@ export class DashboardComponent implements OnInit, AfterViewInit,DoCheck {
   Total_T_Stem = 0;
   
   startAnimationForBarChart(chart: any) {
-     // console.log("animation started for");
-     // console.log(this.SerisArr);
       let seq2: any, delays2: any, durations2: any;
       seq2 = 0;
       delays2 = 80;
@@ -91,101 +89,18 @@ export class DashboardComponent implements OnInit, AfterViewInit,DoCheck {
   }
   // constructor(private navbarTitleService: NavbarTitleService) { }
   public ngOnInit() {
- 
-      this.getservice.getUser().subscribe(data =>{
-        console.log("this is from new")
-        console.log(data);
-      });
- 
-      //console.log(this.getservice.getUser());
-      this.http.get('http://mytzone.herokuapp.com/scores').subscribe(data => {
-      // Read the result field from the JSON response.
-      // data is variable that holds JSON
-      // console.log(data);
-       this.MyTStem = data['My_T_Stem'];
-       this.MyTTop =  data['My_T_Top'];
-      // console.log(this.MyTStem['Education, Briefings, and Teaching']);
-       this.My_T_Stem_SerisArr = [[this.MyTStem['Education, Briefings, and Teaching'],
-                         this.MyTStem['Memberships, Authorships, and Recognitions'],
-                         this.MyTStem['Methods/Skills Proficiency'],
-                         this.MyTStem['Operations responsibilities and expertise'],
-                         this.MyTStem['Software/Device Proficiency']]];
 
-       for( let eachIt of this.My_T_Stem_SerisArr[0]){
-           this.max_T_Stem = Math.max(this.max_T_Stem,eachIt);
-           this.Total_T_Stem += eachIt;
-       }
-      // console.log(this.SerisArr);
-      this.My_T_Top_SerisArr = [[this.MyTTop['Communications'],
-                                 this.MyTTop['Critical Thinking'],
-                                 this.MyTTop['Empathy'],
-                                 this.MyTTop['Global understandng'],
-                                 this.MyTTop['Networking'],
-                                 this.MyTTop['Organizational design'],
-                                 this.MyTTop['Perspective'],
-                                 this.MyTTop['Project management'],
-                                  ]]
-         for( let eachIt of this.My_T_Top_SerisArr[0]){
-           this.max_T_Stem = Math.max(this.max_T_Stem,eachIt);
-           this.Total_T_Top += eachIt;
-       }
-       this.finalTScore = this.Total_T_Stem+this.Total_T_Top;
-    });
+  this.api.get(ApiStrings.SCORES, (responseJSON: JSON) =>{
+      console.log(responseJSON);
+  })
 
-      this.graph_flag = true;
+  this.responsiveOptions= [
+      ['screen and (max-width: 640px)', {
+        seriesBarDistance: 5,
+        axisX: {
 
-
-      this.optionsWebsiteViewsChart = {
-          axisX: {
-              showGrid: true
-          },
-          low: 0,
-          high: 60,
-          chartPadding: { top: 0, right: 10, bottom: 20, left: 10}
-      };
-      this.responsiveOptions= [
-        ['screen and (max-width: 640px)', {
-          seriesBarDistance: 5,
-          axisX: {
-          labelInterpolationFnc: function (value) {
-          return value[0]+value[1];
-      }
-    }
-        }]
-      ];
-
-      
-   }
-
-
-  ngDoCheck() {  
-      if(this.graph_flag && this.stopcheck < 100){
-       this.dataWebsiteViewsChart = {
-          labels: this.My_T_Top_LabelArr,
-          series: this.My_T_Top_SerisArr
-        };
-
-
-        this.dataWebsiteViewsChart2 = {
-          labels: this.My_T_Stem_LabelArr,
-          series: this.My_T_Stem_SerisArr
-        };
-
-      // console.log(this.dataWebsiteViewsChart);  
-
-      this.websiteViewsChart = new Chartist.Bar('#websiteViewsChart', this.dataWebsiteViewsChart, this.optionsWebsiteViewsChart, this.responsiveOptions);
-      this.websiteViewsChart2 = new Chartist.Bar('#websiteViewsChart2', this.dataWebsiteViewsChart2, this.optionsWebsiteViewsChart, this.responsiveOptions);
-
-      this.startAnimationForBarChart(this.websiteViewsChart);
-      this.startAnimationForBarChart(this.websiteViewsChart2);
-      this.stopcheck++;
-      }
+        }
+      }]
+    ];
   }
-  ngAfterViewInit() {
-       const breakCards = true;
-       if (breakCards === true) {
-       }
-       //  Activate the tooltips
-       $('[rel="tooltip"]').tooltip();
-   }
 }

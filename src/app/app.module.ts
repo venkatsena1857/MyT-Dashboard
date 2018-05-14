@@ -16,6 +16,13 @@ import { AuthLayoutComponent } from './layouts/auth/auth-layout.component';
 
 import { AppRoutes } from './app.routing';
 import { LoginComponent } from './login/login.component';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { MyTIntercptor } from './services/httpInterceptor.service';
+import { UnAuthorizedInterceptor } from './services/unauthorizedErrorInterceptor.service';
+import { AuthGuardService } from './services/authGuard.service';
+import { AuthenticationService } from './services/authentication.service';
+import { APIServices } from './services/apiService.service';
+import { HttpClientModule } from '@angular/common/http';
 //import { SkillsComponent } from './skills/skills.component';
 //import { ToolsComponent } from './tools/tools.component';
 //import { DeedsComponent } from './deeds/deeds.component';
@@ -29,6 +36,7 @@ import { LoginComponent } from './login/login.component';
         FormsModule,
         RouterModule.forRoot(AppRoutes),
         HttpModule,
+        HttpClientModule,
         SidebarModule,
         NavbarModule,
         FooterModule
@@ -44,6 +52,19 @@ import { LoginComponent } from './login/login.component';
        // WorkexComponent,
        // EducationComponent
     ],
-    bootstrap:    [ AppComponent ]
+    bootstrap:    [ AppComponent ],
+    providers : [{
+        provide: HTTP_INTERCEPTORS,
+        useClass: MyTIntercptor,
+        multi: true
+    }, {
+        provide: HTTP_INTERCEPTORS,
+        useClass: UnAuthorizedInterceptor,
+        multi: true
+    }, 
+        APIServices,
+        AuthGuardService,
+        AuthenticationService,
+        ]
 })
 export class AppModule { }
