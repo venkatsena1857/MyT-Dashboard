@@ -20,3 +20,7 @@ th.text-primary {
 .btn-edit{
 	background-color: green;
 }
+
+.ui-datepicker-calendar {
+   display: none;
+} 

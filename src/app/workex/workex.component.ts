@@ -154,4 +154,8 @@ export class WorkexComponent implements OnInit, DoCheck {
   	}
   }
 
+  addWorkRecord(){
+    document.getElementById('addWorkRecords').style.display = "block";
+  }
+
 }
