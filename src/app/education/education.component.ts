@@ -35,8 +35,8 @@ export class EducationComponent implements OnInit {
                         "Magna Cum Laude",
                         "Summa Cum Laude",
                         "None"];
-  StartdateArr : string[] = ['2017'];
-  enddateArr : string[] = ['2017'];
+  StartdateArr : string[] = ['2023'];
+  enddateArr : string[] = ['2023'];
 
   
   public tableData1: {};
@@ -47,7 +47,7 @@ export class EducationComponent implements OnInit {
     this.educationData = {
       header:[ 'School Name', 'Major', 'Program type', 'Status', 'Honors', 'Yr Completed/Expected', '' ],
       dataRows: [
-        ['San Jose State University', 'SE', 'MS', 'Completed', 'Cum Laude', '2017'],
+        ['San Jose State University', 'Software Engineering', 'MS', 'Completed', 'Cum Laude', '2017'],
         ['Osmania University', 'CSE', 'BS', 'Completed', 'Cum Laude', '2015']
     ]
     }
@@ -59,10 +59,10 @@ export class EducationComponent implements OnInit {
             ]
          };
 
-    for(let i = 2016 ; i > 1949 ; i--){
+    for(let i = 2023 ; i > 1949 ; i--){
         this.StartdateArr.push(i.toString());
     }
-    for(let i = 2016 ; i > 1949 ; i--){
+    for(let i = 2023 ; i > 1949 ; i--){
         this.enddateArr.push(i.toString());
     }
   }
