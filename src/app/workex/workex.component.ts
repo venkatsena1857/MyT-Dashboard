@@ -77,13 +77,19 @@ export class WorkexComponent implements OnInit, DoCheck {
 				'Education',
 				'Entertainment',
 				'Energy and Electric',
-				'financial and Business consulting',
-				'fitness and well being',
+				'Financial and Business consulting',
+				'Fitness and Well being',
 				'Government',
 				'Healthcare Delivery',
 				'Hospitality',
 				'Information and Communication technology',
-				'Manufacturing'];
+				'Manufacturing',
+				'Religious',
+				'Retail',
+				'Social',
+				'Trade/Professional',
+				'Water and Utilities',
+				'Other'];
 
 	locations = ['North America',
 				 'Carrabian',

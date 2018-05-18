@@ -71,7 +71,7 @@
                         <!-- Degree Program Type -->
                         <div class="form-group label-floating is-empty">
                             <label class="control-label">Degree Program Type</label><br>           
-                              <md-select placeholder="Degree Program Type" name="city" ngClass="btn simple" appDirectiveMandatory ngModel id=" degree_program_type" name="degree_program_type">
+                              <md-select placeholder="Select Degree Program Type" name="city" ngClass="btn simple" appDirectiveMandatory ngModel id=" degree_program_type" name="degree_program_type">
                                 <md-option *ngFor="let degree_program of type_of_degree_program" [value]="degree_program">
                                   {{ degree_program }}
                                 </md-option>
@@ -81,7 +81,7 @@
                         <!-- Degree Program Status -->
                         <div class="form-group label-floating is-empty">
                             <label class="control-label">Degree Program Status</label><br>                              
-                              <md-select  placeholder="Degree Program Status" name="city" ngClass="btn simple" appDirectiveMandatory ngModel id="degree_program_status" name="degree_program_status">
+                              <md-select  placeholder="Select Degree Program Status" name="city" ngClass="btn simple" appDirectiveMandatory ngModel id="degree_program_status" name="degree_program_status">
                                 <md-option *ngFor="let program_status of degree_program_status" [value]="program_status">
                                   {{ program_status }}
                                 </md-option>
@@ -92,7 +92,7 @@
                         
                         <div class="form-group label-floating is-empty">
                             <label class="control-label">Honors</label><br>                              
-                              <md-select  placeholder="Honors" name="city" ngClass="btn simple" appDirectiveMandatory
+                              <md-select  placeholder="Select Honors" name="city" ngClass="btn simple" appDirectiveMandatory
                                 ngModel id="honors" name="honors">
                                 <md-option *ngFor="let honor of honors" [value]="honor">
                                   {{ honor }}

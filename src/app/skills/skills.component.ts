@@ -17,6 +17,7 @@ export class SkillsComponent implements OnInit {
   public checkUsageProperty = false;
   constructor() { }
 
+
   ngOnInit() {
     this.skillsDataTable = {
       headerRow: ['Sl. No','Category','Software/Device Name','Vendor/Distributor','Endorsements','Proficiency Type','Proficiency Year','Formal Certification', 'Usage in Last 3 Years','Actions'],
