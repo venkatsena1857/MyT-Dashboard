@@ -20,7 +20,7 @@ import {
 } from '../services/apiService.service';
 
 //import {TestParetoComponent} from './testpareto'
-//for pareto 
+//for pareto
 
 import * as Chartist from 'chartist';
 import {
@@ -34,7 +34,7 @@ declare const $: any;
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.css']
 })
-export class DashboardComponent implements OnInit, AfterViewInit {
+export class DashboardComponent implements OnInit {
   // constructor(private navbarTitleService: NavbarTitleService, private notificationService: NotificationService) { }
   constructor(private http: HttpClient, private api: APIServices) {
     this.options = {
@@ -105,25 +105,25 @@ managementScore: number;
 teamworkScore: number;
 fulltScore: number;
 
-communicationScorePerc: number = 0; 
-   criticalScorePerc: number = 0; 
-   empathyScorePerc: number = 0; 
-   globalUnderstandScorePerc: number = 0; 
-   networkingScorePerc: number = 0; 
-   designScorePerc: number = 0; 
-   perspectiveScorePerc: number = 0; 
-   managementScorePerc: number = 0; 
-   teamworkScorePerc: number = 0; 
+communicationScorePerc: number = 0;
+   criticalScorePerc: number = 0;
+   empathyScorePerc: number = 0;
+   globalUnderstandScorePerc: number = 0;
+   networkingScorePerc: number = 0;
+   designScorePerc: number = 0;
+   perspectiveScorePerc: number = 0;
+   managementScorePerc: number = 0;
+   teamworkScorePerc: number = 0;
 
-   educationScorePerc: number = 0; 
-   membershipScorePerc: number = 0; 
-   operationalScorePerc: number = 0; 
-   methodsScorePerc: number = 0; 
-   proficiencyScorePerc: number = 0; 
+   educationScorePerc: number = 0;
+   membershipScorePerc: number = 0;
+   operationalScorePerc: number = 0;
+   methodsScorePerc: number = 0;
+   proficiencyScorePerc: number = 0;
 
    tTopUpper: number = 0;
    tStemUpper: number = 0;
-   
+
 
   startAnimationForBarChart(chart: any) {
     let seq2: any, delays2: any, durations2: any;
@@ -222,139 +222,161 @@ communicationScorePerc: number = 0;
   //Calculate Upper Bounds for raw score charts
    this.tTopUpper = Math.ceil(this.fulltTop / 1000) * 1000;
    this.tStemUpper = Math.ceil(this.fulltStem / 1000) * 1000;
-
+console.log("tTopUpper")
+console.log(this.tTopUpper)
   function roundMe(value, decimals = 1) {
       //  return Number(Math.round(value * 10 ** decimals) * 10 ** -decimals);
       //return Number(Math.round(value*Math.exp(decimals)) *Math.exp(-decimals));
 
       return Number(Math.round(value * 10 ** decimals) * 10 ** -decimals);
 
-  
+
     }
+    let data2 = {
+      labels: ['Mon'],
+           series: [
+             [this.communicationScorePerc],
+             [this.criticalScorePerc],
+             [this.empathyScorePerc],
+             [this.globalUnderstandScorePerc],
+             [this.networkingScorePerc],
+             [this.designScorePerc],
+             [this.perspectiveScorePerc],
+             [this.managementScorePerc],
+             [this.teamworkScorePerc]
+           ]
+         }
 
+         let data3 = {
+           labels: ['Mon'],
+           series: [
+             [this.fulltTop],
+           ]
+              }
+       let data4 = {
+         labels: ['Mon'],
+         series: [
+               [this.educationScorePerc],
+               [this.membershipScorePerc],
+               [this.methodsScorePerc],
+               [this.operationalScorePerc],
+               [this.proficiencyScorePerc],
+             ]
+              }
+              let data5 = {
+               labels: ['Mon'],
+               series: [
+                 [this.fulltStem],
+               ]
+                  }
+        let options = {
+               stackBars: true,
+               height: 70,
+               high: 100,
+               horizontalBars: true,
+              //  chartPadding: 0,
 
+                 axisX: {
+                 showLabel: false,
+                 showGrid: true,
+                //  offset: 0,
 
-  // //Generate Charts
-  // new Chartist.Bar('#tTopBreak', {
-  //   series: [
+               },
+               axisY: {
+                 showLabel: false,
+                 showGrid: true,
+                //  offset: 0,
 
-  //     [this.communicationScorePerc],
-  //     [criticalScorePerc],
-  //     [empathyScorePerc],
-  //     [globalUnderstandScorePerc],
-  //     [networkingScorePerc],
-  //     [designScorePerc],
-  //     [perspectiveScorePerc],
-  //     [managementScorePerc],
-  //     [teamworkScorePerc]
-  //   ]
-  // }, {
-  //   height: 70,
-  //   high: 100,
-  //   stackBars: true,
-  //   //         plugins: [
-  //   //     Chartist.plugins.legend()
-  //   // ],
-  //   horizontalBars: true,
+               },
+             }
+       var tTopTicks = [this.tTopUpper - 1000, this.tTopUpper];
+       console.log()
+     console.log(this.tTopUpper)
+       let options2 = {
+         horizontalBars: true,
+         height: 100,
+         high: this.tTopUpper,
+         low: this.tTopUpper - 1000,
+        //  chartPadding: 0,
 
-  //   axisX: {
-  //     showLabel: false,
-  //     showGrid: true,
+         axisX: {
+           type: Chartist.FixedScaleAxis,
+           ticks: tTopTicks,
+           showLabel: true,
+           showGrid: false,
+           position: 'start',
+          //  offset: 0,
+           labelOffset: {
+             x: -15,
+             y: 0
+           },
+         },
+         axisY: {
+           showGrid: false,
+           showLabel: false,
+          //  offset: 0,
+         }
+       }
 
-  //   },
-  //   axisY: {
+         new Chartist.Bar('#tTopBreak', data2, options);
+       //Generate Charts
+       var tTopTicks = [this.tTopUpper - 1000, this.tTopUpper];
+       new Chartist.Bar('#tTopQuant', data3, options2);
 
-  //     showLabel: false,
-  //     showGrid: true,
-  //   }
+      var elmnt = document.getElementById('tTopBreak');
 
-  // })
+      // var elmnt2 = <HTMLElement>document.querySelector("g.ct-grids");
 
-  // var tTopTicks = [this.tTopUpper - 1000, this.tTopUpper];
+      var txt = "Height with padding and border: " + elmnt.offsetHeight + "px<br>";
+      txt += "Width with padding and border: " + elmnt.offsetWidth + "px";
 
-  // new Chartist.Bar('#tTopQuant', {
-  //   series: [
-  //     [this.fulltTop],
+      // var txt2 = "Height with padding and border: " + elmnt2.offsetHeight + "px<br>";
+      // txt2 += "Width with padding and border: " + elmnt2.offsetWidth + "px";
+      var chartHeight = elmnt.offsetWidth
+      // console.log(txt2)
 
-  //   ]
-  // }, {
-  //   horizontalBars: true,
-  //   height: 0,
-  //   high: this.tTopUpper,
-  //   low: this.tTopUpper - 1000,
-  //   axisX: {
-  //     // type: Chartist.FixedScaleAxis,
-  //     // ticks: tTopTicks,
+      let options3 = {
+        stackBars: true,
+       high: 100,
+       height: chartHeight,
+      //  chartPadding: 0,
 
-  //     showLabel: true,
-  //     showGrid: false,
-  //     labelOffset: {
-  //       x: -15,
-  //       y: 0
-  //     },
-  //   },
-  //   axisY: {
-  //     showGrid: false,
-  //     showLabel: false,
+       axisY: {
+         showGrid: false,
+         showLabel: false,
+        //  offset: 0,
 
+       },
+       axisX: {
+         showLabel: false,
+         showGrid: false,
+        //  offset: 0,
+       }
+     }
+     var tStemTicks = [this.tStemUpper - 1000, this.tStemUpper];
+     let options4 = {
+       height: chartHeight,
+       high: this.tStemUpper,
+      //  chartPadding: 0,
 
+       axisX: {
+       showLabel: false,
+       showGrid: false,
+      // offset: 0,
 
-  //   }
-  // })
-  // Create a new line chart object where as first parameter we pass in a selector
-  // that is resolving to our chart container element. The Second parameter
-  // is the actual data object.
-  // Initialize a Line chart in the container with the ID chart2
-  // new Chartist.Bar('#tStemBreak', {
-  //   series: [
-  //     [this.educationScorePerc],
-  //     [this.membershipScorePerc],
-  //     [this.methodsScorePerc],
-  //     [this.operationalScorePerc],
-  //     [this.proficiencyScorePerc],
-  //   ]
-  // }, {
-  //   stackBars: true,
-  //   high: 100,
-  //   height: 600,
-  //   axisY: {
+         },
+         axisY: {
+           type: Chartist.FixedScaleAxis,
+           position: 'start',
+           showGrid: false,
+           ticks: tStemTicks,
+          //  offset: 0,
+         },
+     }
+       new Chartist.Bar('#tStemBreak', data4, options3);
+       new Chartist.Bar('#tStemQuant', data5, options4);
 
-  //     showGrid: false,
-  //     showLabel: false,
-
-  //   },
-  //   axisX: {
-  //     showLabel: false,
-
-  //     showGrid: false,
-  //   }
-  // })
-
-  // var tStemTicks = [this.tStemUpper - 1000, this.tStemUpper];
-  // console.log("tStem Ticks: ", tStemTicks)
-  // new Chartist.Bar('#tStemQuant', {
-  //   series: [
-  //     [this.fulltStem],
-  //   ]
-  // }, {
-  //   height: 600,
-  //   high: this.tStemUpper,
-  //   axisX: {
-  //     showLabel: false,
-
-  //     showGrid: false,
-  //   },
-  //   axisY: {
-  //     // type: Chartist.FixedScaleAxis,
-  //     position: 'end',
-  //     showGrid: false,
-  //     // ticks: tStemTicks
-
-  //   },
-
-  // })
     })
-
     this.responsiveOptions = [
       ['screen and (max-width: 640px)', {
         seriesBarDistance: 5,
@@ -364,110 +386,4 @@ communicationScorePerc: number = 0;
       }]
     ];
   }
-  public ngAfterViewInit() {
-
-    var data = {
-      // A labels array that can contain any sort of values
-      labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri'],
-      // Our series array that contains series objects or in this case series data arrays
-      series: [
-        [5, 2, 4, 2, 0]
-      ]
-    };
- 
-    // Create a new line chart object where as first parameter we pass in a selector
-    // that is resolving to our chart container element. The Second parameter
-    // is the actual data object.
-    var test2 = 100000
-    new Chartist.Bar('.ct-chart', {
-      labels: ['Q1', 'Q2', 'Q3', 'Q4'],
-      series: [
-        [test2, 1200000, 1400000, 1300000],
-        [200000, 400000, 500000, 300000],
-        [100000, 200000, 400000, 600000]
-      ]
-    }, {
-      stackBars: true,
-      axisY: {
-        // labelInterpolationFnc: function(value) {
-        //   return (value / 1000) + 'k';
-        // }
-      }
-    }).on('draw', function(data) {
-      if(data.type === 'bar') {
-        data.element.attr({
-          style: 'stroke-width: 30px'
-        });
-      }
-    });    
-  //Generate Charts
-  // new Chartist.Bar('#tTopBreak', {
-  //   series: [
-  //     [this.communicationScorePerc],
-  //     [this.criticalScorePerc],
-  //     [this.empathyScorePerc],
-  //     [this.globalUnderstandScorePerc],
-  //     [this.networkingScorePerc],
-  //     [this.designScorePerc],
-  //     [this.perspectiveScorePerc],
-  //     [this.managementScorePerc],
-  //     [this.teamworkScorePerc]
-  //   ]
-  // }, {
-  //   height: 70,
-  //   high: 100,
-  //   stackBars: true,
-  //   //         plugins: [
-  //   //     Chartist.plugins.legend()
-  //   // ],
-  //   horizontalBars: true,
-
-  //   axisX: {
-  //     showLabel: false,
-  //     showGrid: true,
-
-  //   },
-  //   axisY: {
-
-  //     showLabel: false,
-  //     showGrid: true,
-  //   }
-
-  // })
-
-  // var tTopTicks = [this.tTopUpper - 1000, this.tTopUpper];
-
-  // new Chartist.Bar('#tTopQuant', {
-  //   series: [
-  //     [this.fulltTop],
-
-  //   ]
-  // }, {
-  //   horizontalBars: true,
-  //   height: 0,
-  //   high: this.tTopUpper,
-  //   low: this.tTopUpper - 1000,
-  //   axisX: {
-  //     // type: Chartist.FixedScaleAxis,
-  //     // ticks: tTopTicks,
-
-  //     showLabel: true,
-  //     showGrid: false,
-  //     labelOffset: {
-  //       x: -15,
-  //       y: 0
-  //     },
-  //   },
-  //   axisY: {
-  //     showGrid: false,
-  //     showLabel: false,
-
-
-
-  //   }
-  // })
-
-
-
   }
-}
