@@ -61,10 +61,10 @@ export class EducationComponent implements OnInit {
             ]
          };
 
-    for(let i = 2023 ; i > 1949 ; i--){
+    for(let i = 2022 ; i > 1949 ; i--){
         this.StartdateArr.push(i.toString());
     }
-    for(let i = 2023 ; i > 1949 ; i--){
+    for(let i = 2022 ; i > 1949 ; i--){
         this.enddateArr.push(i.toString());
     }
   }
