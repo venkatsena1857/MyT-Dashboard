@@ -129,7 +129,7 @@ export class WorkexComponent implements OnInit, DoCheck {
 
   ngOnInit() {
 	  this.workExperienceDataTable = {
-		  header:["Sl. No","Organization", "Start Date","End Date"," Position/Activity", "Role", "Team Size","Paid/Unpaid","Questions","Actions"],
+		  header:["Sl. No","Organization", "Start Date","End Date"," Position/Activity", "Role", "Team Size","Paid/Volunteer","Questions","Actions"],
 		  dataRows:[{customId: "1",
 					organization: "My-T Me",
 					startDate: "2011-12-23",

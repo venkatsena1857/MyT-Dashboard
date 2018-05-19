@@ -6,7 +6,7 @@
                 <div class="col-md-12">
                     <div class="card">
                         <div class="card-content">
-                            <h4 class="card-title">Tools History To Date</h4>
+                            <h4 class="card-title">Software/Devices History To Date</h4>
                             <div class="toolbar">
                                 <!--        Here you can write extra buttons/actions for the toolbar              -->
                             </div>
@@ -145,28 +145,16 @@
         <!--Form Data Starts-->
         <div class="row">
             <div class="col-md-6">
-            <button type="button" class="btn btn-fill btn-rose" (click)="addToolsRecord()">Add New Tools Record</button>
+            <button type="button" class="btn btn-fill btn-rose" (click)="addToolsRecord()">Add New Software/Devices Record</button>
                 <div class="card" id="addToolsRecord" style="display:none;">
                     <div class="card-header card-header-icon" data-background-color="orange">
                         <i class="material-icons">build</i>
                     </div>
                     <div class="card-content">
-                        <h4 class="card-title">Add New Tools Record</h4>
+                        <h4 class="card-title">Add New Software/Devices Record</h4>
                         <form  #ToolsForm="ngForm" method="#" action="#">
-                            <div class="form-group label-floating">
-                                <label class="control-label" style="color: rgba(0,0,0,1);">Tool Name</label>
-                                <input type="text" class="form-control" name="tool_name" required ngModel>
-                            </div>
-                            <div class="form-group label-floating">
-                                <label class="control-label" style="color: rgba(0,0,0,1);">Vendor/Distributor</label>
-                                <input type="text" class="form-control" name="vendor_distributor" ngModel required>
-                            </div>
-                            <div class="form-group label-floating">
-                                <label class="control-label" style="color: rgba(0,0,0,1);">LinkedIn Endorsments</label>
-                                <input type="number" number="true" class="form-control" name="linkedIn_endorsments" ngModel required>
-                            </div>
-
-                            <div class="form-group label-floating is-empty">
+                            <!--Category-->
+                            <div class="form-group is-empty">
                             <label style="color: rgba(0,0,0,1);">Category</label>                        
                            <!--     <md-select  placeholder="Category" name="city" ngClass="btn simple"  ngModel id="degree_program_status" name="Category">
                                    <md-option *ngFor="let category of category_for_dropdown" [value]="category">
@@ -188,37 +176,56 @@
                                 </div>
                             </div>
                             <hr>
+
+                            <div class="form-group label-floating">
+                                <label style="color: rgba(0,0,0,1);">Software/Devices Name</label>
+                                <input type="text" placeholder="Please fill the details" class="form-control" name="tool_name" required ngModel>
+                            </div>
+                            <div class="form-group label-floating">
+                                <label style="color: rgba(0,0,0,1);">Vendor/Distributor</label>
+                                <input type="text" placeholder="Please fill the details" class="form-control" name="vendor_distributor" ngModel required>
+                            </div>
+                            <div class="form-group label-floating">
+                                <label style="color: rgba(0,0,0,1);">Number of LinkedIn Endorsments</label>
+                                <input type="number" placeholder="Please enter the number" number="true" class="form-control" name="linkedIn_endorsments" ngModel required>
+                            </div>
+
+                            
                         <!--Proficiency type-->
 
                                 <div class="form-group label-floating is-empty">    
                                     <label style="color: rgba(0,0,0,1);">Proficiency Level</label>                   
-                                    <md-select  placeholder="Select proficiency level" ngClass="btn simple"  ngModel id="proficiency_type" name="proficiency_type">
+                                    <!-- <md-select  placeholder="Select proficiency level" ngClass="btn simple"  ngModel id="proficiency_type" name="proficiency_type">
                                        <md-option *ngFor="let proficiency_type of proficiency_types" [value]="proficiency_type">
                                        {{ proficiency_type }}
                                        </md-option>
-                                   </md-select>
-                                 <!--   <div class="radio">
+                                   </md-select> -->
+                                  <div class="radio">
                                     <label style="color: rgba(0,0,0,1);">
-                                    <input type="radio" name="proficiency_type" checked="true">Basic (> 25% Proficiency)
+                                    <input type="radio" name="proficiency_type" checked="true">Basic
                                     </label>
+                                    <label> > 25% Proficiency. Can perform simple assignments</label>
                                     <br>
             
                                     <label style="color: rgba(0,0,0,1);">
-                                    <input type="radio" name="proficiency_type">Intermediate (> 50% Proficiency)           
+                                    <input type="radio" name="proficiency_type">Intermediate 
+                                    </label>
+                                    <label> > 50% Proficiency. Can perform independently many types of assignments
                                     </label>
                                     <br>
 
                                     <label style="color: rgba(0,0,0,1);">
-                                    <input type="radio" name="proficiency_type">Advanced (> 75% Proficiency)                                              
+                                    <input type="radio" name="proficiency_type">Advanced
                                     </label>
+                                    <label> > 75% Proficiency. Can perform independently nearly all types of assignments</label>
                                     <br>
 
 
                                     <label style="color: rgba(0,0,0,1);">
-                                    <input type="radio" name="proficiency_type">Expert (> 95% Proficiency)                                              
+                                    <input type="radio" name="proficiency_type">Expert
                                     </label>
-
-                                    </div> -->
+                                    <label> > 95% Proficiency. Can perform independently all types of assignments and serve as a mentor </label>
+                                    </div>
                                </div>
                         <br>
                         <!--Proficiency type end-->
