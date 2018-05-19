@@ -62,8 +62,8 @@
                                     <h5>Record any work/volunteer experience and roles within clubs/organization</h5>
                                     <!--employers sector of focus-->
                                     <div class="row">
-                                        <div class="col-md-12 form-group label-floating is-empty"> 
-                                        <label class="control-label" style="color: rgba(0,0,0,1);">Organization's Sector of Focus</label>
+                                        <div class="col-md-12 form-group"> 
+                                        <label class="labelWork">Organization's Sector of Focus</label>
                                         <br>        
                                          <md-select name="city" placeholder="Select organization's sector of focus" ngClass="btn simple" ngModel name="EmployeSector">
                                                 <md-option class="open" *ngFor="let Emp_focus of Emp_focuses" [value]="Emp_focus">
@@ -78,9 +78,9 @@
                                     <div class="row">
                                         <div class="col-sm-12">
                                             <div class="form-group label-floating">
-                                                <label class="control-label" style="color: rgba(0,0,0,1);">Employer/Organization name</label>
+                                                <label class="labelWork">Employer/Organization name</label>
                                                 <br> 
-                                                <input type="text" class="form-control" ngModel name="employee" id="employee">
+                                                <input type="text"  placeholder="Please fill the details" class="form-control" ngModel name="employee" id="employee">
                                                 <!-- <span class="material-icons form-control-feedback-wrong" 
                                                 *ngIf="!isEmp_Valid && isEmp_touched">clear</span>
                                                 <span class="material-icons form-control-feedback-right" 
@@ -94,7 +94,7 @@
                                     <div class="row">
                                          <div class="col-md-12">    
                                          <div class="form-group label-floating is-empty">
-                                            <label class="control-label" style="color: rgba(0,0,0,1);">Location</label>
+                                            <label class="control-label labelWork">Location</label>
                                             <br>                           
                                             <md-select  placeholder="Select your location" name="city" 
                                             ngClass="btn simple" ngModel name="Location">
@@ -111,26 +111,31 @@
                                     <!--start date and end dates-->
                                     <!--DATE-Month picker HTML-->
                                     <div class="row">
-                                        <div class="col-md-12 form-group label-floating is-empty">
-                                            <label class="control-label" style="color: rgba(0,0,0,1);">Start and End Year</label>
+                                        <div class="col-md-12 form-group">
+                                            <label class="labelWork">Start and End Month/Year</label>
                                             <br>                                
                                         </div>
-                                        <div class="col-md-6">
+                                        <div class="col-md-4">
                                             <i class="material-icons">date_range</i>
-                                            <label class="control-label" style="color: rgba(0,0,0,1);">Start Date</label>
+                                            <label class="control-label labelWork">Start Date</label>
                                             <!-- <md-input-container > -->
-                                                <input class="btn" placeholder="Start Date" type="month"
+                                                <input class="btn" type="month"
                                                     ngModel name="StartDate" value="null">
                                            <!--  </md-input-container> -->
         
                                           </div>
 
+                                          <div class="col-md-3">
+                                            <label class="control-label labelWork">Continuing</label>
+                                            <input type="checkbox" name="continuing" value="Continuing">  
+                                          </div>
 
-                                          <div class="col-md-6">
+
+                                          <div class="col-md-4">
                                             <i class="material-icons">date_range</i>
-                                            <label class="control-label" style="color: rgba(0,0,0,1);">End Date</label>
+                                            <label class="control-label labelWork">End Date</label>
                                             <!-- <md-input-container > -->
-                                            <input class="btn" placeholder="Pick an end date"  type="month"
+                                            <input class="btn" type="month"
                                                     ngModel name="EndDate" value="null" >
                                             <!-- </md-input-container> -->
                                            <!--  <md-datepicker
@@ -163,9 +168,9 @@
                                     <div class="row">
                                         <div class="col-sm-12">
                                             <div class="form-group label-floating">
-                                                <label class="control-label" style="color: rgba(0,0,0,1);">Position or Activity Description</label>
+                                                <label class="labelWork">Position or Activity Description</label>
                                                 <br>   
-                                                <input type="text" class="form-control" ngModel name="position" >
+                                                <input type="text" placeholder="Please fill the details" class="form-control" ngModel name="position" >
                                                 <!-- <span class="material-icons form-control-feedback-wrong" 
                                                 *ngIf="!isPos_Valid && isPos_touched">clear</span>
                                                 <span class="material-icons form-control-feedback-right" 
@@ -177,8 +182,8 @@
                                     
                                     <!--choose your primary function-->
                                     <div class="row">
-                                         <div class="col-md-12 form-group label-floating is-empty">        
-                                            <label class="control-label strong-font">Primary Function</label>
+                                         <div class="col-md-12 form-group">        
+                                            <label class="labelWork">Primary Function</label>
                                                 <br>                        
                                             <md-select  placeholder="Select your primary function" name="city" ngClass="btn simple" ngModel name="PrimaryFunction">
                                                 <md-option class="open" *ngFor="let location of locations" [value]="location">
@@ -317,7 +322,7 @@
                                 <div class="col-md-12">
                                     <h5>Select answers to prompt below regarding Operations Responsibilities, Critical Thinking and Operations Innovation</h5>
                                     <div class="row">
-                                        <h6  class="col-md-12 strong-font" >Operation Responsibilities</h6>
+                                        <h6  class="col-md-12 labelWork" >Operation Responsibilities</h6>
                                     </div>
                                     <div *ngFor="let op_resp of op_resps">
                                         <div class="row">
@@ -352,7 +357,7 @@
                                     <hr>
                                     
                                     <div class="row">
-                                        <h6  class="col-md-12 strong-font" >Critical Thinking</h6>
+                                        <h6  class="col-md-12 labelWork" >Critical Thinking</h6>
                                     </div>
                                     <div *ngFor="let critical_thing of critical_things">
                                         <div class="row">
@@ -386,7 +391,7 @@
                                     <!-->System and Operation Innovation</!-->
                                     <hr>
                                     <div class="row">
-                                        <h6  class="col-md-12 strong-font" >System and Operation Innovation</h6>
+                                        <h6  class="col-md-12 labelWork" >System and Operation Innovation</h6>
                                     </div>
                                     <div *ngFor="let innovation of innovation_arr">
                                         <div class="row">

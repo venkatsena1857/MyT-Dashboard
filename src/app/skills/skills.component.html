@@ -73,22 +73,8 @@
                         <div class="card-content">
                             <h4 class="card-title">Add New Skills Record</h4>
                             <form method="#" action="#">
-                                <div class="form-group label-floating">
-                                    <label class="control-label" style="color: rgba(0,0,0,1);">Method/Skills Name</label>
-                                    <input type="text" class="form-control" required>
-                                </div>
-                                <div class="form-group label-floating">
-                                    <label class="control-label" style="color: rgba(0,0,0,1);">Vendor/Distributor Name</label>
-                                    <input type="text" class="form-control" required>
-                                </div>
-                                <div class="form-group label-floating">
-                                    <label class="control-label" style="color: rgba(0,0,0,1);">Number of LinkedIn Endorsments</label>
-                                    <input type="number" number="true" class="form-control" default = "0" required>
-                                </div>
-                                <br>
-
-                                <div class="form-group label-floating">
-                                <label class="control-label" style="color: rgba(0,0,0,1);">Category</label>                         
+                                <div class="form-group is-empty">
+                                <label style="color: rgba(0,0,0,1);">Category</label>                         
                                 <!--     <md-select  placeholder="Category" name="city" ngClass="btn simple"  ngModel id="degree_program_status" name="Category">
                                    <md-option *ngFor="let category of category_for_dropdown" [value]="category">
                                    {{ category }}
@@ -108,30 +94,50 @@
                                         </label>
                                     </div>
                                 </div>
-                            <hr>
-                                <div class="form-group label-floating is-empty">    
+                                <hr>
+                                
+
+                                <div class="form-group label-floating">
+                                    <label style="color: rgba(0,0,0,1);">Method/Skills Name</label>
+                                    <input type="text"  placeholder="Please fill the details" class="form-control" required>
+                                </div>
+                                <div class="form-group label-floating">
+                                    <label style="color: rgba(0,0,0,1);">Vendor/Distributor Name</label>
+                                    <input type="text" placeholder="Please fill the details" class="form-control" required>
+                                </div>
+                                <div class="form-group label-floating">
+                                    <label style="color: rgba(0,0,0,1);">Number of LinkedIn Endorsments</label>
+                                    <input type="number" placeholder="Please enter the number" number="true" class="form-control" default = "0" required>
+                                </div>
+                                
+                                <div class="form-group is-empty">    
                                     <label style="color: rgba(0,0,0,1);">Proficiency Level</label>  
                                     
                                     <div class="radio">
                                     <label style="color: rgba(0,0,0,1);">
-                                    <input type="radio" name="proficiency_type_skill" checked="true">Basic (> 25% Proficiency)
+                                    <input type="radio" name="proficiency_type_skill" checked="true">Basic
                                     </label>
+                                    <label> > 25% Proficiency. Can perform simple assignments</label>
                                     <br>
             
                                     <label style="color: rgba(0,0,0,1);">
-                                    <input type="radio" name="proficiency_type_skill">Intermediate (> 50% Proficiency)           
+                                    <input type="radio" name="proficiency_type_skill">Intermediate 
+                                    </label>
+                                    <label> > 50% Proficiency. Can perform independently many types of assignments
                                     </label>
                                     <br>
 
                                     <label style="color: rgba(0,0,0,1);">
-                                    <input type="radio" name="proficiency_type_skill">Advanced (> 75% Proficiency)                                              
+                                    <input type="radio" name="proficiency_type_skill">Advanced
                                     </label>
+                                    <label> > 75% Proficiency. Can perform independently nearly all types of assignments</label>
                                     <br>
 
 
                                     <label style="color: rgba(0,0,0,1);">
-                                    <input type="radio" name="proficiency_type_skill">Expert (> 95% Proficiency)                                              
+                                    <input type="radio" name="proficiency_type_skill">Expert
                                     </label>
+                                    <label> > 95% Proficiency. Can perform independently all types of assignments and serve as a mentor </label>
                                     </div>
                                 </div>
                                 <br>
