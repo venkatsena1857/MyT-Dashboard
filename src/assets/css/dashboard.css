@@ -136,3 +136,6 @@ border-style: solid;
 .tBackground{
 background-color: #8FCBD8 !important;
 }
+#tQuant{
+  width: 100% !important;
+}

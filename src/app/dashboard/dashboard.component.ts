@@ -274,47 +274,59 @@ console.log(this.tTopUpper)
                height: 70,
                high: 100,
                horizontalBars: true,
-              //  chartPadding: 0,
+               fullWidth: true,
+               chartPadding: { 
+                left: 0,
+               top: 0,
+               bottom: 0,
+             right: 0
+            },
 
                  axisX: {
                  showLabel: false,
-                 showGrid: true,
-                //  offset: 0,
+                 showGrid: false,
+                 offset: 0,
 
                },
                axisY: {
                  showLabel: false,
-                 showGrid: true,
-                //  offset: 0,
+                 showGrid: false,
+                 offset: 0,
 
                },
              }
        var tTopTicks = [this.tTopUpper - 1000, this.tTopUpper];
-       console.log()
      console.log(this.tTopUpper)
        let options2 = {
          horizontalBars: true,
          height: 100,
          high: this.tTopUpper,
          low: this.tTopUpper - 1000,
-        //  chartPadding: 0,
+         fullWidth: true,
+         chartPadding: { 
+          left: 0,
+          top: 0,
+          bottom: 0,
+          right: 0,
+      },
 
          axisX: {
+           
            type: Chartist.FixedScaleAxis,
            ticks: tTopTicks,
            showLabel: true,
            showGrid: false,
            position: 'start',
-          //  offset: 0,
+           offset: 0,
            labelOffset: {
-             x: -15,
+             x: 20,
              y: 0
            },
          },
          axisY: {
            showGrid: false,
-           showLabel: false,
-          //  offset: 0,
+           showLabel: true,
+           offset: 0,
          }
        }
 
@@ -339,8 +351,13 @@ console.log(this.tTopUpper)
         stackBars: true,
        high: 100,
        height: chartHeight,
-      //  chartPadding: 0,
-
+       fullWidth: true,
+       chartPadding: { 
+        left: 0,
+       top: 0,
+       bottom: 0,
+     right: 0
+    },
        axisY: {
          showGrid: false,
          showLabel: false,
@@ -357,13 +374,16 @@ console.log(this.tTopUpper)
      let options4 = {
        height: chartHeight,
        high: this.tStemUpper,
-      //  chartPadding: 0,
-
+       fullWidth: true,
+       chartPadding: { 
+        left: 0,
+       top: 0,
+       bottom: 0,
+     right: 0
+    },
        axisX: {
        showLabel: false,
        showGrid: false,
-      // offset: 0,
-
          },
          axisY: {
            type: Chartist.FixedScaleAxis,
@@ -371,6 +391,10 @@ console.log(this.tTopUpper)
            showGrid: false,
            ticks: tStemTicks,
           //  offset: 0,
+          labelOffset: {
+            x: 0,
+            y: 20,
+          },
          },
      }
        new Chartist.Bar('#tStemBreak', data4, options3);
