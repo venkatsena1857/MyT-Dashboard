@@ -1,3 +1,4 @@
+//
 import {
   Component,
   OnInit,
@@ -23,6 +24,11 @@ import {
 //for pareto
 
 import * as Chartist from 'chartist';
+
+import Chart from 'chart.js';
+
+import List from 'list.js'
+
 import {
   ApiStrings
 } from '../common/apiStrings';
@@ -124,6 +130,7 @@ communicationScorePerc: number = 0;
    tTopUpper: number = 0;
    tStemUpper: number = 0;
 
+   chartWidth: number = 0;
 
   startAnimationForBarChart(chart: any) {
     let seq2: any, delays2: any, durations2: any;
@@ -161,6 +168,7 @@ communicationScorePerc: number = 0;
       console.log(responseJSON);
       // var data = JSON.parse(responseJSONJSON);
       // // console.log(data.)
+
 
       this.fulltStem = 0
       this.educationScore = responseJSON["My_T_Stem"]["Education, Briefings, and Teaching"];
@@ -222,7 +230,7 @@ communicationScorePerc: number = 0;
   //Calculate Upper Bounds for raw score charts
    this.tTopUpper = Math.ceil(this.fulltTop / 1000) * 1000;
    this.tStemUpper = Math.ceil(this.fulltStem / 1000) * 1000;
-console.log("tTopUpper")
+console.log("tTopUpper24")
 console.log(this.tTopUpper)
   function roundMe(value, decimals = 1) {
       //  return Number(Math.round(value * 10 ** decimals) * 10 ** -decimals);
@@ -274,12 +282,12 @@ console.log(this.tTopUpper)
                height: 70,
                high: 100,
                horizontalBars: true,
-               fullWidth: true,
+             //   fullWidth: true,
                chartPadding: { 
                 left: 0,
-               top: 0,
-               bottom: 0,
-             right: 0
+             //   top: 0,
+             //   bottom: 0,
+             // right: 0
             },
 
                  axisX: {
@@ -294,20 +302,26 @@ console.log(this.tTopUpper)
                  offset: 0,
 
                },
+                plugins: [
+    // Chartist.plugins.tooltip()
+  ],
              }
        var tTopTicks = [this.tTopUpper - 1000, this.tTopUpper];
+       console.log("Bounds")
      console.log(this.tTopUpper)
+     console.log(this.tTopUpper - 1000)
+
        let options2 = {
          horizontalBars: true,
          height: 100,
          high: this.tTopUpper,
          low: this.tTopUpper - 1000,
-         fullWidth: true,
+         // fullWidth: true,
          chartPadding: { 
           left: 0,
-          top: 0,
-          bottom: 0,
-          right: 0,
+      //     top: 0,
+      //     bottom: 0,
+          right: 50,
       },
 
          axisX: {
@@ -317,23 +331,27 @@ console.log(this.tTopUpper)
            showLabel: true,
            showGrid: false,
            position: 'start',
-           offset: 0,
+           // offset: 0,
+
            labelOffset: {
-             x: 20,
-             y: 0
+             x: 5,
+             y: 20
            },
          },
          axisY: {
            showGrid: false,
-           showLabel: true,
+           showLabel: false,
            offset: 0,
          }
        }
 
-         new Chartist.Bar('#tTopBreak', data2, options);
+       new Chartist.Bar('#tTopBreak', data2, options);
        //Generate Charts
        var tTopTicks = [this.tTopUpper - 1000, this.tTopUpper];
        new Chartist.Bar('#tTopQuant', data3, options2);
+
+       
+
 
       var elmnt = document.getElementById('tTopBreak');
 
@@ -344,19 +362,28 @@ console.log(this.tTopUpper)
 
       // var txt2 = "Height with padding and border: " + elmnt2.offsetHeight + "px<br>";
       // txt2 += "Width with padding and border: " + elmnt2.offsetWidth + "px";
-      var chartHeight = elmnt.offsetWidth
+      var chartHeight = elmnt.offsetWidth - 50;
+      this.chartWidth = elmnt.offsetWidth;
+      console.log("ChartWidth")
+      console.log(this.chartWidth);
       // console.log(txt2)
 
+      var topLegend = document.getElementById("topLegend");
+topLegend.setAttribute("style", `width: ${this.chartWidth}px`);
+
+// var botLeg = document.getElementById('tBotLegend');
+//       var width = botLeg.offsetWidth - 50;
+
       let options3 = {
-        stackBars: true,
+       stackBars: true,
        high: 100,
        height: chartHeight,
        fullWidth: true,
        chartPadding: { 
-        left: 0,
-       top: 0,
-       bottom: 0,
-     right: 0
+         left: 0,
+         top: 10,
+         bottom: 0,
+         right: 0
     },
        axisY: {
          showGrid: false,
@@ -376,8 +403,8 @@ console.log(this.tTopUpper)
        high: this.tStemUpper,
        fullWidth: true,
        chartPadding: { 
-        left: 0,
-       top: 0,
+        left: 20,
+       top: 10,
        bottom: 0,
      right: 0
     },
@@ -399,6 +426,50 @@ console.log(this.tTopUpper)
      }
        new Chartist.Bar('#tStemBreak', data4, options3);
        new Chartist.Bar('#tStemQuant', data5, options4);
+
+
+
+let topData = {
+ labels: ['Communications', 'Critical Thinking', 'Empathy', 'Global Understanding','Networking','Organizational Design','Perspective','Project Management','Teamwork'],
+    datasets: [{
+            label: "Top Score",
+            backgroundColor: "#00bcd4",
+           borderColor: "#00bcd4",
+        data: [this.communicationScore,this.criticalScore,this.empathyScore,this.globalUnderstandScore,this.networkingScore, this.designScore,this.perspectiveScore,this.managementScore, this.teamworkScore]
+    }]
+}
+let stemData = {
+ labels: ['Education', 'Memberships', 'Skills', 'Operations','Software'],
+    datasets: [{
+label: "Stem Score",
+           backgroundColor: "#f44336",
+           borderColor: "#f44336",
+        data: [this.educationScore, this.membershipScore, this.operationalScore, this.proficiencyScore]
+    }]
+} 
+
+let topOptions = {
+label: "Top Score"
+}
+
+let stemOptions = {
+label: "Stem Score"
+
+}
+
+     var tTopSource = document.getElementById("tTopRadar");
+    var tTopChart = new Chart(tTopSource, {
+    type: 'radar',
+    data: topData,
+    options: topOptions
+});
+
+      var tStemSource = document.getElementById("tStemRadar");
+    var tStemChart = new Chart(tStemSource, {
+    type: 'radar',
+    data: stemData,
+    options: stemOptions
+});
 
     })
     this.responsiveOptions = [

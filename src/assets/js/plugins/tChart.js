@@ -1,4 +1,22 @@
-// var elmnt = document.getElementById("tTopBreak");
-// var txt = "Height with padding and border: " + elmnt.offsetHeight + "px<br>";
-// txt += "Width with padding and border: " + elmnt.offsetWidth + "px";
-// console.log(txt)
+setTimeout(function(){
+
+$(document).ready(function() {
+	console.log("creating DataTable")
+    $('#topSkills').DataTable({
+    	"paging":   false,
+    	"searching": false
+    });
+
+} );
+
+$(document).ready(function() {
+	console.log("creating DataTable")
+    $('#stemSkills').DataTable({
+    	"paging":   false,
+    	"searching": false
+
+    });
+    
+} );
+}, 2000); 
+
