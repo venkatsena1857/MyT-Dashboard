@@ -1,10 +1,10 @@
 <div class="main-content">
     <div class="container-fluid">
         <div class="row">
+            <div class="col-xs-12 col-md-offset-2 col-md-8">
             <div class="col-xs-12 text-center">
-                <h2>My Dashboard</h2>
+                <h2 style="margin-top: 0px;">My Dashboard</h2>
             </div>
-        </div>
         <div class="row">
             <div class=" col-xs-offset-2 col-xs-8 tBackground  tOutline">
                 <img src="assets/img/tTopLegend2.png" id="topLegend" alt="Kiwi standing on oval">
@@ -18,23 +18,20 @@
         </div>
         <div class="row">
             <div class="col-xs-4 ">
-                <div class="card card-chart">
+                <div class="smallCard card-chart">
                     <div class="card-content text-center">
-                        <h2 class="card-title">My TScore</h2>
-                        <h4 class="card-title">{{fulltScore}}</h4>
-                    </div>
-                </div>
-                <div class="card card-chart">
-                    <div class="card-content text-center">
-                        <h2 class="card-title">My Top Score</h2>
+                        <h3 class="card-title">My Top Score</h3>
                         <h4 class="card-title">{{fulltTop}}</h4>
                     </div>
                 </div>
-                <div class="card card-chart">
+                <div class="smallCard card-chart">
                     <div class="card-content text-center">
-                        <h2 class="card-title">My Stem Score</h2>
+                        <h3 class="card-title">My Stem Score</h3>
                         <h4 class="card-title">{{fulltStem}}</h4>
                     </div>
+                </div>
+                <div class="smallCard card-chart">
+                    <img class="img-responsive" src="assets/img/tBotLegend.png" id="topLegend" style="padding-bottom: 20px">
                 </div>
             </div>
             <div class="tStemOutline  col-xs-4 ">
@@ -46,26 +43,30 @@
                 <div class="col-xs-6 ">
                     <div class="ct-chart  tBackground totalChart " id="tStemQuant"></div>
                 </div>
-                <div class="col-xs-12">
-                    <img class="img-responsive" src="assets/img/tBotLegend.png" id="topLegend" style="padding-bottom: 20px">
-                </div>
                 <!--                 </span>
  -->
             </div>
             <div class="col-xs-4 ">
-                <div class="card card-chart">
+                <div class="smallCard card-chart">
+                    <div class="card-content text-center">
+                        <h3 class="card-title">My TScore</h3>
+                        <h4 class="card-title">{{fulltScore}}</h4>
+                    </div>
+                </div>
+                <div class="smallCard card-chart">
                     <div class="card-content text-center">
                         <canvas height="231px" id="tTopRadar"></canvas>
                     </div>
                 </div>
-                <div class="card card-chart">
+                <div class="smallCard card-chart">
                     <div class="card-content text-center">
                         <canvas height="231px" id="tStemRadar"></canvas>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="col-xs-12 tOutline" style="margin-top: 20px;">
+        </div>
+        <div class="col-xs-12 col-md-offset-2 col-md-8 tOutline" style="margin-top: 20px;">
             <h2 class="text-center">Top Skills</h2>
             <table id="topSkills" class="display">
                 <thead>
@@ -120,7 +121,7 @@
                 </tfoot>
             </table>
         </div>
-        <div class="col-xs-12 tOutline" style="margin-top: 20px;">
+        <div class="col-xs-12 col-md-offset-2 col-md-8 tOutline" style="margin-top: 20px;">
             <h2 class="text-center">Stem Skills</h2>
             <table id="stemSkills" class="display">
                 <thead>
