@@ -274,7 +274,7 @@ console.log(this.tTopUpper)
               let data5 = {
                labels: ['Mon'],
                series: [
-                 [this.fulltStem],
+                 [2400],
                ]
                   }
         let options = {
@@ -401,6 +401,7 @@ topLegend.setAttribute("style", `width: ${this.chartWidth}px`);
      let options4 = {
        height: chartHeight,
        high: this.tStemUpper,
+       low: this.tStemUpper-1000,
        fullWidth: true,
        chartPadding: { 
         left: 20,
