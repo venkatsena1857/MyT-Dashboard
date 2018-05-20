@@ -1,21 +1,4 @@
-.ct-label{
-
-/* Safari */
--webkit-transform: rotate(-30deg);
-
-/* Firefox */
--moz-transform: rotate(-90deg);
-
-/* IE */
--ms-transform: rotate(-90deg);
-
-/* Opera */
--o-transform: rotate(-90deg);
-
-/* Internet Explorer */
-filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
-
-}
+/*  */
 
 .chart-bg{
 	background-color: #000000;
@@ -42,4 +25,47 @@ filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
 .chart {
         display: block;
         background-color: red;
+}
+.col-centered{
+  float: none;
+  margin: 0 auto;
+}
+
+.fullHeight{
+min-height: 100%;
+height: 100%;
+
+}
+
+.mainContent{
+background-color: #f5f5f5;
+}
+
+.tChart{
+display: block;
+margin: auto;
+}
+
+.bar {
+fill: red; /* changes the background */
+height: 21px;
+/*  transition: fill .3s ease;*/
+cursor: pointer;
+font-family: Helvetica, sans-serif;
+}
+
+
+.quantChart .ct-series-a .ct-bar{
+  stroke-width: 60px;
+
+}
+
+.ct-series-b .ct-bar{
+  stroke-width: 60px;
+
+}
+
+.ct-series-c .ct-bar{
+  stroke-width: 60px;
+
 }
