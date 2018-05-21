@@ -20,7 +20,7 @@ export class ToolsComponent implements OnInit {
   public checkFormalProperty = false;
 
 
-  constructor(private comm: ServerCommunicationService) { }
+  constructor() { }
 
   category_for_dropdown: string []  = ["Software - USER", "Software - Programming", "Device Operation"];
   proficiency_types: string []=["Basic (> 25% Proficiency)", "Intermediate (> 50% Proficiency)", "Advanced (> 75% Proficiency)", "Expert (> 95% Proficiency)"];
