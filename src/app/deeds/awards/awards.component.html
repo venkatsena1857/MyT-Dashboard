@@ -6,45 +6,45 @@
           </div>
           <div class="card-content">
               <div class="row">
-                  <label class="col-sm-2 label-on-left">Choose Specific Activity</label>
+                  <label class="col-sm-2 label-on-left labelDeedsAwards">Choose Specific Activity</label>
                   <div class="col-sm-10 checkbox-radios">
                       <div class="radio">
-                        <label>
+                        <label class="labelDeedsAwards">
                             <input type="radio" name="optionsRadios" checked="true"> Apply for regional competitive grant or contest
                         </label>
                       </div>
                       <div class="radio">
-                        <label>
+                        <label class="labelDeedsAwards">
                             <input type="radio" name="optionsRadios"> Apply for national/International grant or contest 
                         </label>
                       </div>
                       <div class="radio">
-                        <label>
+                        <label class="labelDeedsAwards">
                             <input type="radio" name="optionsRadios"> Win grant award or place 1st in publication,presentation or innovation 
                         </label>
                       </div>
                       <div class="radio">
-                        <label>
+                        <label class="labelDeedsAwards">
                             <input type="radio" name="optionsRadios"> Win 2nd or 3rd in publication, presentation or innovation contest 
                         </label>
                       </div>
                       <div class="radio">
-                        <label>
+                        <label class="labelDeedsAwards">
                             <input type="radio" name="optionsRadios"> Other local honor or award conferred 
                         </label>
                       </div>
                       <div class="radio">
-                        <label>
+                        <label class="labelDeedsAwards">
                             <input type="radio" name="optionsRadios"> Other National honor or award conferred 
                         </label>
                       </div>
                       <div class="radio">
-                        <label>
+                        <label class="labelDeedsAwards">
                             <input type="radio" name="optionsRadios"> Other International honor or award conferred 
                         </label>
                       </div>
                       <div class="radio">
-                        <label>
+                        <label class="labelDeedsAwards">
                             <input type="radio" name="optionsRadios"> Fellow/Diplomate                            
                         </label>
                       </div>
@@ -52,36 +52,36 @@
               </div>
               <!-- Award Sponsor -->
               <div class="row">
-                  <label class="col-sm-2 label-on-left">Award Sponsor</label>
+                  <label class="col-sm-2 label-on-left labelDeedsAwards">Award Sponsor</label>
                   <div class="col-sm-10">
-                      <div class="form-group label-floating is-empty has-success">
-                          <label class="control-label"></label>
-                          <input type="text" class="form-control" value="Success">
-                          <span class="material-icons form-control-feedback">done</span>
+                      <div class="form-group label-floating is-empty">
+                          <label class="control-label labelDeedsAwards"></label>
+                          <input type="text" class="form-control">
+                      <!--     <span class="material-icons form-control-feedback">done</span> -->
                       </div>
                   </div>
               </div>
               <!--  Award Title  -->
               <div class="row">
-                <label class="col-sm-2 label-on-left">Award Title</label>
+                <label class="col-sm-2 label-on-left labelDeedsAwards">Award Title</label>
                 <div class="col-sm-10">
-                    <div class="form-group label-floating is-empty has-success">
-                        <label class="control-label"></label>
-                        <input type="text" class="form-control" value="Success">
-                        <span class="material-icons form-control-feedback">done</span>
+                    <div class="form-group label-floating is-empty">
+                        <label class="control-label labelDeedsAwards"></label>
+                        <input type="text" class="form-control">
+                        <!-- <span class="material-icons form-control-feedback">done</span> -->
                     </div>
                 </div>
             </div>
             <!--Date-->
              <div class="row">
                 <div class="col-sm-2 label-on-left">
-                  <label class="strong-font">Start</label>
+                  <label class="labelDeedsAwards">Year Completed</label>
                 </div>
                 <div class="col-sm-10">
                   <br>
                   <md-input-container >
                       <input mdInput [mdDatepicker]="datepickerStart"
-                          placeholder="Pick a start date"  type="month" >
+                          placeholder="Pick a date"  type="month" >
                   </md-input-container>
                   <md-datepicker
                       #datepickerYear
@@ -90,6 +90,7 @@
                   </md-datepicker>
               </div>
             </div>
+            <button type="reset" class="btn btn-fill btn-warning">Reset</button> 
               <button type="submit" class="btn btn-fill btn-warning ">Submit</button>        
           </div>
       </form>

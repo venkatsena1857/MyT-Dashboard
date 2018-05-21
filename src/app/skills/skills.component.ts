@@ -24,6 +24,7 @@ export class SkillsComponent implements OnInit {
     this.skillsDataTable = new MyTTable();
    }
 
+
   ngOnInit() {
     this.api.get(ApiStrings.TOOLS,(reponse:JSON)=> {
       var rules = GlobalServices.getRules();

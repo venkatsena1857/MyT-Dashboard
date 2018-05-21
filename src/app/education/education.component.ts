@@ -35,8 +35,8 @@ export class EducationComponent implements OnInit {
                         "Magna Cum Laude",
                         "Summa Cum Laude",
                         "None"];
-  StartdateArr : string[] = ['2017'];
-  enddateArr : string[] = ['2017'];
+  StartdateArr : string[] = ['2023'];
+  enddateArr : string[] = ['2023'];
 
   
   constructor(private api: APIServices, private tableBuilder: TableBuilderService){

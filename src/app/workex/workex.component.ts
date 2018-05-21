@@ -77,13 +77,19 @@ export class WorkexComponent implements OnInit, DoCheck {
 				'Education',
 				'Entertainment',
 				'Energy and Electric',
-				'financial and Business consulting',
-				'fitness and well being',
+				'Financial and Business consulting',
+				'Fitness and Well being',
 				'Government',
 				'Healthcare Delivery',
 				'Hospitality',
 				'Information and Communication technology',
-				'Manufacturing'];
+				'Manufacturing',
+				'Religious',
+				'Retail',
+				'Social',
+				'Trade/Professional',
+				'Water and Utilities',
+				'Other'];
 
 	locations = ['North America',
 				 'Carrabian',
@@ -123,7 +129,7 @@ export class WorkexComponent implements OnInit, DoCheck {
 
   ngOnInit() {
 	  this.workExperienceDataTable = {
-		  header:["Sl. No","Organization", "Start Date","End Date"," Position/Activity", "Role", "Team Size","Paid/Unpaid","Questions","Actions"],
+		  header:["Sl. No","Organization", "Start Date","End Date"," Position/Activity", "Role", "Team Size","Paid/Volunteer","Questions","Actions"],
 		  dataRows:[{customId: "1",
 					organization: "My-T Me",
 					startDate: "2011-12-23",

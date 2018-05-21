@@ -6,35 +6,35 @@
           </div>
           <div class="card-content">
               <div class="row">
-                  <label class="col-sm-2 label-on-left">Choose Specific Activity</label>
+                  <label class="col-sm-2 label-on-left" style="color: rgba(0,0,0,1);">Choose Specific Activity</label>
                   <div class="col-sm-10 checkbox-radios">
                       <div class="radio">
-                        <label>
+                        <label style="color: rgba(0,0,0,1);">
                             <input type="radio" name="optionsRadios" checked="true"> Regular blog related to professional Information
                         </label>
                       </div>
                       <div class="radio">
-                        <label>
+                        <label style="color: rgba(0,0,0,1);">
                             <input type="radio" name="optionsRadios"> Reviewed paper-Journal or Conference proceedings 
                         </label>
                       </div>
                       <div class="radio">
-                        <label>
+                        <label style="color: rgba(0,0,0,1);">
                             <input type="radio" name="optionsRadios"> Refereed paper / MS-MA Thesis
                         </label>
                       </div>
                       <div class="radio">
-                        <label>
+                        <label style="color: rgba(0,0,0,1);">
                             <input type="radio" name="optionsRadios"> White Paper/Book Chapter/ BS-BA individial capstone project 
                         </label>
                       </div>
                       <div class="radio">
-                        <label>
+                        <label style="color: rgba(0,0,0,1);">
                             <input type="radio" name="optionsRadios"> Book author/ Editor/ PHd - DSc Dissertation 
                         </label>
                       </div>
                       <div class="radio">
-                        <label>
+                        <label style="color: rgba(0,0,0,1);">
                             <input type="radio" name="optionsRadios"> Internal Tech Report/ Internal project report/ BS-BA team capstone project 
                         </label>
                       </div>
@@ -42,36 +42,36 @@
               </div>
               <!-- Publication name -->
               <div class="row">
-                  <label class="col-sm-2 label-on-left">Publication Name</label>
+                  <label class="col-sm-2 label-on-left" style="color: rgba(0,0,0,1);">Publication Name</label>
                   <div class="col-sm-10">
-                      <div class="form-group label-floating is-empty has-success">
-                          <label class="control-label"></label>
-                          <input type="text" class="form-control" value="Success">
-                          <span class="material-icons form-control-feedback">done</span>
+                      <div class="form-group label-floating is-empty">
+                          <label class="control-label" style="color: rgba(0,0,0,1);"></label>
+                          <input type="text" class="form-control">
+                          <!-- <span class="material-icons form-control-feedback">done</span> -->
                       </div>
                   </div>
               </div>
               <!--  Article Name  -->
               <div class="row">
-                <label class="col-sm-2 label-on-left">Article Title</label>
+                <label class="col-sm-2 label-on-left" style="color: rgba(0,0,0,1);">Article Title</label>
                 <div class="col-sm-10">
-                    <div class="form-group label-floating is-empty has-success">
-                        <label class="control-label"></label>
-                        <input type="text" class="form-control" value="Success">
-                        <span class="material-icons form-control-feedback">done</span>
+                    <div class="form-group label-floating is-empty">
+                        <label class="control-label" style="color: rgba(0,0,0,1);"></label>
+                        <input type="text" class="form-control">
+                        <!-- <span class="material-icons form-control-feedback">done</span> -->
                     </div>
                 </div>
             </div>
             <!--Date-->
               <div class="row">
                 <div class="col-sm-2 label-on-left">
-                  <label class="strong-font">Start</label>
+                  <label style="color: rgba(0,0,0,1);">Year Completed</label>
                 </div>
                 <div class="col-sm-10">
                   <br>
                   <md-input-container >
                       <input mdInput [mdDatepicker]="datepickerStart"
-                          placeholder="Pick a start date"  type="month" >
+                          placeholder="Pick a date"  type="month" >
                   </md-input-container>
                   <md-datepicker
                       #datepickerYear
@@ -80,6 +80,7 @@
                   </md-datepicker>
               </div>
             </div>
+            <button type="reset" class="btn btn-fill btn-warning">Reset</button> 
               <button type="submit" class="btn btn-fill btn-warning">Submit</button>        
           </div>
       </form>
