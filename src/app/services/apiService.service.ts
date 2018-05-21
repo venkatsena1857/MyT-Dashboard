@@ -36,8 +36,8 @@ export class APIServices {
 
     private linkCreator(param: string): string {
         var diff = "/";
-        //var defaultURL = "http://localhost:8080"
-        var defaultURL = "https://mytzone.herokuapp.com";
+        var defaultURL = "http://localhost:8080"
+        //var defaultURL = "https://mytzone.herokuapp.com";
         if(param===ApiStrings.LOGIN) {
             return defaultURL + diff + param;
         } else {

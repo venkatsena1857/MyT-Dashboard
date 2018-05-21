@@ -1,28 +1,35 @@
 import { Component, OnInit } from '@angular/core';
+import { MyTTable } from '../common/myTtable';
+import { APIServices } from '../services/apiService.service';
+import { TableBuilderService } from '../services/tableBuilderService.service';
+import { GlobalServices} from '../services/globalServices.service';
+import { ApiStrings } from '../common/apiStrings';
 
-declare interface SkillsDataTable {
-  headerRow: string[];
-  footerRow: string[];
-  dataRows: string[][];
-}
+// declare interface SkillsDataTable {
+//   headerRow: string[];
+//   footerRow: string[];
+//   dataRows: string[][];
+// }
 @Component({
   selector: 'app-skills',
   templateUrl: './skills.component.html',
   styleUrls : ['./skills.component.css'] 
 })
 export class SkillsComponent implements OnInit {
-  public skillsDataTable: SkillsDataTable
+  public skillsDataTable: MyTTable;
   
   public checkFormalProperty = false;
   public checkUsageProperty = false;
-  constructor() { }
+  constructor(private api:APIServices, private tableBuilder:TableBuilderService) {
+    this.skillsDataTable = new MyTTable();
+   }
 
   ngOnInit() {
-    this.skillsDataTable = {
-      headerRow: ['Sl. No','Category','Software/Device Name','Vendor/Distributor','Endorsements','Proficiency Type','Proficiency Year','Formal Certification', 'Usage in Last 3 Years','Actions'],
-      footerRow: ['Sl. No','Category','Software/Device Name','Vendor/Distributor','Endorsements','Proficiency Type','Proficiency Year','Formal Certification', 'Usage in Last 3 Years','Actions'],
-      dataRows: [['Sl. No','Category','Software/Device Name','Vendor/Distributor','Endorsements','Proficiency Type','Proficiency Year','Formal Certification', 'Usage in Last 3 Years','Actions']]
-    }
+    this.api.get(ApiStrings.TOOLS,(reponse:JSON)=> {
+      var rules = GlobalServices.getRules();
+      var skillsRUles = rules['table'][ApiStrings.SKILLS]
+      this.tableBuilder.build(this.skillsDataTable,skillsRUles,reponse);
+    })
   }
 
   checkFormalChange(){

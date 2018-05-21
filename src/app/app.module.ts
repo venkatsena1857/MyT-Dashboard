@@ -23,12 +23,8 @@ import { AuthGuardService } from './services/authGuard.service';
 import { AuthenticationService } from './services/authentication.service';
 import { APIServices } from './services/apiService.service';
 import { HttpClientModule } from '@angular/common/http';
-//import { SkillsComponent } from './skills/skills.component';
-//import { ToolsComponent } from './tools/tools.component';
-//import { DeedsComponent } from './deeds/deeds.component';
-//import { WorkexComponent } from './workex/workex.component';
-//import { EducationComponent } from './education/education.component';
-
+import { GlobalServices } from './services/globalServices.service';
+import { TableBuilderService } from './services/tableBuilderService.service';
 @NgModule({
     imports:      [
         CommonModule,
@@ -45,12 +41,7 @@ import { HttpClientModule } from '@angular/common/http';
         AppComponent,
         AdminLayoutComponent,
         AuthLayoutComponent,
-       LoginComponent,
-       // SkillsComponent,
-       // ToolsComponent,
-       // DeedsComponent,
-       // WorkexComponent,
-       // EducationComponent
+        LoginComponent
     ],
     bootstrap:    [ AppComponent ],
     providers : [{
@@ -65,6 +56,8 @@ import { HttpClientModule } from '@angular/common/http';
         APIServices,
         AuthGuardService,
         AuthenticationService,
+        GlobalServices,
+        TableBuilderService
         ]
 })
 export class AppModule { }

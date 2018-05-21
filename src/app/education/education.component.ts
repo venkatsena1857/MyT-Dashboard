@@ -1,12 +1,12 @@
 import { Component, OnInit,ViewChild } from '@angular/core';
 import {EducationInterface} from '../interfaces/education.interface';
 import { error } from 'util';
+import { APIServices } from '../services/apiService.service';
+import { ApiStrings } from '../common/apiStrings';
+import { GlobalServices } from '../services/globalServices.service';
+import { MyTTable } from '../common/myTtable'
+import {TableBuilderService} from '../services/tableBuilderService.service';
 
-
-declare interface EducationData{
-  header:string [];
-  dataRows: string[][];
-}
 
 @Component({
   selector: 'app-education',
@@ -15,7 +15,7 @@ declare interface EducationData{
 })
 
 export class EducationComponent implements OnInit {
-  public educationData: EducationData;
+  public educationData: MyTTable;
   educationToPost : EducationInterface;  
 
   type_of_degree_program: string[] = ["High School diploma",
@@ -39,59 +39,26 @@ export class EducationComponent implements OnInit {
   enddateArr : string[] = ['2017'];
 
   
-  public tableData1: {};
-  constructor(){
-
+  constructor(private api: APIServices, private tableBuilder: TableBuilderService){
+    this.educationData = new MyTTable();
+    console.log(GlobalServices.getRules())
   }
   ngOnInit() {
-    this.educationData = {
-      header:[ 'School Name', 'Major', 'Program type', 'Status', 'Honors', 'Yr Completed/Expected', '' ],
-      dataRows: [
-        ['San Jose State University', 'SE', 'MS', 'Completed', 'Cum Laude', '2017'],
-        ['Osmania University', 'CSE', 'BS', 'Completed', 'Cum Laude', '2015']
-    ]
-    }
-    this.tableData1 = {
-            headerRow: [ 'School Name', 'Major', 'Program type', 'Status', 'Honors' ,'Start year', 'End year', '' ],
-            dataRows: [
-                ['San Jose State University', 'SE', 'Masters', 'Completed', 'Science', '2015','2017'],
-                ['Osmania University', 'CSE', 'Bachelors', 'Completed', 'Science', '2011','2015']
-            ]
-         };
-
-    for(let i = 2016 ; i > 1949 ; i--){
-        this.StartdateArr.push(i.toString());
-    }
-    for(let i = 2016 ; i > 1949 ; i--){
-        this.enddateArr.push(i.toString());
-    }
+    this.api.get(ApiStrings.EDUCATION,(response: JSON) => {
+      console.log(response);
+      console.log(this.educationData);
+      console.log("Rules");
+      var rules = GlobalServices.getRules();
+      var educationRules = rules['table'][ApiStrings.EDUCATION]
+      console.log(educationRules)
+      this.tableBuilder.build(this.educationData,educationRules,response);
+      console.log(this.educationData);
+    })
   }
 
   @ViewChild('EducationForm') Educationform : any;
 
   submit_Education_Details(){
-    /*
-    this.educationToPost = {
-      schoolUniversityName : this.Educationform.controls.SchoolName.value,
-      majorFiedOfStudy : this.Educationform.controls.Major.value,
-      typeOfDegree : this.Educationform.controls.degree_program_type.value,
-      status : this.Educationform.controls.degree_program_status.value,
-      horors : this.Educationform.controls.honors.value,
-      start_year : this.Educationform.controls.start_year.value,
-      end_year : this.Educationform.controls.end_year.value
-    }
-    
-    console.log(this.Educationform)
-    //this.postservice.postToServer(this.educationToPost);
-    let postObs = this.post.postService('education',JSON.stringify(this.educationToPost),this.Educationform);
-    console.log(postObs.subscribe(data=>{
-      this.educationData.dataRows.push([this.educationToPost.schoolUniversityName, this.educationToPost.majorFiedOfStudy,
-        this.educationToPost.typeOfDegree, this.educationToPost.status,
-        this.educationToPost.horors, this.educationToPost.start_year,
-        this.educationToPost.end_year]);
-    },error => console.log("am error")));
-    */
-    
   }
   
    addEducationRecord(){

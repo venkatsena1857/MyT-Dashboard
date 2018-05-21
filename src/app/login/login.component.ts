@@ -6,6 +6,8 @@ import {Router} from '@angular/router';
 import { APIServices } from '../services/apiService.service';
 import { Response} from '@angular/http';
 import { ApiStrings } from '../common/apiStrings'
+import { GlobalServices } from '../services/globalServices.service'
+
 
 declare var $: any;
 
@@ -59,8 +61,10 @@ export class LoginComponent implements OnInit,DoCheck {
             if(response!=null) {
                 var responseJSON = response.json();
                 var token =responseJSON['token']; 
+                var rules = responseJSON['rules'];
                 if(token!=null){
                     this.auth.saveToken(token);
+                    GlobalServices.setRules(rules);
                     this.router.navigate(['/user/dashboard']);
                 } 
             }
