@@ -179,11 +179,11 @@
 
                             <div class="form-group label-floating">
                                 <label style="color: rgba(0,0,0,1);">Software/Devices Name</label>
-                                <input type="text" placeholder="Please fill the details" class="form-control" name="tool_name" required ngModel>
+                                <input type="text" placeholder="Please type your response here" class="form-control" name="tool_name" required ngModel>
                             </div>
                             <div class="form-group label-floating">
                                 <label style="color: rgba(0,0,0,1);">Vendor/Distributor</label>
-                                <input type="text" placeholder="Please fill the details" class="form-control" name="vendor_distributor" ngModel required>
+                                <input type="text" placeholder="Please type your response here" class="form-control" name="vendor_distributor" ngModel required>
                             </div>
                             <div class="form-group label-floating">
                                 <label style="color: rgba(0,0,0,1);">Number of LinkedIn Endorsments</label>
@@ -249,13 +249,9 @@
                         <!-- Date end-->
                             <div class="row">
                                         <label class="col-md-4" style="color: rgba(0,0,0,1);">Formal Certifcation</label>
-                                        <!-- <div class="togglebutton">
-                                            <label class="col-md-6">
-                                                <input type="checkbox" name="formal_certification" ngModel checked> Toggle is on
-                                            </label>
-                                        </div> -->
+                                        <br>
 
-                                        <div class="togglebutton">
+                                    <!--     <div class="togglebutton">
                                             <label class="col-md-8" >
                                                 <input type="checkbox" [(ngModel)]="checkboxFormal" (ngModelChange)="checkFormalChange()" name="formal_certification"> 
                                                 <label style="color: rgba(0,0,0,1);" *ngIf="checkFormalProperty == false">
@@ -264,9 +260,19 @@
                                                 <label style="color: rgba(0,0,0,1);" *ngIf="checkFormalProperty == true">
                                                     Yes, I have a formal certification
                                                 </label>
+                                               
                                             </label>
-                                        </div>
-                            </div>
+                                        </div> -->
+                                    <div class="radio">
+                                    <label style="color: rgba(0,0,0,1);">
+                                    <input type="radio" name="formal_certification" checked="true">No formal certification
+                                    </label>
+                                    
+                                    <label style="color: rgba(0,0,0,1);">
+                                    <input type="radio" name="formal_certification">Yes, I have a formal certification
+                                    </label>
+                                    </div>
+                                </div>
                             <hr>
                             <div class="row">
                                             <label class="col-md-6" style="color: rgba(0,0,0,1);">Used in Last 3 Years</label>
@@ -298,7 +304,8 @@
                                             </div>
                             </div>
                             <div class="form-group row">
-                                    <button type="submit" class="btn btn-fill btn-warning" (click)="submit_tools_details()">Submit</button>
+                                <button type="reset" class="btn btn-fill btn-warning btn-rose" id="resetButton">Reset</button> 
+                                <button type="submit" class="btn btn-fill btn-warning btn-rose" (click)="submit_tools_details()">Submit</button>
                             </div>
                         </form>
                     </div>
