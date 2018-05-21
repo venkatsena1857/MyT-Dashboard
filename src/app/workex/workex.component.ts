@@ -103,7 +103,34 @@ export class WorkexComponent implements OnInit, DoCheck {
 				 'Eastern Asia',
 				 'Central Asia',
 				 'South Eastern Asia'	
-				 ]
+				 ];
+
+	primaryFunctions = ['Bussiness Development',
+				 'Consulting - External',
+				 'Consulting - Internal',
+				 'CSR Corporate Social Responsibility',
+				 'Customer Service(Student/Patient/Client/Member)',
+				 'Education',
+				 'Engineering - Product/Services',
+				 'Engineering - Software',
+				 'Engineering - Structures',
+				 'Finance and Accounting',
+				 'Headquarters and Administration',
+				 'Healthy/Saftey'	
+				 ];
+
+	roles = ['Board of Directors',
+			'Consultant/Subject matter expert',
+			'Employee',
+			'Executive/Founder',
+			'Local or student committee',
+			'Local or student officer',
+			'Manager',
+			'Member(Student/Full membership)',
+			'National Committee',
+			'National Officer',
+			'Team Leader'
+			];
 
 	teamsize = 1;
 	Mul_dec = 1;

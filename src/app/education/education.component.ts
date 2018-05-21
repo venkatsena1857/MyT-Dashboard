@@ -53,7 +53,14 @@ export class EducationComponent implements OnInit {
       console.log(educationRules)
       this.tableBuilder.build(this.educationData,educationRules,response);
       console.log(this.educationData);
-    })
+    });
+
+    for(let i = 2022 ; i > 1949 ; i--){
+        this.StartdateArr.push(i.toString());
+    }
+    for(let i = 2022 ; i > 1949 ; i--){
+        this.enddateArr.push(i.toString());
+    }
   }
 
   @ViewChild('EducationForm') Educationform : any;
