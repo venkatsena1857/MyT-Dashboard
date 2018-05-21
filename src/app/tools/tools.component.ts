@@ -19,6 +19,7 @@ export class ToolsComponent implements OnInit {
   public toolsDataTable: ToolsDataTable;
   public checkFormalProperty = false;
 
+
   constructor(private comm: ServerCommunicationService) { }
 
   category_for_dropdown: string []  = ["Software - USER", "Software - Programming", "Device Operation"];

@@ -99,11 +99,11 @@
 
                                 <div class="form-group label-floating">
                                     <label style="color: rgba(0,0,0,1);">Method/Skills Name</label>
-                                    <input type="text"  placeholder="Please fill the details" class="form-control" required>
+                                    <input type="text"  placeholder="Please type your response here" class="form-control" required>
                                 </div>
                                 <div class="form-group label-floating">
                                     <label style="color: rgba(0,0,0,1);">Vendor/Distributor Name</label>
-                                    <input type="text" placeholder="Please fill the details" class="form-control" required>
+                                    <input type="text" placeholder="Please type your response here" class="form-control" required>
                                 </div>
                                 <div class="form-group label-floating">
                                     <label style="color: rgba(0,0,0,1);">Number of LinkedIn Endorsments</label>
@@ -162,7 +162,8 @@
                                 <div class="row">
 
                                                 <label class="col-md-4" style="color: rgba(0,0,0,1);">Formal Certifcation</label>
-                                                <div class="togglebutton">
+                                                <br>
+                                               <!--  <div class="togglebutton">
                                                     <label class="col-md-8" >
                                                         <input type="checkbox" [(ngModel)]="checkboxFormal" (ngModelChange)="checkFormalChange()" name="checkboxFormal"> 
                                                         <label style="color: rgba(0,0,0,1);" *ngIf="checkFormalProperty == false">
@@ -172,7 +173,16 @@
                                                             Yes, I have a formal certification
                                                         </label>
                                                     </label>
-                                                </div>
+                                                </div> -->
+                                                <div class="radio">
+                                    <label style="color: rgba(0,0,0,1);">
+                                    <input type="radio" name="formal_certification" checked="true">No formal certification
+                                    </label>
+                                    
+                                    <label style="color: rgba(0,0,0,1);">
+                                    <input type="radio" name="formal_certification">Yes, I have a formal certification
+                                    </label>
+                                    </div>
                                 </div>
                                 <hr>
                                 <div class="row">
@@ -216,7 +226,8 @@
                                     </div>
 
                                 <div class="form-group row">
-                                        <button type="submit" class="btn btn-fill btn-warning">Submit</button>
+                                    <button type="reset" class="btn btn-fill btn-warning btn-rose">Reset</button> 
+                                        <button type="submit" class="btn btn-fill btn-warning btn-rose">Submit</button>
                                 </div>
                             </form>
                         </div>

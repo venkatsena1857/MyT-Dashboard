@@ -80,7 +80,7 @@
                                             <div class="form-group label-floating">
                                                 <label class="labelWork">Employer/Organization name</label>
                                                 <br> 
-                                                <input type="text"  placeholder="Please fill the details" class="form-control" ngModel name="employee" id="employee">
+                                                <input type="text"  placeholder="Please type your response here" class="form-control" ngModel name="employee" id="employee">
                                                 <!-- <span class="material-icons form-control-feedback-wrong" 
                                                 *ngIf="!isEmp_Valid && isEmp_touched">clear</span>
                                                 <span class="material-icons form-control-feedback-right" 
@@ -125,13 +125,11 @@
         
                                           </div>
 
-                                          <div class="col-md-3">
-                                            <label class="control-label labelWork">Continuing</label>
-                                            <input type="checkbox" name="continuing" value="Continuing">  
-                                          </div>
-
 
                                           <div class="col-md-4">
+                                            <input type="checkbox" name="continuing">
+                                            &nbsp;  
+                                            <span class="checkboxtext">Continuing</span>
                                             <i class="material-icons">date_range</i>
                                             <label class="control-label labelWork">End Date</label>
                                             <!-- <md-input-container > -->
@@ -170,7 +168,7 @@
                                             <div class="form-group label-floating">
                                                 <label class="labelWork">Position or Activity Description</label>
                                                 <br>   
-                                                <input type="text" placeholder="Please fill the details" class="form-control" ngModel name="position" >
+                                                <input type="text" placeholder="Please type your response here" class="form-control" ngModel name="position" >
                                                 <!-- <span class="material-icons form-control-feedback-wrong" 
                                                 *ngIf="!isPos_Valid && isPos_touched">clear</span>
                                                 <span class="material-icons form-control-feedback-right" 
@@ -320,9 +318,9 @@
 
                                 <div class="row">
                                 <div class="col-md-12">
-                                    <h5>Select answers to prompt below regarding Operations Responsibilities, Critical Thinking and Operations Innovation</h5>
+                                    <h5>Select answers to the items below regarding YOUR <u>Operations Responsibilities, Critical Thinking and Systems Responsibilities, and Operations and Innovation Responsibilities</u> for this Work/Volunteer Segment</h5>
                                     <div class="row">
-                                        <h6  class="col-md-12 labelWork" >Operation Responsibilities</h6>
+                                        <h6  class="col-md-12 labelWork fontHeadings" >Operation Responsibilities</h6>
                                     </div>
                                     <div *ngFor="let op_resp of op_resps">
                                         <div class="row">
@@ -357,7 +355,7 @@
                                     <hr>
                                     
                                     <div class="row">
-                                        <h6  class="col-md-12 labelWork" >Critical Thinking</h6>
+                                        <h6  class="col-md-12 labelWork fontHeadings" >Critical Thinking</h6>
                                     </div>
                                     <div *ngFor="let critical_thing of critical_things">
                                         <div class="row">
@@ -391,7 +389,7 @@
                                     <!-->System and Operation Innovation</!-->
                                     <hr>
                                     <div class="row">
-                                        <h6  class="col-md-12 labelWork" >System and Operation Innovation</h6>
+                                        <h6  class="col-md-12 labelWork fontHeadings" >System and Operation Innovation</h6>
                                     </div>
                                     <div *ngFor="let innovation of innovation_arr">
                                         <div class="row">
@@ -424,17 +422,11 @@
                                     <!---->
                                     <hr>
                                     <div class="row">
-                                        <div class="col-md-6">
-                                            <button class="btn btn-block" (click)="addEntry()">Add another entry</button>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <button class="btn btn-submit btn-block btn-warning">Submit</button>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                         <div class="col-md-8 col-md-offset-2">
-                                            <p class="warning" *ngIf="!fullValidator">Please fill all the feilds above</p>
-                                         </div>   
+                                        <button type="reset" class="btn btn-rose">Reset</button>   
+                                            <button class="btn btn-rose" (click)="addEntry()">Add another entry</button>
+                                        
+                                            <button class="btn btn-rose">Submit</button>
+                                        
                                     </div>
                                 </div>
                         </div>
