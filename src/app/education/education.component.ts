@@ -1,6 +1,5 @@
 import { Component, OnInit,ViewChild } from '@angular/core';
 import {EducationInterface} from '../interfaces/education.interface';
-import { ServerCommunicationService } from '../services/servercommunication.service';
 import { error } from 'util';
 
 
@@ -12,8 +11,7 @@ declare interface EducationData{
 @Component({
   selector: 'app-education',
   templateUrl: './education.component.html',
-  styleUrls : ['./education.component.css'],
-  providers: [ ServerCommunicationService ]
+  styleUrls : ['./education.component.css']
 })
 
 export class EducationComponent implements OnInit {
@@ -42,7 +40,7 @@ export class EducationComponent implements OnInit {
 
   
   public tableData1: {};
-  constructor(private comm: ServerCommunicationService){
+  constructor(){
 
   }
   ngOnInit() {
@@ -93,9 +91,6 @@ export class EducationComponent implements OnInit {
         this.educationToPost.end_year]);
     },error => console.log("am error")));
     */
-    this.comm.postService('education',this.Educationform,'default').subscribe(data => {
-      console.log(data);
-    },error => {console.log(error)});
     
   }
   

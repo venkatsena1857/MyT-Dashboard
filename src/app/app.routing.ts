@@ -1,5 +1,5 @@
-import { Routes } from '@angular/router';
-
+import { Routes, CanActivate } from '@angular/router';
+import { AuthGuardService as authGuard} from './services/authGuard.service'
 import { AdminLayoutComponent } from './layouts/admin/admin-layout.component';
 import { AuthLayoutComponent } from './layouts/auth/auth-layout.component';
 import { EducationComponent } from './education/education.component';
@@ -9,11 +9,10 @@ export const AppRoutes: Routes = [
     {
       path: '',
       component : LoginComponent
-    },
-
-    {
+    }, {
       path: 'user',
       component: AdminLayoutComponent,
+      canActivate: [authGuard],
       children: [
       {
         path: 'dashboard',

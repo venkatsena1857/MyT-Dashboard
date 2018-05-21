@@ -1,5 +1,11 @@
 import { Component, OnInit,ElementRef,DoCheck,ViewChild } from '@angular/core';
+import { AuthenticationService } from '../services/authentication.service';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs/Rx';
 import {Router} from '@angular/router';
+import { APIServices } from '../services/apiService.service';
+import { Response} from '@angular/http';
+import { ApiStrings } from '../common/apiStrings'
 
 declare var $: any;
 
@@ -17,7 +23,7 @@ export class LoginComponent implements OnInit,DoCheck {
     @ViewChild('RegForm') RegForm : any;
     //router: Router;
 
-    constructor(private element: ElementRef,private router:Router ) {
+    constructor(private element: ElementRef,private router:Router, private api: APIServices, private auth: AuthenticationService) {
         this.nativeElement = element.nativeElement;
         this.sidebarVisible = false;
 
@@ -26,11 +32,8 @@ export class LoginComponent implements OnInit,DoCheck {
     ngOnInit() {
         var navbar : HTMLElement = this.element.nativeElement;
         this.toggleButton = navbar.getElementsByClassName('navbar-toggle')[0];
-
-          
     }
 
-   
     sidebarToggle() {
         var toggleButton = this.toggleButton;
         var body = document.getElementsByTagName('body')[0];
@@ -48,12 +51,20 @@ export class LoginComponent implements OnInit,DoCheck {
         }
     }
     gotoDash(email : string, password :string){
-    	if(email == 'revanth@gmail.com' && password == 'Tscore'){
-    		this.router.navigateByUrl('/user/dashboard');
-    	}
-    	else{
-    		alert('You have entered Wrong values');
-    	}
+        var loginjson = {
+            "userName" : email,
+            "password": password
+        }
+        this.api.post(ApiStrings.LOGIN, loginjson, (response: Response)=>{
+            if(response!=null) {
+                var responseJSON = response.json();
+                var token =responseJSON['token']; 
+                if(token!=null){
+                    this.auth.saveToken(token);
+                    this.router.navigate(['/user/dashboard']);
+                } 
+            }
+        });
     }
 
     goToRegister(){
