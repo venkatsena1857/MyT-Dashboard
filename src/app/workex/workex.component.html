@@ -183,9 +183,23 @@
                                          <div class="col-md-12 form-group">        
                                             <label class="labelWork">Primary Function</label>
                                                 <br>                        
-                                            <md-select  placeholder="Select your primary function" name="city" ngClass="btn simple" ngModel name="PrimaryFunction">
-                                                <md-option class="open" *ngFor="let location of locations" [value]="location">
-                                                {{ location }}
+                                            <md-select  placeholder="Select your primary function" name="primaryfunc" ngClass="btn simple" ngModel name="PrimaryFunction">
+                                                <md-option class="open" *ngFor="let primaryFunction of primaryFunctions" [value]="primaryFunction">
+                                                {{ primaryFunction }}
+                                                </md-option>
+                                            </md-select>
+                                        </div>
+                                    </div>
+                                    <hr>
+
+                                    <!--choose your role-->
+                                    <div class="row">
+                                         <div class="col-md-12 form-group">        
+                                            <label class="labelWork">Role</label>
+                                                <br>                        
+                                            <md-select  placeholder="Select your role" name="role" ngClass="btn simple" ngModel name="PrimaryFunction">
+                                                <md-option class="open" *ngFor="let role of roles" [value]="role">
+                                                {{ role }}
                                                 </md-option>
                                             </md-select>
                                         </div>
