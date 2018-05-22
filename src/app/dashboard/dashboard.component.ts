@@ -274,7 +274,7 @@ console.log(this.tTopUpper)
               let data5 = {
                labels: ['Mon'],
                series: [
-                 [2400],
+                 [this.fulltStem],
                ]
                   }
         let options = {
