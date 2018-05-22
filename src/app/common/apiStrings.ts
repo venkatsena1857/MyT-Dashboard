@@ -1,6 +1,6 @@
 export class ApiStrings  {
     public static LOGIN :string = 'login';
-    public static REGISTRATION  :string = 'registration';
+    public static REGISTRATION  :string = 'signUp';
     public static EDUCATION :string= 'education';
     public static WORK_EXPERIENCE:string = 'workExperience';
     public static CERTIFICATES:string = 'certificates';

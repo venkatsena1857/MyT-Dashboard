@@ -107,7 +107,7 @@
                                             <span class="input-group-addon"></span>
                                             <i class="material-icons">date_range</i>
                                             <label class="control-label">Date of birth</label>
-                                                <input type="date" ngModel name="StartDate" value="null">
+                                                <input #DOB type="date" ngModel name="StartDate" value="null">
                                         </div>
                                     </div>
 
@@ -116,7 +116,7 @@
                                             <span class="input-group-addon"></span>
                                             <div class="form-group marked label-floating">
                                                 <label class="control-label">First Year - myTE Scoring Information Entry</label>
-                                                <input #F_Name type="text" class="form-control" value = "">
+                                                <input #F_Year type="text" class="form-control" value = "">
                                             </div>
                                         </div>
                                         <div class="input-group">
@@ -155,7 +155,7 @@
                                         </div>
                                         <div class="row">
                                         <div class="footer text-center">
-                                            <button (click)="doRegister()" class="btn btn-warning btn-simple btn-wd btn-lg">
+                                            <button (click)="doRegister(U_Name.value,F_Name.value,L_Name.value,DOB.value,E_Mail.value,P_Word.value,F_Year.value)" class="btn btn-warning btn-simple btn-wd btn-lg">
                                                 <i class="material-icons">person_add</i> Register me</button>
                                         </div>
                                     </div>   
@@ -164,9 +164,7 @@
                             </div>
                         </form>
                     </div>
-
-
-
+                    
                     <!--Registration panel ends-------------------------------------------------------------------------->
                     <div class="col-md-1"></div>
                     <div class="col-md-7" *ngIf="isRegistered">

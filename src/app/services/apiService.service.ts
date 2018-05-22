@@ -38,7 +38,7 @@ export class APIServices {
         var diff = "/";
         //var defaultURL = "http://localhost:8080"
         var defaultURL = "https://mytzone.herokuapp.com";
-        if(param===ApiStrings.LOGIN) {
+        if(param===ApiStrings.LOGIN || param == ApiStrings.REGISTRATION) {
             return defaultURL + diff + param;
         } else {
             return defaultURL + diff + ApiStrings.API + diff + param;

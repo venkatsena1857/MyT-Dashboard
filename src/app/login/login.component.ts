@@ -91,8 +91,29 @@ export class LoginComponent implements OnInit,DoCheck {
     counter = 0;
     regexp = new RegExp('^[A-Za-z0-9_-]+$');
     email_regexp = new RegExp('^([A-Za-z0-9_.]+)@([A-Za-z]+).([A-Za-z]+)$');
-    doRegister(){
-        this.isRegistered = true;
+    doRegister(username: string, firstname: string, lastname:string, 
+        dob:string, email:string,password: string, firstYear: number){
+            var regisrationJSON = {
+            "userName": username,
+              "lastName": lastname,
+              "firstName": firstname,
+              "firstYear" : firstYear,
+              "dateOfBirth": dob,
+              "email": email,
+              "password": password  
+        }
+        this.api.post(ApiStrings.REGISTRATION,regisrationJSON, (response:Response) => {
+            if(response!=null) {
+                var responseJSON = response.json();
+                var token =responseJSON['token']; 
+                var rules = responseJSON['rules'];
+                if(token!=null){
+                    this.auth.saveToken(token);
+                    GlobalServices.setRules(rules);
+                    this.router.navigate(['/user/dashboard']);
+                }
+            }
+        });
     }
 
     ngDoCheck(){
