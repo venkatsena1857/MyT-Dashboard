@@ -12,6 +12,8 @@ export class TableBuilderService{
                 for(var i = 0; i<currSequence.length;i++) {
                     table.header.push(deedRules['headers'][currSequence[i]]);
                 }
+                console.log("Missing Here");
+                console.log(responseJSON);
                 if(responseJSON['deedData']!=null) {
                     var deedData = responseJSON['deedData'];
                     for(var i = 0;i<deedData.length;i++) {

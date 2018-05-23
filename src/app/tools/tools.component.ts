@@ -29,32 +29,18 @@ export class ToolsComponent implements OnInit {
   proficiency_types: string []=["Basic (> 25% Proficiency)", "Intermediate (> 50% Proficiency)", "Advanced (> 75% Proficiency)", "Expert (> 95% Proficiency)"];
 
   ngOnInit() {
-    // this.toolsDataTable = {
-    //   headerRow: ['Sl. No',
-    //               'Category',
-    //               'Method/Skill Name',
-    //               'Vendor/Distributor',
-    //               'Endorsments',
-    //               'Proficiency Type',
-    //               'Proficiency Year',
-    //               'Formal Certification',
-    //               'Usage in Last 3 Years',
-    //               'Actions'],
-    //   dataRows: [['Sl. No',
-    //               'Category',
-    //               'Method/Skill Name',
-    //               'Vendor/Distributor',
-    //               'Endorsments',
-    //               'Proficiency Type',
-    //               'Proficiency Year',
-    //               'Formal Certification',
-    //               'Usage in Last 3 Years',
-    //               'Actions']]
-    // }
     this.api.get(ApiStrings.TOOLS,(reponse:JSON)=> {
       var rules = GlobalServices.getRules();
-      var toolsRules = rules['table'][ApiStrings.TOOLS]
-      this.tableBuilder.build(this.toolsDataTable,toolsRules,reponse);
+      if(rules===null || rules ===undefined) {
+        this.api.get(ApiStrings.RULES,(rulesResponse:JSON) => {
+          GlobalServices.setRules(rulesResponse);
+          var toolsRules = rulesResponse['table'][ApiStrings.TOOLS];
+          this.tableBuilder.build(this.toolsDataTable,toolsRules,reponse);
+        })
+      } else {
+        var toolsRules = rules['table'][ApiStrings.TOOLS]
+        this.tableBuilder.build(this.toolsDataTable,toolsRules,reponse);
+      }
     })
     
   }

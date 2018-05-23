@@ -6,7 +6,7 @@ import { ApiStrings } from '../common/apiStrings';
 import { GlobalServices } from '../services/globalServices.service';
 import { MyTTable } from '../common/myTtable'
 import {TableBuilderService} from '../services/tableBuilderService.service';
-
+import { Response } from '@angular/http'
 
 @Component({
   selector: 'app-education',
@@ -49,10 +49,16 @@ export class EducationComponent implements OnInit {
       console.log(this.educationData);
       console.log("Rules");
       var rules = GlobalServices.getRules();
-      var educationRules = rules['table'][ApiStrings.EDUCATION]
-      console.log(educationRules)
-      this.tableBuilder.build(this.educationData,educationRules,response);
-      console.log(this.educationData);
+      if(rules===undefined || rules === null) {
+        this.api.get(ApiStrings.RULES, (rulesResponse: JSON) => {
+          GlobalServices.setRules(rulesResponse);
+          var educationRules = rulesResponse['table'][ApiStrings.EDUCATION]
+          this.tableBuilder.build(this.educationData,educationRules,response);  
+        }) 
+      } else {
+        var educationRules = rules['table'][ApiStrings.EDUCATION]
+        this.tableBuilder.build(this.educationData,educationRules,response);
+      }
     });
 
     for(let i = 2022 ; i > 1949 ; i--){
@@ -65,8 +71,25 @@ export class EducationComponent implements OnInit {
 
   @ViewChild('EducationForm') Educationform : any;
 
-  submit_Education_Details(){
-  }
+  /*
+  submit_Education_Details(schoolName: string, major: string, degree: string,
+    startyear:string, endyear: string, programstatus: string, honors: string){
+      var educationJSON = {
+        "schoolUniversityName": schoolName ,
+        "majorFiedOfStudy" : major,
+        "typeOfDegree": degree,
+        "startYear": startyear,
+        "endYear" :  endyear,
+        "degreeProgramStatus" : programstatus
+      }
+      console.log(educationJSON);
+      // this.api.post(ApiStrings.EDUCATION, educationJSON, (response: Response) => {
+      // })
+    }*/
+
+    submit_Education_Details() {
+
+    }
   
    addEducationRecord(){
     document.getElementById('addEduRecord').style.display = "block";

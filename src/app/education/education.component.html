@@ -57,14 +57,14 @@
                         <!-- School Name Starts -->
                           <div class="form-group label-floating is-empty">
                             <label class="labeleducation">School Name</label>
-                              <input type="text"  placeholder="Please type your response here" class="form-control" appDirectiveAlphabets ngModel id="SchoolName" name="SchoolName">
+                              <input #schoolName type="text"  placeholder="Please type your response here" class="form-control" appDirectiveAlphabets ngModel id="SchoolName" name="SchoolName">
                               <span class="material-icons form-control-feedback">done</span>
                           </div>
 
                         <!-- Major -->
                         <div class="form-group label-floating is-empty">
                             <label class="labeleducation">Major</label>
-                              <input type="text"  placeholder="Please type your response here" class="form-control" appDirectiveAlphabets ngModel id="SchoolName" name="SchoolName">
+                              <input #major type="text"  placeholder="Please type your response here" class="form-control" appDirectiveAlphabets ngModel id="major" name="major">
                               <span class="material-icons form-control-feedback">done</span>
                           </div>
 
@@ -72,7 +72,7 @@
                         <div class="form-group label-floating is-empty">
                             <label class="labeleducation">Degree Program Type</label><br>           
                               <md-select placeholder="Select Degree Program Type" name="city" ngClass="btn simple" appDirectiveMandatory ngModel id=" degree_program_type" name="degree_program_type">
-                                <md-option *ngFor="let degree_program of type_of_degree_program" [value]="degree_program">
+                                <md-option  *ngFor="let degree_program of type_of_degree_program" [value]="degree_program">
                                   {{ degree_program }}
                                 </md-option>
                               </md-select>
@@ -92,7 +92,7 @@
                         <div class="row">
                             <div class="col-md-6 label-floating is-empty">
                               <label class="labeleducation">Start Year</label><br>  
-                                <md-select  placeholder="Start year"  ngClass="btn simple" appDirectiveMandatory
+                                <md-select  #startyear placeholder="Start year"  ngClass="btn simple" appDirectiveMandatory
                                 ngModel id="start_year" name="start_year">
                                     <md-option *ngFor="let startdate of StartdateArr" [value]="startdate">
                                     {{ startdate }}
@@ -101,7 +101,7 @@
                             </div>
                             <div class="col-md-6 label-floating is-empty">
                               <label class="labeleducation">End Year</label><br>
-                                <md-select  placeholder="End year"  ngClass="btn simple" appDirectiveMandatory
+                                <md-select  #endyear placeholder="End year"  ngClass="btn simple" appDirectiveMandatory
                                 ngModel id="end_year" name="end_year">
                                     <md-option *ngFor="let enddate of enddateArr" [value]="enddate">
                                     {{ enddate }}

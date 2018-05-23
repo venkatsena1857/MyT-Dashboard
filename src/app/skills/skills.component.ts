@@ -28,8 +28,16 @@ export class SkillsComponent implements OnInit {
   ngOnInit() {
     this.api.get(ApiStrings.TOOLS,(reponse:JSON)=> {
       var rules = GlobalServices.getRules();
-      var skillsRUles = rules['table'][ApiStrings.SKILLS]
-      this.tableBuilder.build(this.skillsDataTable,skillsRUles,reponse);
+      if(rules===null || rules === undefined) {
+        this.api.get(ApiStrings.RULES,(rulesResponse:JSON) => {
+          GlobalServices.setRules(rulesResponse);
+          var skillsRules = rulesResponse['table'][ApiStrings.SKILLS];
+          this.tableBuilder.build(this.skillsDataTable, skillsRules,reponse);
+        })
+      } else {
+        var skillsRUles = rules['table'][ApiStrings.SKILLS]
+        this.tableBuilder.build(this.skillsDataTable,skillsRUles,reponse);
+      }
     })
   }
 

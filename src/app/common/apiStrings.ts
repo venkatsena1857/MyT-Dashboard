@@ -24,4 +24,5 @@ export class ApiStrings  {
     public static DASHBOARD:string = 'dashboard';
     public static USER:string = 'user';
     public static API:string = 'api';
+    public static RULES:string = 'rules';
 };
