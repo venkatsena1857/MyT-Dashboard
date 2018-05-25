@@ -64,7 +64,7 @@
                         <!-- Major -->
                         <div class="form-group label-floating is-empty">
                             <label class="labeleducation">Major</label>
-                              <input #major type="text"  placeholder="Please type your response here" class="form-control" appDirectiveAlphabets ngModel id="major" name="major">
+                              <input type="text"  placeholder="Please type your response here" class="form-control" appDirectiveAlphabets ngModel id="SchoolName" name="Major">
                               <span class="material-icons form-control-feedback">done</span>
                           </div>
 
@@ -81,8 +81,8 @@
                         <!-- Degree Program Status -->
                         <div class="form-group label-floating is-empty">
                             <label class="labeleducation">Degree Program Status</label><br>                              
-                              <md-select  placeholder="Select Degree Program Status" name="city" ngClass="btn simple" appDirectiveMandatory ngModel id="degree_program_status" name="degree_program_status">
-                                <md-option *ngFor="let program_status of degree_program_status" [value]="program_status">
+                              <md-select  placeholder="Select Degree Program Status" name="city" ngClass="btn simple" appDirectiveMandatory ngModel  name="degree_program_status">
+                                <md-option id="degree_program_status"  *ngFor="let program_status of degree_program_status" [value]="program_status">
                                   {{ program_status }}
                                 </md-option>
                               </md-select>

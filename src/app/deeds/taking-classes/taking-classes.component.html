@@ -1,31 +1,32 @@
 <div class="col-md-12">
   <div class="card">
-      <form method="get" action="/" class="form-horizontal">
+     
           <div class="card-header card-header-text" data-background-color="orange">
               <h4 class="card-title">Taking Classes/Workshops</h4>
           </div>
           <div class="card-content">
+             <form #TakingClassesForm="ngForm" method="get" action="/" class="form-horizontal">
               <div class="row">
                   <label class="col-sm-2 label-on-left labeldeedsTakingClass">Choose Specific Activity</label>
                   <div class="col-sm-10 checkbox-radios">
                       <div class="radio">
                           <label class ="labeldeedsTakingClass" >
-                              <input type="radio" name="optionsRadios"> 1-2 day
+                              <input type="radio" name="specificActivity" ngModel value="1 - 2 day"> 1-2 day
                           </label>
                           <br>
 
                           <label class ="labeldeedsTakingClass">
-                              <input type="radio" name="optionsRadios" checked="true">  3-5 day
+                              <input type="radio" name="specificActivity" checked="true" ngModel value="3 - 5 day">  3-5 day
                           </label>
                           <br>
 
                         <label class ="labeldeedsTakingClass">
-                            <input type="radio" name="optionsRadios"> 1-4 week
+                            <input type="radio" name="specificActivity" ngModel value="1 - 4 day"> 1-4 week
                         </label>
                         <br>
 
                         <label class ="labeldeedsTakingClass">
-                            <input type="radio" name="optionsRadios">  4 week/ semester course
+                            <input type="radio" name="specificActivity" ngModel value="4 week">  4 week/ semester course
                         </label>
                         <br>
                     </div>
@@ -36,7 +37,7 @@
                   <div class="col-sm-10">
                       <div class="form-group label-floating is-empty">
                           <label class="control-label"></label>
-                          <input type="text" class="form-control" >
+                          <input type="text" class="form-control" ngModel name="description" >
                          <!--  <span class="material-icons form-control-feedback">done</span> -->
                       </div>
                   </div>
@@ -50,7 +51,7 @@
                   <br>
                   <md-input-container >
                       <input mdInput [mdDatepicker]="datepickerStart"
-                          placeholder="Pick a date"  type="month" >
+                          placeholder="Pick a date"  type="month" ngModel name="date" >
                   </md-input-container>
                   <md-datepicker
                       #datepickerYear
@@ -60,8 +61,9 @@
               </div>
             </div>
              <button type="reset" class="btn btn-fill btn-warning">Reset</button>  
-              <button type="submit" class="btn btn-fill btn-warning">Submit</button>        
+              <button type="submit" class="btn btn-fill btn-warning" (click)="submit_taking_classes()">Submit</button>        
+          </form>
           </div>
-      </form>
+      
   </div>
 </div>

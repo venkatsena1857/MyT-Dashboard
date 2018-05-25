@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,ViewChild } from '@angular/core';
 import { MyTTable } from '../common/myTtable';
 import { APIServices } from '../services/apiService.service';
 import { TableBuilderService } from '../services/tableBuilderService.service';
@@ -41,6 +41,10 @@ export class SkillsComponent implements OnInit {
     })
   }
 
+  @ViewChild('SkillForm') skillsform : any;
+  submit_skills_details(){
+    console.log(this.skillsform.controls)
+  }
   checkFormalChange(){
     if(this.checkFormalProperty == true){
       this.checkFormalProperty = false;

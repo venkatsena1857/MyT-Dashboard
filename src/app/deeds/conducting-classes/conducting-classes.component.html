@@ -1,36 +1,37 @@
 <div class="col-md-12">
   <div class="card">
-      <form method="get" action="/" class="form-horizontal">
+      
           <div class="card-header card-header-text" data-background-color="orange">
               <h4 class="card-title">Conducting Classes</h4>
           </div>
           <div class="card-content">
+            <form #ConductingClassesForm="ngForm" method="get" action="/" class="form-horizontal">
               <div class="row">
                   <label class="col-sm-2 label-on-left" style="color: rgba(0,0,0,1);">Choose Specific Activity</label>
                   <div class="col-sm-10 checkbox-radios">
                       <div class="radio">
                           <label style="color: rgba(0,0,0,1);">
-                              <input type="radio" name="optionsRadios"> Conduct 1 hour or longer Briefing/Invited lecture                          
+                              <input type="radio" name="specificActivity" ngModel value="Conduct 1 hour or longer Briefing/Invited lecture"> Conduct 1 hour or longer Briefing/Invited lecture                          
                           </label>
                       </div>
                       <div class="radio">
                           <label style="color: rgba(0,0,0,1);">
-                              <input type="radio" name="optionsRadios" checked="true">   Conduct 1-2 day briefing/workshop                              
+                              <input type="radio" name="specificActivity" ngModel checked="true" value="Conduct 1-2 day briefing/workshop">   Conduct 1-2 day briefing/workshop                              
                           </label>
                       </div>
                       <div class="radio">
                         <label style="color: rgba(0,0,0,1);">
-                            <input type="radio" name="optionsRadios"> Conduct 3-5 day briefing/workshop
+                            <input type="radio" name="specificActivity" ngModel value="Conduct 3-5 day briefing/workshop"> Conduct 3-5 day briefing/workshop
                         </label>
                       </div>
                       <div class="radio">
                         <label style="color: rgba(0,0,0,1);">
-                            <input type="radio" name="optionsRadios"> Teaching Assistant/ Lab Assistant for Sem/Qtr course
+                            <input type="radio" name="specificActivity" ngModel value="Teaching Assistant/ Lab Assistant for Sem/Qtr course"> Teaching Assistant/ Lab Assistant for Sem/Qtr course
                         </label>
                       </div>
                       <div class="radio">
                         <label style="color: rgba(0,0,0,1);">
-                            <input type="radio" name="optionsRadios"> Teacher for full Semester course
+                            <input type="radio" name="specificActivity" ngModel value="Teacher for full Semester course"> Teacher for full Semester course
                         </label>
                     </div>
                   </div>
@@ -40,7 +41,7 @@
                   <div class="col-sm-10">
                       <div class="form-group label-floating is-empty">
                           <label class="control-label"></label>
-                          <input type="text" class="form-control">
+                          <input type="text" class="form-control" name="description">
                           <!-- <span class="material-icons form-control-feedback">done</span> -->
                       </div>
                   </div>
@@ -54,7 +55,7 @@
                   <br>
                   <md-input-container >
                       <input mdInput [mdDatepicker]="datepickerStart"
-                          placeholder="Pick a date"  type="month" >
+                          placeholder="Pick a date"  type="month" name=year>
                   </md-input-container>
                   <md-datepicker
                       #datepickerYear
@@ -64,8 +65,9 @@
               </div>
             </div>
               <button type="reset" class="btn btn-fill btn-warning">Reset</button> 
-              <button type="submit" class="btn btn-fill btn-warning">Submit</button>        
+              <button type="submit" class="btn btn-fill btn-warning" (click)="submit_cond_classes()">Submit</button>        
+            </form>
           </div>
-      </form>
+      
   </div>
 </div>

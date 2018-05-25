@@ -1,4 +1,4 @@
-import { Component, OnInit,ViewChild } from '@angular/core';
+import { Component, OnInit,ViewChild,ElementRef } from '@angular/core';
 import {EducationInterface} from '../interfaces/education.interface';
 import { error } from 'util';
 import { APIServices } from '../services/apiService.service';
@@ -38,7 +38,8 @@ export class EducationComponent implements OnInit {
   StartdateArr : string[] = ['2023'];
   enddateArr : string[] = ['2023'];
 
-  
+  @ViewChild('EducationForm') education_form : any;
+
   constructor(private api: APIServices, private tableBuilder: TableBuilderService){
     this.educationData = new MyTTable();
     console.log(GlobalServices.getRules())
@@ -71,18 +72,9 @@ export class EducationComponent implements OnInit {
 
   @ViewChild('EducationForm') Educationform : any;
 
-  submit_Education_Details(schoolName: string, major: string, degree: string,
-    startyear:string, endyear: string, programstatus: string, honors: string){
-      var educationJSON = {
-        "schoolUniversityName": schoolName ,
-        "majorFiedOfStudy" : major,
-        "typeOfDegree": degree,
-        "startYear": startyear,
-        "endYear" :  endyear,
-        "degreeProgramStatus" : programstatus
-      }
-      console.log(educationJSON);
-      this.api.post(ApiStrings.EDUCATION, educationJSON, (response: Response) => {
+  submit_Education_Details(){
+      console.log(this.education_form.controls);
+      this.api.post(ApiStrings.EDUCATION, null, (response: Response) => {
           console.log(response);
       })
     }

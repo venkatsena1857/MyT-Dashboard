@@ -1,51 +1,52 @@
 <div class="col-md-12">
   <div class="card">
-      <form method="get" action="/" class="form-horizontal">
+      
           <div class="card-header card-header-text" data-background-color="orange">
               <h4 class="card-title">Awards</h4>
           </div>
           <div class="card-content">
+            <form #AwardsForm="ngForm" method="get" action="/" class="form-horizontal">
               <div class="row">
                   <label class="col-sm-2 label-on-left labelDeedsAwards">Choose Specific Activity</label>
                   <div class="col-sm-10 checkbox-radios">
                       <div class="radio">
                         <label class="labelDeedsAwards">
-                            <input type="radio" name="optionsRadios" checked="true"> Apply for regional competitive grant or contest
+                            <input type="radio" name="specificActivity" checked="true"> Apply for regional competitive grant or contest
                         </label>
                       </div>
                       <div class="radio">
                         <label class="labelDeedsAwards">
-                            <input type="radio" name="optionsRadios"> Apply for national/International grant or contest 
+                            <input type="radio" name="specificActivity"> Apply for national/International grant or contest 
                         </label>
                       </div>
                       <div class="radio">
                         <label class="labelDeedsAwards">
-                            <input type="radio" name="optionsRadios"> Win grant award or place 1st in publication,presentation or innovation 
+                            <input type="radio" name="specificActivity" ngModel value="Win grant award or place 1st in publication,presentation or innovation "> Win grant award or place 1st in publication,presentation or innovation 
                         </label>
                       </div>
                       <div class="radio">
                         <label class="labelDeedsAwards">
-                            <input type="radio" name="optionsRadios"> Win 2nd or 3rd in publication, presentation or innovation contest 
+                            <input type="radio" name="specificActivity" ngModel value="Win 2nd or 3rd in publication, presentation or innovation contest "> Win 2nd or 3rd in publication, presentation or innovation contest 
                         </label>
                       </div>
                       <div class="radio">
                         <label class="labelDeedsAwards">
-                            <input type="radio" name="optionsRadios"> Other local honor or award conferred 
+                            <input type="radio" name="specificActivity" ngModel value="Other local honor or award conferred"> Other local honor or award conferred 
                         </label>
                       </div>
                       <div class="radio">
                         <label class="labelDeedsAwards">
-                            <input type="radio" name="optionsRadios"> Other National honor or award conferred 
+                            <input type="radio" name="specificActivity" ngModel value="Other National honor or award conferred "> Other National honor or award conferred 
                         </label>
                       </div>
                       <div class="radio">
                         <label class="labelDeedsAwards">
-                            <input type="radio" name="optionsRadios"> Other International honor or award conferred 
+                            <input type="radio" name="specificActivity" ngModel value="Other International honor or award conferred"> Other International honor or award conferred 
                         </label>
                       </div>
                       <div class="radio">
                         <label class="labelDeedsAwards">
-                            <input type="radio" name="optionsRadios"> Fellow/Diplomate                            
+                            <input type="radio" name="specificActivity"> Fellow/Diplomate                            
                         </label>
                       </div>
                   </div>
@@ -56,7 +57,7 @@
                   <div class="col-sm-10">
                       <div class="form-group label-floating is-empty">
                           <label class="control-label labelDeedsAwards"></label>
-                          <input type="text" class="form-control">
+                          <input type="text" class="form-control" ngModel name="AwardSponsor">
                       <!--     <span class="material-icons form-control-feedback">done</span> -->
                       </div>
                   </div>
@@ -67,7 +68,7 @@
                 <div class="col-sm-10">
                     <div class="form-group label-floating is-empty">
                         <label class="control-label labelDeedsAwards"></label>
-                        <input type="text" class="form-control">
+                        <input type="text" class="form-control" ngModel name="AwardTitle">
                         <!-- <span class="material-icons form-control-feedback">done</span> -->
                     </div>
                 </div>
@@ -81,7 +82,7 @@
                   <br>
                   <md-input-container >
                       <input mdInput [mdDatepicker]="datepickerStart"
-                          placeholder="Pick a date"  type="month" >
+                          placeholder="Pick a date"  type="month" ngModel name="date">
                   </md-input-container>
                   <md-datepicker
                       #datepickerYear
@@ -91,8 +92,9 @@
               </div>
             </div>
             <button type="reset" class="btn btn-fill btn-warning">Reset</button> 
-              <button type="submit" class="btn btn-fill btn-warning ">Submit</button>        
+              <button type="submit" class="btn btn-fill btn-warning " (click)="submitawards()">Submit</button>        
+            </form>
           </div>
-      </form>
+      
   </div>
 </div>

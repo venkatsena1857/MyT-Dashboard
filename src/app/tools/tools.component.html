@@ -162,17 +162,17 @@
                                    </md-option>
                                </md-select> -->
                                 <div class="radio">
-                                    <label style="color: rgba(0,0,0,1);">
-                                    <input type="radio" name="Category" checked="true">Software-User 
+                                    <label style="color: rgba(0,0,0,1);" md-check>
+                                    <input type="radio" name="Category" checked="true" ngModel value="Software-User">Software-User 
                                     </label>
             
-                                    <label style="color: rgba(0,0,0,1);">
-                                    <input type="radio" name="Category">Software-Programming            
+                                    <label style="color: rgba(0,0,0,1);" md-check>
+                                    <input type="radio" name="Category" ngModel value="Software-Programming">Software-Programming            
                                     </label>
 
-                                    <label style="color: rgba(0,0,0,1);">
-                                    <input type="radio" name="Category">Device Operation                                              
-                                    </label>
+                                    <label style="color: rgba(0,0,0,1);" md-check>
+                                    <input type="radio" name="Category" ngModel value="Device Operation">Device Operation                                              
+                                    </label> 
                                 </div>
                             </div>
                             <hr>
@@ -201,28 +201,28 @@
                                        </md-option>
                                    </md-select> -->
                                   <div class="radio">
-                                    <label style="color: rgba(0,0,0,1);">
-                                    <input type="radio" name="proficiency_type" checked="true">Basic
+                                    <label style="color: rgba(0,0,0,1);" md-check>
+                                    <input type="radio" name="proficiency_type" checked="true" ngModel value="basic">Basic
                                     </label>
                                     <label> > 25% Proficiency. Can perform simple assignments</label>
                                     <br>
             
-                                    <label style="color: rgba(0,0,0,1);">
-                                    <input type="radio" name="proficiency_type">Intermediate 
+                                    <label style="color: rgba(0,0,0,1);" md-check>
+                                    <input type="radio" name="proficiency_type" ngModel value="inter">Intermediate 
                                     </label>
                                     <label> > 50% Proficiency. Can perform independently many types of assignments
                                     </label>
                                     <br>
 
-                                    <label style="color: rgba(0,0,0,1);">
-                                    <input type="radio" name="proficiency_type">Advanced
+                                    <label style="color: rgba(0,0,0,1);" md-check>
+                                    <input type="radio" name="proficiency_type" ngModel value="advanced">Advanced
                                     </label>
                                     <label> > 75% Proficiency. Can perform independently nearly all types of assignments</label>
                                     <br>
 
 
-                                    <label style="color: rgba(0,0,0,1);">
-                                    <input type="radio" name="proficiency_type">Expert
+                                    <label style="color: rgba(0,0,0,1);" md-check>
+                                    <input type="radio" name="proficiency_type" ngModel value="expert">Expert
                                     </label>
                                     <label> > 95% Proficiency. Can perform independently all types of assignments and serve as a mentor </label>
                                     </div>
@@ -265,11 +265,11 @@
                                         </div> -->
                                     <div class="radio">
                                     <label style="color: rgba(0,0,0,1);">
-                                    <input type="radio" name="formal_certification" checked="true">No formal certification
+                                    <input type="radio" name="formal_certification" checked="true" ngModel value="false">No formal certification
                                     </label>
                                     
                                     <label style="color: rgba(0,0,0,1);">
-                                    <input type="radio" name="formal_certification">Yes, I have a formal certification
+                                    <input type="radio" name="formal_certification" ngModel value="yes">Yes, I have a formal certification
                                     </label>
                                     </div>
                                 </div>
@@ -284,21 +284,21 @@
                                             </div> -->
                                             <div class="radio">
                                                 <label style="color: rgba(0,0,0,1);">
-                                                <input type="radio" name="usage_in_3years">Often 
+                                                <input type="radio" name="usage_in_3years" ngModel value="Often">Often 
                                                 </label>
                         
                                                 <label style="color: rgba(0,0,0,1);">
-                                                <input type="radio" name="usage_in_3years">
+                                                <input type="radio" name="usage_in_3years" ngModel value="Sometimes">
                                                 Sometimes                             
                                                 </label>
 
                                                 <label style="color: rgba(0,0,0,1);">
-                                                <input type="radio" name="usage_in_3years">
+                                                <input type="radio" name="usage_in_3years" ngModel value="Rarely">
                                                 Rarely                             
                                                 </label>
                                             
                                                 <label style="color: rgba(0,0,0,1);">
-                                                <input type="radio" name="usage_in_3years" checked="true">
+                                                <input type="radio" name="usage_in_3years" checked="true" ngModel value="Rarely">
                                                 No                            
                                                 </label>
                                             </div>

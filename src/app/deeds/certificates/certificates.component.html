@@ -1,57 +1,59 @@
 <!--  Certificate Form -->
 <div class="col-md-12">
   <div class="card">
-      <form method="get" action="/" class="form-horizontal">
+      
           <div class="card-header card-header-text" data-background-color="orange">
               <h4 class="card-title">Certificates/Licenses</h4>
           </div>
-          <div class="card-content">
-              <div class="row">
-                  <label class="col-sm-2 label-on-left labeldeeds">Choose Specific Activity</label>
-                  <div class="col-sm-10 checkbox-radios">
-                      <div class="radio">
-                          <label class="labeldeeds">
-                              <input type="radio" name="optionsRadios">  Certification: State/Federal/Professional
-                          </label>
-                      </div>
-                      <div class="radio">
-                          <label class="labeldeeds">
-                              <input type="radio" name="optionsRadios" checked="true"> License awarded
-                          </label>
-                      </div>
-                  </div>
-              </div>
-              <div class="row">
-                  <label class="col-sm-2 label-on-left labeldeeds">Deed Description</label>
-                  <div class="col-sm-10">
-                      <div class="form-group label-floating is-empty">
-                          <label class="control-label"></label>
-                          <input type="text" class="form-control" value="">
-                          <span class="material-icons form-control-feedback">done</span>
-                      </div>
-                  </div>
-              </div>
-              <!--Date-->
-              <div class="row">
-                <div class="col-sm-2 label-on-left">
-                  <label class="labeldeeds">Year Completed</label>
+            <div class="card-content">
+              <form #CertForm="ngForm" method="#" action="/" class="form-horizontal">
+                <div class="row">
+                    <label class="col-sm-2 label-on-left labeldeeds">Choose Specific Activity</label>
+                    <div class="col-sm-10 checkbox-radios">
+                        <div class="radio">
+                            <label class="labeldeeds">
+                                <input type="radio" name="optionsRadios" ngModel value="Certification: State/Federal/Professional">  Certification: State/Federal/Professional
+                            </label>
+                        </div>
+                        <div class="radio">
+                            <label class="labeldeeds">
+                                <input type="radio" name="optionsRadios" checked="true" ngModel value="License awarded"> License awarded
+                            </label>
+                        </div>
+                    </div>
                 </div>
-                <div class="col-sm-10">
-                  <br>
-                  <md-input-container >
-                      <input mdInput [mdDatepicker]="datepickerStart"
-                          placeholder="Pick a date"  type="month" >
-                  </md-input-container>
-                  <md-datepicker
-                      #datepickerYear
-                      [startView]="'year'"
-                      >
-                  </md-datepicker>
+                <div class="row">
+                    <label class="col-sm-2 label-on-left labeldeeds">Deed Description</label>
+                    <div class="col-sm-10">
+                        <div class="form-group label-floating is-empty">
+                            <label class="control-label"></label>
+                            <input type="text" class="form-control" value="" ngModel name="description">
+                            <span class="material-icons form-control-feedback">done</span>
+                        </div>
+                    </div>
+                </div>
+                <!--Date-->
+                <div class="row">
+                  <div class="col-sm-2 label-on-left">
+                    <label class="labeldeeds">Year Completed</label>
+                  </div>
+                  <div class="col-sm-10">
+                    <br>
+                    <md-input-container >
+                        <input mdInput [mdDatepicker]="datepickerStart"
+                            placeholder="Pick a date"  type="month" ngModel name="year">
+                    </md-input-container>
+                    <md-datepicker
+                        #datepickerYear
+                        [startView]="'year'"
+                        >
+                    </md-datepicker>
+                </div>
               </div>
+                <button type="reset" class="btn btn-fill btn-warning">Reset</button>  
+                <button type="submit" class="btn btn-fill btn-warning" (click)="submit_certificate()">Submit</button>
+              </form>       
             </div>
-              <button type="reset" class="btn btn-fill btn-warning">Reset</button>  
-              <button type="submit" class="btn btn-fill btn-warning">Submit</button>        
-          </div>
-      </form>
+      
   </div>
 </div>

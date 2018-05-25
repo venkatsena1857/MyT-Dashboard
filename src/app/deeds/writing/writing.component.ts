@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-deeds-writing',
@@ -10,6 +10,11 @@ export class WritingComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+  }
+
+  @ViewChild('WritingForm') WritingForm : any;
+  submit_writing(){
+  	console.log(this.WritingForm.controls);
   }
 
 }

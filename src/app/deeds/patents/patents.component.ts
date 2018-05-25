@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-deeds-patents',
@@ -10,6 +10,10 @@ export class PatentsComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+  }
+  @ViewChild('PatentsForm') PatentsForm : any;
+  patents_submit(){
+  	console.log(this.PatentsForm.controls);
   }
 
 }

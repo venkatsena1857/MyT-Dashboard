@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-deeds-taking-classes',
@@ -10,6 +10,11 @@ export class TakingClassesComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+  }
+
+  @ViewChild('TakingClassesForm') TakingClassesForm : any;
+  submit_taking_classes(){
+  	console.log(this.TakingClassesForm.controls);
   }
 
 }
