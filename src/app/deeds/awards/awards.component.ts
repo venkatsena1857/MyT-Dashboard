@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,ViewChild } from '@angular/core';
 import { DateAdapter } from '@angular/material';
 
 @Component({
@@ -11,6 +11,11 @@ export class AwardsComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+  }
+    @ViewChild('AwardsForm') AwardsForm : any;
+
+  submitawards(){
+  	console.log(this.AwardsForm.controls);
   }
 
 }

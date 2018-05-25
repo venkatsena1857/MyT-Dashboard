@@ -1,4 +1,4 @@
-import { Component, OnInit,ViewChild } from '@angular/core';
+import { Component, OnInit,ViewChild,ElementRef } from '@angular/core';
 import {EducationInterface} from '../interfaces/education.interface';
 import { error } from 'util';
 import { APIServices } from '../services/apiService.service';
@@ -38,13 +38,18 @@ export class EducationComponent implements OnInit {
   StartdateArr : string[] = ['2023'];
   enddateArr : string[] = ['2023'];
 
-  
+  @ViewChild('EducationForm') education_form : any;
+
+  submit_Education_Details(){
+    console.log(this.education_form.controls)
+  }
+
   constructor(private api: APIServices, private tableBuilder: TableBuilderService){
     this.educationData = new MyTTable();
     console.log(GlobalServices.getRules())
   }
   ngOnInit() {
-    this.api.get(ApiStrings.EDUCATION,(response: JSON) => {
+    /*this.api.get(ApiStrings.EDUCATION,(response: JSON) => {
       console.log(response);
       console.log(this.educationData);
       console.log("Rules");
@@ -53,7 +58,7 @@ export class EducationComponent implements OnInit {
       console.log(educationRules)
       this.tableBuilder.build(this.educationData,educationRules,response);
       console.log(this.educationData);
-    });
+    });*/
 
     for(let i = 2022 ; i > 1949 ; i--){
         this.StartdateArr.push(i.toString());
@@ -63,10 +68,7 @@ export class EducationComponent implements OnInit {
     }
   }
 
-  @ViewChild('EducationForm') Educationform : any;
-
-  submit_Education_Details(){
-  }
+  
   
    addEducationRecord(){
     document.getElementById('addEduRecord').style.display = "block";

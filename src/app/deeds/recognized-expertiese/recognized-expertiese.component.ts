@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-deeds-recognized-expertiese',
@@ -10,6 +10,11 @@ export class RecognizedExpertieseComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+  }
+
+  @ViewChild('RecognisedForm') RecognisedForm : any;
+  recognized_exp_submit(){
+  	console.log(this.RecognisedForm.controls);
   }
 
 }

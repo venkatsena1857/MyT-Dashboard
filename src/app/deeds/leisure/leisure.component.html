@@ -1,10 +1,11 @@
 <div class="col-md-12">
   <div class="card">
-      <form method="get" action="/" class="form-horizontal">
+      
           <div class="card-header card-header-text" data-background-color="orange">
               <h4 class="card-title">Leisure Travel</h4>
           </div>
           <div class="card-content">
+            <form #LeisureForm="ngForm" method="get" action="/" class="form-horizontal">
               <div class="row">
                   <label class="col-sm-2 label-on-left" style="color: rgba(0,0,0,1);">Choose Specific Activity</label>
                   <div class="col-sm-10 checkbox-radios">
@@ -15,22 +16,22 @@
                       </div>
                       <div class="radio">
                           <label style="color: rgba(0,0,0,1);">
-                              <input type="radio" name="optionsRadios" checked="true"> National > 1 month cumulative
+                              <input type="radio" name="specificActivity" ngModel value="National > 1 month cumulative" checked="true"> National > 1 month cumulative
                           </label>
                       </div>
                       <div class="radio">
                         <label style="color: rgba(0,0,0,1);">
-                            <input type="radio" name="optionsRadios" checked="true"> International < 2 weeks cumulative
+                            <input type="radio" name="specificActivity" checked="true" ngmodel value="International < 2 weeks cumulative"> International < 2 weeks cumulative
                         </label>
                     </div>
                     <div class="radio">
                       <label style="color: rgba(0,0,0,1);">
-                          <input type="radio" name="optionsRadios" checked="true"> International 2-4 weeks cumulative
+                          <input type="radio" name="specificActivity" checked="true" ngModel value="International 2-4 weeks cumulative"> International 2-4 weeks cumulative
                       </label>
                   </div>
                   <div class="radio">
                     <label style="color: rgba(0,0,0,1);">
-                        <input type="radio" name="optionsRadios" checked="true"> International >4 weeks cumulative
+                        <input type="radio" name="specificActivity" checked="true" ngModel value="International >4 weeks cumulative"> International >4 weeks cumulative
                     </label>
                   </div>
                 </div>
@@ -40,7 +41,7 @@
                   <div class="col-sm-10">
                       <div class="form-group label-floating is-empty">
                           <label class="control-label" style="color: rgba(0,0,0,1);"></label>
-                          <input type="text" class="form-control">
+                          <input type="text" class="form-control" ngModel name="description">
                           <!-- <span class="material-icons form-control-feedback">done</span> -->
                       </div>
                   </div>
@@ -54,7 +55,7 @@
                   <br>
                   <md-input-container >
                       <input mdInput [mdDatepicker]="datepickerStart"
-                          placeholder="Pick a date"  type="month" >
+                          placeholder="Pick a date"  type="month" ngModel name="date">
                   </md-input-container>
                   <md-datepicker
                       #datepickerYear
@@ -64,8 +65,9 @@
               </div>
             </div>
             <button type="reset" class="btn btn-fill btn-warning">Reset</button> 
-              <button type="submit" class="btn btn-fill btn-warning">Submit</button>        
+              <button type="submit" class="btn btn-fill btn-warning" (click)="leisure_submit()">Submit</button>        
+             </form>
           </div>
-      </form>
+     
   </div>
 </div>

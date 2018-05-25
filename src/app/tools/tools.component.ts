@@ -61,7 +61,7 @@ export class ToolsComponent implements OnInit {
 
   @ViewChild('ToolsForm') Toolsform : any;
   submit_tools_details(){
-    console.log(this.Toolsform)
+    console.log(this.Toolsform.controls)
   }
 
   checkFormalChange(){

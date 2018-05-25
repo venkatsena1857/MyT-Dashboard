@@ -1,41 +1,42 @@
 <div class="col-md-12">
   <div class="card">
-      <form method="get" action="/" class="form-horizontal">
+      
           <div class="card-header card-header-text" data-background-color="orange">
               <h4 class="card-title">Writing</h4>
           </div>
           <div class="card-content">
+            <form #WritingForm = "ngForm" method="get" action="/" class="form-horizontal">
               <div class="row">
                   <label class="col-sm-2 label-on-left" style="color: rgba(0,0,0,1);">Choose Specific Activity</label>
                   <div class="col-sm-10 checkbox-radios">
                       <div class="radio">
                         <label style="color: rgba(0,0,0,1);">
-                            <input type="radio" name="optionsRadios" checked="true"> Regular blog related to professional Information
+                            <input type="radio" name="specificActivity" ngModel value ="Regular blog related to professional Information" checked="true"> Regular blog related to professional Information
                         </label>
                       </div>
                       <div class="radio">
                         <label style="color: rgba(0,0,0,1);">
-                            <input type="radio" name="optionsRadios"> Reviewed paper-Journal or Conference proceedings 
+                            <input type="radio" name="specificActivity" ngModel Value="Reviewed paper-Journal or Conference proceedings "> Reviewed paper-Journal or Conference proceedings 
                         </label>
                       </div>
                       <div class="radio">
                         <label style="color: rgba(0,0,0,1);">
-                            <input type="radio" name="optionsRadios"> Refereed paper / MS-MA Thesis
+                            <input type="radio" name="specificActivity" ngModel value="Refereed paper / MS-MA Thesis"> Refereed paper / MS-MA Thesis
                         </label>
                       </div>
                       <div class="radio">
                         <label style="color: rgba(0,0,0,1);">
-                            <input type="radio" name="optionsRadios"> White Paper/Book Chapter/ BS-BA individial capstone project 
+                            <input type="radio" name="specificActivity" ngModel value="White Paper/Book Chapter/ BS-BA individial capstone project "> White Paper/Book Chapter/ BS-BA individial capstone project 
                         </label>
                       </div>
                       <div class="radio">
                         <label style="color: rgba(0,0,0,1);">
-                            <input type="radio" name="optionsRadios"> Book author/ Editor/ PHd - DSc Dissertation 
+                            <input type="radio" name="specificActivity" ngModel value"Book author/ Editor/ PHd - DSc Dissertation "> Book author/ Editor/ PHd - DSc Dissertation 
                         </label>
                       </div>
                       <div class="radio">
                         <label style="color: rgba(0,0,0,1);">
-                            <input type="radio" name="optionsRadios"> Internal Tech Report/ Internal project report/ BS-BA team capstone project 
+                            <input type="radio" name="specificActivity" ngModel value="Internal Tech Report/ Internal project report/ BS-BA team capstone project "> Internal Tech Report/ Internal project report/ BS-BA team capstone project 
                         </label>
                       </div>
                   </div>
@@ -46,7 +47,7 @@
                   <div class="col-sm-10">
                       <div class="form-group label-floating is-empty">
                           <label class="control-label" style="color: rgba(0,0,0,1);"></label>
-                          <input type="text" class="form-control">
+                          <input type="text" class="form-control" ngModel name="PublicationName">
                           <!-- <span class="material-icons form-control-feedback">done</span> -->
                       </div>
                   </div>
@@ -57,7 +58,7 @@
                 <div class="col-sm-10">
                     <div class="form-group label-floating is-empty">
                         <label class="control-label" style="color: rgba(0,0,0,1);"></label>
-                        <input type="text" class="form-control">
+                        <input type="text" class="form-control" ngModel name="ArticleTitle">
                         <!-- <span class="material-icons form-control-feedback">done</span> -->
                     </div>
                 </div>
@@ -71,7 +72,7 @@
                   <br>
                   <md-input-container >
                       <input mdInput [mdDatepicker]="datepickerStart"
-                          placeholder="Pick a date"  type="month" >
+                          placeholder="Pick a date"  type="month" ngModel name="date">
                   </md-input-container>
                   <md-datepicker
                       #datepickerYear
@@ -81,8 +82,9 @@
               </div>
             </div>
             <button type="reset" class="btn btn-fill btn-warning">Reset</button> 
-              <button type="submit" class="btn btn-fill btn-warning">Submit</button>        
+              <button type="submit" class="btn btn-fill btn-warning" (click)="submit_writing()">Submit</button>  
+            </form>      
           </div>
-      </form>
+      
   </div>
 </div>

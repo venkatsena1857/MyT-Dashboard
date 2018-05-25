@@ -197,7 +197,7 @@
                                          <div class="col-md-12 form-group">        
                                             <label class="labelWork">Role</label>
                                                 <br>                        
-                                            <md-select  placeholder="Select your role" name="role" ngClass="btn simple" ngModel name="PrimaryFunction">
+                                            <md-select  placeholder="Select your role" name="role" ngClass="btn simple" ngModel name="Role">
                                                 <md-option class="open" *ngFor="let role of roles" [value]="role">
                                                 {{ role }}
                                                 </md-option>
@@ -215,21 +215,21 @@
                                                 <nouislider [connect]="[true , flase]" [min]="0" [max]="10" [step]="1" [(ngModel)]="teamsize" name="Tsize" [tooltips]="true" class="slider"></nouislider>
                                         </div> -->
                                 <!--     <div class="col-md-3"> -->
-                                    <div class="radio">
-                                                    <label class="strong-font">
-                                                        <input type="radio" name="Tsize" checked="true">1 Myself alone
+                                    <div class="radio form-group">
+                                                    <label class="strong-font md-check">
+                                                        <input type="radio" ngModel name="Tsize" checked="true" value="1">1 Myself alone
                                                     </label>
                                             
-                                                    <label class="strong-font">
-                                                        <input type="radio" name="Tsize" > 2-3 team members
+                                                    <label class="strong-font md-check">
+                                                        <input type="radio" ngModel name="Tsize" value="2-3"> 2-3 team members
                                                     </label>
                                             
-                                                    <label class="strong-font">
-                                                        <input type="radio" name="Tsize" > 4-8 team members
+                                                    <label class="strong-font md-check">
+                                                        <input type="radio" ngModel name="Tsize" value="4-8"> 4-8 team members
                                                     </label>
                                             
-                                                    <label class="strong-font">
-                                                        <input type="radio" name="Tsize" > 9 or more team members
+                                                    <label class="strong-font md-check">
+                                                        <input type="radio" ngModel name="Tsize" value=">9"> 9 or more team members
                                                     </label>
                                                 </div>
                                            <!--  </div> -->
@@ -244,24 +244,24 @@
                                              Select team's Multi-disciplinary Makeup
                                         </div>
                                              <div class="radio">
-                                                    <label class="strong-font">
-                                                        <input type="radio" name="Multi-disciplinary-Radio"checked="true">  Very high >76%
+                                                    <label class="strong-font  md-check">
+                                                        <input type="radio" name="Multi-disciplinary-Radio"checked="true" ngModel value="VeryHigh">  Very high >76%
                                                     </label>
             
-                                                    <label class="strong-font">
-                                                        <input type="radio" name="Multi-disciplinary-Radio">High 51-75% 
+                                                    <label class="strong-font  md-check">
+                                                        <input type="radio" name="Multi-disciplinary-Radio" ngModel value="High">High 51-75% 
                                                     </label>
                                             
-                                                    <label class="strong-font">
-                                                        <input type="radio" name="Multi-disciplinary-Radio" > Moderate 36-50%
+                                                    <label class="strong-font  md-check">
+                                                        <input type="radio" name="Multi-disciplinary-Radio" ngModel value="Moderate"> Moderate 36-50%
                                                     </label>
                                             
-                                                    <label class="strong-font">
-                                                        <input type="radio" name="Multi-disciplinary-Radio" > Low 16-35% 
+                                                    <label class="strong-font  md-check">
+                                                        <input type="radio" name="Multi-disciplinary-Radio" ngModel value="Low"> Low 16-35% 
                                                     </label>
                                             
-                                                    <label class="strong-font">
-                                                        <input type="radio" name="Multi-disciplinary-Radio" >Very low 0-15%
+                                                    <label class="strong-font  md-check">
+                                                        <input type="radio" name="Multi-disciplinary-Radio" ngModel value="Very Low" >Very low 0-15%
                                                     </label>
                                             </div>
                                     </div>
@@ -272,24 +272,24 @@
                                             Select team's Multi-Cultural Makeup
                                         </div>
                                             <div class="radio">
-                                                    <label class="strong-font">
-                                                        <input type="radio" name="Multi-Cultural-Radio" checked="true">Very high >76%
+                                                    <label class="strong-font md-check">
+                                                        <input type="radio" name="Multi-Cultural-Radio" checked="true" ngModel value="VeryHigh">Very high >76%
                                                     </label>
                                             
-                                                    <label class="strong-font">
-                                                        <input type="radio" name="Multi-Cultural-Radio" >High 51-75% 
+                                                    <label class="strong-font md-check">
+                                                        <input type="radio" name="Multi-Cultural-Radio" ngModel value="High">High 51-75% 
                                                     </label>
                                             
-                                                    <label class="strong-font">
-                                                        <input type="radio" name="Multi-Cultural-Radio"> Moderate 36-50%
+                                                    <label class="strong-font md-check">
+                                                        <input type="radio" name="Multi-Cultural-Radio" ngModel value="Moderate"> Moderate 36-50%
                                                     </label>
                                             
-                                                    <label class="strong-font">
-                                                        <input type="radio" name="Multi-Cultural-Radio"> Low 16-35%
+                                                    <label class="strong-font md-check">
+                                                        <input type="radio" name="Multi-Cultural-Radio"ngModel value="Low"> Low 16-35%
                                                     </label>
                                             
-                                                    <label class="strong-font">
-                                                        <input type="radio" name="Multi-Cultural-Radio"> Very low 0-15%
+                                                    <label class="strong-font md-check">
+                                                        <input type="radio" name="Multi-Cultural-Radio" ngModel value="Very Low"> Very low 0-15%
                                                     </label>
                                             </div>
                                     </div>
@@ -301,12 +301,12 @@
                                             Type of organization                                        
                                         </div>
                                             <div class="radio">
-                                            <label class="strong-font">
-                                                <input type="radio" name = "profit"  checked="true">For Profit
+                                            <label class="strong-font md-check">
+                                                <input type="radio" name = "profit"  checked="true" ngModel value="For Profit">For Profit
                                             </label>
                                             
-                                            <label class="strong-font">
-                                                <input type="radio" name = "profit">Not For Profit
+                                            <label class="strong-font md-check">
+                                                <input type="radio" name = "profit" ngModel value="Not for Profit">Not For Profit
                                             </label>
                                             </div>   
                                     </div>
@@ -317,12 +317,12 @@
                                             Type of position                                        
                                         </div>
                                             <div class="radio">
-                                            <label class="strong-font">
-                                                <input type="radio" name = "paid"  checked="true">Paid
+                                            <label class="strong-font md-check">
+                                                <input type="radio" name = "paid"  checked="true" ngModel value="paid">Paid
                                             </label>
                                             
-                                            <label class="strong-font">
-                                                <input type="radio" name = "paid">Volunteer
+                                            <label class="strong-font md-check">
+                                                <input type="radio" name = "paid" ngModel value="unpaid">Volunteer
                                             </label>
                                             </div>   
                                     </div>
@@ -344,20 +344,20 @@
                                            <div class=" col-md-4">
                                                 <div class="row">
                                                     <div class="col-md-2 radio" >
-                                                        <label class="strong-font">
-                                                            <input type="radio" [name] = "op_resp.radio_name"  checked="true">No
+                                                        <label class="strong-font md-check">
+                                                            <input type="radio" [name] = "op_resp.radio_name"  checked="true" ngModel value="no">No
                                                         </label>
                                                     </div>
                                                     <div class="col-md-1"></div>
                                                     <div class="col-md-2 radio" >
-                                                        <label class="strong-font">
-                                                            <input type="radio" [name] = "op_resp.radio_name">Some
+                                                        <label class="strong-font md-check">
+                                                            <input type="radio" [name] = "op_resp.radio_name" ngModel value="some">Some
                                                         </label>
                                                     </div> 
                                                     <div class="col-md-1"></div>
                                                     <div class="col-md-2 radio">
-                                                        <label class="strong-font">
-                                                            <input type="radio" [name]  = "op_resp.radio_name">Yes
+                                                        <label class="strong-font md-check">
+                                                            <input type="radio" [name]  = "op_resp.radio_name" ngModel value="yes">Yes
                                                         </label>
                                                     </div>
                                                     <div class="col-md-1"></div>
@@ -379,20 +379,20 @@
                                             <div class=" col-md-4">
                                                 <div class="row">   
                                                     <div class="col-md-2 radio">
-                                                        <label class="strong-font">
-                                                            <input type="radio" [name]="critical_thing.radio_name" checked="true">No
+                                                        <label class="strong-font md-check">
+                                                            <input type="radio" [name]="critical_thing.radio_name" checked="true" ngModel value="no">No
                                                         </label>
                                                     </div>
                                                     <div class="col-md-1"></div>
                                                     <div class="col-md-2 radio" >
-                                                        <label class="strong-font">
-                                                            <input type="radio" [name]="critical_thing.radio_name"  >Some
+                                                        <label class="strong-font md-check">
+                                                            <input type="radio" [name]="critical_thing.radio_name" ngModel value="some" >Some
                                                         </label>
                                                     </div> 
                                                     <div class="col-md-1"></div>
                                                     <div class="col-md-2 radio" >
-                                                        <label class="strong-font">
-                                                            <input type="radio" [name]="critical_thing.radio_name">Yes
+                                                        <label class="strong-font md-check">
+                                                            <input type="radio" [name]="critical_thing.radio_name" ngModel value="yes">Yes
                                                         </label>
                                                     </div>
                                                     <div class="col-md-1"></div> 
@@ -413,20 +413,20 @@
                                             <div class=" col-md-4">
                                                 <div class="row">   
                                                     <div class="col-md-2 radio">
-                                                        <label class="strong-font">
-                                                            <input type="radio" [name]="innovation.radio_name" checked="true">No
+                                                        <label class="strong-font md-check">
+                                                            <input type="radio" [name]="innovation.radio_name" ngModel value="no" checked="true">No
                                                         </label>
                                                     </div>
                                                     <div class="col-md-1"></div>
                                                     <div class="col-md-2 radio" >
-                                                        <label class="strong-font"> 
-                                                            <input type="radio" [name]="innovation.radio_name"  >Some
+                                                        <label class="strong-font md-check"> 
+                                                            <input type="radio" [name]="innovation.radio_name" ngModel value="some" >Some
                                                         </label>
                                                     </div> 
                                                     <div class="col-md-1"></div>
                                                     <div class="col-md-2 radio" >
-                                                        <label class="strong-font">
-                                                            <input type="radio" [name]="innovation.radio_name">Yes
+                                                        <label class="strong-font md-check">
+                                                            <input type="radio" [name]="innovation.radio_name" ngModel value="yes">Yes
                                                         </label>
                                                     </div> 
                                                 </div>    

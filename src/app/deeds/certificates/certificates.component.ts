@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-deeds-certificates',
@@ -10,6 +10,10 @@ export class CertificatesComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+  }
+  @ViewChild('CertForm') certsform : any;
+  submit_certificate(){
+  	console.log(this.certsform.controls);
   }
 
 }

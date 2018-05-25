@@ -72,7 +72,7 @@
                         </div>
                         <div class="card-content">
                             <h4 class="card-title">Add New Skills Record</h4>
-                            <form method="#" action="#">
+                            <form  #SkillForm="ngForm" method="#" action="#">
                                 <div class="form-group is-empty">
                                 <label style="color: rgba(0,0,0,1);">Category</label>                         
                                 <!--     <md-select  placeholder="Category" name="city" ngClass="btn simple"  ngModel id="degree_program_status" name="Category">
@@ -82,15 +82,15 @@
                                 </md-select> -->
                                     <div class="radio">
                                         <label style="color: rgba(0,0,0,1);">
-                                        <input type="radio" name="Category" checked="true">Software-User 
+                                        <input type="radio" name="Category" checked="true" ngModel value="Software-User">Software-User 
                                         </label>
                 
                                         <label style="color: rgba(0,0,0,1);">
-                                        <input type="radio" name="Category">Software-Programming            
+                                        <input type="radio" name="Category" ngModel value="Software-Programming">Software-Programming            
                                         </label>
 
                                         <label style="color: rgba(0,0,0,1);">
-                                        <input type="radio" name="Category">Device Operation                                              
+                                        <input type="radio" name="Category" ngModel value="Device Operation">Device Operation                                              
                                         </label>
                                     </div>
                                 </div>
@@ -99,15 +99,15 @@
 
                                 <div class="form-group label-floating">
                                     <label style="color: rgba(0,0,0,1);">Method/Skills Name</label>
-                                    <input type="text"  placeholder="Please type your response here" class="form-control" required>
+                                    <input type="text"  placeholder="Please type your response here" class="form-control" required name="Method/Skills name" ngModel> 
                                 </div>
                                 <div class="form-group label-floating">
                                     <label style="color: rgba(0,0,0,1);">Vendor/Distributor Name</label>
-                                    <input type="text" placeholder="Please type your response here" class="form-control" required>
+                                    <input type="text" placeholder="Please type your response here" class="form-control" name="Vendor/Distributor Name" ngModel required>
                                 </div>
                                 <div class="form-group label-floating">
                                     <label style="color: rgba(0,0,0,1);">Number of LinkedIn Endorsments</label>
-                                    <input type="number" placeholder="Please enter the number" number="true" class="form-control" default = "0" required>
+                                    <input type="number" placeholder="Please enter the number" number="true" class="form-control" default = "0" required name="Number of LinkedIn Endorsments" ngModel>
                                 </div>
                                 
                                 <div class="form-group is-empty">    
@@ -115,27 +115,27 @@
                                     
                                     <div class="radio">
                                     <label style="color: rgba(0,0,0,1);">
-                                    <input type="radio" name="proficiency_type_skill" checked="true">Basic
+                                    <input type="radio" name="proficiency_type_skill" checked="true" ngModel value="basic">Basic
                                     </label>
                                     <label> > 25% Proficiency. Can perform simple assignments</label>
                                     <br>
             
                                     <label style="color: rgba(0,0,0,1);">
-                                    <input type="radio" name="proficiency_type_skill">Intermediate 
+                                    <input type="radio" name="proficiency_type_skill" ngModel value="inter" >Intermediate 
                                     </label>
                                     <label> > 50% Proficiency. Can perform independently many types of assignments
                                     </label>
                                     <br>
 
                                     <label style="color: rgba(0,0,0,1);">
-                                    <input type="radio" name="proficiency_type_skill">Advanced
+                                    <input type="radio" name="proficiency_type_skill" ngModel value="advanced">Advanced
                                     </label>
                                     <label> > 75% Proficiency. Can perform independently nearly all types of assignments</label>
                                     <br>
 
 
                                     <label style="color: rgba(0,0,0,1);">
-                                    <input type="radio" name="proficiency_type_skill">Expert
+                                    <input type="radio" name="proficiency_type_skill" ngModel value="expert">Expert
                                     </label>
                                     <label> > 95% Proficiency. Can perform independently all types of assignments and serve as a mentor </label>
                                     </div>
@@ -156,7 +156,7 @@
 
                                       </div>
                                       </div>
-                                <hr>
+                                <hr> 
                                 <!-- Date end-->
 
                                 <div class="row">
@@ -176,11 +176,11 @@
                                                 </div> -->
                                                 <div class="radio">
                                     <label style="color: rgba(0,0,0,1);">
-                                    <input type="radio" name="formal_certification" checked="true">No formal certification
+                                    <input type="radio" name="formal_certification" checked="true" ngModel value="false">No formal certification
                                     </label>
                                     
                                     <label style="color: rgba(0,0,0,1);">
-                                    <input type="radio" name="formal_certification">Yes, I have a formal certification
+                                    <input type="radio" name="formal_certification" ngModel value="true">Yes, I have a formal certification
                                     </label>
                                     </div>
                                 </div>
@@ -202,21 +202,21 @@
                                             <div class="col-sm-10 checkbox-radios">
                                                 <div class="radio">
                                                     <label style="color: rgba(0,0,0,1);">
-                                                    <input type="radio" name="optionsUsageRadios">Often 
+                                                    <input type="radio" name="optionsUsageRadios" ngModel value="often">Often 
                                                     </label>
                             
                                                     <label style="color: rgba(0,0,0,1);">
-                                                    <input type="radio" name="optionsUsageRadios">
+                                                    <input type="radio" name="optionsUsageRadios" ngModel value="Sometimes">
                                                     Sometimes                             
                                                     </label>
 
                                                     <label style="color: rgba(0,0,0,1);">
-                                                    <input type="radio" name="optionsUsageRadios">
+                                                    <input type="radio" name="optionsUsageRadios" ngModel value="Rarely">
                                                     Rarely                             
                                                     </label>
                                                 
                                                     <label style="color: rgba(0,0,0,1);">
-                                                    <input type="radio" name="optionsUsageRadios" checked="true">
+                                                    <input type="radio" name="optionsUsageRadios" checked="true" ngModel value="No">
                                                     No                            
                                                     </label>
                                                 </div>
@@ -227,7 +227,7 @@
 
                                 <div class="form-group row">
                                     <button type="reset" class="btn btn-fill btn-warning btn-rose">Reset</button> 
-                                        <button type="submit" class="btn btn-fill btn-warning btn-rose">Submit</button>
+                                        <button type="submit" class="btn btn-fill btn-warning btn-rose" (click)="submit_skills_details()">Submit</button>
                                 </div>
                             </form>
                         </div>

@@ -1,31 +1,32 @@
 <div class="col-md-12">
   <div class="card">
-      <form method="get" action="/" class="form-horizontal">
+      
           <div class="card-header card-header-text" data-background-color="orange">
               <h4 class="card-title">Recognized Expertise</h4>
           </div>
           <div class="card-content">
+            <form #RecognisedForm="ngForm" method="get" action="/" class="form-horizontal">
               <div class="row">
                   <label class="col-sm-2 label-on-left" style="color: rgba(0,0,0,1);">Choose Specific Activity</label>
                   <div class="col-sm-10 checkbox-radios">
                       <div class="radio">
                           <label style="color: rgba(0,0,0,1);">
-                              <input type="radio" name="optionsRadios">  Team member
+                              <input type="radio" name="specificActivity" ngModel value="Team member">  Team member
                           </label>
                       </div>
                       <div class="radio">
                           <label style="color: rgba(0,0,0,1);">
-                              <input type="radio" name="optionsRadios" checked="true"> Position/Consultancy
+                              <input type="radio" name="specificActivity" checked="true" ngModel value="Position/Consultancy"> Position/Consultancy
                           </label>
                       </div>
                       <div class="radio">
                         <label style="color: rgba(0,0,0,1);">
-                            <input type="radio" name="optionsRadios" checked="true"> Expert Testimony
+                            <input type="radio" name="specificActivity" checked="true" ngModel value="Expert Testimony"> Expert Testimony
                         </label>
                     </div>
                     <div class="radio">
                       <label style="color: rgba(0,0,0,1);">
-                          <input type="radio" name="optionsRadios" checked="true"> Panel/talk/authorship
+                          <input type="radio" name="specificActivity" checked="true" ngModel value="Panel/talk/authorship"> Panel/talk/authorship
                       </label>
                     </div>
                   </div>
@@ -35,7 +36,7 @@
                   <div class="col-sm-10">
                       <div class="form-group label-floating is-empty">
                           <label class="control-label" style="color: rgba(0,0,0,1);"></label>
-                          <input type="text" class="form-control">
+                          <input type="text" class="form-control" name="description" ngModel>
                          <!--  <span class="material-icons form-control-feedback">done</span> -->
                       </div>
                   </div>
@@ -49,7 +50,7 @@
                   <br>
                   <md-input-container >
                       <input mdInput [mdDatepicker]="datepickerStart"
-                          placeholder="Pick a date"  type="month" >
+                          placeholder="Pick a date"  type="month" ngModel name="year">
                   </md-input-container>
                   <md-datepicker
                       #datepickerYear
@@ -59,8 +60,9 @@
               </div>
             </div>
             <button type="reset" class="btn btn-fill btn-warning">Reset</button> 
-              <button type="submit" class="btn btn-fill btn-warning">Submit</button>        
+              <button type="submit" class="btn btn-fill btn-warning" (click)="recognized_exp_submit()">Submit</button>  
+            </form>      
           </div>
-      </form>
+      
   </div>
 </div>

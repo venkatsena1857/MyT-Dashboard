@@ -180,10 +180,50 @@ export class WorkexComponent implements OnInit, DoCheck {
  		||this.work_ex_form2.controls.position.value == ""){
  		alert("please fill all the fields");
  		this.fullValidator = false;
+ 		console.log(this.work_ex_form2.controls);
+
+ 		/*var toSend = {
+                "operationsResponsibilities" :{ 
+                    "OR_selectLocations": tem.q1,
+                    "OR_selectEquipment": tem.q2,
+                    "OR_selectManagingLabor": tem.q3,
+                    "OR_determineProcessing": tem.q4,
+                },
+                "criticalThinking" : {
+                    "CT_requiredMetoFormGoals": tem.q5,
+                    "CT_requiredSystematicApproach": tem.q6,
+                    "CT_requiredInquisitive": tem.q7,
+                    "CT_requiredPrioritize": tem.q8,
+                    "CT_requiredConfidence": tem.q9
+                },
+                "systemAndOperationInnovation":{
+                    "SOI_evaluateApplications": tem.q10,
+                    "SOI_selectApplicationsAndSolutions": tem.q11, 
+                    "SOI_specificApplicationsAndSolutions": tem.q12,
+                    "SOI_buildApplicationsAndSolutions": tem.q13,
+                    "SOI_accessBenifitCostValueSolutions": tem.q14
+                },
+                "employerSectionOfFocus" : tem.esector,
+                "employerOrganizationName" : tem.ename,
+                "locationRegion" : tem.region,
+                "startYear" : String(tem.syear),
+                "endYear" : String(tem.eyear),
+                "startMonth" : tem.smonth,
+                "endMonth" : tem.emonth,
+                "positionDescription" : tem.position,
+                "primaryFunction" : tem.primary,
+                "teamSize" : tem.team,
+                "multiDisciplinaryMakeup" : tem.multidis,
+                "multiCulturalMakeup" : tem.multicul,
+                "paidUnpaid" : tem.paid,
+                "role" : tem.role
+
+            };*/
 
  	}
  	else{
  		document.getElementById('previousData').scrollIntoView();
+ 		console.log("got as well")
   	}
   }
 

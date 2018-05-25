@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-deeds-languages',
@@ -10,6 +10,10 @@ export class LanguagesComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+  }
+  @ViewChild('LanguageForm') LanguageForm : any;
+  language_submit(){
+  	console.log(this.LanguageForm.controls)
   }
 
 }
