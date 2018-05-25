@@ -29,4 +29,20 @@ export class TableBuilderService{
             }
         }
     }
+
+    public addRow(table: MyTTable, deedRules: JSON, rowJSON: JSON) {
+        if(deedRules!=null) {
+            if(deedRules['sequence']!=null) {
+                var currSequence: string[] = deedRules['sequence'];
+                if(rowJSON!=null) {
+                    var newRow: string[] = [];
+                    newRow.push(String(table.dataRows.length+1));
+                    for(var i = 0 ; i< currSequence.length; i++) {
+                        newRow.push(rowJSON[currSequence[i]]);
+                    }
+                    table.dataRows.push(newRow);
+                }
+            }
+        }
+    }
 } 

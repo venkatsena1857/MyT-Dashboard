@@ -71,7 +71,6 @@ export class EducationComponent implements OnInit {
 
   @ViewChild('EducationForm') Educationform : any;
 
-  /*
   submit_Education_Details(schoolName: string, major: string, degree: string,
     startyear:string, endyear: string, programstatus: string, honors: string){
       var educationJSON = {
@@ -83,12 +82,9 @@ export class EducationComponent implements OnInit {
         "degreeProgramStatus" : programstatus
       }
       console.log(educationJSON);
-      // this.api.post(ApiStrings.EDUCATION, educationJSON, (response: Response) => {
-      // })
-    }*/
-
-    submit_Education_Details() {
-
+      this.api.post(ApiStrings.EDUCATION, educationJSON, (response: Response) => {
+          console.log(response);
+      })
     }
   
    addEducationRecord(){

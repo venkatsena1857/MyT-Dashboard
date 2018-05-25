@@ -4,6 +4,7 @@ import { APIServices} from '../services/apiService.service';
 import { MyTTable } from '../common/myTtable';
 import { GlobalServices } from '../services/globalServices.service'
 import { ApiStrings } from '../common/apiStrings';
+import { Response } from '@angular/http'
 
 // declare interface ToolsDataTable {
 //   headerRow: string[];
@@ -62,7 +63,10 @@ export class ToolsComponent implements OnInit {
 
 
   addToolsRecord(){
-    document.getElementById('addToolsRecord').style.display = "block";
+    var toolsJSON = {}
+    this.api.post(ApiStrings.TOOLS, toolsJSON, (responseJSON: Response)=> {
+        this.tableBuilder.addRow(this.toolsDataTable,GlobalServices.getRules()[ApiStrings.TOOLS],null);
+    })
   }
 
   }
