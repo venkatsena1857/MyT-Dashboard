@@ -30,7 +30,7 @@ export class TableBuilderService{
         }
     }
 
-    public addRow(table: MyTTable, deedRules: JSON, rowJSON: JSON) {
+    public addRow(table: MyTTable, deedRules: JSON, rowJSON: any) {
         if(deedRules!=null) {
             if(deedRules['sequence']!=null) {
                 var currSequence: string[] = deedRules['sequence'];

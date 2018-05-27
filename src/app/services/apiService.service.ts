@@ -10,7 +10,9 @@ export class APIServices {
     constructor( private http: Http, public router: Router, public auth: AuthenticationService) {}
 
     public post(param:string, body: any, callBack?: PostServiceCallBack){
-        this.http.post(this.linkCreator(param),body).subscribe((response: Response) => {
+        let headers = new Headers;
+        this.createAuthorizationHeader(headers);   
+        this.http.post(this.linkCreator(param,'post'),body,{headers: headers}).subscribe((response: Response) => {
             if(callBack!=null) {
                 callBack(response);
             }
@@ -25,7 +27,7 @@ export class APIServices {
     public get(param: string, callBack: GetServiceCallBack) {
         let headers = new Headers;
         this.createAuthorizationHeader(headers);        
-        this.http.get(this.linkCreator(param),{headers: headers}).subscribe((response: Response)=> {
+        this.http.get(this.linkCreator(param,'get'),{headers: headers}).subscribe((response: Response)=> {
             callBack(response.json());
         }, (err: Error) => {
             console.log(err);
@@ -34,18 +36,22 @@ export class APIServices {
         });
     }
 
-    private linkCreator(param: string): string {
+    private linkCreator(param: string, method: string): string {
         var diff = "/";
-        var defaultURL = "http://localhost:8080"
-        //var defaultURL = "https://mytzone.herokuapp.com";
+        //var defaultURL = "http://localhost:8080"
+        var defaultURL = "https://mytzone.herokuapp.com";
         if(param===ApiStrings.LOGIN || param == ApiStrings.REGISTRATION) {
             return defaultURL + diff + param;
+        } else if(method ==='post') {
+            return defaultURL + diff + ApiStrings.API +diff + ApiStrings.DEEDS + diff + param;
         } else {
             return defaultURL + diff + ApiStrings.API + diff + param;
         }
     }
 
     private createAuthorizationHeader(headers: Headers) {
-        headers.append('Authorization', 'Bearer ' + this.auth.getToken())
+        if(this.auth.isLoggedIn()) {
+            headers.append('Authorization', 'Bearer ' + this.auth.getToken())
+        }
     }
 }

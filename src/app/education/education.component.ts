@@ -73,9 +73,31 @@ export class EducationComponent implements OnInit {
   @ViewChild('EducationForm') Educationform : any;
 
   submit_Education_Details(){
-      console.log(this.education_form.controls);
-      this.api.post(ApiStrings.EDUCATION, null, (response: Response) => {
-          console.log(response);
+    console.log(this.education_form.controls)
+      var educationJSON = {
+        "schoolUniversityName" : this.education_form.controls.SchoolName.value,
+        "majorFiedOfStudy" : this.education_form.controls.Major.value,
+        "typeOfDegree" : this.education_form.controls.degree_program_type.value,
+        "startYear" : this.education_form.controls.start_year.value,
+        "endYear" : this.education_form.controls.end_year.value,
+        "degreeProgramStatus" : this.education_form.controls.degree_program_status.value
+      }
+      if(this.education_form.controls.honors_id.value!=null) {
+        educationJSON['honors'] = this.education_form.controls.honors_id.value
+      }
+      this.api.post(ApiStrings.EDUCATION, educationJSON, (response: Response) => {
+          if(response.status === 201) {
+            var row = {
+              "school": educationJSON["schoolUniversityName"],
+              "field" : educationJSON["majorFiedOfStudy"], 
+              "typeOfDegree": educationJSON["typeOfDegree"],
+              "status": educationJSON["degreeProgramStatus"],
+              "end": educationJSON["endYear"]
+            }
+            this.tableBuilder.addRow(this.educationData,GlobalServices.getRules()['table'][ApiStrings.EDUCATION],row) 
+          } else {
+            alert("Unable to add");
+          }
       })
     }
   
