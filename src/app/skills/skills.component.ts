@@ -4,17 +4,14 @@ import { APIServices } from '../services/apiService.service';
 import { TableBuilderService } from '../services/tableBuilderService.service';
 import { GlobalServices} from '../services/globalServices.service';
 import { ApiStrings } from '../common/apiStrings';
+import {Response } from '@angular/http';
 
-// declare interface SkillsDataTable {
-//   headerRow: string[];
-//   footerRow: string[];
-//   dataRows: string[][];
-// }
 @Component({
   selector: 'app-skills',
   templateUrl: './skills.component.html',
   styleUrls : ['./skills.component.css'] 
 })
+
 export class SkillsComponent implements OnInit {
   public skillsDataTable: MyTTable;
   
@@ -23,7 +20,6 @@ export class SkillsComponent implements OnInit {
   constructor(private api:APIServices, private tableBuilder:TableBuilderService) {
     this.skillsDataTable = new MyTTable();
    }
-
 
   ngOnInit() {
     this.api.get(ApiStrings.TOOLS,(reponse:JSON)=> {
@@ -43,7 +39,21 @@ export class SkillsComponent implements OnInit {
 
   @ViewChild('SkillForm') skillsform : any;
   submit_skills_details(){
-    console.log(this.skillsform.controls)
+    console.log(this.skillsform.controls);
+    var skillDat = this.skillsform.controls;
+    var skillsJSON = {
+          "category": skillDat.Category,
+          "softwareDeviceName": skillDat.methodName,
+          "vendorDistributor": skillDat.vendorName,
+          "numberOfLinkedEndorsments": skillDat.endorsments,
+          "proficiencyType": skillDat.proficiency_type_skill,
+          "proficiencyYear": skillDat.proficiency_year,
+          "formalCertification": skillDat.formal_certification,
+          "usagein3Years": skillDat.optionsUsageRadios      
+        }
+    this.api.post(ApiStrings.SKILLS,skillsJSON,(response: Response) => {
+      console.log(response)
+    })
   }
   checkFormalChange(){
     if(this.checkFormalProperty == true){
@@ -63,11 +73,9 @@ export class SkillsComponent implements OnInit {
       this.checkUsageProperty = true;
     }
     console.log(this.checkUsageProperty);
-
   }
 
 addSkillsRecord(){
     document.getElementById('addSkillsRecord').style.display = "block";
   }
-
 }

@@ -49,6 +49,30 @@ export class ToolsComponent implements OnInit {
   @ViewChild('ToolsForm') Toolsform : any;
   submit_tools_details(){
     console.log(this.Toolsform.controls)
+    var toolsDat = this.Toolsform.controls;
+    var toolsJSON = {
+      "category": toolsDat.Category,
+      "softwareDeviceName": toolsDat.tool_name,
+      "vendorDistributor": toolsDat.vendor_distributor,
+      "numberOfLinkedEndorsments": toolsDat.linkedIn_endorsments,
+      "proficiencyType": toolsDat.proficiency_type,
+      "proficiencyYear": toolsDat.proficiency_year,
+      "formalCertification": toolsDat.formal_certification,
+      "usagein3Years": toolsDat.usage_in_3years
+  }
+  this.api.post(ApiStrings.TOOLS,toolsJSON,(response: Response) => {
+    var toolsRow = {
+      "category": toolsDat.Category,
+      "software": toolsDat.tool_name,
+      "vendor": toolsDat.vendor_distributor,
+      "linkedin": toolsDat.linkedIn_endorsments,
+      "formal": toolsDat.formal_certification,
+      "usage": toolsDat.usage_in_3years,
+      "proficiencyType": toolsDat.proficiency_type,
+      "proficiencyYear": toolsDat.proficiency_year
+  }
+    this.tableBuilder.addRow(this.toolsDataTable,GlobalServices.getRules()[ApiStrings.TOOLS],toolsRow);
+  })
   }
 
   checkFormalChange(){
@@ -63,10 +87,9 @@ export class ToolsComponent implements OnInit {
 
 
   addToolsRecord(){
-    var toolsJSON = {}
-    this.api.post(ApiStrings.TOOLS, toolsJSON, (responseJSON: Response)=> {
-        this.tableBuilder.addRow(this.toolsDataTable,GlobalServices.getRules()[ApiStrings.TOOLS],null);
-    })
+  //   this.api.post(ApiStrings.TOOLS, toolsJSON, (responseJSON: Response)=> {
+  //       
+  //   })
   }
 
   }

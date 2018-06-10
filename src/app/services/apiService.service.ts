@@ -18,6 +18,7 @@ export class APIServices {
             }
         }, (err: Error) => {
 
+
         }, ()=> {
 
         });
@@ -43,7 +44,9 @@ export class APIServices {
         if(param===ApiStrings.LOGIN || param == ApiStrings.REGISTRATION) {
             return defaultURL + diff + param;
         } else if(method ==='post') {
-            return defaultURL + diff + ApiStrings.API +diff + ApiStrings.DEEDS + diff + param;
+            var test =  defaultURL + diff + ApiStrings.API +diff + ApiStrings.DEEDS + diff + param;
+            console.log(test)
+            return test
         } else {
             return defaultURL + diff + ApiStrings.API + diff + param;
         }
