@@ -20,6 +20,7 @@ export class AuthenticationService {
     }
 
     saveToken(token: string): void{
+        console.log("Save Token is Called")
         localStorage.setItem(this.tokenKey,token); 
     }
 

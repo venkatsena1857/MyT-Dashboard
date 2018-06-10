@@ -93,6 +93,7 @@ export class LoginComponent implements OnInit,DoCheck {
     email_regexp = new RegExp('^([A-Za-z0-9_.]+)@([A-Za-z]+).([A-Za-z]+)$');
     doRegister(username: string, firstname: string, lastname:string, 
         dob:string, email:string,password: string, firstYear: number){
+            console.log("I'm in the registration method. Must be working")
             var regisrationJSON = {
             "userName": username,
               "lastName": lastname,
