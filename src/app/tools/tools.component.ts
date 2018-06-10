@@ -87,9 +87,7 @@ export class ToolsComponent implements OnInit {
 
 
   addToolsRecord(){
-  //   this.api.post(ApiStrings.TOOLS, toolsJSON, (responseJSON: Response)=> {
-  //       
-  //   })
+    document.getElementById('addToolsRecord').style.display = "block";
   }
 
   }
