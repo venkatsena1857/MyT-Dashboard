@@ -49,7 +49,7 @@
         <!--Form Starts-->
             <div class="row">
                 <div class="col-md-12">
-                    <button type="button" class="btn btn-fill btn-rose" (click)="addWorkRecord()">Add New Work Record</button>
+                    <button type="button" class="btn btn-fill btn-rose" (click)="addWorkRecord()">Add New Work/ Volunteer Segment </button>
                     <div id="addWorkRecords" class="card" style="display:none;">
                         <div class="card-header card-header-icon" data-background-color="orange">
                             <i class="material-icons">work</i>
@@ -60,25 +60,11 @@
                                 <div class="col-md-12 right-pane">
                                     <!--#################################################-->
                                     <h5>Record any work/volunteer experience and roles within clubs/organization</h5>
-                                    <!--employers sector of focus-->
-                                    <div class="row">
-                                        <div class="col-md-12 form-group"> 
-                                        <label class="labelWork">Organization's Sector of Focus</label>
-                                        <br>        
-                                         <md-select name="city" placeholder="Select organization's sector of focus" ngClass="btn simple" ngModel name="EmployeSector">
-                                                <md-option class="open" *ngFor="let Emp_focus of Emp_focuses" [value]="Emp_focus">
-                                                {{ Emp_focus }}
-                                                </md-option>
-                                            </md-select>
-                                        </div>
-                                    </div>
-                                    
-
                                     <!-- Employee/ Organization name -->
                                     <div class="row">
                                         <div class="col-sm-12">
                                             <div class="form-group label-floating">
-                                                <label class="labelWork">Employer/Organization name</label>
+                                                <label class="labelWork">1) Employer/Organization name</label>
                                                 <br> 
                                                 <input type="text"  placeholder="Please type your response here" class="form-control" ngModel name="employee" id="employee">
                                                 <!-- <span class="material-icons form-control-feedback-wrong" 
@@ -90,11 +76,24 @@
                                         </div>
                                     </div>
 
+                                     <!--employers sector of focus-->
+                                    <div class="row">
+                                        <div class="col-md-12 form-group"> 
+                                        <label class="labelWork">2) Organization's Sector of Focus</label>
+                                        <br>        
+                                         <md-select name="city" placeholder="Select organization's sector of focus" ngClass="btn simple" ngModel name="EmployeSector">
+                                                <md-option class="open" *ngFor="let Emp_focus of Emp_focuses" [value]="Emp_focus">
+                                                {{ Emp_focus }}
+                                                </md-option>
+                                            </md-select>
+                                        </div>
+                                    </div>
+
                                     <!-- Location /Region -->
                                     <div class="row">
                                          <div class="col-md-12">    
                                          <div class="form-group label-floating is-empty">
-                                            <label class="control-label labelWork">Location</label>
+                                            <label class="labelWork">3) Location</label>
                                             <br>                           
                                             <md-select  placeholder="Select your location" name="city" 
                                             ngClass="btn simple" ngModel name="Location">
@@ -112,7 +111,7 @@
                                     <!--DATE-Month picker HTML-->
                                     <div class="row">
                                         <div class="col-md-12 form-group">
-                                            <label class="labelWork">Start and End Month/Year</label>
+                                            <label class="labelWork">4) Start and End Month/Year</label>
                                             <br>                                
                                         </div>
                                         <div class="col-md-4">
@@ -166,7 +165,7 @@
                                     <div class="row">
                                         <div class="col-sm-12">
                                             <div class="form-group label-floating">
-                                                <label class="labelWork">Position or Activity Description</label>
+                                                <label class="labelWork">5) Position or Activity Description</label>
                                                 <br>   
                                                 <input type="text" placeholder="Please type your response here" class="form-control" ngModel name="position" >
                                                 <!-- <span class="material-icons form-control-feedback-wrong" 
@@ -181,7 +180,7 @@
                                     <!--choose your primary function-->
                                     <div class="row">
                                          <div class="col-md-12 form-group">        
-                                            <label class="labelWork">Primary Function</label>
+                                            <label class="labelWork">6) Primary Function</label>
                                                 <br>                        
                                             <md-select  placeholder="Select your primary function" name="primaryfunc" ngClass="btn simple" ngModel name="PrimaryFunction">
                                                 <md-option class="open" *ngFor="let primaryFunction of primaryFunctions" [value]="primaryFunction">
@@ -195,7 +194,7 @@
                                     <!--choose your role-->
                                     <div class="row">
                                          <div class="col-md-12 form-group">        
-                                            <label class="labelWork">Role</label>
+                                            <label class="labelWork">7) Role</label>
                                                 <br>                        
                                             <md-select  placeholder="Select your role" name="role" ngClass="btn simple" ngModel name="Role">
                                                 <md-option class="open" *ngFor="let role of roles" [value]="role">
@@ -208,14 +207,14 @@
                                     <!--Team size-->
                                     <hr>
                                     <div class="row">    
-                                        <div class="col-md-3">
-                                            Choose team size 
+                                        <div class="col-md-3 strong-font">
+                                            8) Choose team size 
                                         </div>
                                         <!-- <div class="col-md-7 align-self-center">
                                                 <nouislider [connect]="[true , flase]" [min]="0" [max]="10" [step]="1" [(ngModel)]="teamsize" name="Tsize" [tooltips]="true" class="slider"></nouislider>
                                         </div> -->
                                 <!--     <div class="col-md-3"> -->
-                                    <div class="radio form-group">
+                                    <div class="radio">
                                                     <label class="strong-font md-check">
                                                         <input type="radio" ngModel name="Tsize" checked="true" value="1">1 Myself alone
                                                     </label>
@@ -241,27 +240,27 @@
                                      <!--Select team's Multi-disciplinary Makeup-->
                                     <div class="row">
                                         <div class="col-md-3 strong-font">
-                                             Select team's Multi-disciplinary Makeup
+                                             9) Select team's Multi-disciplinary Makeup
                                         </div>
                                              <div class="radio">
                                                     <label class="strong-font  md-check">
-                                                        <input type="radio" name="Multi-disciplinary-Radio"checked="true" ngModel value="VeryHigh">  Very high >76%
+                                                        <input type="radio" name="Multi-disciplinary-Radio" ngModel value="Very Low" checked="true">Very low 0-15%
                                                     </label>
-            
-                                                    <label class="strong-font  md-check">
-                                                        <input type="radio" name="Multi-disciplinary-Radio" ngModel value="High">High 51-75% 
-                                                    </label>
-                                            
-                                                    <label class="strong-font  md-check">
-                                                        <input type="radio" name="Multi-disciplinary-Radio" ngModel value="Moderate"> Moderate 36-50%
-                                                    </label>
-                                            
+
                                                     <label class="strong-font  md-check">
                                                         <input type="radio" name="Multi-disciplinary-Radio" ngModel value="Low"> Low 16-35% 
                                                     </label>
-                                            
+
                                                     <label class="strong-font  md-check">
-                                                        <input type="radio" name="Multi-disciplinary-Radio" ngModel value="Very Low" >Very low 0-15%
+                                                        <input type="radio" name="Multi-disciplinary-Radio" ngModel value="Moderate"> Moderate 36-50%
+                                                    </label>
+
+                                                    <label class="strong-font  md-check">
+                                                        <input type="radio" name="Multi-disciplinary-Radio" ngModel value="High">High 51-75% 
+                                                    </label>
+
+                                                    <label class="strong-font  md-check">
+                                                        <input type="radio" name="Multi-disciplinary-Radio" ngModel value="VeryHigh">  Very high >76%
                                                     </label>
                                             </div>
                                     </div>
@@ -269,27 +268,27 @@
                                     <!--Select team's Multi-Cultural Makeup-->
                                     <div class="row">
                                         <div class="col-md-3 strong-font">
-                                            Select team's Multi-Cultural Makeup
+                                            10) Select team's Multi-Cultural Makeup
                                         </div>
                                             <div class="radio">
                                                     <label class="strong-font md-check">
-                                                        <input type="radio" name="Multi-Cultural-Radio" checked="true" ngModel value="VeryHigh">Very high >76%
+                                                        <input type="radio" name="Multi-Cultural-Radio" ngModel value="Very Low" checked="true"> Very low 0-15%
                                                     </label>
-                                            
-                                                    <label class="strong-font md-check">
-                                                        <input type="radio" name="Multi-Cultural-Radio" ngModel value="High">High 51-75% 
+
+                                                     <label class="strong-font md-check">
+                                                        <input type="radio" name="Multi-Cultural-Radio"ngModel value="Low"> Low 16-35%
                                                     </label>
-                                            
+
                                                     <label class="strong-font md-check">
                                                         <input type="radio" name="Multi-Cultural-Radio" ngModel value="Moderate"> Moderate 36-50%
                                                     </label>
-                                            
+
                                                     <label class="strong-font md-check">
-                                                        <input type="radio" name="Multi-Cultural-Radio"ngModel value="Low"> Low 16-35%
+                                                        <input type="radio" name="Multi-Cultural-Radio" ngModel value="High">High 51-75% 
                                                     </label>
-                                            
-                                                    <label class="strong-font md-check">
-                                                        <input type="radio" name="Multi-Cultural-Radio" ngModel value="Very Low"> Very low 0-15%
+
+                                                     <label class="strong-font md-check">
+                                                        <input type="radio" name="Multi-Cultural-Radio" ngModel value="VeryHigh">Very high >76%
                                                     </label>
                                             </div>
                                     </div>
@@ -298,7 +297,7 @@
 
                                     <div class="row">
                                         <div class="col-md-3 strong-font">
-                                            Type of organization                                        
+                                            11) Type of organization                                        
                                         </div>
                                             <div class="radio">
                                             <label class="strong-font md-check">
@@ -314,11 +313,11 @@
 
                                     <div class="row">
                                         <div class="col-md-3 strong-font">
-                                            Type of position                                        
+                                            12) Type of position                                        
                                         </div>
                                             <div class="radio">
                                             <label class="strong-font md-check">
-                                                <input type="radio" name = "paid"  checked="true" ngModel value="paid">Paid
+                                                <input type="radio" name = "paid"  ngModel value="paid" checked>Paid
                                             </label>
                                             
                                             <label class="strong-font md-check">
@@ -334,7 +333,7 @@
                                 <div class="col-md-12">
                                     <h5>Select answers to the items below regarding YOUR <u>Operations Responsibilities, Critical Thinking and Systems Responsibilities, and Operations and Innovation Responsibilities</u> for this Work/Volunteer Segment</h5>
                                     <div class="row">
-                                        <h6  class="col-md-12 labelWork fontHeadings" >Operation Responsibilities</h6>
+                                        <h6  class="col-md-12 labelWork fontHeadings" >13) Operations Responsibilities</h6>
                                     </div>
                                     <div *ngFor="let op_resp of op_resps">
                                         <div class="row">
@@ -369,7 +368,7 @@
                                     <hr>
                                     
                                     <div class="row">
-                                        <h6  class="col-md-12 labelWork fontHeadings" >Critical Thinking</h6>
+                                        <h6  class="col-md-12 labelWork fontHeadings" >14) Critical Thinking</h6>
                                     </div>
                                     <div *ngFor="let critical_thing of critical_things">
                                         <div class="row">
@@ -403,7 +402,7 @@
                                     <!-->System and Operation Innovation</!-->
                                     <hr>
                                     <div class="row">
-                                        <h6  class="col-md-12 labelWork fontHeadings" >System and Operation Innovation</h6>
+                                        <h6  class="col-md-12 labelWork fontHeadings" >15) System and Operation Innovation</h6>
                                     </div>
                                     <div *ngFor="let innovation of innovation_arr">
                                         <div class="row">
@@ -414,13 +413,13 @@
                                                 <div class="row">   
                                                     <div class="col-md-2 radio">
                                                         <label class="strong-font md-check">
-                                                            <input type="radio" [name]="innovation.radio_name" ngModel value="no" checked="true">No
+                                                            <input type="radio" [name]="innovation.radio_name" ngModel value="no" checked>No
                                                         </label>
                                                     </div>
                                                     <div class="col-md-1"></div>
                                                     <div class="col-md-2 radio" >
-                                                        <label class="strong-font md-check"> 
-                                                            <input type="radio" [name]="innovation.radio_name" ngModel value="some" >Some
+                                                        <label class="strong-font"> 
+                                                            <input type="radio" [name]="innovation.radio_name" ngModel value="some"/>Some
                                                         </label>
                                                     </div> 
                                                     <div class="col-md-1"></div>
@@ -436,7 +435,7 @@
                                     <!---->
                                     <hr>
                                     <div class="row">
-                                        <button type="reset" class="btn btn-rose">Reset</button>   
+                                        <button class="btn btn-rose" onclick="this.form.reset()">Reset</button>   
                                             <button class="btn btn-rose" (click)="addEntry()">Add another entry</button>
                                         
                                             <button class="btn btn-rose">Submit</button>

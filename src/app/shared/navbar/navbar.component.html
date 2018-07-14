@@ -6,7 +6,6 @@
                 <i class="material-icons visible-on-sidebar-mini">view_list</i>
             </button>
         </div>
-        <div class="navbar-header">
             <button type="button" class="navbar-toggle" (click)="sidebarToggle()">
                 <span class="sr-only">Toggle navigation</span>
                 <span class="icon-bar"></span>
@@ -14,14 +13,14 @@
                 <span class="icon-bar"></span>
             </button>
             <div class="row">
-                <div class="col-md-6">
-                    <a class="navbar-brand" href="{{getPath()}}"> {{getTitle()}} </a>
-                </div>
-                <div class="col-md-6">
-                    <button class="navbar-brand" (click)="logOut()">logout</button>
-                </div>
+                    <div class="col-md-6">
+                        <a class="navbar-brand" href="{{getPath()}}"> {{getTitle()}} </a>
+                    </div>
+                    <div class="col-md-5">
+                        <label class="navbar-brand">Hello {{getUserName()}} !</label>
+                        <button class="button navbar-brand"  (click)="logOut()">Logout</button>
+                    </div>
             </div>
-        </div>
         <div class="collapse navbar-collapse">
             <div *ngIf="isMobileMenu()">
                 <!-- <ul class="nav navbar-nav navbar-right">

@@ -1,6 +1,14 @@
 .logout{
 	float: right;
 	border-style: solid;
-	width: 100%;
+	width: 30%;
 
+}
+
+.button {     
+    background-color: Transparent;
+    background-repeat:no-repeat;
+    border: none;
+    cursor:pointer;
+    overflow: hidden;        
 }

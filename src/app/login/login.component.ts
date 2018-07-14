@@ -80,26 +80,25 @@ export class LoginComponent implements OnInit,DoCheck {
     U_Name_valid = false;
     L_Name_valid = false;
     F_Name_valid = false;
-    M_Name_valid = false;
     E_Mail_valid = false;
     Pwd_valid = false;
+
     U_Name_touched = false;
     L_Name_touched = false;
     F_Name_touched = false;
     E_Mail_touched = false;
     Pwd_touched = false;
+
     counter = 0;
     regexp = new RegExp('^[A-Za-z0-9_-]+$');
     email_regexp = new RegExp('^([A-Za-z0-9_.]+)@([A-Za-z]+).([A-Za-z]+)$');
     doRegister(username: string, firstname: string, lastname:string, 
-        dob:string, email:string,password: string, firstYear: number){
+        email:string,password: string, firstYear: number){
             console.log("I'm in the registration method. Must be working")
             var regisrationJSON = {
-            "userName": username,
+              "userName": username,
               "lastName": lastname,
               "firstName": firstname,
-              "firstYear" : firstYear,
-              "dateOfBirth": dob,
               "email": email,
               "password": password  
         }
@@ -123,8 +122,9 @@ export class LoginComponent implements OnInit,DoCheck {
             $('.card').removeClass('card-hidden');
         }, 1000); 
 
-        //UserName
+     
     if(this.RegForm != null && !this.isRegistered){
+       //UserName
         this.U_Name_touched = this.RegForm.controls.u_name.touched 
         if(this.regexp.test(this.RegForm.controls.u_name.value)){
                 this.U_Name_valid = true;

@@ -150,4 +150,7 @@ export class NavbarComponent implements OnInit {
         this.auth.logOut();
         this.route.navigate(['/']);
     }
+    getUserName(){
+    return "Firstname Lastname"; 
+    }
 }

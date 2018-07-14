@@ -56,21 +56,21 @@
 
                         <!-- School Name Starts -->
                           <div class="form-group label-floating is-empty">
-                            <label class="labeleducation">School Name</label>
+                            <label class="labeleducation">1) School Name</label>
                               <input #schoolName type="text"  placeholder="Please type your response here" class="form-control" appDirectiveAlphabets ngModel id="SchoolName" name="SchoolName">
                               <span class="material-icons form-control-feedback">done</span>
                           </div>
 
                         <!-- Major -->
                         <div class="form-group label-floating is-empty">
-                            <label class="labeleducation">Major</label>
+                            <label class="labeleducation">2) Major</label>
                               <input type="text"  placeholder="Please type your response here" class="form-control" appDirectiveAlphabets ngModel id="SchoolName" name="Major">
                               <span class="material-icons form-control-feedback">done</span>
                           </div>
 
                         <!-- Degree Program Type -->
                         <div class="form-group label-floating is-empty">
-                            <label class="labeleducation">Degree Program Type</label><br>           
+                            <label class="labeleducation">3) Degree Program Type</label><br>           
                               <md-select placeholder="Select Degree Program Type" name="city" ngClass="btn simple" appDirectiveMandatory ngModel id=" degree_program_type" name="degree_program_type">
                                 <md-option  *ngFor="let degree_program of type_of_degree_program" [value]="degree_program">
                                   {{ degree_program }}
@@ -80,7 +80,7 @@
 
                         <!-- Degree Program Status -->
                         <div class="form-group label-floating is-empty">
-                            <label class="labeleducation">Degree Program Status</label><br>                              
+                            <label class="labeleducation">4) Degree Program Status</label><br>                              
                               <md-select  placeholder="Select Degree Program Status" name="city" ngClass="btn simple" appDirectiveMandatory ngModel  name="degree_program_status">
                                 <md-option id="degree_program_status"  *ngFor="let program_status of degree_program_status" [value]="program_status">
                                   {{ program_status }}
@@ -91,7 +91,7 @@
                           <!--Date-->
                         <div class="row">
                             <div class="col-md-6 label-floating is-empty">
-                              <label class="labeleducation">Start Year</label><br>  
+                              <label class="labeleducation">5) Start Year</label><br>  
                                 <md-select  #startyear placeholder="Start year"  ngClass="btn simple" appDirectiveMandatory
                                 ngModel id="start_year" name="start_year">
                                     <md-option *ngFor="let startdate of StartdateArr" [value]="startdate">
@@ -113,7 +113,7 @@
                         <!-- Honors -->
                         
                         <div class="form-group label-floating is-empty">
-                            <label class="labeleducation">Honors</label><br>                              
+                            <label class="labeleducation">6) Honors</label><br>                              
                               <md-select  placeholder="Select Honors" name="city" ngClass="btn simple" appDirectiveMandatory
                                 ngModel id="honors_id" name="honors_id">
                                 <md-option *ngFor="let honor of honors" [value]="honor">

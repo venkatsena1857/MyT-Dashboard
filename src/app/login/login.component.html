@@ -96,29 +96,9 @@
                                                 <p *ngIf="!F_Name_valid && F_Name_touched" class="warning"> Please input a valid first name</p>
                                             </div>
                                         </div>
-                                        <div class="input-group">
-                                            <span class="input-group-addon"></span>
-                                            <div class="form-group marked label-floating">
-                                                <label class="control-label">Middle Name(Optional)</label>
-                                                <input #M_Name type="text" class="form-control" value = "">
-                                            </div>
-                                        </div>
-                                        <div class="input-group">
-                                            <span class="input-group-addon"></span>
-                                            <i class="material-icons">date_range</i>
-                                            <label class="control-label">Date of birth</label>
-                                                <input #DOB type="date" ngModel name="StartDate" value="null">
-                                        </div>
                                     </div>
 
                                     <div class="col-md-6">
-                                        <div class="input-group">
-                                            <span class="input-group-addon"></span>
-                                            <div class="form-group marked label-floating">
-                                                <label class="control-label">First Year - myTE Scoring Information Entry</label>
-                                                <input #F_Year type="text" class="form-control" value = "">
-                                            </div>
-                                        </div>
                                         <div class="input-group">
                                             <span class="input-group-addon"></span>
                                             <div class="form-group marked label-floating">
@@ -155,7 +135,7 @@
                                         </div>
                                         <div class="row">
                                         <div class="footer text-center">
-                                            <button (click)="doRegister(U_Name.value,F_Name.value,L_Name.value,DOB.value,E_Mail.value,P_Word.value,F_Year.value)" class="btn btn-warning btn-simple btn-wd btn-lg">
+                                            <button (click)="doRegister(U_Name.value,F_Name.value,L_Name.value,E_Mail.value,P_Word.value)" class="btn btn-warning btn-simple btn-wd btn-lg">
                                                 <i class="material-icons">person_add</i> Register me</button>
                                         </div>
                                     </div>   

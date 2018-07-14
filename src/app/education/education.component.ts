@@ -73,6 +73,15 @@ export class EducationComponent implements OnInit {
   @ViewChild('EducationForm') Educationform : any;
 
   submit_Education_Details(){
+    if(this.education_form.controls.SchoolName.value  == ""
+    ||this.education_form.controls.Major.value   == ""
+    ||this.education_form.controls.degree_program_type.value == ""
+    ||this.education_form.controls.start_year.value == ""
+    ||this.education_form.controls.end_year.value == ""
+    ||this.education_form.controls.degree_program_status.value == ""
+    ||this.education_form.controls.honors_id.value == ""){
+    alert("Please fill all the fields");
+    }
     console.log(this.education_form.controls)
       var educationJSON = {
         "schoolUniversityName" : this.education_form.controls.SchoolName.value,
@@ -95,6 +104,7 @@ export class EducationComponent implements OnInit {
               "end": educationJSON["endYear"]
             }
             this.tableBuilder.addRow(this.educationData,GlobalServices.getRules()['table'][ApiStrings.EDUCATION],row) 
+            alert("Education record added successfully")
           } else {
             alert("Unable to add");
           }
