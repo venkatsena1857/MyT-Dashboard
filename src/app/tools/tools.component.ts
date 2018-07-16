@@ -4,7 +4,8 @@ import { APIServices} from '../services/apiService.service';
 import { MyTTable } from '../common/myTtable';
 import { GlobalServices } from '../services/globalServices.service'
 import { ApiStrings } from '../common/apiStrings';
-import { Response } from '@angular/http'
+import { Response } from '@angular/http';
+import { FormDataService } from '../services/formData.service';
 
 // declare interface ToolsDataTable {
 //   headerRow: string[];
@@ -22,7 +23,7 @@ export class ToolsComponent implements OnInit {
   public toolsDataTable: MyTTable;
   public checkFormalProperty = false;
 
-  constructor(private api:APIServices, private tableBuilder:TableBuilderService) { 
+  constructor(private api:APIServices, private tableBuilder:TableBuilderService, private formDataService: FormDataService) { 
     this.toolsDataTable = new MyTTable();
   }
 
@@ -48,31 +49,13 @@ export class ToolsComponent implements OnInit {
 
   @ViewChild('ToolsForm') Toolsform : any;
   submit_tools_details(){
-    console.log(this.Toolsform.controls)
-    var toolsDat = this.Toolsform.controls;
-    var toolsJSON = {
-      "category": toolsDat.Category,
-      "softwareDeviceName": toolsDat.tool_name,
-      "vendorDistributor": toolsDat.vendor_distributor,
-      "numberOfLinkedEndorsments": toolsDat.linkedIn_endorsments,
-      "proficiencyType": toolsDat.proficiency_type,
-      "proficiencyYear": toolsDat.proficiency_year,
-      "formalCertification": toolsDat.formal_certification,
-      "usagein3Years": toolsDat.usage_in_3years
-  }
-  this.api.post(ApiStrings.TOOLS,toolsJSON,(response: Response) => {
-    var toolsRow = {
-      "category": toolsDat.Category,
-      "software": toolsDat.tool_name,
-      "vendor": toolsDat.vendor_distributor,
-      "linkedin": toolsDat.linkedIn_endorsments,
-      "formal": toolsDat.formal_certification,
-      "usage": toolsDat.usage_in_3years,
-      "proficiencyType": toolsDat.proficiency_type,
-      "proficiencyYear": toolsDat.proficiency_year
-  }
-    this.tableBuilder.addRow(this.toolsDataTable,GlobalServices.getRules()[ApiStrings.TOOLS],toolsRow);
-  })
+    var toolsDat = this.Toolsform;
+    var toolValues:any = [];
+    this.formDataService.getData(toolsDat, toolValues, (builtJSON: any) => {
+      this.api.post(ApiStrings.TOOLS,builtJSON, (response: Response) => {
+        console.log(response);
+      })
+    })
   }
 
   checkFormalChange(){

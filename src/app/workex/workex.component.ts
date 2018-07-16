@@ -1,7 +1,9 @@
 // tslint:disable-next-line:indent
 import { Component, OnInit, DoCheck,ViewChild } from '@angular/core';
-import { DateAdapter } from '@angular/material';
-
+import { FormDataService } from '../services/formData.service';
+import { APIServices } from '../services/apiService.service';
+import { ApiStrings } from '../common/apiStrings';
+import { Response } from '@angular/http';
 
 //Declaring Models for the WorkExperience Page
 declare interface workExperienceTableObject {
@@ -135,24 +137,24 @@ export class WorkexComponent implements OnInit, DoCheck {
 	teamsize = 1;
 	Mul_dec = 1;
 
-	op_resps = [ {'title' : 'a. Select location(s): Where people/systems for this do business - Physically and online','radio_name':'location-radio'},
-				 {'title': 'b. Select equipment: the tools needed to get the job done','radio_name':'equipment-radio'},
-				 {'title': 'c. Select equipment: the tools needed to get the job done','radio_name':'resources-radio'},
-				 {'title': 'd. Determine processes: assignments, deadlines,procedures as needed, including systems for quality control and improvement','radio_name':'improvement-radio'}]
+	op_resps = [ {'title' : 'a. Select location(s): Where people/systems for this do business - Physically and online','radio_name':'or_location_radio'},
+				 {'title': 'b. Select equipment: the tools needed to get the job done','radio_name':'or_equipment_radio'},
+				 {'title': 'c. Select equipment: the tools needed to get the job done','radio_name':'or_resources_radio'},
+				 {'title': 'd. Determine processes: assignments, deadlines,procedures as needed, including systems for quality control and improvement','radio_name':'or_improvement_radio'}]
 
-	critical_things = [ {'title' :'a. Required me to form goals based on reason and evidence', 'radio_name':'evidence-radio'},
-						{'title' :'b. Required me to form a systematic approach to solve problems', 'radio_name':'problems-radio'},
-						{'title' :'c. Required me to be inquisitive', 'radio_name':'inquisitive-radio'},
-						{'title' :'d. Required me to prioritize my efforts and deal with problems in an orderly manner', 'radio_name':'orderly-radio'},
-						{'title' :'e. Reinforced my confidence in my own reasoning capabilities.',  'radio_name':'capabilities-radio'},]
+	critical_things = [ {'title' :'a. Required me to form goals based on reason and evidence', 'radio_name':'ct_evidence_radio'},
+						{'title' :'b. Required me to form a systematic approach to solve problems', 'radio_name':'ct_problems_radio'},
+						{'title' :'c. Required me to be inquisitive', 'radio_name':'ct_inquisitive_radio'},
+						{'title' :'d. Required me to prioritize my efforts and deal with problems in an orderly manner', 'radio_name':'ct_orderly_radio'},
+						{'title' :'e. Reinforced my confidence in my own reasoning capabilities.',  'radio_name':'ct_capabilities_radio'},]
 
-  	innovation_arr =  [ {'title' :'a. Evaluate applications and solutions', 'radio_name':'evaluate-radio'},
-						{'title' :'b. Select applications and solutions', 'radio_name':'select-app-radio'},
-						{'title' :'c. Specify/ design applications and solutions', 'radio_name':'specify-app-radio'},
-						{'title' :'d. Build/test/install applications and solutions', 'radio_name':'build-app-radio'},
-						{'title' :'e. Assess benefit/cost/value of applications/solutions',  'radio_name':'assess-app-radio'},]
+  	innovation_arr =  [ {'title' :'a. Evaluate applications and solutions', 'radio_name':'ia_evaluate_radio'},
+						{'title' :'b. Select applications and solutions', 'radio_name':'ia_select-app_radio'},
+						{'title' :'c. Specify/ design applications and solutions', 'radio_name':'ia_specify_app_radio'},
+						{'title' :'d. Build/test/install applications and solutions', 'radio_name':'ia_build_app_radio'},
+						{'title' :'e. Assess benefit/cost/value of applications/solutions',  'radio_name':'ia_assess_app_radio'},]
 
-  constructor() { }
+  constructor(private formDataService: FormDataService, private api: APIServices) { }
 
   ngOnInit() {
 	  this.workExperienceDataTable = {
@@ -203,20 +205,6 @@ export class WorkexComponent implements OnInit, DoCheck {
                     "SOI_buildApplicationsAndSolutions": tem.q13,
                     "SOI_accessBenifitCostValueSolutions": tem.q14
                 },
-                "employerSectionOfFocus" : tem.esector,
-                "employerOrganizationName" : tem.ename,
-                "locationRegion" : tem.region,
-                "startYear" : String(tem.syear),
-                "endYear" : String(tem.eyear),
-                "startMonth" : tem.smonth,
-                "endMonth" : tem.emonth,
-                "positionDescription" : tem.position,
-                "primaryFunction" : tem.primary,
-                "teamSize" : tem.team,
-                "multiDisciplinaryMakeup" : tem.multidis,
-                "multiCulturalMakeup" : tem.multicul,
-                "paidUnpaid" : tem.paid,
-                "role" : tem.role
 
             };*/
 
@@ -225,6 +213,43 @@ export class WorkexComponent implements OnInit, DoCheck {
  		document.getElementById('previousData').scrollIntoView();
  		console.log("got as well")
   	}
+  }
+
+  submit_work_details() {
+	console.log(this.work_ex_form2.controls);  
+	/*
+	var workJSON  = {
+		"employerSectionOfFocus" : this.work_ex_form2.controls.EmployeSector.value,
+        "employerOrganizationName" : this.work_ex_form2.controls.EmployeeName.value,
+        "locationRegion" : this.work_ex_form2.controls.Location.value,
+        "startYear" : this.work_ex_form2.controls.StartDate.value,
+        "endYear" : this.work_ex_form2.controls.EndDate.value,
+		"positionDescription" : this.work_ex_form2.controls.position.value,
+        "primaryFunction" : this.work_ex_form2.controls.PrimaryFunction.value,
+        "teamSize" : this.work_ex_form2.controls.Tsize.value,
+        "multiDisciplinaryMakeup" : this.work_ex_form2.controls.Multi_disciplinary_Radio.value,
+        "multiCulturalMakeup" : this.work_ex_form2.controls.Multi_Cultural_Radio.value,
+        "paidUnpaid" : this.work_ex_form2.controls.paid.value,
+		"role" : this.work_ex_form2.controls.Role.value,
+		"startMonth" : "Jan",
+		"endMonth" : "Jan",
+		"operationsResponsibilities" :{ 
+			"OR_selectLocations": this.work_ex_form2.controls,
+			"OR_selectEquipment": this.work_ex_form2.controls.or_equipment_radio.value,
+			"OR_selectManagingLabor": this.work_ex_form2.controls.or_location_radio.value,
+			"OR_determineProcessing": this.work_ex_form2.controls.or_improvement_radio.value,
+		}
+	}
+	console.log(workJSON)
+	*/
+	var workForm = this.work_ex_form2;
+	var workValues:any = []
+	this.formDataService.getData(workForm, workValues, (builtJOSN:any)=> {
+		this.api.post(ApiStrings.WORK_EXPERIENCE,builtJOSN,(response:Response) => {
+			console.log(response);
+		})
+	});
+
   }
 
   addWorkRecord(){

@@ -7,3 +7,7 @@ export interface PostServiceCallBack {
 export interface GetServiceCallBack {
     (responseJSON: JSON) :void;
 }
+
+export interface FormDataServiceCallBack {
+    (builtJSON: any): any;
+}

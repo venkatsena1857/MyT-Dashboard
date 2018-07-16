@@ -66,7 +66,7 @@
                                             <div class="form-group label-floating">
                                                 <label class="labelWork">1) Employer/Organization name</label>
                                                 <br> 
-                                                <input type="text"  placeholder="Please type your response here" class="form-control" ngModel name="employee" id="employee">
+                                                <input type="text"  placeholder="Please type your response here" #employerName class="form-control" ngModel name="EmployeeName" id="EmployeeName">
                                                 <!-- <span class="material-icons form-control-feedback-wrong" 
                                                 *ngIf="!isEmp_Valid && isEmp_touched">clear</span>
                                                 <span class="material-icons form-control-feedback-right" 
@@ -244,23 +244,23 @@
                                         </div>
                                              <div class="radio">
                                                     <label class="strong-font  md-check">
-                                                        <input type="radio" name="Multi-disciplinary-Radio" ngModel value="Very Low" checked="true">Very low 0-15%
+                                                        <input type="radio" name="Multi_disciplinary_Radio" ngModel value="Very Low" checked="true">Very low 0-15%
                                                     </label>
 
                                                     <label class="strong-font  md-check">
-                                                        <input type="radio" name="Multi-disciplinary-Radio" ngModel value="Low"> Low 16-35% 
+                                                        <input type="radio" name="Multi_disciplinary_Radio" ngModel value="Low"> Low 16-35% 
                                                     </label>
 
                                                     <label class="strong-font  md-check">
-                                                        <input type="radio" name="Multi-disciplinary-Radio" ngModel value="Moderate"> Moderate 36-50%
+                                                        <input type="radio" name="Multi_disciplinary_Radio" ngModel value="Moderate"> Moderate 36-50%
                                                     </label>
 
                                                     <label class="strong-font  md-check">
-                                                        <input type="radio" name="Multi-disciplinary-Radio" ngModel value="High">High 51-75% 
+                                                        <input type="radio" name="Multi_disciplinary_Radio" ngModel value="High">High 51-75% 
                                                     </label>
 
                                                     <label class="strong-font  md-check">
-                                                        <input type="radio" name="Multi-disciplinary-Radio" ngModel value="VeryHigh">  Very high >76%
+                                                        <input type="radio" name="Multi_disciplinary_Radio" ngModel value="VeryHigh">  Very high >76%
                                                     </label>
                                             </div>
                                     </div>
@@ -272,23 +272,23 @@
                                         </div>
                                             <div class="radio">
                                                     <label class="strong-font md-check">
-                                                        <input type="radio" name="Multi-Cultural-Radio" ngModel value="Very Low" checked="true"> Very low 0-15%
+                                                        <input type="radio" name="Multi_Cultural_Radio" ngModel value="Very Low" checked="true"> Very low 0-15%
                                                     </label>
 
                                                      <label class="strong-font md-check">
-                                                        <input type="radio" name="Multi-Cultural-Radio"ngModel value="Low"> Low 16-35%
+                                                        <input type="radio" name="Multi_Cultural_Radio"ngModel value="Low"> Low 16-35%
                                                     </label>
 
                                                     <label class="strong-font md-check">
-                                                        <input type="radio" name="Multi-Cultural-Radio" ngModel value="Moderate"> Moderate 36-50%
+                                                        <input type="radio" name="Multi_Cultural_Radio" ngModel value="Moderate"> Moderate 36-50%
                                                     </label>
 
                                                     <label class="strong-font md-check">
-                                                        <input type="radio" name="Multi-Cultural-Radio" ngModel value="High">High 51-75% 
+                                                        <input type="radio" name="Multi_Cultural_Radio" ngModel value="High">High 51-75% 
                                                     </label>
 
                                                      <label class="strong-font md-check">
-                                                        <input type="radio" name="Multi-Cultural-Radio" ngModel value="VeryHigh">Very high >76%
+                                                        <input type="radio" name="Multi_Cultural_Radio" ngModel value="VeryHigh">Very high >76%
                                                     </label>
                                             </div>
                                     </div>
@@ -344,19 +344,19 @@
                                                 <div class="row">
                                                     <div class="col-md-2 radio" >
                                                         <label class="strong-font md-check">
-                                                            <input type="radio" [name] = "op_resp.radio_name"  checked="true" ngModel value="no">No
+                                                            <input type="radio" name = {{op_resp.radio_name}}  checked="true" ngModel value="no">No
                                                         </label>
                                                     </div>
                                                     <div class="col-md-1"></div>
                                                     <div class="col-md-2 radio" >
                                                         <label class="strong-font md-check">
-                                                            <input type="radio" [name] = "op_resp.radio_name" ngModel value="some">Some
+                                                            <input type="radio" name = {{op_resp.radio_name}} ngModel value="some">Some
                                                         </label>
                                                     </div> 
                                                     <div class="col-md-1"></div>
                                                     <div class="col-md-2 radio">
                                                         <label class="strong-font md-check">
-                                                            <input type="radio" [name]  = "op_resp.radio_name" ngModel value="yes">Yes
+                                                            <input type="radio" name  = {{op_resp.radio_name}} ngModel value="yes">Yes
                                                         </label>
                                                     </div>
                                                     <div class="col-md-1"></div>
@@ -379,19 +379,19 @@
                                                 <div class="row">   
                                                     <div class="col-md-2 radio">
                                                         <label class="strong-font md-check">
-                                                            <input type="radio" [name]="critical_thing.radio_name" checked="true" ngModel value="no">No
+                                                            <input type="radio" name= {{critical_thing.radio_name}} checked="true" ngModel value="no">No
                                                         </label>
                                                     </div>
                                                     <div class="col-md-1"></div>
                                                     <div class="col-md-2 radio" >
                                                         <label class="strong-font md-check">
-                                                            <input type="radio" [name]="critical_thing.radio_name" ngModel value="some" >Some
+                                                            <input type="radio" name= {{critical_thing.radio_name}} ngModel value="some" >Some
                                                         </label>
                                                     </div> 
                                                     <div class="col-md-1"></div>
                                                     <div class="col-md-2 radio" >
                                                         <label class="strong-font md-check">
-                                                            <input type="radio" [name]="critical_thing.radio_name" ngModel value="yes">Yes
+                                                            <input type="radio" name= {{critical_thing.radio_name}} ngModel value="yes">Yes
                                                         </label>
                                                     </div>
                                                     <div class="col-md-1"></div> 
@@ -413,19 +413,19 @@
                                                 <div class="row">   
                                                     <div class="col-md-2 radio">
                                                         <label class="strong-font md-check">
-                                                            <input type="radio" [name]="innovation.radio_name" ngModel value="no" checked>No
+                                                            <input type="radio" name={{innovation.radio_name}} ngModel value="no" checked>No
                                                         </label>
                                                     </div>
                                                     <div class="col-md-1"></div>
                                                     <div class="col-md-2 radio" >
                                                         <label class="strong-font"> 
-                                                            <input type="radio" [name]="innovation.radio_name" ngModel value="some"/>Some
+                                                            <input type="radio" name={{innovation.radio_name}} ngModel value="some"/>Some
                                                         </label>
                                                     </div> 
                                                     <div class="col-md-1"></div>
                                                     <div class="col-md-2 radio" >
                                                         <label class="strong-font md-check">
-                                                            <input type="radio" [name]="innovation.radio_name" ngModel value="yes">Yes
+                                                            <input type="radio" name={{innovation.radio_name}} ngModel value="yes">Yes
                                                         </label>
                                                     </div> 
                                                 </div>    
@@ -438,7 +438,7 @@
                                         <button class="btn btn-rose" onclick="this.form.reset()">Reset</button>   
                                             <button class="btn btn-rose" (click)="addEntry()">Add another entry</button>
                                         
-                                            <button class="btn btn-rose">Submit</button>
+                                            <button class="btn btn-rose" (click) = "submit_work_details()">Submit</button>
                                         
                                     </div>
                                 </div>

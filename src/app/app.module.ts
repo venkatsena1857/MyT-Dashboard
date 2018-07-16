@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'; // this is needed!
 import { RouterModule } from '@angular/router';
 import { HttpModule } from '@angular/http';
-import { APP_BASE_HREF } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 
@@ -25,6 +24,8 @@ import { APIServices } from './services/apiService.service';
 import { HttpClientModule } from '@angular/common/http';
 import { GlobalServices } from './services/globalServices.service';
 import { TableBuilderService } from './services/tableBuilderService.service';
+import { FormDataService } from './services/formData.service';
+
 @NgModule({
     imports:      [
         CommonModule,
@@ -57,7 +58,8 @@ import { TableBuilderService } from './services/tableBuilderService.service';
         AuthGuardService,
         AuthenticationService,
         GlobalServices,
-        TableBuilderService
+        TableBuilderService,
+        FormDataService
         ]
 })
 export class AppModule { }

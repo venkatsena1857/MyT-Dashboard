@@ -6,6 +6,7 @@ import { ApiStrings } from '../common/apiStrings';
 import { GlobalServices } from '../services/globalServices.service';
 import { MyTTable } from '../common/myTtable'
 import {TableBuilderService} from '../services/tableBuilderService.service';
+import { FormDataService } from '../services/formData.service';
 import { Response } from '@angular/http'
 
 @Component({
@@ -40,7 +41,7 @@ export class EducationComponent implements OnInit {
 
   @ViewChild('EducationForm') education_form : any;
 
-  constructor(private api: APIServices, private tableBuilder: TableBuilderService){
+  constructor(private api: APIServices, private tableBuilder: TableBuilderService, private formDataService: FormDataService){
     this.educationData = new MyTTable();
     console.log(GlobalServices.getRules())
   }
@@ -73,6 +74,7 @@ export class EducationComponent implements OnInit {
   @ViewChild('EducationForm') Educationform : any;
 
   submit_Education_Details(){
+    /*
     if(this.education_form.controls.SchoolName.value  == ""
     ||this.education_form.controls.Major.value   == ""
     ||this.education_form.controls.degree_program_type.value == ""
@@ -94,20 +96,17 @@ export class EducationComponent implements OnInit {
       if(this.education_form.controls.honors_id.value!=null) {
         educationJSON['honors'] = this.education_form.controls.honors_id.value
       }
-      this.api.post(ApiStrings.EDUCATION, educationJSON, (response: Response) => {
-          if(response.status === 201) {
-            var row = {
-              "school": educationJSON["schoolUniversityName"],
-              "field" : educationJSON["majorFiedOfStudy"], 
-              "typeOfDegree": educationJSON["typeOfDegree"],
-              "status": educationJSON["degreeProgramStatus"],
-              "end": educationJSON["endYear"]
-            }
-            this.tableBuilder.addRow(this.educationData,GlobalServices.getRules()['table'][ApiStrings.EDUCATION],row) 
+      */
+      var educationForm = this.education_form;
+      var educationValues: any = [];
+      this.formDataService.getData(educationForm, educationValues, (builtJSON: any) => {
+        this.api.post(ApiStrings.EDUCATION, builtJSON, (response: Response) => {
+          if(response.status === 201) { 
             alert("Education record added successfully")
           } else {
             alert("Unable to add");
           }
+      })  
       })
     }
   

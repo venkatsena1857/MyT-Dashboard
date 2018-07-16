@@ -1,4 +1,8 @@
 import { Component, OnInit,ViewChild } from '@angular/core';
+import { APIServices } from '../../services/apiService.service';
+import { FormDataService } from '../../services/formData.service';
+import { ApiStrings } from '../../common/apiStrings';
+import { Response } from '@angular/http';
 
 @Component({
   selector: 'app-deeds-languages',
@@ -7,13 +11,19 @@ import { Component, OnInit,ViewChild } from '@angular/core';
 })
 export class LanguagesComponent implements OnInit {
 
-  constructor() { }
+  constructor(private api: APIServices, private formDataService: FormDataService) { }
 
   ngOnInit() {
   }
   @ViewChild('LanguageForm') LanguageForm : any;
   language_submit(){
-  	console.log(this.LanguageForm.controls)
+    var languageForm = this.LanguageForm;
+    var languageValues: any = [];
+    this.formDataService.getData(languageForm, languageValues, (builtJSON: any) => {
+      this.api.post(ApiStrings.LANGUAGES,builtJSON,(response: Response) => {
+        console.log(response);
+      });
+    });
   }
 
 }

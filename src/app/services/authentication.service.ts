@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
-import { tokenKey } from '@angular/core/src/view';
-import { AuthHttp, AuthConfig, tokenNotExpired } from 'angular2-jwt';
+import { tokenNotExpired } from 'angular2-jwt';
 
 @Injectable()
 export class AuthenticationService {

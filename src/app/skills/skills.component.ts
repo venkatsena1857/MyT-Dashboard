@@ -5,7 +5,7 @@ import { TableBuilderService } from '../services/tableBuilderService.service';
 import { GlobalServices} from '../services/globalServices.service';
 import { ApiStrings } from '../common/apiStrings';
 import {Response } from '@angular/http';
-
+import { FormDataService } from '../services/formData.service';
 @Component({
   selector: 'app-skills',
   templateUrl: './skills.component.html',
@@ -17,7 +17,7 @@ export class SkillsComponent implements OnInit {
   
   public checkFormalProperty = false;
   public checkUsageProperty = false;
-  constructor(private api:APIServices, private tableBuilder:TableBuilderService) {
+  constructor(private api:APIServices, private tableBuilder:TableBuilderService, private formDataService: FormDataService) {
     this.skillsDataTable = new MyTTable();
    }
 
@@ -41,19 +41,47 @@ export class SkillsComponent implements OnInit {
   submit_skills_details(){
     console.log(this.skillsform.controls);
     var skillDat = this.skillsform.controls;
-    var skillsJSON = {
-          "category": skillDat.Category,
-          "softwareDeviceName": skillDat.methodName,
-          "vendorDistributor": skillDat.vendorName,
-          "numberOfLinkedEndorsments": skillDat.endorsments,
-          "proficiencyType": skillDat.proficiency_type_skill,
-          "proficiencyYear": skillDat.proficiency_year,
-          "formalCertification": skillDat.formal_certification,
-          "usagein3Years": skillDat.optionsUsageRadios      
-        }
-    this.api.post(ApiStrings.SKILLS,skillsJSON,(response: Response) => {
-      console.log(response)
+    var skillFetcherJSON = [
+      {
+        JSONName: 'category',
+        formName: 'Category'
+      },
+      {
+        JSONName: 'softwareDeviceName',
+        formName: 'methodName'
+      },
+      { 
+        JSONName: 'vendorDistributor',
+        formName: 'vendorName'
+      },
+      {
+        JSONName: 'numberOfLinkedEndorsments',
+        formName: 'endorsments'
+      },
+      {
+        JSONName: 'proficiencyType',
+        formName: 'proficiency_type_skill'
+      },
+      {
+        JSONName: 'proficiencyYear',
+        formName: 'proficiency_year'
+      },
+      {
+        JSONName: 'formalCertification',
+        formName: 'formal_certification'
+      },
+      {
+        JSONName: 'usagein3Years',
+        formName: 'optionsUsageRadios'
+      }
+    ]
+    this.formDataService.getData(this.skillsform, skillFetcherJSON, (builtJSON: any) => {
+      console.log(builtJSON);
+          this.api.post(ApiStrings.SKILLS,builtJSON,(response: Response) => {
+          console.log(response)
     })
+    });
+
   }
   checkFormalChange(){
     if(this.checkFormalProperty == true){

@@ -1,5 +1,9 @@
 import { Component, OnInit,ViewChild } from '@angular/core';
-import { DateAdapter } from '@angular/material';
+import { FormDataService } from '../../services/formData.service';
+import { APIServices } from '../../services/apiService.service';
+import { ApiStrings } from '../../common/apiStrings';
+import { Response } from '@angular/http';
+
 
 @Component({
   selector: 'app-deeds-awards',
@@ -8,14 +12,20 @@ import { DateAdapter } from '@angular/material';
 })
 export class AwardsComponent implements OnInit {
 
-  constructor() { }
+  constructor(private formDataServices: FormDataService, private api: APIServices) { }
 
   ngOnInit() {
   }
     @ViewChild('AwardsForm') AwardsForm : any;
 
   submitawards(){
-  	console.log(this.AwardsForm.controls);
+    var awardsForm  = this.AwardsForm;
+    var awardValues :any = [];
+  	this.formDataServices.getData(awardsForm, awardValues, (builtJSON: any)=>{
+      this.api.post(ApiStrings.AWARDS,builtJSON,(response: Response) => {
+        
+      });
+    });
   }
 
 }

@@ -1,4 +1,8 @@
 import { Component, OnInit,ViewChild } from '@angular/core';
+import { APIServices } from '../../services/apiService.service';
+import { FormDataService } from '../../services/formData.service';
+import { ApiStrings } from '../../common/apiStrings';
+import { Response } from '@angular/http';
 
 @Component({
   selector: 'app-deeds-conducting-classes',
@@ -7,14 +11,20 @@ import { Component, OnInit,ViewChild } from '@angular/core';
 })
 export class ConductingClassesComponent implements OnInit {
 
-  constructor() { }
+  constructor(private api: APIServices, private formDataServices: FormDataService) { }
 
   ngOnInit() {
   }
 
   @ViewChild('ConductingClassesForm') cond_class_form : any;
   submit_cond_classes(){
-  	console.log(this.cond_class_form.controls);
+    var condForm = this.cond_class_form;
+    var condValues:any = [];
+    this.formDataServices.getData(condForm,condValues,(builtJOSN:any)=>{
+      this.api.post(ApiStrings.CONDUCTING_CLASSES,builtJOSN,(response: Response)=>{
+
+      });
+    })
   }
 
 }
