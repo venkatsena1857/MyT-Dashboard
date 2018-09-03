@@ -19,7 +19,23 @@ export class TakingClassesComponent implements OnInit {
   @ViewChild('TakingClassesForm') TakingClassesForm : any;
   submit_taking_classes(){
     var takingClassesForm = this.TakingClassesForm;
-    var takingClassesValues: any = []
+    /*['specificActivity', 'description', 'month', 'year']*/
+    var takingClassesValues: any = [{
+      JSONName: 'specificActivity',
+      formName: ''
+      },
+      {
+        JSONName: 'description',
+        formName: ''
+      },
+      {
+        JSONName: 'month',
+        formName: ''
+      },
+      {
+        JSONName: 'year',
+        formName: ''
+      }]
     this.formDataService.getData(takingClassesForm,takingClassesValues, (builtJSON: any) => {
       this.api.post(ApiStrings.TAKING_CLASSES,builtJSON,(response: Response) => {
 

@@ -47,11 +47,47 @@ export class ToolsComponent implements OnInit {
     
   }
 
-  @ViewChild('ToolsForm') Toolsform : any;
+  //@ViewChild('EducationForm') education_form : any;
+
+  @ViewChild('ToolsForm') toolsForm : any;
   submit_tools_details(){
-    var toolsDat = this.Toolsform;
-    var toolValues:any = [];
-    this.formDataService.getData(toolsDat, toolValues, (builtJSON: any) => {
+    var toolsDat = this.toolsForm;
+    var toolValues:any = [
+      {
+        JSONName: 'category',
+        formName: 'Category'
+      },
+      {
+        JSONName: 'softwareDeviceName',
+        formName: 'tool_name'
+      },
+      {
+        JSONName: 'vendorDistributor',
+        formName: 'vendor_distributor'
+      },
+      {
+        JSONName: 'numberOfLinkedEndorsments',
+        formName: 'linkedIn_endorsments'
+      },
+      {
+        JSONName: 'proficiencyType',
+        formName: 'proficiency_type'
+      },
+      {
+        JSONName: 'proficiencyYear',
+        formName: 'proficiency_year'
+      },
+      {
+        JSONName: 'formalCertification',
+        formName: 'formal_certification'
+      },
+      {
+        JSONName: 'usagein3Years',
+        formName: 'usage_in_3years'
+      }
+    ];
+   this.formDataService.getData(toolsDat, toolValues, (builtJSON: any) => {
+     console.log(builtJSON)
       this.api.post(ApiStrings.TOOLS,builtJSON, (response: Response) => {
         console.log(response);
       })

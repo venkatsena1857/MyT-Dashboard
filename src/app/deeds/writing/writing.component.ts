@@ -19,7 +19,27 @@ export class WritingComponent implements OnInit {
   @ViewChild('WritingForm') WritingForm : any;
   submit_writing(){
     var writingForm = this.WritingForm;
-    var writingValues :any = [];
+    /*['specificActivity', 'PublicationName', 'ArticleTitle', 'month', 'year']*/
+    var writingValues :any = [{
+      JSONName: 'specificActivity',
+      formName: ''
+      },
+      {
+        JSONName: 'PublicationName',
+        formName: ''
+      },
+      {
+        JSONName: 'ArticleTitle',
+        formName: ''
+      },
+      {
+        JSONName: 'month',
+        formName: ''
+      },
+      { 
+        JSONName: 'year',
+        formName: ''
+      }];
     this.formDataServices.getData(writingForm,writingValues,(builtJSON:any) => {
       this.api.post(ApiStrings.WRITINGS, builtJSON, (response: Response) => {
         console.log(response);

@@ -23,7 +23,23 @@ export class MentoringComponent implements OnInit {
 
   mentoring_submit() {
     var mentoringForm = this.MentoringForm;
-    var mentoringValues: any = [];
+    /*['specificActivity', 'description', 'month', 'year']*/
+    var mentoringValues: any = [{
+      JSONName: 'specificActivity',
+      formName: ''
+      },
+      {
+        JSONName: 'description',
+        formName: ''
+      },
+      {
+        JSONName: 'month',
+        formName: ''
+      },
+      {
+        JSONName: 'year',
+        formName: ''
+      }];
      this.formDataService.getData(mentoringForm,mentoringValues, (builtJSON:any) => {
         this.api.post(ApiStrings.MENTORING, builtJSON, (response: Response) => {
           console.log(response);

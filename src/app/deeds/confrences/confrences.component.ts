@@ -18,7 +18,29 @@ export class ConfrencesComponent implements OnInit {
   @ViewChild('ConferencesForm') ConferencesForm : any;
   conferences_submit(){
     var confrenceForm = this.ConferencesForm;
-    var confrenceValues: any = [];
+    /*['specificActivity', 'ConferenceSponsor', 'PresentationTitle', 'month', 'year']*/
+    var confrenceValues: any = [
+      {
+      JSONName: 'specificActivity',
+      formName: ''
+      },
+      {
+        JSONName: 'ConferenceSponsor',
+        formName: ''
+      },
+      {
+        JSONName: 'PresentationTitle',
+        formName: ''
+      },
+      {
+        JSONName: 'month',
+        formName: ''
+      }, 
+      {
+        JSONName: 'year',
+        formName: ''
+      }
+  ];
     this.formDataServices.getData(confrenceForm, confrenceValues, (builtJSON: any) => {
       this.api.post(ApiStrings.CONFERENCES,builtJSON,(response: Response) => {
         console.log(response);

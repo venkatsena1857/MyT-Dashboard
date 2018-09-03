@@ -19,7 +19,25 @@ export class ConductingClassesComponent implements OnInit {
   @ViewChild('ConductingClassesForm') cond_class_form : any;
   submit_cond_classes(){
     var condForm = this.cond_class_form;
-    var condValues:any = [];
+    /*['specificActivity', 'description', 'month', 'year']*/
+    var condValues:any = [
+      {
+        JSONName: 'specificActivity',
+        formName: ''
+      },
+      {
+        JSONName: 'description',
+        formName: ''
+      },
+      {
+        JSONName: 'month',
+        formName: ''
+      },
+      {
+        JSONName: 'year',
+        formName: ''
+      }
+    ];
     this.formDataServices.getData(condForm,condValues,(builtJOSN:any)=>{
       this.api.post(ApiStrings.CONDUCTING_CLASSES,builtJOSN,(response: Response)=>{
 

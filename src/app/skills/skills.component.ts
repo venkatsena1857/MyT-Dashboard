@@ -75,7 +75,8 @@ export class SkillsComponent implements OnInit {
         formName: 'optionsUsageRadios'
       }
     ]
-    this.formDataService.getData(this.skillsform, skillFetcherJSON, (builtJSON: any) => {
+    this.formDataService.getData(skillDat, skillFetcherJSON, (builtJSON: any) => {
+      console.log("This is skills ")
       console.log(builtJSON);
           this.api.post(ApiStrings.SKILLS,builtJSON,(response: Response) => {
           console.log(response)

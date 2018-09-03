@@ -18,7 +18,23 @@ export class LeisureComponent implements OnInit {
   @ViewChild('LeisureForm') LeisureForm : any;
   leisure_submit(){
     var leisureForm = this.LeisureForm;
-    var leisureValues: any = [];
+    /*['specificActivity', 'description', 'month', 'year']*/
+    var leisureValues: any = [{
+      JSONName: 'specificActivity',
+      formName: ''
+      },
+      {
+        JSONName: 'description',
+        formName: ''
+      },
+      {
+        JSONName: 'month',
+        formName: ''
+      },
+      {
+        JSONName: 'year',
+        formName: ''
+      }];
     this.formDataService.getData(leisureForm, leisureValues, (builtJSON: any)=> {
       this.api.post(ApiStrings.LEISURE_TRAVEL,builtJSON,(response: Response)=>{
         console.log(response);

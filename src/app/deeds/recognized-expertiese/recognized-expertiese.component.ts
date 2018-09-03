@@ -19,7 +19,23 @@ export class RecognizedExpertieseComponent implements OnInit {
   @ViewChild('RecognisedForm') RecognisedForm : any;
   recognized_exp_submit(){
     var recognizedExpForm = this.RecognisedForm;
-    var recognizedValues: any = [];
+    /*['specificActivity', 'description', 'month', 'year']*/
+    var recognizedValues: any = [{
+      JSONName: 'specificActivity',
+      formName: ''
+      },
+      {
+        JSONName: 'description',
+        formName: ''
+      },
+      {
+        JSONName: 'month',
+        formName: ''
+      },
+      {
+        JSONName: 'year',
+        formName: ''
+      }];
     this.formDataService.getData(recognizedExpForm,recognizedValues,(builtJSON: any) => {
       this.api.post(ApiStrings.RECOGNIZED_EXPERTISE,builtJSON,(response: Response) => {
         console.log(response);

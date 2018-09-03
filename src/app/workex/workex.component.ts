@@ -48,6 +48,7 @@ export class WorkexComponent implements OnInit, DoCheck {
 
  initiated :boolean = false;
  counter = 0;
+
  ngDoCheck() {
 
     // Employ;
@@ -152,7 +153,7 @@ export class WorkexComponent implements OnInit, DoCheck {
 						{'title' :'b. Select applications and solutions', 'radio_name':'ia_select-app_radio'},
 						{'title' :'c. Specify/ design applications and solutions', 'radio_name':'ia_specify_app_radio'},
 						{'title' :'d. Build/test/install applications and solutions', 'radio_name':'ia_build_app_radio'},
-						{'title' :'e. Assess benefit/cost/value of applications/solutions',  'radio_name':'ia_assess_app_radio'},]
+						{'title' :'e. Assess benefit/cost/value of applications/solutions',  'radio_name':'ia_assess_app_radio'}]
 
   constructor(private formDataService: FormDataService, private api: APIServices) { }
 
@@ -172,88 +173,144 @@ export class WorkexComponent implements OnInit, DoCheck {
 	  this.initiated = true;
   }
 
-  addEntry(){
- 	if(this.work_ex_form2.controls.Location.value == ""
- 		||this.work_ex_form2.controls.EmployeSector.value == ""
- 		||this.work_ex_form2.controls.EndDate.value == ""
- 		||this.work_ex_form2.controls.PrimaryFunction.value == ""
- 		||this.work_ex_form2.controls.StartDate.value == ""
- 		||this.work_ex_form2.controls.employee.value == ""
- 		||this.work_ex_form2.controls.position.value == ""){
- 		alert("Please fill all the fields");
- 		this.fullValidator = false;
- 		console.log(this.work_ex_form2.controls);
-
- 		/*var toSend = {
-                "operationsResponsibilities" :{ 
-                    "OR_selectLocations": tem.q1,
-                    "OR_selectEquipment": tem.q2,
-                    "OR_selectManagingLabor": tem.q3,
-                    "OR_determineProcessing": tem.q4,
-                },
-                "criticalThinking" : {
-                    "CT_requiredMetoFormGoals": tem.q5,
-                    "CT_requiredSystematicApproach": tem.q6,
-                    "CT_requiredInquisitive": tem.q7,
-                    "CT_requiredPrioritize": tem.q8,
-                    "CT_requiredConfidence": tem.q9
-                },
-                "systemAndOperationInnovation":{
-                    "SOI_evaluateApplications": tem.q10,
-                    "SOI_selectApplicationsAndSolutions": tem.q11, 
-                    "SOI_specificApplicationsAndSolutions": tem.q12,
-                    "SOI_buildApplicationsAndSolutions": tem.q13,
-                    "SOI_accessBenifitCostValueSolutions": tem.q14
-                },
-
-            };*/
-
- 	}
- 	else{
- 		document.getElementById('previousData').scrollIntoView();
- 		console.log("got as well")
-  	}
+  addWorkRecord(){
+    document.getElementById('addWorkRecords').style.display = "block";
   }
 
   submit_work_details() {
-	console.log(this.work_ex_form2.controls);  
-	/*
-	var workJSON  = {
-		"employerSectionOfFocus" : this.work_ex_form2.controls.EmployeSector.value,
-        "employerOrganizationName" : this.work_ex_form2.controls.EmployeeName.value,
-        "locationRegion" : this.work_ex_form2.controls.Location.value,
-        "startYear" : this.work_ex_form2.controls.StartDate.value,
-        "endYear" : this.work_ex_form2.controls.EndDate.value,
-		"positionDescription" : this.work_ex_form2.controls.position.value,
-        "primaryFunction" : this.work_ex_form2.controls.PrimaryFunction.value,
-        "teamSize" : this.work_ex_form2.controls.Tsize.value,
-        "multiDisciplinaryMakeup" : this.work_ex_form2.controls.Multi_disciplinary_Radio.value,
-        "multiCulturalMakeup" : this.work_ex_form2.controls.Multi_Cultural_Radio.value,
-        "paidUnpaid" : this.work_ex_form2.controls.paid.value,
-		"role" : this.work_ex_form2.controls.Role.value,
-		"startMonth" : "Jan",
-		"endMonth" : "Jan",
-		"operationsResponsibilities" :{ 
-			"OR_selectLocations": this.work_ex_form2.controls,
-			"OR_selectEquipment": this.work_ex_form2.controls.or_equipment_radio.value,
-			"OR_selectManagingLabor": this.work_ex_form2.controls.or_location_radio.value,
-			"OR_determineProcessing": this.work_ex_form2.controls.or_improvement_radio.value,
+	  var workForm = this.work_ex_form2;
+	  var workValues: any = [
+		{
+			JSONName: 'employerSectionOfFocus',
+			formName: ''
+		},
+		{
+			JSONName: 'employerOrganizationName',
+			formName: ''
+		},
+		{
+			JSONName: 'locationRegion',
+			formName: ''
+		},
+		{
+			JSONName: 'startYear',
+			formName: ''
+		},
+		{
+			JSONName: 'endYear',
+			formName: ''
+		},
+		{
+			JSONName: 'startMonth',
+			formName: ''
+		},
+		{
+			JSONName: 'endMonth',
+			formName: ''
+		},
+		{
+			JSONName: 'positionDescription',
+			formName: ''
+		},
+		{
+			JSONName: 'role',
+			formName: ''
+		},
+		{
+			JSONName: 'primaryFunction',
+			formName: ''
+		},
+		{
+			JSONName: 'teamSize',
+			formName: ''
+		},
+		{
+			JSONName: 'multiDisciplinaryMakeup',
+			formName: ''
+		},
+		{
+			JSONName: 'multiCulturalMakeup',
+			formName: ''
 		}
-	}
-	console.log(workJSON)
-	*/
-	var workForm = this.work_ex_form2;
-	var workValues:any = []
-	this.formDataService.getData(workForm, workValues, (builtJOSN:any)=> {
-		this.api.post(ApiStrings.WORK_EXPERIENCE,builtJOSN,(response:Response) => {
-			console.log(response);
-		})
-	});
-
-  }
-
-  addWorkRecord(){
-    document.getElementById('addWorkRecords').style.display = "block";
+	  ];
+	  this.formDataService.getData(workForm,workValues, (builtJSON: any) => {
+			//Getting OR Values
+			var orValues: any = [
+				{
+					JSONName: 'OR_selectLocations',
+					formName: 'or_location_radio'
+				},
+				{
+					JSONName: 'OR_selectEquipment',
+					formName: 'or_equipment_radio'
+				},
+				{
+					JSONName: 'OR_selectManagingLabor',
+					formName: 'or_resources_radio'
+				},
+				{
+					JSONName: 'OR_determineProcessing',
+					formName: 'or_improvement_radio'
+				}
+			];
+			this.formDataService.getData(workForm, orValues, (orJSON: any) => {
+				builtJSON['operationsResponsibilities'] = orJSON;
+			});
+			//Getting CT Values
+			var ctValues: any = [
+				{
+					JSONName: 'CT_requiredMetoFormGoals',
+					formName: 'ct_evidence_radio'
+				},
+				{
+					JSONName: 'CT_requiredSystematicApproach',
+					formName: 'ct_problems_radio'
+				},
+				{
+					JSONName: 'CT_requiredInquisitive',
+					formName: 'ct_inquisitive_radio'
+				},
+				{
+					JSONName: 'CT_requiredPrioritize',
+					formName: 'ct_orderly_radio'
+				},
+				{
+					JSONName: 'CT_requiredConfidence',
+					formName: 'ct_capabilities_radio'
+				}
+			];
+			this.formDataService.getData(workForm, ctValues, (ctJSON: any) => {
+				builtJSON['criticalThinking'] = ctJSON;
+			});
+			//Getting SOI Values
+			var SOIValues: any = [
+				{
+					JSONName: 'SOI_evaluateApplications',
+					formName: 'ia_evaluate_radio'
+				},
+				{
+					JSONName: 'SOI_selectApplicationsAndSolutions',
+					formName: 'ia_select-app_radio'
+				},
+				{
+					JSONName: 'SOI_specificApplicationsAndSolutions',
+					formName: 'ia_specify_app_radio'
+				},
+				{
+					JSONName: 'SOI_buildApplicationsAndSolutions',
+					formName: 'ia_build_app_radio'
+				},
+				{
+					JSONName: 'SOI_accessBenifitCostValueSolutions',
+					formName: 'ia_assess_app_radio'
+				}
+			];
+			this.formDataService.getData(workForm, SOIValues, (soiJSON: any) => {
+				builtJSON['systemAndOperationInnovation'] = soiJSON;
+			});
+			this.api.post(ApiStrings.WORK_EXPERIENCE,builtJSON, (response: Response)=>{
+			});
+	  });
   }
 
 }

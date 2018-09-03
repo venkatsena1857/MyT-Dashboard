@@ -20,7 +20,28 @@ export class AwardsComponent implements OnInit {
 
   submitawards(){
     var awardsForm  = this.AwardsForm;
-    var awardValues :any = [];
+    var awardValues :any = [
+      {
+        JSONName: 'specificActivity',
+        formName: ''
+      },
+      {
+        JSONName: 'AwardSponsor',
+        formName: ''
+      },
+      {
+        JSONName: 'AwardTitle',
+        formName: ''
+      },
+      {
+        JSONName: 'month',
+        formName: ''
+      },
+      {
+        JSONName: 'year',
+        formName: ''
+      }
+    ];
   	this.formDataServices.getData(awardsForm, awardValues, (builtJSON: any)=>{
       this.api.post(ApiStrings.AWARDS,builtJSON,(response: Response) => {
         

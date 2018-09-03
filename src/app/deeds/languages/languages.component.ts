@@ -18,7 +18,23 @@ export class LanguagesComponent implements OnInit {
   @ViewChild('LanguageForm') LanguageForm : any;
   language_submit(){
     var languageForm = this.LanguageForm;
-    var languageValues: any = [];
+    /*['specificActivity', 'description', 'month', 'year']*/
+    var languageValues: any = [{
+      JSONName: 'specificActivity',
+      formName: ''
+      },
+      {
+        JSONName: 'description',
+        formName: ''
+      },
+      {
+        JSONName: 'month',
+        formName: ''
+      },
+      {
+        JSONName: 'year',
+        formName: ''
+      }];
     this.formDataService.getData(languageForm, languageValues, (builtJSON: any) => {
       this.api.post(ApiStrings.LANGUAGES,builtJSON,(response: Response) => {
         console.log(response);

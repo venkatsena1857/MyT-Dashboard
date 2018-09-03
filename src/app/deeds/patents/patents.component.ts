@@ -18,7 +18,23 @@ export class PatentsComponent implements OnInit {
   @ViewChild('PatentsForm') PatentsForm : any;
   patents_submit(){
     var patentsForm = this.PatentsForm;
-    var patentsValues :any = [];
+    /*['specificActivity', 'description', 'month', 'year']*/
+    var patentsValues :any = [{
+      JSONName: 'specificActivity',
+      formName: ''
+      },
+      {
+        JSONName: 'description',
+        formName: ''
+      },
+      {
+        JSONName: 'month',
+        formName: ''
+      },
+      {
+        JSONName: 'year',
+        formName: ''
+      }];
     this.formServices.getData(patentsForm,patentsValues, (builtJSON: any) => {
       this.api.post(ApiStrings.PATENTS, builtJSON, (response: Response) => {
         console.log(response);

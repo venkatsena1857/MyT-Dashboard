@@ -18,7 +18,24 @@ export class CertificatesComponent implements OnInit {
   @ViewChild('CertForm') certsform : any;
   submit_certificate(){
     var certificateForm = this.certsform;
-    var certificateValues :any = []
+    var certificateValues :any = [
+      {
+        JSONName: 'specificActivity',
+        formName: ''
+      },
+      {
+        JSONName: 'description',
+        formName: ''
+      },
+      {
+        JSONName: 'month',
+        formName: ''
+      },
+      {
+        JSONName: 'year',
+        formName: ''
+      }
+    ]
     this.formDataService.getData(certificateForm, certificateValues, (builtJSON :any)=>{
       this.api.post(ApiStrings.CERTIFICATES,builtJSON,(response: Response)=>{
 

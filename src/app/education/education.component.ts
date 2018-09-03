@@ -47,9 +47,6 @@ export class EducationComponent implements OnInit {
   }
   ngOnInit() {
     this.api.get(ApiStrings.EDUCATION,(response: JSON) => {
-      console.log(response);
-      console.log(this.educationData);
-      console.log("Rules");
       var rules = GlobalServices.getRules();
       if(rules===undefined || rules === null) {
         this.api.get(ApiStrings.RULES, (rulesResponse: JSON) => {
@@ -74,31 +71,39 @@ export class EducationComponent implements OnInit {
   @ViewChild('EducationForm') Educationform : any;
 
   submit_Education_Details(){
-    /*
-    if(this.education_form.controls.SchoolName.value  == ""
-    ||this.education_form.controls.Major.value   == ""
-    ||this.education_form.controls.degree_program_type.value == ""
-    ||this.education_form.controls.start_year.value == ""
-    ||this.education_form.controls.end_year.value == ""
-    ||this.education_form.controls.degree_program_status.value == ""
-    ||this.education_form.controls.honors_id.value == ""){
-    alert("Please fill all the fields");
-    }
-    console.log(this.education_form.controls)
-      var educationJSON = {
-        "schoolUniversityName" : this.education_form.controls.SchoolName.value,
-        "majorFiedOfStudy" : this.education_form.controls.Major.value,
-        "typeOfDegree" : this.education_form.controls.degree_program_type.value,
-        "startYear" : this.education_form.controls.start_year.value,
-        "endYear" : this.education_form.controls.end_year.value,
-        "degreeProgramStatus" : this.education_form.controls.degree_program_status.value
-      }
-      if(this.education_form.controls.honors_id.value!=null) {
-        educationJSON['honors'] = this.education_form.controls.honors_id.value
-      }
-      */
       var educationForm = this.education_form;
-      var educationValues: any = [];
+      var educationValues: any = [
+        {
+          JSONName: 'schoolUniversityName',
+          formName: 'SchoolName'
+        }, 
+        {
+          JSONName: 'majorFiedOfStudy',
+          formName: 'Major'
+        },
+        {
+          JSONName: 'typeOfDegree',
+          formName: 'degree_program_type'
+        },
+        {
+          JSONName: 'startYear',
+          formName: 'start_year'
+        },
+        {
+          JSONName: 'endYear',
+          formName: 'end_year'
+        },
+        {
+          JSONName: 'degreeProgramStatus',
+          formName: 'degree_program_status'
+        }, 
+        {
+          JSONName: 'honors',
+          formName: 'honors_id',
+          mandatory: false
+        }
+      ];
+
       this.formDataService.getData(educationForm, educationValues, (builtJSON: any) => {
         this.api.post(ApiStrings.EDUCATION, builtJSON, (response: Response) => {
           if(response.status === 201) { 
